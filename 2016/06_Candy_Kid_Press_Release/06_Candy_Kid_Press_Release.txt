@@ -1,0 +1,246 @@
+<span style="font-family:verdana;font-size:85%;">
+A <a href="https://en.wikipedia.org/wiki/Press_release">Press Release</a> is an official statement issued to give information on particular matters e.g. Video Games!  Here is the official Press Release for <a href="http://steveproxna.blogspot.co.uk/2015/05/candy-kid-video-game.html">Retro Candy Kid</a> and its full implementation with the assistance from <a href="https://twitter.com/PhilipGHarris">@PhilipGHarris</a> [writer, developer, designer] using <a href="http://mailchimp.com">MailChimp</a> to distribute the Press Release accordingly.
+<a href="https://1.bp.blogspot.com/-JvC8bYfpgc4/V9p2gtpUBQI/AAAAAAAAD40/NY-FEz_OgeEuaAhbiQdakSmEAD7RSJYTQCLcB/s1600/MailChimp.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-JvC8bYfpgc4/V9p2gtpUBQI/AAAAAAAAD40/NY-FEz_OgeEuaAhbiQdakSmEAD7RSJYTQCLcB/s640/MailChimp.jpg" width="99%" height="100" /></a>
+<br /><br />
+Let's check it out! 
+<br /><br />
+<u>MailChimp</u><br />
+<a href="https://en.wikipedia.org/wiki/MailChimp">MailChimp</a> is an email marketing service used to directly send commercial messages, typically to a group of people, using email.  MailChimp offers these main features: Campaigns | Templates | Lists | Reports:
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;<b><a href="http://developer.mailchimp.com/documentation/mailchimp/reference/campaigns">Campaigns</a></b>&nbsp;</td>
+<td valign="top">&nbsp;Campaigns are how you send template emails to the contacts in your MailChimp list.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b><a href="http://developer.mailchimp.com/documentation/mailchimp/reference/templates">Templates</a></b>&nbsp;</td>
+<td valign="top">&nbsp;A template is an HTML file used to create the layout and basic design for a campaign.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b><a href="http://developer.mailchimp.com/documentation/mailchimp/reference/lists">Lists</a></b>&nbsp;</td>
+<td valign="top">&nbsp;A MailChimp list is a powerful and flexible tool that helps you manage your contacts.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b><a href="http://developer.mailchimp.com/documentation/mailchimp/reference/reports">Reports</a></b>&nbsp;</td>
+<td valign="top">&nbsp;MailChimp reports analyze clicks, opens, subscribers’ social activity, e-commerce data.</td>
+</tr>
+</table>
+<br />
+Therefore, let's use MailChimp to complete Press Release for Retro Candy Kid.  Action the following tasks:
+<ul>
+<li>Get Promo Codes</li>
+<li>Build Email List</li>
+<li>Build Template</li>
+<li>Send Campaign</li>
+</ul>
+<u>Promo Codes</u><br />
+Generate iOS promo codes:  Log in iTunes <a href="https://itunesconnect.apple.com">Connect</a>.  Select My Apps | Candy Kid | Features | Promo Codes.
+<br />
+Enter a number of Promo Codes required for Press Release (e.g. max 100) | Click Generate Codes button.
+<a href="https://4.bp.blogspot.com/-_u1HBADPi6Y/V8fiMqSv9PI/AAAAAAAAD3A/SWhs-6AqFFYSwXoJgxm3bTu1e4i6kZHogCLcB/s1600/PromoCodes.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-_u1HBADPi6Y/V8fiMqSv9PI/AAAAAAAAD3A/SWhs-6AqFFYSwXoJgxm3bTu1e4i6kZHogCLcB/s640/PromoCodes.jpg" width="98%" height="350" /></a>
+Check "I have read and agree to the terms presented above".  Generate Codes and download as a txt file.
+<br /><br />
+<u>Lists</u><br />
+MailChimp | Lists | Create List | Create List | Enter the following details to complete the list information:
+<table width="99%" border="1">
+<tr>
+<td valign="top" width="55%">&nbsp;List name</td>
+<td valign="top" width="55%">&nbsp;CandyKidList</td>
+</tr>
+<tr>
+<td valign="top" width="55%">&nbsp;Default <i>From email address</i></td>
+<td valign="top" width="55%">&nbsp;steven_boland@hotmail.com</td>
+</tr>
+<tr>
+<td valign="top" width="55%">&nbsp;Default <i>From name</i></td>
+<td valign="top" width="55%">&nbsp;StevePro Studios</td>
+</tr>
+<tr>
+<td valign="top" width="55%">&nbsp;Remind people how they signed up to your list</td>
+<td valign="top" width="55%">&nbsp;<i>Enter reminder information</i></td>
+</tr>
+<tr>
+<td valign="top" width="55%">&nbsp;Contact information for this list</td>
+<td valign="top" width="55%">&nbsp;<i>Enter contact information</i></td>
+</tr>
+</table>
+<br />
+Next page: View subscribers | Import subscribers | CSV or tab-delimited text file | Next | Upload CSV file.  Browse to CSV file and Check "I understand that my billing plan may be automatically upgraded" | Next.  Match any unmatched columns: "Make a Selection" | New column name | e.g. COUPON | Save | Import.
+<br /><br />
+Finally, ensure columns can be used as placeholders in Template: Settings | List fields and *|MERGE|* tags.  Ensure the "Field label and type" values are aligned to the "Put this tag in your content" values!
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>FULLNAME</b></td>
+<td valign="top">&nbsp;<b>FNAME</b></td>
+<td valign="top">&nbsp;<b>LNAME</b></td>
+<td valign="top">&nbsp;<b>COMPANY</b></td>
+<td valign="top">&nbsp;<b>EMAIL</b></td>
+<td valign="top">&nbsp;<b>COUPON</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Steven Boland</td>
+<td valign="top">&nbsp;Steven</td>
+<td valign="top">&nbsp;Boland</td>
+<td valign="top">&nbsp;StevePro Studios</td>
+<td valign="top">&nbsp;steve@stevepro.com</td>
+<td valign="top">&nbsp;YY3FR7L7NNY3</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Suzanne Boland</td>
+<td valign="top">&nbsp;Suzanne</td>
+<td valign="top">&nbsp;Boland</td>
+<td valign="top">&nbsp;FN Days Ltd</td>
+<td valign="top">&nbsp;suzanne@stevepro.com</td>
+<td valign="top">&nbsp;7YHALRJ39FJX</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Adriana Boland</td>
+<td valign="top">&nbsp;Adriana</td>
+<td valign="top">&nbsp;Boland</td>
+<td valign="top">&nbsp;Stinky Inky Co.</td>
+<td valign="top">&nbsp;adriana@stevepro.com</td>
+<td valign="top">&nbsp;N6X4L79KKLNK</td>
+</tr>
+</table>
+IMPORTANT: tags have maximum 10x characters thus better use "COMPANY" instead of ORGANIZATION.
+<br /><br />
+<u>Templates</u><br />
+MailChimp | Templates | Create Template | Code your own | Paste in code | Select | Edit code | ENTER:
+<br /><br />
+<table width="100%" border="1">
+<tr>
+<td valign="top">
+<b>Retro Candy Kid</b> is a top-down maze chase video game inspired by the 8-bit title "Candy Kid".
+<br /><br />
+<i>Candy Mama</i> enemies are always out to get you as you try and eat all the candy to complete the level.  <i>Simple!</i>
+<br /><br />
+Try it for yourself with this free iOS Promo Code: <b>*|COUPON|*</b>
+<br /><br />
+<b>Retro Candy Kid</b> is available on mobile platforms (<b><a href="http://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a></b> / <b><a href="http://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a></b> / <b><a href="http://www.amazon.com/StevePro-Studios-Retro-Candy-Kid/dp/B017UXD4SE/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1447350289&sr=1-1&keywords=Retro+Candy+Kid">Kindle</a></b>) and <b><a href="http://www.amazon.com/StevePro-Studios-Retro-Candy-Download/dp/B018WIUDZ8/ref=sr_1_2?s=videogames&ie=UTF8&qid=1449745287&sr=1-2&keywords=retro+candy+kid">PC</a></b>.
+<br /><br />
+<table border="0" width="100%">
+<tr>
+<td valign="top"><b>You Tube</b></td>
+<td valign="top"><b><a href="http://www.youtube.com/watch?v=rEWGOwq4yAI">http://www.youtube.com/watch?v=rEWGOwq4yAI</a></b></td>
+</tr>
+<tr>
+<td valign="top"><b>Facebook</b></td>
+<td valign="top"><b><a href="http://www.facebook.com/CandyKidVideoGame">http://www.facebook.com/CandyKidVideoGame</a></b></td>
+</tr>
+</table>
+<br />
+<a href="http://steveproxna.blogspot.co.uk/2015/10/candy-kid-how-to-play.html" imageanchor="1" >
+<img border="0" src="https://gallery.mailchimp.com/24b9d6c3a9a199d70c23d24fe/images/4a86d30d-f133-460d-9bc8-bd7837a04fed.png" width="98%" />
+</a>
+<br /><br />
+Retro Candy Kid includes the following key features that were not available in the original 8-bit title: 
+<table border="1" width="100%">
+<tr>
+<td valign="top">
+&nbsp;- All 100x levels are unlocked.<br />
+&nbsp;- Double bonus pts available.<br />
+&nbsp;- Giant candy for extra lives.<br />
+&nbsp;- Free man every 20,000 pts.<br />
+</td>
+<td valign="top">
+&nbsp;- Open tunnels or closed exits.<br />
+&nbsp;- Avoid trees or Death trees.<br />
+&nbsp;- God mode for invincibility.<br />
+&nbsp;- Unlimited game continues.<br />
+</td>
+</tr>
+</table>
+<br />
+<b>Company Bio</b>
+<br />
+<b><i><a href="http://steveproxna.blogspot.com">StevePro Studios</a></i></b> is an independent game developer that builds and publishes 80s retro arcade video games!  The studio was founded by <i>Steven Boland</i> "<a href="http://www.twitter.com/SteveProXNA">SteveProXNA</a>" in January 2007 as a "one man team of one" and is currently based in Dublin, Ireland.
+<br /><br />
+<b>Fact Sheet</b>
+<br />
+The original 8-bit title <b><a href="http://www.segaretro.org/Candy_Kid">Candy Kid</a></b> was a "type-in" video game published by New Zealand's <i>Sega Computer <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue02?gallerypage=17">Magazine</a></i> in the September 1984 issue, pages 17-18.  Inspired by the <a href="http://steveproxna.blogspot.co.uk/2013/06/sega-retro-gaming.html">Sega Retro Gaming</a> scene, "<i>Candy Kid</i>" was re-written as "<i>Retro Candy Kid</i>" by <i>StevePro Studios</i> in September 2015.
+<br /><br />
+<b>Price point</b>
+<br />
+<table border="1" width="100%">
+<tr>
+<td valign="top">
+&nbsp;USD&nbsp;&nbsp;&nbsp;0.99<br />
+&nbsp;GBP&nbsp;&nbsp;&nbsp;0.79<br />
+&nbsp;EUR&nbsp;&nbsp;&nbsp;0.99<br />
+&nbsp;JPY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120<br />
+</td>
+<td valign="top">
+&nbsp;AUD&nbsp;&nbsp;&nbsp;1.49<br />
+&nbsp;CAD&nbsp;&nbsp;&nbsp;1.19<br />
+&nbsp;NZD&nbsp;&nbsp;&nbsp;1.29<br />
+&nbsp;CNY&nbsp;&nbsp;&nbsp;6.00<br />
+</td>
+</tr>
+</table>
+<br />
+<b>Contact</b>
+<br />
+<table border="1" width="100%">
+<tr>
+<td valign="top">
+&nbsp;Blog<br />
+&nbsp;Email<br />
+&nbsp;Phone<br />
+</td>
+<td valign="top">
+&nbsp;<b><a href="http://steveproxna.blogspot.com">StevePro Studios</a></b><br />
+&nbsp;<b><a href="mailto:steven_boland@hotmail.com">steven_boland@hotmail.com</a></b><br />
+&nbsp;<b>+353 877 541 327</b><br />
+</td>
+<td valign="top">
+&nbsp;Linked In<br />
+&nbsp;Twitter<br />
+&nbsp;Skype<br />
+</td>
+<td valign="top">
+&nbsp;<b><a href="http://ie.linkedin.com/in/steveproxna">StevePro Studios</a></b><br />
+&nbsp;<b><a href="http://www.twitter.com/steveproxna">@SteveProXNA</a></b><br />
+&nbsp;<b>SteveProXNA</b><br />
+</td>
+</tr>
+</table>
+<br />
+Best,
+<br />
+Steven Boland.
+</td>
+</tr>
+</table>
+Note: <b>*|COUPON|*</b> placeholder in the Press Release text will be substituted with promo code from list.
+<br /><br />
+<u>Campaigns</u><br />
+Although you can create campaigns directly from Campaigns tab, a simpler method is through Templates:
+<br /><br />
+MailChimp | Templates | Click "Edit" dropdown to right of Template saved | Create Campaign.  Choose a list to get started e.g. <b>CandyKidList</b>. Send to entire list | Next [bottom].  Enter following Campaign Info:
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;Campaign name</td>
+<td valign="top">&nbsp;RetroCandyKidCampaign</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Email subject</td>
+<td valign="top">&nbsp;Retro Candy Kid – Awesome Arcade Action</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;From name</td>
+<td valign="top">&nbsp;StevePro Studios</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;From email address</td>
+<td valign="top">&nbsp;steven_boland@hotmail.com</td>
+</tr>
+</table>
+<br />
+Note: leave all checkboxes unchecked <i>except</i> the Personalize the "To" field.  Set *|FNAME|* for recipient.
+<a href="https://3.bp.blogspot.com/-ejpPXcIJzbI/V8flw_keU4I/AAAAAAAAD3M/i3n0aTHKVe4fVevNGkZYvmGy0mZABsRnACLcB/s1600/Campaign.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-ejpPXcIJzbI/V8flw_keU4I/AAAAAAAAD3M/i3n0aTHKVe4fVevNGkZYvmGy0mZABsRnACLcB/s640/Campaign.jpg" width="98%" height="450" /></a>
+Next Template | Next Confirm | Review summary all correct.  Finally, Prepare for launch and Send Now!
+<br />
+Note re-send: MailChimp | Campaigns | Click "View Report" dropdown to right of Campaign | Replicate.
+<br /><br />
+<u>Summary</u><br />
+After campaign is successfully sent, the main Dashboard will report all activity; which includes: 24-hour performance, Top links clicked, Subscribers with most opens, Top locations by opens and much more...!
+</span>

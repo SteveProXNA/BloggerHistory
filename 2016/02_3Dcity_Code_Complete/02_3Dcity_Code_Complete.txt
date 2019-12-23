@@ -1,0 +1,160 @@
+<span style="font-family:verdana;font-size:85%;">
+<a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue16?gallerypage=6%2F7">3D City</a> is a simple "Shoot 'em up" video game originally programmed StevePro Studios in New Zealand, in January 1988.  The game was written using <a href="http://en.wikipedia.org/wiki/BASIC">BASIC</a> programming language built on the Sega <a href="http://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a>.
+<br /><br />
+Inspired from previous posts on <a href="http://steveproxna.blogspot.co.uk/2013/09/sega-console-programming.html">Sega Console Programming</a> and <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-programming-setup.html">z88dk Programming Setup</a>, 3D City was the impetus to build an 8-bit video game in <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C</a> / <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> assembler to target the <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a> (SMS).
+<br /><br />
+Let's check it out!
+<br />
+<a href="https://1.bp.blogspot.com/-aMQnBIKKMaU/VuGnNkEaB2I/AAAAAAAADwM/TkYLeJBhODc/s1600/01-Title.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-aMQnBIKKMaU/VuGnNkEaB2I/AAAAAAAADwM/TkYLeJBhODc/s640/01-Title.jpg" width="98%" /></a>
+Download source code <b><a href="http://github.com/SteveProXNA/3DcitySMS">here</a></b>.
+<br /><br />
+Sega Retro Gaming <a href="http://steveproxna.blogspot.co.uk/2013/06/sega-retro-gaming.html">post</a> documents how to play video games like 3D City on PC using <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/404-kega-fusion">Fusion</a> emulator.
+<br />
+z88dk Programming Setup <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-programming-setup.html">post</a> documents development environment required to build <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C</a> / <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> source.
+<table width="100%">
+<tr>
+<td valign="top" width="40%">
+<a href="https://2.bp.blogspot.com/--9EPwdYahnc/VuGryOGaCXI/AAAAAAAADwo/roBj9C60VP8/s1600/02-LevelEasy.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/--9EPwdYahnc/VuGryOGaCXI/AAAAAAAADwo/roBj9C60VP8/s320/02-LevelEasy.jpg" width="95%" /></a>
+</td>
+<td valign="top" width="40%">
+<a href="https://1.bp.blogspot.com/-06QM-61Z8cQ/VufLC9c2oZI/AAAAAAAADxY/hjNj6Hpd_JUlF4fAp4gUYWDviuva93UQA/s1600/02-LevelHard.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-06QM-61Z8cQ/VufLC9c2oZI/AAAAAAAADxY/hjNj6Hpd_JUlF4fAp4gUYWDviuva93UQA/s320/02-LevelHard.jpg" width="95%" /></a>
+</td>
+</tr>
+<tr>
+<td valign="top" width="40%">
+<a href="https://2.bp.blogspot.com/-B8raoFtcBc4/VuGrpGdkF8I/AAAAAAAADwk/AQB_aS82-bM/s1600/03-Ready.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-B8raoFtcBc4/VuGrpGdkF8I/AAAAAAAADwk/AQB_aS82-bM/s320/03-Ready.jpg" width="95%" /></a>
+</td>
+<td valign="top" width="40%">
+<a href="https://3.bp.blogspot.com/-8DkRiaqmKjg/VuGs4J_B68I/AAAAAAAADw8/4fUGTxJywjI/s1600/04-PlayA.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-8DkRiaqmKjg/VuGs4J_B68I/AAAAAAAADw8/4fUGTxJywjI/s320/04-PlayA.jpg" width="95%" /></a>
+</td>
+</tr>
+<tr>
+<td valign="top" width="40%">
+<a href="https://4.bp.blogspot.com/-dg5vHeuzd4k/VufLfF9BjxI/AAAAAAAADxc/YFNmUw1b_s8FswZpbNyQsZ9pRASJ-Oc9g/s1600/04-PlayC.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-dg5vHeuzd4k/VufLfF9BjxI/AAAAAAAADxc/YFNmUw1b_s8FswZpbNyQsZ9pRASJ-Oc9g/s320/04-PlayC.jpg" width="95%" /></a>
+</td>
+<td valign="top" width="40%">
+<a href="https://1.bp.blogspot.com/-N7YQujUkxQw/VuGs68tS_hI/AAAAAAAADxA/AlcMUl3NGbw/s1600/05-Over.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-N7YQujUkxQw/VuGs68tS_hI/AAAAAAAADxA/AlcMUl3NGbw/s320/05-Over.jpg" width="95%" /></a>
+</td>
+</tr>
+</table>
+<u>Instructions</u>
+<br />
+Simple!  Move target and shoot all enemy ships before they kill you.  4x misses and it is Game Over.
+<br />
+Hint: hold controller Button2 down while moving target slows target down for more focused attack.
+<br /><br />
+<u>ROM Hacking</u>
+<br />
+You can hack this ROM!  Download and dump <a href="https://github.com/SteveProXNA/3DcitySMS/blob/master/3dcity.sms">3Dcity.sms</a> into Hex Editor, e.g. <a href="http://mh-nexus.de/downloads/HxDSetupEN.zip">HxD</a>, and modify the bytes:
+<table width="99%" border="1">
+<tr>
+<td valign="top" width="20%">&nbsp;ADDRESS</td>
+<td valign="top" width="20%">&nbsp;VARIABLE</td>
+<td valign="top" width="40%">&nbsp;DESCRIPTION</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<b>0x00C0</b></td>
+<td valign="top" width="20%">&nbsp;Death</td>
+<td valign="top" width="40%">&nbsp;Non-zero = invincibility!</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<b>0x00C1</b></td>
+<td valign="top" width="20%">&nbsp;Level</td>
+<td valign="top" width="40%">&nbsp;0=easy (default)  1=hard.</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<b>0x00C2</b></td>
+<td valign="top" width="20%">&nbsp;Enemy</td>
+<td valign="top" width="40%">&nbsp;0=3x enemies else 1 or 2.</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<b>0x00C3</b></td>
+<td valign="top" width="20%">&nbsp;Music</td>
+<td valign="top" width="40%">&nbsp;0=music on otherwise off.</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<b>0x00C4</b></td>
+<td valign="top" width="20%">&nbsp;Sound</td>
+<td valign="top" width="40%">&nbsp;0=sound on otherwise off.</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<b>0x00C5</b></td>
+<td valign="top" width="20%">&nbsp;Tiles</td>
+<td valign="top" width="40%">&nbsp;0=tiles scroll yes else no.</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<b>0x00C6</b></td>
+<td valign="top" width="20%">&nbsp;Stars</td>
+<td valign="top" width="40%">&nbsp;0=stars flash yes else no.</td>
+</tr>
+</table>
+<pre class="csharp" name="code">
+#ifndef _HACK_MANAGER_H_
+#define _HACK_MANAGER_H_
+
+#define PEEK(addr)   (*(unsigned char *)(addr))
+#define POKE(addr, data) (*(unsigned char *)(addr) = (data))
+
+#define HACKER_START  0x00C0
+
+extern unsigned char hacker_death, hacker_level, hacker_enemy, hacker_music;
+extern unsigned char hacker_sound, hacker_tiles, hacker_stars;
+
+void engine_hack_manager_init()
+{
+  hacker_death = PEEK(HACKER_START + 0);  // 0x00C0
+  hacker_level = PEEK(HACKER_START + 1);  // 0x00C1
+  hacker_enemy = PEEK(HACKER_START + 2);  // 0x00C2
+  hacker_music = PEEK(HACKER_START + 3);  // 0x00C3
+  hacker_sound = PEEK(HACKER_START + 4);  // 0x00C4
+  hacker_tiles = PEEK(HACKER_START + 5);  // 0x00C5
+  hacker_stars = PEEK(HACKER_START + 6);  // 0x00C6
+}
+
+#endif//_HACK_MANAGER_H_
+</pre>
+<u>Credits</u>
+<br />
+StevePro Studios would like to thank the following, esp. at <a href="http://www.smspower.org">SMS Power</a>, for making this project possible:
+<table width="97%" border="1">
+<tr>
+<td valign="top" width="20%">&nbsp;<a href="http://www.smspower.org/forums/member601">haroldoop</a></td>
+<td valign="top" width="40%" colspan="2">&nbsp;Adapt <a href="https://en.wikipedia.org/wiki/Z88DK">z88dk</a> (C cross-compiler) for Z80 systems + <a href="http://www.smspower.org/forums/8176-DevelopingSegaMasterSystemROMsInC">generate</a> SMS ROMs</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<a href="http://www.smspower.org/forums/member5">Maxim</a></td>
+<td valign="top" width="20%">&nbsp;<a href="http://www.smspower.org/maxim/Software/BMP2Tile">BMP2Tile</a></td>
+<td valign="top" width="40%">&nbsp;Converts BMP images into 8x8 SMS tile data</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<a href="http://www.smspower.org/forums/member6">Martin</a></td>
+<td valign="top" width="20%">&nbsp;<a href="http://www.smspower.org/Music/Mod2PSG2">Mod2PSG2</a></td>
+<td valign="top" width="40%">&nbsp;Music tracker software for SMS sound chip</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<a href="https://github.com/vhelin">vhelin</a></td>
+<td valign="top" width="20%">&nbsp;<a href="https://github.com/vhelin/wla-dx">WLA-DX</a></td>
+<td valign="top" width="40%">&nbsp;Z80 multi platform cross Assembler package</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<a href="http://www.smspower.org/forums/member6">Martin</a></td>
+<td valign="top" width="20%">&nbsp;<a href="http://www.smspower.org/Development/SMSExamine">SMS Examine</a></td>
+<td valign="top" width="40%">&nbsp;Z80 disassembler recompilable by WLA-DX</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<a href="http://www.smspower.org/forums/member3">Bock</a></td>
+<td valign="top" width="20%">&nbsp;<a href="http://www.smspower.org/meka">Meka</a></td>
+<td valign="top" width="40%">&nbsp;SMS emulator (excellent debugging features)</td>
+</tr>
+<tr>
+<td valign="top" width="20%">&nbsp;<a href="http://segaretro.org/Steve_Snake">Steve Snake</a></td>
+<td valign="top" width="20%">&nbsp;<a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/404-kega-fusion">Fusion</a></td>
+<td valign="top" width="40%">&nbsp;SMS emulator used for general play testing</td>
+</tr>
+</table>
+Important: the psgmod.asm file (Mod2PSG2) was customized thus ASM could be invoked from C code.
+<br /><br />
+<u>Summary</u>
+<br />
+In fact, the Homebrew community at <a href="http://www.smspower.org">SMS Power</a> celebrates Sega 8-bit preservation and fanaticism each year with its annual <a href="http://www.smspower.org/Competitions/Index?sid=3fea7563ee03885e376dacd701612f82">competitions</a>.  Therefore, this is an opportunity to enter 3D City for <a href="http://www.smspower.org/forums/15883-Competitions2016">2016</a>.  Good luck!
+</span>

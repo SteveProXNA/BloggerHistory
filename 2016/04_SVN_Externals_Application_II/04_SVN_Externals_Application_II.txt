@@ -1,0 +1,294 @@
+<span style="font-family:verdana;font-size:85%;">
+In the previous <a href="https://steveproxna.blogspot.co.uk/2016/06/svn-externals-application.html">post</a>, we checked out <a href="http://stackoverflow.com/tags/svn-externals/info">SVN Externals</a> to build an XNA solution with the majority of game code written in an external library and scaled out across multiple game clients including <a href="https://steveproxna.blogspot.co.uk/2015/08/candy-kid-android-port.html">Android</a> + <a href="https://steveproxna.blogspot.co.uk/2015/09/candy-kid-ios-port.html">iOS</a>.
+<br /><br />
+As an example, the <a href="https://steveproxna.blogspot.co.uk/2012/08/xna-and-system-testing.html">XNA and System Testing</a> snake simulation was scaled to demonstrate <a href="https://svnexternalsapp.codeplex.com">SVN Externals</a>.
+<br />
+However, all code here is in <i>trunk</i>; larger scale development requires release <i>tags</i> and feature <i>branches</i>.
+<a href="https://3.bp.blogspot.com/-IK3ggxiOZPc/V1CPKOyAWsI/AAAAAAAADyU/bZnNkb-crQ0t-ZkaGkGQzxMNDlQoMbuPACLcB/s1600/WP7.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-IK3ggxiOZPc/V1CPKOyAWsI/AAAAAAAADyU/bZnNkb-crQ0t-ZkaGkGQzxMNDlQoMbuPACLcB/s640/WP7.jpg" width="98%" /></a>
+Let's check it out!
+<br /><br />
+<u>Pre Requisites</u><br />
+This post assumes you already have Tortoise <a href="http://tortoisesvn.net/downloads.html">SVN</a> installed on Windows and <a href="https://code.google.com/p/svnx/downloads/list">svnx</a> installed on Mac OS/X.
+<br />
+Also, consider configuring the <a href="http://stackoverflow.com/questions/6169241/why-cant-i-use-the-svn-editor-environment-variable-in-cygwin">$SVN_EDITOR</a> on Windows and Mac OS/X in order to edit SVN properties:
+<pre class="csharp" name="code">
+set SVN_EDITOR=notepad.exe     ; Windows PC
+export SVN_EDITOR=vi           ; Mac OS/X
+</pre>
+<u>Conventions</u><br />
+This post uses the following convention to substitute "$DEMO" for root node of all demo code samples:
+<pre class="csharp" name="code">
+$DEMO = https://svn/Demo       ; Subversion
+$DEMO = C:\svn\Demo            ; Windows PC
+$DEMO = /svn/Demo              ; Mac OS/X
+</pre>
+<br />
+<u>Subversion</u><br />
+Create top level <b>Demo</b> node in Subversion SVN.  Add 1x sub-node for XNA library and 4x sub-nodes for each client: WP7, Windows, Android, iOS.  Ensure all sub-nodes have <i>branches</i>, <i>tags</i> and <i>trunk</i> folders:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Alias</b></td>
+<td valign="top">&nbsp;<b>Platform</b></td>
+<td valign="top">&nbsp;<b>Development</b></td>
+<td valign="top">&nbsp;<b>Framework</b></td>
+<td valign="top">&nbsp;<b>Description</b></td>
+<td valign="top">&nbsp;<b>Source Code</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;XNA</td>
+<td valign="top">&nbsp;Windows PC</td>
+<td valign="top">&nbsp;Visual Studio 2010</td>
+<td valign="top">&nbsp;XNA 4.0</td>
+<td valign="top">&nbsp;Game library</td>
+<td valign="top">&nbsp;<a href="https://steveproxna07xna.codeplex.com/SourceControl/latest">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP7</td>
+<td valign="top">&nbsp;Windows PC</td>
+<td valign="top">&nbsp;Visual Studio 2010</td>
+<td valign="top">&nbsp;XNA 4.0</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://steveproxna08wp7.codeplex.com/SourceControl/latest">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Win</td>
+<td valign="top">&nbsp;Windows PC</td>
+<td valign="top">&nbsp;Visual Studio 2012</td>
+<td valign="top">&nbsp;MonoGame 3.4</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://steveproxna09win.codeplex.com/SourceControl/latest">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;And</td>
+<td valign="top">&nbsp;Mac OS/X</td>
+<td valign="top">&nbsp;Xamarin Studio</td>
+<td valign="top">&nbsp;MonoGame 3.5</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://steveproxna10and.codeplex.com/SourceControl/latest">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;iOS</td>
+<td valign="top">&nbsp;Mac OS/X</td>
+<td valign="top">&nbsp;Xamarin Studio</td>
+<td valign="top">&nbsp;MonoGame 3.5</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://steveproxna11ios.codeplex.com/SourceControl/latest">Download</a></td>
+</tr>
+</table>
+<br />
+<u>Tagging</u><br />
+Before beginning new development, it's often best practice to tag your current release build from <i>trunk</i>.
+<br /><br />
+Note: when you create a tag in Subversion, you are not tagging the <a href="http://extricate.org/2012/07/16/getting-svnexternals-right-on-the-command-line">SVN Externals</a> repository, you are tagging your working copy.  If you do not specify the revision then SVN Update will <b>always</b> get latest!
+<br /><br />
+Therefore, you should always explicitly <a href="http://thinkinging.com/2008/10/21/set-the-revision-of-your-svnexternals-or-else">set the revision</a> of svn:externals property when you create a tag:
+<pre class="csharp" name="code">
+svn propset svn:externals 'Common -r2276 $DEMO/XNA/trunk/XNA.Common' .
+</pre>
+<a href="https://4.bp.blogspot.com/-RpNbkDP1-Is/V3VxFDG2ENI/AAAAAAAADy4/p6dMVxfqYRYYlkY7JENgbMJzeKYXu5ObwCLcB/s1600/SVNex01.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-RpNbkDP1-Is/V3VxFDG2ENI/AAAAAAAADy4/p6dMVxfqYRYYlkY7JENgbMJzeKYXu5ObwCLcB/s640/SVNex01.jpg" width="98%" /></a>
+<br />
+If you have Tortoise SVN 1.9.4 installed then you can use the new <a href="https://subversion.apache.org/docs/release-notes/1.9.html#svn-copy-pin-externals">--pin-externals</a> option for svn copy.  This will automatically set the SVN revision in the tag for you without manual lookup in the SVN logs.
+<pre class="csharp" name="code">
+svn copy --pin-externals svn:externals $DEMO/trunk $DEMO/tags/1.0.0.0 -m "1.0.0.0"
+</pre>
+<br />
+For completeness, here are all TAGS 1.0.0.0 cut from previous SVN Externals Application blog <a href="https://steveproxna.blogspot.co.uk/2016/06/svn-externals-application.html">post</a>:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Alias</b></td>
+<td valign="top">&nbsp;<b>Command</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;XNA</td>
+<td valign="top">&nbsp;svn copy --pin-externals $DEMO/XNA/trunk $DEMO/XNA/tags/1.0.0.0-XNA -m "1.0.0.0-XNA"</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP7</td>
+<td valign="top">&nbsp;svn copy --pin-externals $DEMO/WP7/trunk $DEMO/WP7/tags/1.0.0.0-WP7 -m "1.0.0.0-WP7"</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Win</td>
+<td valign="top">&nbsp;svn copy --pin-externals $DEMO/Win/trunk $DEMO/Win/tags/1.0.0.0-XNA -m "1.0.0.0-Win"</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;And</td>
+<td valign="top">&nbsp;svn copy --pin-externals $DEMO/And/trunk $DEMO/And/tags/1.0.0.0-And -m "1.0.0.0-And"</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;iOS</td>
+<td valign="top">&nbsp;svn copy --pin-externals $DEMO/iOS/trunk $DEMO/iOS/tags/1.0.0.0-iOS -m "1.0.0.0-iOS"</td>
+</tr>
+</table>
+<br />
+<u>SVN Upgrade</u><br />
+On Mac OS/X it is most likely that you cannot use the new <a href="https://subversion.apache.org/docs/release-notes/1.9.html#svn-copy-pin-externals">--pin-externals</a> option for svn copy as the svn version is too low.  <a href="http://www.jarysta.com/2014/10/16/updating-to-svn-1-8-for-mac-os-x-10-10-yosemite">Here</a> are some basic instructions to upgrade to, for example, SVN 1.8 on Mac OS/X.
+<br /><br />
+However, upgrading may cause <a href="https://code.google.com/p/svnx/downloads/list">svnx</a> incompatibility.  Also, higher versions may require an upgrade to <b>serf</b>.  A better approach may be to cut all tags on Windows PC and SVN Update all tags on Mac OS/X.
+<br /><br />
+<u>Branching</u><br />
+Larger features usually require longer development time and it's often best practice to cut feature branch from <i>trunk</i>.  Applying <a href="http://beerpla.net/2009/06/20/how-to-properly-set-svn-svnexternals-property-in-svn-command-line">SVN Externals</a> to branching and merging back into <i>trunk</i> may result in a similar flow:
+<br /><br />
+&nbsp;1. Cut branches: XNA library and Win client (and other clients)<br />
+&nbsp;2. Update SVN Externals in Win client to XNA branch (not trunk)<br />
+&nbsp;3. Make all code feature changes in XNA library and Win client<br />
+&nbsp;4. Merge XNA library [trunk down to branch + branch up to trunk]<br />
+&nbsp;5. Merge Win client [trunk down to branch + branch up to trunk]<br />
+&nbsp;6. Delete dead branches cut from above accordingly<br />
+<br />
+<b>Implementation</b><br />
+1. Cut branches: XNA library and Win client (and other clients)<br />
+<pre class="csharp" name="code">
+svn copy $DEMO/XNA/trunk $DEMO/XNA/branches/FeatureX -m "FeatureX"
+svn copy $DEMO/Win/trunk $DEMO/Win/branches/FeatureX -m "FeatureX"
+</pre>
+<br />
+2. Update SVN Externals in Win client to XNA branch (not trunk)<br />
+Launch command prompt, navigate to $DEMO\Win\branches\FeatureX\$FOLDER where $FOLDER is the parent folder that hosts Windows Game project.  Common branched XNA library code will be linked here.
+<pre class="csharp" name="code">
+cd $DEMO/Win/branches/FeatureX
+svn propget -R svn:externals
+
+cd $FOLDER
+svn propedit svn:externals .
+</pre>
+Edit SVN Externals <a href="http://pointbeing.net/weblog/2009/06/command-line-subversion-tutorial-part-3.html">Subversion Properties</a> from previous to current:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Previous</b></td>
+<td valign="top">&nbsp;<b>Current</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;$DEMO/XNA/trunk/XNA.Common Common</td>
+<td valign="top">&nbsp;$DEMO/XNA/branches/FeatureX/XNA.Common Common</td>
+</tr>
+</table>
+<pre class="csharp" name="code">
+svn update
+svn commit -m "Update branch"
+</pre>
+<br />
+3. Make all code feature changes in XNA library and Win client<br />
+After making all code changes to feature branch, ensure you increment the build number for next release.  Navigate to game client AssemblyInfo.cs file.  Increment AssemblyVersion + AssemblyFileVersion values:
+<br /><br />
+For example increment version from previous "1.0.0.0" to current "1.1.0.0" 
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Platform</b></td>
+<td valign="top">&nbsp;<b>File</b></td>
+<td valign="top">&nbsp;<b>Property</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Android</td>
+<td valign="top">&nbsp;AndroidManifest.xml</td>
+<td valign="top">&nbsp;Increment Version number</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;iOS</td>
+<td valign="top">&nbsp;Info.plist</td>
+<td valign="top">&nbsp;Increment Version</td>
+</tr>
+</table>
+Note: updated version number should be synch'd in Xamarin Studio Project Options | Application tab<br />
+<br /><br />
+4. Merge XNA library [trunk down to branch + branch up to trunk]<br />
+First, merge trunk down to branch (as changes may have been checked-in on trunk prior to the merge)
+<pre class="csharp" name="code">
+cd $DEMO/XNA/branches/FeatureX
+svn update
+svn merge $DEMO/XNA/trunk
+svn commit -m "Merge trunk down to branch"
+</pre>
+<br />
+Next, merge branch up to trunk to (re-)integrate changes from shared XNA library to all upstream clients
+<pre class="csharp" name="code">
+cd $DEMO/XNA/trunk
+svn update
+svn merge --reintegrate $DEMO/XNA/branches/FeatureX
+svn commit -m "Merge branch up to trunk"
+</pre>
+<br />
+5. Merge Win client [trunk down to branch + branch up to trunk]<br />
+Important: first revert SVN Externals in Win client to XNA trunk as XNA trunk and branch are now synch'd
+<pre class="csharp" name="code">
+cd $DEMO/Win/branches/FeatureX
+svn propget -R svn:externals
+
+cd $FOLDER
+svn propedit svn:externals .
+</pre>
+Edit SVN Externals <a href="http://pointbeing.net/weblog/2009/06/command-line-subversion-tutorial-part-3.html">Subversion Properties</a> from previous to current:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Previous</b></td>
+<td valign="top">&nbsp;<b>Current</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;$DEMO/XNA/branches/FeatureX/XNA.Common Common</td>
+<td valign="top">&nbsp;$DEMO/XNA/trunk/XNA.Common Common</td>
+</tr>
+</table>
+<pre class="csharp" name="code">
+svn update
+svn commit -m "Revert branch"
+</pre>
+<br />
+Next, merge trunk down to branch
+<pre class="csharp" name="code">
+cd $DEMO/Win/branches/FeatureX
+svn update
+svn merge $DEMO/Win/trunk
+svn commit -m "Merge trunk down to branch"
+</pre>
+<br />
+Finally, merge branch up to trunk
+<pre class="csharp" name="code">
+cd $DEMO/Win/trunk
+svn update
+svn merge --reintegrate $DEMO/Win/branches/FeatureX
+svn commit -m "Merge branch up to trunk"
+</pre>
+<br />
+6. Delete dead branches cut from above accordingly<br />
+<pre class="csharp" name="code">
+svn delete $DEMO/XNA/branches/FeatureX -m "Delete branch"
+svn delete $DEMO/Win/branches/FeatureX -m "Delete branch"
+</pre>
+<br />
+For completeness, here is one way to <a href="http://stackoverflow.com/questions/13380584/remove-svnexternals-property-from-a-folder">remove</a> the SVN Externals property from working copy folder:
+<pre class="csharp" name="code">
+svn propdel svn:externals $DEMO/Win/branches/FeatureX/$FOLDER
+</pre>
+<br />
+<u>Tagging</u><br />
+When it is appropriate, tag the new build as per updated build version number 1.1.0.0 from above:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Alias</b></td>
+<td valign="top">&nbsp;<b>Command</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;XNA</td>
+<td valign="top">&nbsp;svn copy --pin-externals $DEMO/XNA/trunk $DEMO/XNA/tags/1.1.0.0-XNA -m "1.1.0.0-XNA"</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP7</td>
+<td valign="top">&nbsp;svn copy --pin-externals $DEMO/WP7/trunk $DEMO/WP7/tags/1.1.0.0-WP7 -m "1.1.0.0-WP7"</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Win</td>
+<td valign="top">&nbsp;svn copy --pin-externals $DEMO/Win/trunk $DEMO/Win/tags/1.1.0.0-XNA -m "1.1.0.0-Win"</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;And</td>
+<td valign="top">&nbsp;svn copy --pin-externals $DEMO/And/trunk $DEMO/And/tags/1.1.0.0-And -m "1.1.0.0-And"</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;iOS</td>
+<td valign="top">&nbsp;svn copy --pin-externals $DEMO/iOS/trunk $DEMO/iOS/tags/1.1.0.0-iOS -m "1.1.0.0-iOS"</td>
+</tr>
+</table>
+<br />
+<br />
+<u>Summary</u><br />
+To summarize, here code has been shared from a single external library across multiple game clients;  However, SVN Externals could be used to scale out shared data + content across multiple clients too!
+</span>

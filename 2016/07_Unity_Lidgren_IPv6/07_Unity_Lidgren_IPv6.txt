@@ -1,0 +1,268 @@
+<span style="font-family:verdana;font-size:85%;">
+At <a href="https://developer.apple.com/wwdc">WWDC</a> 2015, Apple <a href="https://developer.apple.com/news/?id=05042016a">announced</a> the transition to IPv6-only network services in iOS 9.  Starting June 1st 2016 all apps submitted to the App Store must support IPv6-only networking.  Therefore, Unity3D posted <a href="https://blogs.unity3d.com/2016/05/10/unity-and-ipv6-support">Unity and IPv6 Support</a> in response to this since many developers publish Unity games to the App Store.
+<a href="https://2.bp.blogspot.com/-ioZ5iaE61W4/WC36idUkaAI/AAAAAAAAD5k/1SfPW7hQcY8IpKrMTkGtVAA7b4bOdgr3gCLcB/s1600/IPv6.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-ioZ5iaE61W4/WC36idUkaAI/AAAAAAAAD5k/1SfPW7hQcY8IpKrMTkGtVAA7b4bOdgr3gCLcB/s640/IPv6.jpg" width="98%" height="200" /></a>
+<br />
+Let's check it out! 
+<br /><br />
+<u>IPv6</u><br />
+<a href="https://en.wikipedia.org/wiki/IPv6">IPv6</a> (Internet Protocol version 6) is the most recent version of the Internet Protocol communications protocol that provides identification for computers on networks and routes traffic across the Internet.
+<br /><br />
+Therefore, Apple's new requirement means that apps must be able to operate on an IPv6-only network!
+<br /><br />
+<u>Example</u><br />
+As an example, suppose that you have a typical client / server networked game that uses the <a href="https://github.com/lidgren/lidgren-network-gen3">Lidgren</a> library as the networking layer to communicate messages from the <a href="https://github.com/SteveProXNA/UnityLidgrenIPv6/tree/master/IPv4/GameUnity">client</a> to the <a href="https://github.com/SteveProXNA/UnityLidgrenIPv6/tree/master/IPv4/GameServer">server</a> and vice versa.
+<br /><br />
+<b>Lidgren</b><br />
+Initially, the Lidgren library uses IPv4-only specific APIs to communicate messages from the client to the server.  Therefore, here is a short list of tasks to transition the code to support IPv6-only networking now:
+<ul>
+<li>
+Look for IPv4 addresses (e.g. 127.0.0.1, 8.8.4.4). Any hardcoded addresses should be removed.  Prefer host names: use to look up IPv4 or IPv6 address of device for the proper type of network.
+</li>
+<br />
+<li>
+Look for the use of the <i>IPAddress.AddressFamily</i> property.  Any code that branches based on the value of the AddressFamily must ensure the code handles IPv6-only networking option properly.
+</li>
+<br />
+<li>
+Look for the use of <i>IPAddress.Any</i> and <i>IPAddress.Loopback</i> fields.  These fields work with IPv4 addresses not IPv6.  Use <i>IPAddress.IPv6Any</i> and <i>IPAddress.IPv6Loopback</i> for IPv6 compatibility.
+</li>
+</ul>
+<br />
+Fortunately, a Lidgren <a href="https://github.com/lidgren/lidgren-network-gen3/pull/33">pull request</a> has been submitted by <a href="https://github.com/jens-nolte">jens-nolte</a> to implement IPv6 Dual Mode, that is, upgrade Lidgren library to support both IPv4 and IPv6 network connections in client and server code.
+<br /><br />
+However, all C#/.NET code in pull request is based on .NET Framework 4.5 whereas Unity uses Mono 3.5!  Therefore, implement the server as Dual Mode but the client must detect at runtime either IPv4 or IPv6.
+<br /><br />
+<b>Server</b><br />
+Let's implement the <a href="https://github.com/SteveProXNA/UnityLidgrenIPv6/tree/master/IPv6/GameServer">server</a> first [Dual Mode] as is easier + simply requires .NET Framework 4.5 (above).  Channel all network connectivity through IPv6.  If IPv6 then leave otherwise map IPv4 address to IPv6.
+<br /><br />
+NetPeer.cs
+<pre class="csharp" name="code">
+public NetPeer(NetPeerConfiguration config)
+{
+  m_senderRemote = (EndPoint)new IPEndPoint(IPAddress.IPv6Any, 0);
+}
+public virtual NetConnection Connect(IPEndPoint remoteEndPoint, NetOutgoingMessage hailMessage)
+{
+  remoteEndPoint = NetUtility.MapToIPv6(remoteEndPoint);
+}
+</pre>
+NetPeer.Internal.cs
+<pre class="csharp" name="code">
+private void BindSocket(bool reBind)
+{
+  m_socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Dgram, ProtocolType.Udp);
+  m_socket.DualMode = true;
+
+  var addr = m_configuration.LocalAddress.MapToIPv6();
+  var port = reBind ? m_listenPort : m_configuration.Port;
+
+  var ep = (EndPoint)new IPEndPoint(addr, port);
+  m_socket.Bind(ep);
+}
+</pre>
+NetPeer.LatencySimulation.cs
+<pre class="csharp" name="code">
+internal bool ActuallySendPacket(byte[] data, int numBytes, IPEndPoint target, out bool connectionReset)
+{
+  target = NetUtility.MapToIPv6(target);
+}
+</pre>
+NetPeerConfiguration.cs
+<pre class="csharp" name="code">
+public NetPeerConfiguration(string appIdentifier)
+{
+  m_localAddress = IPAddress.IPv6Any;
+}
+</pre>
+NetUtility.cs
+<pre class="csharp" name="code">
+public static void ResolveAsync(string ipOrHost, ResolveAddressCallback callback)
+{
+  if (ipAddress.AddressFamily == AddressFamily.InterNetwork || 
+      ipAddress.AddressFamily == AddressFamily.InterNetworkV6) {}
+}
+internal static IPEndPoint MapToIPv6(IPEndPoint endPoint)
+{
+  if (endPoint.AddressFamily == AddressFamily.InterNetwork)
+  {
+    return new IPEndPoint(endPoint.Address.MapToIPv6(), endPoint.Port);
+  }
+  return endPoint;
+}
+</pre>
+<br />
+<b>Client</b><br />
+Let's implement the <a href="https://github.com/SteveProXNA/UnityLidgrenIPv6/tree/master/IPv6/GameUnity">client</a>: detect network connectivity from IPv4 or IPv6 at runtime and inject either AddressFamily.InterNetwork | IPAddress.Any into Lidgren for IPv4 or AddressFamily.InterNetworkV6 | IPAddress.IPv6Any for IPv6.
+<br /><br />
+Create custom class to store the IPAddress and AddressFamily from IPv4 or IPv6 and inject at runtime.
+<pre class="csharp" name="code">
+public struct NetGameConfig
+{
+  public NetGameConfig(IPAddress netIPAddress, AddressFamily netAddressFamily)
+    : this()
+  {
+    NetIPAddress = netIPAddress;
+    NetAddressFamily = netAddressFamily;
+  }
+
+  public IPAddress NetIPAddress { get; private set; }
+  public AddressFamily NetAddressFamily { get; private set; }
+}
+
+public enum IPProtocol { IPv4, IPv6 }
+</pre>
+<br />
+<u>Unity4</u><br />
+Note: if you are on an older version of Unity e.g. Unity4 then you must upgrade to Unity 4.7.2f1.  If you use .NET / IL2CPP libraries, e.g. to support 64-bit architecture on iOS, then upgrade to Unity <b><a href="http://beta.unity3d.com/download/4731067763/unity_update-4.7.2p1.dmg">4.7.2p1</a></b>; Especially if <a href="https://forum.unity3d.com/threads/unity3d-crashes-and-network-problem-with-ipv6.415604/#post-2804110">ReceiveFrom</a>() method is used on the Socket otherwise sender remote becomes corrupt!
+<br /><br />
+Finally, remove any code referencing the LocalEndPoint property on the Socket otherwise an <a href="https://issuetracker.unity3d.com/issues/ipv6-ios-exception-when-try-to-access-socket-dot-localendpoint">exception</a> will be thrown.  Again this is if you use IL2CPP scripting backend to support 64-bit architecture on iOS.
+<br /><br />
+IMPORTANT<br />
+The corresponding code will <b>not</b> work on Android platform with Unity4: a SocketException will occur as Unity Technologies explicitly decided not to back port these changes.  More information is available <a href="https://forum.unity3d.com/threads/unity-ios-and-ipv6-support.404938">here</a>.
+<br /><br />
+NetClient.cs
+<pre class="csharp" name="code">
+public NetClient(NetPeerConfiguration config, NetGameConfig netGameConfig)
+  : base(config, netGameConfig) {}
+</pre>
+NetPeer.cs
+<pre class="csharp" name="code">
+public NetGameConfig NetGameConfig { get; protected set; }
+
+public NetPeer(NetPeerConfiguration config, NetGameConfig netGameConfig)
+{
+  NetGameConfig = netGameConfig;
+  m_senderRemote = (EndPoint)new IPEndPoint(netGameConfig.NetIPAddress, 0);
+}
+public NetConnection Connect(string host, int port)
+{
+  var addr = NetUtility.Resolve(host, NetGameConfiguration.NetAddressFamily);
+  return Connect(new IPEndPoint(addr, port), null);
+}
+</pre>
+NetPeer.Discovery.cs
+<pre class="csharp" name="code">
+public bool DiscoverKnownPeer(string host, int serverPort)
+{
+  IPAddress address = NetUtility.Resolve(host, NetGameConfig.NetAddressFamily);
+}
+</pre>
+NetPeer.Internal.cs
+<pre class="csharp" name="code">
+private void BindSocket(bool reBind)
+{
+  m_socket = new Socket(NetGameConfig.NetAddressFamily, SocketType.Dgram, ProtocolType.Udp);
+}
+</pre>
+NetPeer.Send.cs
+<pre class="csharp" name="code">
+public void SendUnconnectedMessage(NetOutgoingMessage msg, string host, int port)
+{
+  IPAddress adr = NetUtility.Resolve(host, NetGameConfig.NetAddressFamily);
+}
+</pre>
+NetPeerConfiguration.cs
+<pre class="csharp" name="code">
+private NetGameConfig m_NetGameConfig;
+
+public NetPeerConfiguration(string appIdentifier, NetGameConfig netGameConfig)
+{
+  m_NetGameConfig = netGameConfig;
+  m_localAddress = m_NetGameConfig.NetIPAddress;
+}
+</pre>
+NetServer.cs
+<pre class="csharp" name="code">
+public NetServer(NetPeerConfiguration config, NetGameConfig netGameConfig)
+  : base(config, netGameConfig) {}
+</pre>
+NetUtility.cs
+<pre class="csharp" name="code">
+public static void ResolveAsync(string ipOrHost, AddressFamily addressFamily, ResolveAddressCallback callback)
+{
+  if (ipAddress.AddressFamily == addressFamily) {}
+}
+</pre>
+Finally, create an <a href="https://github.com/SteveProXNA/UnityLidgrenIPv6/blob/master/IPv6/GameUnity/Assets/Scripts/IPNetworkManager.cs">IPNetworkManager</a> to get the host address for the IPProtocol type and resolve the DNS.
+<br />
+<br /><br />
+<u>Testing</u><br />
+Apple <a href="https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/NetworkingOverview/UnderstandingandPreparingfortheIPv6Transition/UnderstandingandPreparingfortheIPv6Transition.html#//apple_ref/doc/uid/TP40010220-CH213-SW1">recommend</a> the easiest way to test for IPv6 DNS64 / NAT64 compatibility, which is the type of network most cellular carriers deploy, is to set up a local IPv6 DNS64 / NAT64 network with your Mac. 
+<br /><br />
+<b>Hosts</b><br />
+If you would like to setup hosts files then assume example has 1x Game Server and 2x Game Clients:
+<table width="96%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Environment</b></td>
+<td valign="top">&nbsp;<b>Platform</b></td>
+<td valign="top">&nbsp;<b>Mode</b></td>
+<td valign="top">&nbsp;<b>Address</b></td>
+<td valign="top">&nbsp;<b>Host</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Game Server</td>
+<td valign="top">&nbsp;Windows PC</td>
+<td valign="top">&nbsp;Dual</td>
+<td valign="top">&nbsp;fc00:992b:a::1</td>
+<td valign="top">&nbsp;GameServer.v6net</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Game Client</td>
+<td valign="top">&nbsp;Windows PC</td>
+<td valign="top">&nbsp;IPv4</td>
+<td valign="top">&nbsp;fc00:992b:a::4</td>
+<td valign="top">&nbsp;StevePro-PC.v6net</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Game Client</td>
+<td valign="top">&nbsp;Mac OS/X</td>
+<td valign="top">&nbsp;IPv6</td>
+<td valign="top">&nbsp;fc00:992b:a::6</td>
+<td valign="top">&nbsp;SteveProIMac.v6net</td>
+</tr>
+</table>
+<br />
+<i>Game Server</i><br />
+Edit the hosts file located at C:\Windows\System32\drivers\etc
+<pre class="csharp" name="code">
+# localhost name resolution is handled within DNS itself.
+127.0.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localhost 
+::1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localhost
+fc00:992b:a::1&nbsp;&nbsp;&nbsp;GameServer.v6net
+fc00:992b:a::4&nbsp;&nbsp;&nbsp;StevePro-PC.v6net
+fc00:992b:a::6&nbsp;&nbsp;&nbsp;SteveProIMac.v6net
+</pre>
+<br />
+<i>Game Client</i> [PC]<br />
+Edit the hosts file located at C:\Windows\System32\drivers\etc
+<pre class="csharp" name="code">
+# localhost name resolution is handled within DNS itself.
+127.0.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localhost 
+::1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localhost
+fc00:992b:a::1&nbsp;&nbsp;&nbsp;GameServer.v6net
+fc00:992b:a::4&nbsp;&nbsp;&nbsp;StevePro-PC.v6net
+</pre>
+Disable IPv4 networking to ensure IPv6-only connection.   Local Area Connection | Double click (TCP/IPv6)
+<a href="https://3.bp.blogspot.com/-9b9rP8rsRCM/WDyOnCMu5yI/AAAAAAAAD6U/WupPLvwvZ70yfbMjSh7d3e2UpeCDc-bvQCLcB/s1600/SteveProPC.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-9b9rP8rsRCM/WDyOnCMu5yI/AAAAAAAAD6U/WupPLvwvZ70yfbMjSh7d3e2UpeCDc-bvQCLcB/s640/SteveProPC.png" width="98%" height="400" /></a>
+<br /><br />
+<i>Game Client</i> [Mac]<br />
+Launch terminal as root.  Edit the hosts file located at /etc/hosts
+<pre class="csharp" name="code">
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+127.0.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localhost
+255.255.255.255&nbsp;&nbsp;broadcasthost
+::1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localhost 
+fc00:992b:a::1&nbsp;&nbsp;&nbsp;GameServer.v6net
+fc00:992b:a::6&nbsp;&nbsp;&nbsp;SteveProIMac.v6net
+</pre>
+Disable IPv4 networking to ensure IPv6-only connection.  System Preferences | Network.  Click Advanced
+<a href="https://2.bp.blogspot.com/-9Z_eNe6kl4E/WDyOVRTEQ6I/AAAAAAAAD6Q/iZwVngn0sownvMT8eN2uq2LbpDK_2CAQACLcB/s1600/SteveProIMac.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-9Z_eNe6kl4E/WDyOVRTEQ6I/AAAAAAAAD6Q/iZwVngn0sownvMT8eN2uq2LbpDK_2CAQACLcB/s640/SteveProIMac.png" width="98%" height="400" /></a>
+<br />
+Download code sample <b><a href="https://github.com/SteveProXNA/UnityLidgrenIPv6">here</a></b>.
+<br /><br />
+<u>Summary</u><br />
+At the time of this writing, <a href="https://github.com/lidgren/lidgren-network-gen3">Lidgren</a> uses IPv4-only specific APIs to communicate all networked messages.  These APIs are built into .NET Framework 3.5 and therefore can currently be accessed from within Unity.
+<br /><br />
+However, to access IPv6-only specific APIs from within Unity [Dual Mode] requires .NET Framework 4.5.  The .NET Profile Upgrade is currently on the Unity <a href="https://unity3d.com/unity/roadmap">roadmap</a> for this functionality although there's no <a href="https://en.wikipedia.org/wiki/Estimated_time_of_arrival">ETA</a>!
+</span>

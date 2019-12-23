@@ -1,0 +1,204 @@
+<span style="font-family:verdana;font-size:85%;">
+In 2015, <a href="https://steveproxna.blogspot.co.uk/2015/05/candy-kid-video-game.html">Candy Kid</a> was written in <a href="https://en.wikipedia.org/wiki/Microsoft_XNA">XNA</a> as a simple maze chase video game.  The majority of game code was written in an external library and scaled out across multiple game clients including <a href="https://steveproxna.blogspot.co.uk/2015/08/candy-kid-android-port.html">Android</a> and <a href="https://steveproxna.blogspot.co.uk/2015/09/candy-kid-ios-port.html">iOS</a>.
+<a href="https://1.bp.blogspot.com/-MLwSHVHT0Yg/V1COh-kfh8I/AAAAAAAADyQ/SAFlw2WwnHYH-Qr47DteD-jep76tj1GKQCLcB/s1600/BoxArtBigFeature.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-MLwSHVHT0Yg/V1COh-kfh8I/AAAAAAAADyQ/SAFlw2WwnHYH-Qr47DteD-jep76tj1GKQCLcB/s640/BoxArtBigFeature.png" width="98%" /></a>
+In order to avoid problems with <a href="https://en.wikipedia.org/wiki/Copy_and_paste_programming">Copy + paste</a> programming to multiple clients, <a href="http://jmfeurprier.com/2009/12/10/simple-introduction-to-svn-externals">SVN Externals</a> was used.
+<br />
+Let's check it out!
+<br /><br />
+<a href="http://stackoverflow.com/tags/svn-externals/info">SVN Externals</a> allow an Subversion repository to be checked out within a directory in that working 
+copy. Here all common code in external repository linked through "Common" directory across multiple clients.
+<br /><br />
+<u>Pre Requisites</u><br />
+This post assumes you already have Tortoise <a href="http://tortoisesvn.net/downloads.html">SVN</a> installed on Windows and <a href="https://code.google.com/p/svnx/downloads/list">svnx</a> installed on Mac OS/X.
+<br />
+Also, consider configuring the <a href="http://stackoverflow.com/questions/6169241/why-cant-i-use-the-svn-editor-environment-variable-in-cygwin">$SVN_EDITOR</a> on Windows and Mac OS/X in order to edit SVN properties:
+<pre class="csharp" name="code">
+set SVN_EDITOR=notepad.exe     ; Windows PC
+export SVN_EDITOR=vi           ; Mac OS/X
+</pre>
+<u>Conventions</u><br />
+This post uses the following convention to substitute "$DEMO" for root node of all demo code samples:
+<pre class="csharp" name="code">
+$DEMO = https://svn/Demo       ; Subversion
+$DEMO = C:\svn\Demo            ; Windows PC
+$DEMO = /svn/Demo              ; Mac OS/X
+</pre>
+<u>Example</u><br />
+As an example, let's scale the <a href="https://steveproxna.blogspot.co.uk/2012/08/xna-and-system-testing.html">XNA and System Testing</a> snake simulation to demonstrate <a href="https://svnexternalsapp.codeplex.com">SVN Externals</a>.
+<a href="https://3.bp.blogspot.com/-IK3ggxiOZPc/V1CPKOyAWsI/AAAAAAAADyU/bZnNkb-crQ0t-ZkaGkGQzxMNDlQoMbuPACLcB/s1600/WP7.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-IK3ggxiOZPc/V1CPKOyAWsI/AAAAAAAADyU/bZnNkb-crQ0t-ZkaGkGQzxMNDlQoMbuPACLcB/s640/WP7.jpg" width="98%" /></a>
+Create top level <b>Demo</b> node in Subversion SVN.  Add 1x sub-node for XNA library and 4x sub-nodes for each client: WP7, Windows, Android, iOS.  Ensure all sub-nodes have <i>branches</i>, <i>tags</i> and <i>trunk</i> folders:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Alias</b></td>
+<td valign="top">&nbsp;<b>Platform</b></td>
+<td valign="top">&nbsp;<b>Development</b></td>
+<td valign="top">&nbsp;<b>Framework</b></td>
+<td valign="top">&nbsp;<b>Description</b></td>
+<td valign="top">&nbsp;<b>Source Code</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;XNA</td>
+<td valign="top">&nbsp;Windows PC</td>
+<td valign="top">&nbsp;Visual Studio 2010</td>
+<td valign="top">&nbsp;XNA 4.0</td>
+<td valign="top">&nbsp;Game library</td>
+<td valign="top">&nbsp;<a href="https://steveproxna07xna.codeplex.com/SourceControl/latest">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP7</td>
+<td valign="top">&nbsp;Windows PC</td>
+<td valign="top">&nbsp;Visual Studio 2010</td>
+<td valign="top">&nbsp;XNA 4.0</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://steveproxna08wp7.codeplex.com/SourceControl/latest">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Win</td>
+<td valign="top">&nbsp;Windows PC</td>
+<td valign="top">&nbsp;Visual Studio 2012</td>
+<td valign="top">&nbsp;MonoGame 3.4</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://steveproxna09win.codeplex.com/SourceControl/latest">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;And</td>
+<td valign="top">&nbsp;Mac OS/X</td>
+<td valign="top">&nbsp;Xamarin Studio</td>
+<td valign="top">&nbsp;MonoGame 3.5</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://steveproxna10and.codeplex.com/SourceControl/latest">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;iOS</td>
+<td valign="top">&nbsp;Mac OS/X</td>
+<td valign="top">&nbsp;Xamarin Studio</td>
+<td valign="top">&nbsp;MonoGame 3.5</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://steveproxna11ios.codeplex.com/SourceControl/latest">Download</a></td>
+</tr>
+</table>
+<br />
+<u>Sample</u><br />
+The following code sample builds the snake simulation initially as an XNA solution.  After the code sample has be fully tested in isolation, additional clients are added to share "Common" code using SVN Externals.
+<br /><br />
+<i>XNA Game library</i> [PC]<br />
+Launch Visual Studio 2010.  Create blank solution.  Add the following 4x new C#/.NET projects to solution:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Project</b></td>
+<td valign="top">&nbsp;<b>Type</b></td>
+<td valign="top">&nbsp;<b>Dependencies</b></td>
+<td valign="top">&nbsp;<b>Description</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;XNA</td>
+<td valign="top">&nbsp;XNA 4.0 Game</td>
+<td valign="top">&nbsp;XNA.Common</td>
+<td valign="top">&nbsp;Entry point and game specific code</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;XNA.Common</td>
+<td valign="top">&nbsp;XNA 4.0 Game Library</td>
+<td valign="top">&nbsp;log4net | Ninject</td>
+<td valign="top">&nbsp;Generic game library for all clients</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;XNA.SystemTests</td>
+<td valign="top">&nbsp;Windows Class Library</td>
+<td valign="top">&nbsp;NUnit [only]</td>
+<td valign="top">&nbsp;Used for game library system tests </td>
+</tr>
+<tr>
+<td valign="top">&nbsp;XNA.UnitTests</td>
+<td valign="top">&nbsp;Windows Class Library</td>
+<td valign="top">&nbsp;NUnit | Rhino Mocks</td>
+<td valign="top">&nbsp;Used for game library unit tests</td>
+</tr>
+</table>
+Important: create a directory symbolic link using <i><a href="https://technet.microsoft.com/en-us/library/cc753194(v=ws.11).aspx">mklink</a></i> to Content folder in order to run system tests.
+<pre class="csharp" name="code">
+// mklink /D C:\SnakeDemo.XNA.Content C:\SnakeDemo.XNA\bin\x86\Debug\
+protected const String CONTENT_ROOT = @"C:\SnakeDemo.XNA.Content\";
+</pre>
+<br />
+<b>Notes</b><br />
+Common project properties include: Treat warnings as errors "All" + Release version Debug Info "none".
+<br />
+Manually edit system and unit test projects in Notepad and add following XML to mitigate MSIL <a href="http://stackoverflow.com/questions/10113532/how-do-i-fix-the-visual-studio-compile-error-mismatch-between-processor-archit">warning</a>:
+<pre class="csharp" name="code">
+&lt;PropertyGroup&gt;
+  &lt;ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch&gt;None&lt;/ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch&gt;
+&lt;/PropertyGroup&gt;
+</pre>
+<br />
+<i>WP7 Game client</i> [PC]<br />
+Launch Visual Studio 2010. Create Windows Phone Game 4.0 project.  Include all relevant game content.
+<br />
+Use <a href="https://justinram.wordpress.com/2009/06/04/howto-add-svnexternals-in-windows-using-tortoisesvn">SVN Externals</a> to link common XNA library game code (above) through "Common" directory in client:
+<br /><br />
+In Windows Explorer, navigate to $DEMO\WP7\trunk\$FOLDER where $FOLDER is the parent folder that hosts Windows Phone Game 4.0 project.  This is where SVN Externals will link common XNA library code.
+<br /><br />
+Right click $FOLDER | Tortoise SVN | Properties | New... | Externals.  In popup window click New button:
+<a href="https://2.bp.blogspot.com/-FwQIG4piK3s/V1CPc3W86CI/AAAAAAAADyc/bas9cwpo8ssZC8SMLsGSFTeVVdqe5wzOQCLcB/s1600/SVNex01.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-FwQIG4piK3s/V1CPc3W86CI/AAAAAAAADyc/bas9cwpo8ssZC8SMLsGSFTeVVdqe5wzOQCLcB/s640/SVNex01.jpg" width="98%" /></a>
+<table width="98%" border="1">
+<tr>
+<td valign="top">&nbsp;Local path:</td>
+<td valign="top">&nbsp;Common</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;URL:</td>
+<td valign="top">&nbsp;$DEMO/XNA/trunk/XNA.Common</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;HEAD revision</td>
+<td valign="top">&nbsp;Checked</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Peg:</td>
+<td valign="top">&nbsp;<i>empty</i></td>
+</tr>
+</table>
+Note: an optional SVN revision number can be entered in "Peg:" textbox to pin to static code check-in.
+<br /><br />
+Right click $DEMO\WP7\trunk | Tortoise SVN | Check for modifications.  Commit change made from SVN Externals.  SVN Update to download "Common" directory from $DEMO\XNA\trunk\XNA.Common in WP7.
+<pre class="csharp" name="code">
+cd $DEMO\WP7\trunk
+svn propget -R svn:externals
+svn commit -m "Add SVN Externals"
+svn update
+</pre>
+Finally, in Visual Studio 2010 click "Show All Files" button.  Right click "Common" directory | Include In Project.  Build project.  Right click $DEMO\WP7\trunk | Check for modifications.  Commit changes made.  Done!
+<br /><br />
+<i>iOS Game client</i> [Mac]<br />
+Launch Xamarin Studio. Create MonoGame iPhone/iPad Application.  Include all the relevant game content.
+<br />
+Use <a href="http://beerpla.net/2009/06/20/how-to-properly-set-svn-svnexternals-property-in-svn-command-line">SVN Externals</a> to link common XNA library game code (above) through "Common" directory in client:
+<br /><br />
+Launch terminal prompt, navigate to $DEMO/iOS/trunk/$FOLDER where $FOLDER is the parent folder that hosts MonoGame iPhone/iPad Application.  This is where <a href="https://help.cloudforge.com/entries/22483742-Setting-up-svn-externals">SVN Externals</a> will link common XNA library code.
+<br /><br />
+Type in the following SVN commands:
+<pre class="csharp" name="code">
+cd $DEMO/iOS/trunk/$FOLDER
+svn propget svn:externals
+
+svn propset svn:externals 'Common $DEMO/XNA/trunk/XNA.Common' .
+svn propget svn:externals
+
+svn status
+cd $DEMO/iOS/trunk
+svn commit -m "Add SVN Externals"
+svn update
+</pre>
+Finally, in Xamarin Studio right click solution | Display Options | Show All Files.  Right click "Common" directory | Include To Project.  Build project.  In svnX, Check for modifications.  Commit changes made.  Done!
+<br /><br />
+Repeat this process for the remaining projects: Windows Game client [PC] + Android Game client [Mac]
+<br /><br />
+<u><a href="http://stackoverflow.com/questions/19640836/jenkins-wont-download-svnexternals-directory">Jenkins</a></u><br />
+Don't forget to <b>uncheck</b> "Ignore externals" under Subversion modules on all the automated client builds!
+<a href="https://2.bp.blogspot.com/-7LdWSV13ryQ/V1CPzL1BMZI/AAAAAAAADyk/oIipAEzA4TElnMMzpjsK1Bs4JwDQo34IQCLcB/s1600/Jenkins.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-7LdWSV13ryQ/V1CPzL1BMZI/AAAAAAAADyk/oIipAEzA4TElnMMzpjsK1Bs4JwDQo34IQCLcB/s640/Jenkins.jpg" width="98%" /></a>
+<br /><br />
+<u>Summary</u><br />
+To summarize, <a href="http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html">SVN Externals</a> has proved effective to scale common game code linked to multiple clients.  However, all code here is in <i>trunk</i>; larger scale development requires release <i>tags</i> and feature <i>branches</i>.
+<br /><br />
+This will be topic in the next <a href="#">post</a>.
+</span>

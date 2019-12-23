@@ -1,0 +1,457 @@
+<span style="font-family:verdana;font-size:85%;">
+<a href="https://en.wikipedia.org/wiki/Apache_Subversion">Subversion</a> (SVN) client–server model makes it easy to checkout source code from server-side centralized repository [repo], make local changes to working copy on client, and commit changes back to the server.
+<br /><br />
+Whereas <a href="https://en.wikipedia.org/wiki/Git_(software)">Git</a>: a distributed version control system, unlike most <a href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model">client-server</a> systems, every Git directory is full-fledged repository [repo] complete with history + independent of network access or central server.
+<br /><br />
+<a href="http://boxysystems.com/index.php/5-fundamental-differences-between-git-svn">Differences</a> like these may be challenging at first.  Therefore, let's smooth the transition from <a href="https://en.wikipedia.org/wiki/Apache_Subversion">SVN</a> to <a href="https://en.wikipedia.org/wiki/Git_(software)">Git</a>:
+<a href="https://1.bp.blogspot.com/-38A0fnDnt1E/V7MTZvDvD0I/AAAAAAAADzM/sTcRQmvrHa4nyGQr62BM0wJQ14ICq2_JwCLcB/s1600/GitHubLogos.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-38A0fnDnt1E/V7MTZvDvD0I/AAAAAAAADzM/sTcRQmvrHa4nyGQr62BM0wJQ14ICq2_JwCLcB/s400/GitHubLogos.jpg" height="120" width="98%" /></a>
+<br /><br />
+Let's check it out! 
+<br /><br />
+<u>Pre Requisites</u><br />
+Here are the Atlassian Git <a href="https://www.atlassian.com/git/tutorials">tutorials</a> this post makes reference to.  Attached is basic diagram for Newbies:
+<a href="https://2.bp.blogspot.com/-7qeg-XITRJg/V7NFtrOiDLI/AAAAAAAADz8/IwGWLxAxHCgdE9rb5d4w8TS_XmakCYYaACLcB/s1600/git-local-remote.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-7qeg-XITRJg/V7NFtrOiDLI/AAAAAAAADz8/IwGWLxAxHCgdE9rb5d4w8TS_XmakCYYaACLcB/s640/git-local-remote.png" width="98%" height="300" /></a>
+Note: in the simplest <a href="http://stackoverflow.com/questions/292357/what-are-the-differences-between-git-pull-and-git-fetch">terms</a>, <b>git pull</b> [not pictured] does a <i>git fetch</i> followed by a <i>git merge</i>.
+<br /><br />
+Download Git distributed version control system for <a href="https://git-scm.com/download/win">Windows</a> or <a href="https://git-scm.com/download/mac">Mac</a>.  Setup Git global configuration here:
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Windows</b></td>
+<td valign="top">&nbsp;C:\Users\&lt;<i>username</i>&gt;\.gitconfig</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>Mac OS/X</b></td>
+<td valign="top">&nbsp;/Users/&lt;<i>username</i>&gt;/.gitconfig</td>
+</tr>
+</table>
+<br />
+Here are basic commands to get and set Git <a href="http://stackoverflow.com/questions/2114111/where-does-git-config-global-get-written-to">global</a> user name and user email throughout all repositories:
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>User name</b></td>
+<td valign="top">
+&nbsp;git config --global --get user.name
+<br />
+&nbsp;git config --global user.name "SteveProXNA"
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>User email</b></td>
+<td valign="top">
+&nbsp;git config --global --get user.email
+<br />
+&nbsp;git config --global user.email "steven_boland@hotmail.com"
+</td>
+</tr>
+</table>
+<br />
+<u>Git Clients</u><br />
+There are free Git <a href="https://git-scm.com/downloads/guis">clients</a> available for Windows and Mac such as <a href="https://desktop.github.com">GitHub Desktop</a> and <a href="https://www.sourcetreeapp.com">SourceTree</a> however these show complex branched code which can be overwhelming for Newbies.  Let's focus on simpler tools:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;</td>
+<td valign="top">&nbsp;<b>SVN</b></td>
+<td valign="top">&nbsp;<b>GIT</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>Windows</b></td>
+<td valign="top">&nbsp;<a href="http://tortoisesvn.net/downloads.html">TortoiseSVN</a></td>
+<td valign="top">&nbsp;<a href="https://tortoisegit.org/download">TortoiseGit</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>Mac OS/X</b></td>
+<td valign="top">&nbsp;<a href="https://code.google.com/p/svnx/downloads/list">svnx</a></td>
+<td valign="top">&nbsp;<a href="http://www.gitboxapp.com">Gitbox</a></td>
+</tr>
+</table>
+Note: Gitbox non-commercial version only allows one repository at a time but often that can be sufficient.
+<br /><br />
+IMPORTANT:<br />
+If you have <a href="http://www.cygwin.org">Cygwin</a> installed on Windows then ensure TortoiseGit settings do <b>NOT</b> use Unix Git.exe Path:
+<a href="https://1.bp.blogspot.com/-Mhd6s2l8o34/V7MeFohVrHI/AAAAAAAADzg/1ZcLerHIHfU1EsMuvTVoWgk61w0gVywYACLcB/s1600/Cygwin.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-Mhd6s2l8o34/V7MeFohVrHI/AAAAAAAADzg/1ZcLerHIHfU1EsMuvTVoWgk61w0gVywYACLcB/s640/Cygwin.jpg" width="98%" height="300" /></a>
+<br /><br />
+<u>GitHub</u><br />
+Create an account on <a href="https://github.com">github.com</a> if you have not already done so.  <a href="https://guides.github.com/activities/hello-world">Read the guide</a> is another good start.  Choose <a href="https://github.com/new">Start a Project</a> | Enter the name of your new repo e.g. "MyCoolRepo" and initialize with README:
+<a href="https://4.bp.blogspot.com/-E2LE1Cs9i5o/V7N6-vFzXRI/AAAAAAAAD0c/vRrzO0jXIOs-_3gwxfVRwuaPtie2h0IJACLcB/s1600/CreateRepo.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-E2LE1Cs9i5o/V7N6-vFzXRI/AAAAAAAAD0c/vRrzO0jXIOs-_3gwxfVRwuaPtie2h0IJACLcB/s640/CreateRepo.jpg" width="98%" height="400" /></a>
+Launch command prompt.  Type 3x variants of following <i>git clone</i> command to checkout local repository:
+<pre class="csharp" name="code">
+git clone https://github.com/SteveProXNA/MyCoolRepo.git MyCoolRepo
+git clone https://&lt;<i>username</i>&gt;@github.com/SteveProXNA/MyCoolRepo.git MyCoolRepo
+git clone https://&lt;<i>username</i>&gt;:&lt;<i>password</i>&gt;@github.com/SteveProXNA/MyCoolRepo.git MyCoolRepo
+</pre>
+As a convenience, cloning automatically creates a remote connection called <b>origin</b> pointing back to the original repository. This makes it easier to interact with the repository.  Also, default branch is <b>master</b>.
+<pre class="csharp" name="code">
+repo   local    master
+repo   remote   origin/master
+</pre>
+When you push to origin/master [remote] you will be prompted with whatever credentials are required.  Note: here all <i>git clone</i> repos are done via <b>https</b> protocol.  Checkout here for <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account">SSH</a> <i>git clone</i> repo setup.
+<br /><br />
+<a href="http://stackoverflow.com/questions/6116548/how-to-tell-git-to-use-the-correct-identity-name-and-email-for-a-given-project">Configure</a> current user name and email for repo activity, especially if you have multiple Github accounts:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>User name</b></td>
+<td valign="top">&nbsp;git config --get user.name</td>
+<td valign="top">&nbsp;git config user.name "SteveProXNA"</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>User email</b></td>
+<td valign="top">&nbsp;git config --get user.email</td>
+<td valign="top">&nbsp;git config user.email "steven_boland@hotmail.com"</td>
+</tr>
+</table>
+<br />
+Note: local Git repo information can be found in hidden <b>.git</b> folder at root level where repository is cloned:
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Windows</b></td>
+<td valign="top">&nbsp;C:\Users\&lt;<i>username</i>&gt;\GitHub\SteveProXNA\MyCoolRepo\<b>.git</b>\config</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>Mac OS/X</b></td>
+<td valign="top">&nbsp;/Users/&lt;<i>username</i>&gt;/GitHub/SteveProXNA/MyCoolRepo/<b>.git</b>/config</td>
+</tr>
+</table>
+<br />
+IMPORTANT:<br />
+If you push code changes using <a href="https://tortoisegit.org/download">TortoiseGit</a> then you may need to change Global User Info name + email; especially if you <i>git clone</i> repository using credentials that are different from the global GitHub account.
+<br /><br />
+Windows Explorer | Right click MyCoolRepo directory | TortoiseGit | Settings | Git [OK] Configure source:
+<a href="https://2.bp.blogspot.com/-5cgUyGGQxBE/V76taF2hVII/AAAAAAAAD1g/5wjslWrXJo0Y5dDx1pPzsvR6hXXKZqn3gCLcB/s1600/Settings.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-5cgUyGGQxBE/V76taF2hVII/AAAAAAAAD1g/5wjslWrXJo0Y5dDx1pPzsvR6hXXKZqn3gCLcB/s640/Settings.jpg" width="98%" height="400" /></a>
+<br /><br />
+Before making any changes to the repo, prepare working environment to detect changes via Git tools:
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Windows</b></td>
+<td valign="top">&nbsp;Explorer | Right click MyCoolRepo directory | <a href="https://tortoisegit.org/download">TortoiseGit</a> | Check for modifications</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>Mac OS/X</b></td>
+<td valign="top">&nbsp;Finder | Navigate to MyCoolRepo directory | Drag MyCoolRepo into <a href="http://www.gitboxapp.com">Gitbox</a> application</td>
+</tr>
+</table>
+<br />
+<u>Command Prompt</u><br />
+Developers will add changes from the working directory to staging area and commit changes to local repo.  When they push from local repo [master] to remote repo [origin/master] changes are available on server.
+<br /><br />
+<a href="https://tortoisegit.org/download">TortoiseGit</a> + <a href="http://www.gitboxapp.com">Gitbox</a> can co-ordinate this activity, however, here are some command prompt equivalents:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;git status</td>
+<td valign="top">&nbsp;List which files are staged, unstaged, and untracked.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;git add <i>file</i></td>
+<td valign="top">&nbsp;Stages file from working directory to staging area.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;git reset <i>file</i></td>
+<td valign="top">&nbsp;Unstages file from staging area to working directory.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;git commit <i>file</i></td>
+<td valign="top">&nbsp;Commits file from staging area to the local repo.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;git push</td>
+<td valign="top">&nbsp;Push files from local repo to remote [origin] repo.  [<b>SVN Commit</b>]</td>
+</tr>
+<tr>
+<tr>
+<td valign="top">&nbsp;git clean -df</td>
+<td valign="top">&nbsp;Remove untracked directories and untracked files from current directory.</td>
+</tr>
+<td valign="top">&nbsp;git reset --hard</td>
+<td valign="top">&nbsp;Reset staging area and working directory to match most recent commit.
+<br />
+&nbsp;Obliterates all uncommitted changes so be careful using this command!
+</td>
+</tr>
+</table>
+IMPORTANT: you cannot seem to commit an empty directory; add dummy README file here as needed.
+<br /><br />
+<u>Commit Comparison</u><br />
+One of the more challenging aspects found during the <a href="https://en.wikipedia.org/wiki/Apache_Subversion">SVN</a> to <a href="https://en.wikipedia.org/wiki/Git_(software)">Git</a> transition is difference between <i>commit</i>.
+<br /><br />
+SVN commits working copy changes from client to server whereas Git commits from staging area to local repo only; <i>git status</i> shows staged + unstaged files thus how do you <a href="http://stackoverflow.com/questions/12181054/tortoisegit-how-can-i-see-a-list-of-commits-that-are-about-to-be-pushed">list</a> all local commits for next push?
+<br /><br />
+<b>Windows</b> right click MyCoolRepo directory | Git Sync... | Click "Out ChangeList" tab | lists local commits.
+<br />
+<b>Mac OS/X</b> in Gitbox each commit listed but not yet pushed is displayed with a dot on the left hand side.
+<br /><br />
+<u>Logging</u><br />
+Whereas <i>git status</i> lets you inspect the working directory and staging area the <i>git log</i> command lets you list the project history, filter and search for specific changes and only operates on the committed history.
+<table width="99%" border="1">
+<tr>
+<td valign="top">
+<pre class="csharp" name="code">
+&nbsp;git status
+&nbsp;git log
+&nbsp;git log --grep="SteveProXNA"
+&nbsp;git log --author="SteveProXNA"
+&nbsp;git log --grep="commit"
+&nbsp;git log --merges
+</pre>
+</td>
+<td valign="top">
+<pre class="csharp" name="code">
+&nbsp;git log -S"today"
+&nbsp;git log --oneline
+&nbsp;git log --graph --decorate --oneline
+&nbsp;git log --oneline master..MyNewBranch
+&nbsp;git log --pretty=format:"%cn committed %h on %cd"
+&nbsp;git log --after="2016-4-1"
+</pre>
+</td>
+</tr>
+</table>
+<br />
+<u>Command Prompt II</u><br />
+After developers (eventually) push changes from local repo to remote, here are some more commands:
+<table width="98%" border="1">
+<tr>
+<td valign="top">&nbsp;git branch</td>
+<td valign="top">&nbsp;Lets you create, list, rename, and delete branches.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;git checkout</td>
+<td valign="top">&nbsp;Lets you navigate between branches created by git branch.</td>
+</tr>
+<td valign="top">&nbsp;git merge</td>
+<td valign="top">&nbsp;Lets you integrate independent lines of development into a single branch.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;git rebase</td>
+<td valign="top">&nbsp;Process of moving branch to new base commit to maintain linear history.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;git fetch</td>
+<td valign="top">&nbsp;Imports remote changes but does not integrate changes into local repo.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;git pull</td>
+<td valign="top">&nbsp;Equivalent to a git fetch followed by a git merge.  [<b>SVN Update</b>]</td>
+</tr>
+</table>
+<br />
+<u>Branching</u><br />
+Unlike SVN, Git <a href="http://stackoverflow.com/questions/16408300/what-is-the-differences-between-local-branch-local-tracking-branch-remote-bran">differentiates</a> between local and remote branches:  local branches exist only on the local machine for local user whereas remote branches are branches pushed to origin and are accessible to all.
+<pre class="csharp" name="code">
+git branch                              ; list local  branches
+git branch -r                           ; list remote branches
+git branch -a                           ; list all    branches [local + remote]
+</pre>
+Create branches:
+<pre class="csharp" name="code">
+git branch MyNewBranch                  ; create local  branch
+git push origin MyNewBranch             ; pushes remote branch
+</pre>
+Delete branches:
+<pre class="csharp" name="code">
+git branch -d MyNewBranch               ; delete local branch if merged changes
+git branch -D MyNewBranch               ; delete local branch unconditionally
+git push origin --delete MyNewBranch    ; delete remote branch
+</pre>
+General update commands to synch github remote and local repository:
+<pre class="csharp" name="code">
+git remote update               ; if remote stale then update to synch latest
+git fetch --all --prune         ; if delete on one computer and replicate to other
+</pre>
+<i>Detached HEAD</i><br />
+HEAD points to specified branch.  When you checkout a commit, it switches into "detached HEAD" state from rest of project.  If you were to develop in this state then there would be no branch to get back to. 
+<br /><br />
+<u>Tagging</u><br />
+Similar to SVN, Git tags are symbolic names for a given revision: code snapshot implemented by <i>git tag</i>.
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Windows</b></td>
+<td valign="top">&nbsp;Explorer | Right click MyCoolRepo directory | <a href="https://tortoisegit.org/download">TortoiseGit</a> | Create Tag... | Enter Tag</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>Mac OS/X</b></td>
+<td valign="top">&nbsp;<a href="http://www.gitboxapp.com">Gitbox</a> application | Click dropdown list next to "pull" button | New tag... | Enter Tag</td>
+</tr>
+</table>
+<br />
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;
+Here are some command prompt equivalents:
+<pre class="csharp" name="code">
+&nbsp;git tag  ; show tag on local
+&nbsp;git push origin --tags ; push tag to remote
+</pre>
+</td>
+<td valign="top">&nbsp;
+Also <a href="https://gist.github.com/cadams500/1902385">synchronize</a> Git tags with remote:
+<pre class="csharp" name="code">
+&nbsp;git tag -l | xargs git tag -d
+&nbsp;git fetch
+</pre>
+</td>
+</tr>
+</table>
+Finally, if remote stale then <i>git remote update</i> and replicate to another computer <i>git fetch --prune --tags</i>.
+<br /><br />
+<u>Merging</u><br />
+Merging integrates changes from one source branch into a destination branch and combines histories of both branches.  Merging is <i>non-destructive</i>: neither branch is changed in any way, however, the merged branch may have an extraneous merge commit every time you need to incorporate upstream changes.
+<br /><br />
+<i>Fast-Forward Merge</i><br />
+When there is linear path from current branch tip to target branch, instead of actually merging branches, all Git has to do to integrate the histories is move ["fast forward"] current branch tip up to target branch.
+<pre class="csharp" name="code">
+git checkout -b MyNewBranch master      ; create branch and switch
+                                        ; add and commit to branch
+git checkout master                     ; switch to the trunk node
+git merge MyNewBranch                   ; merge branch up to trunk
+git branch -d MyNewBranch               ; delete local branch
+</pre>
+<i>3-Way Merge</i><br />
+Occurs when it is impossible for Git to perform a fast-forward merge as there is no way to move current branch tip to target branch without backtracking.  Very common when branch takes long time to develop.
+<pre class="csharp" name="code">
+git checkout -b MyNewBranch master      ; create branch and switch
+                                        ; add and commit to branch
+git checkout master                     ; switch to the trunk node
+                                        ; add and commit to master
+git merge MyNewBranch                   ; merge branch up to trunk
+git branch -d MyNewBranch               ; delete local branch
+</pre>
+<br />
+<u>Rebasing</u><br />
+Rebasing is an alternative to merging and moves the entire source branch to the tip of destination branch by incorporating all new commits.  Rebasing re-writes project history by eliminating unnecessary commits. 
+<pre class="csharp" name="code">
+git checkout -b MyNewBranch master      ; create branch and switch
+                                        ; add and commit to branch
+git checkout master                     ; switch to the trunk node
+git rebase MyNewBranch                  ; rebase branch upto trunk
+git branch -d MyNewBranch               ; delete local branch
+</pre>
+<br />
+<u>Merging vs. Rebasing</u><br />
+The benefit of rebasing is a much cleaner project history. Rebasing eliminates all the unnecessary merge commits required by <i>git merge</i> resulting in a perfectly linear project history followed up to the feature tip.
+<br />
+IMPORTANT: the <a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing/the-golden-rule-of-rebasing">Golden Rule</a> of Rebasing stipulates never to use <i>git rebase</i> command on public branches!
+<br /><br />
+<u>Pull Request</u><br />
+GitHub fosters a fast, flexible, collaborative development process where you work with or without others.  Here, you can sign into GitHub and <a href="https://help.github.com/articles/fork-a-repo">fork</a> an existing repository and create <a href="https://help.github.com/articles/using-pull-requests">pull request</a> to merge changes.
+<a href="https://3.bp.blogspot.com/-TL1gLFx2P6o/V7r43t69qBI/AAAAAAAAD1A/nha4K48r2OcrS-W3Bsq3a5-bBE_dtF6pgCLcB/s1600/MonoGame.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-TL1gLFx2P6o/V7r43t69qBI/AAAAAAAAD1A/nha4K48r2OcrS-W3Bsq3a5-bBE_dtF6pgCLcB/s640/MonoGame.jpg" width="98%" height="42" /></a>
+<br />
+Choose repository to actively collaborate e.g. <a href="https://github.com/MonoGame/MonoGame">MonoGame</a>.  Click "Fork" button top right.  Choose location.  There should now be repository forked under your <i>username</i> ready to <i>git clone</i> and commit changes to:
+<pre class="csharp" name="code">
+git clone https://&lt;<i>username</i>&gt;:&lt;<i>password</i>&gt;@github.com/SteveProXNA/MonoGame.git MonoGame
+git config user.name "SteveProXNA"
+git config user.email "steven_boland@hotmail.com"
+</pre>
+Commit changes to local repo and push from  local repo [master] to remote repo [origin/master] as usual.  However, create pull request to integrate changes from your forked remote repository to the source repo.
+<br /><br />
+Click "New pull request".  This prompts "Comparing changes" dialog for the source repository + your fork.
+<pre class="csharp" name="code">
+https://github.com/MonoGame/MonoGame/compare/master...SteveProXNA:master
+</pre>
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;</td>
+<td valign="top">&nbsp;<b>User</b></td>
+<td valign="top">&nbsp;<b>Repo</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Source</td>
+<td valign="top">&nbsp;MonoGame</td>
+<td valign="top">&nbsp;https://github.com/MonoGame/MonoGame</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Fork</td>
+<td valign="top">&nbsp;SteveProXNA</td>
+<td valign="top">&nbsp;https://github.com/SteveProXNA/MonoGame</td>
+</tr>
+</table>
+<br />
+Click "Create Pull Request".  Owner receives email notification to view proposed changes to integrate.  Click "Merge pull request" to merge changes back into source repository and automatically close Pull Request.
+<a href="https://3.bp.blogspot.com/-RbsXMkHWBJI/V7sKBDVvMdI/AAAAAAAAD1Q/70Va223vhVQaJQIFmT6ayZqAe23LpzuwwCLcB/s1600/MergeRequest.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-RbsXMkHWBJI/V7sKBDVvMdI/AAAAAAAAD1Q/70Va223vhVQaJQIFmT6ayZqAe23LpzuwwCLcB/s640/MergeRequest.png" width="98%" height="125" /></a>
+<br />
+IMPORTANT: if you would like to keep <a href="https://gist.github.com/CristinaSolana/1885435">up to date</a> with the source repository then follow these short steps:
+<pre class="csharp" name="code">
+git clone git@github.com:SteveProXNA/MonoGame.git
+cd C:\Users\&lt;<i>username</i>&gt;\GitHub\SteveProXNA\MonoGame
+git remote add upstream git://github.com/MonoGame/MonoGame.git
+git fetch upstream
+git pull upstream master
+</pre>
+<br />
+<u>Imperatives</u><br />
+Here is a short list of git commands that is imperative that you should not do; especially to public history:
+<br /><br />
+<i>Don’t Reset Public History</i><br />
+You should never <a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-reset">reset</a> commits pushed to a public repository.  Reset a commit poses serious problems for collaboration: when developers sync up with your repo, it'll look like project history abruptly disappeared.
+<br /><br />
+<i>Don’t Rebase Public History</i><br />
+Similar to git reset, you should never <a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase">rebase</a> commits that have been pushed to a public repository.  The rebase would replace old commits with new ones and look like part of project history abruptly vanished.
+<br /><br />
+<u>Jenkins</u><br />
+Integrate all GitHub Plugins with <a href="https://en.wikipedia.org/wiki/Jenkins_(software)">Jenkins</a>.  Assume MSBuild setup in Manage Jenkins | Configure System:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Name</b></td>
+<td valign="top">&nbsp;JenkinsMSbuild</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>Path to MSBuild</b></td>
+<td valign="top">&nbsp;C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe</td>
+</tr>
+</table>
+Next, install plugins: Manage Jenkins | Manage Plugins | <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin">GitHub Plugin</a>.  You may need to install <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">Git plugin</a>.
+<br /><br />
+Navigate to Jenkins | New Item | Create Freestyle project.  Ensure the following build configurations set:
+<table width="100%" border="1">
+<tr>
+<td valign="top" colspan="2">&nbsp;<b>Source Code Management</b> => Git Repositories</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Repository URL</td>
+<td valign="top">&nbsp;https://github.com/SteveProXNA/MyCoolRepo</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Credentials</td>
+<td valign="top">&nbsp;&lt;<i>username</i>&gt;:&lt;<i>password</i>&gt;</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Branches to build</td>
+<td valign="top">&nbsp;Branch Specifier (blank for 'any') <b>*/master</b></td>
+</tr>
+</table>
+<br />
+<a href="https://4.bp.blogspot.com/-RebSXW9R-7U/V7rUvPhb5sI/AAAAAAAAD0s/qqFp8Qj_h1IvFPRtn8fK0x20oglwQYU4ACLcB/s1600/Jenkins.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-RebSXW9R-7U/V7rUvPhb5sI/AAAAAAAAD0s/qqFp8Qj_h1IvFPRtn8fK0x20oglwQYU4ACLcB/s640/Jenkins.jpg" width="99%" height="300" /></a>
+<br /><br />
+<table width="100%" border="1">
+<tr>
+<td valign="top" colspan="2">&nbsp;<b>Build a Visual Studio project or solution using MSBuild</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;MSBuild Version</td>
+<td valign="top">&nbsp;JenkinsMSbuild</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;MSBuild Build File</td>
+<td valign="top">&nbsp;MyCoolRepo.sln</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Command Line Arguments</td>
+<td valign="top">
+&nbsp;/p:Configuration=Debug
+<br />
+&nbsp;/p:Configuration=Release
+</td>
+</tr>
+</table>
+<br />
+<table width="100%" border="1">
+<tr>
+<td valign="top" colspan="2">&nbsp;<b>Execute Windows batch command</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Command</td>
+<td valign="top">&nbsp;"C:\Program Files (x86)\NUnit 2.5.7\bin\net-2.0\nunit-console-x86.exe" &nbsp;MyCoolRepo.UnitTests/UnitTests.nunit</td>
+</tr>
+</table>
+<br />
+<u>Summary</u><br />
+Additional topics that could explored include <i><a href="https://git-scm.com/book/en/v1/Git-Tools-Stashing">git stash</a></i> to push unfinished changes onto a stack that can be popped off later and <i><a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodule</a></i> to keep another Git repo in subdirectory very similar to <a href="http://steveproxna.blogspot.co.uk/2016/06/svn-externals-application.html">SVN Externals</a>.
+</span>

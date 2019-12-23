@@ -1,0 +1,76 @@
+<span style="font-family:verdana;font-size:85%;">
+Last year, I conducted a simple <a href="http://steveproxna.blogspot.com/2015/01/retrospective-vi.html">retrospective</a> for 2014. Therefore, here is a retrospective for 2015.
+<br /><br />
+<u>2015 Achievements</u>
+<br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>Consolidate numerous "<a href="http://steveproxna.blogspot.com">XNA</a>" ideas from this blog into single <a href="http://steveproxna.blogspot.com/2015/05/candy-kid-video-game.html">game</a> project</li>
+<li>Write C# / XNA game code linked to multiple <a href="http://steveproxna.blogspot.com/search/label/MonoGame">MonoGame</a> / Xamarin clients </li>
+<li>Use 2D <a href="http://www.david-amador.com/2010/03/xna-2d-independent-resolution-rendering">Independent</a> Rendering to target a multitude of screen resolutions</li>
+<li>Employ better Indie dev. source control systems + continuous integration</li>
+<li>Commit to Retro Games: more active on social media <a href="http://www.facebook.com/CandyKidVideoGame">Facebook</a> + <a href="https://twitter.com/SteveproXNA">Twitter</a></li>
+<li>Salvage ITIN acquired from "<a href="http://steveproxna.blogspot.com/2010/04/xna-and-tax.html">XNA and TAX</a>" required for mobile publishing</li>
+<li>Write <a href="https://xnainstaller.codeplex.com">WiX / XNA</a> Installer seamlessly download + install PC game version </li>
+<li>Self-publish Retro <a href="http://steveproxna.blogspot.com/2015/11/candy-kid-is-live.html">Candy Kid</a> mobile platforms: <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a>, <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a>, <a href="http://www.amazon.com/StevePro-Studios-Retro-Candy-Kid/dp/B017UXD4SE/qid=1447350289">Kindle</a> + <a href="http://www.amazon.com/StevePro-Studios-Retro-Candy-Download/dp/B018WIUDZ8/qid=1449745287">PC</a></li>
+</ul>
+Note: complete game project in C# / XNA published on non-<a href="https://en.wikipedia.org/wiki/Xbox_Live_Indie_Games">XBLIG</a> platforms is an achievement!
+</td>
+</tr>
+</table>
+<br />
+<u>2016 Objectives</u>
+<br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>Expand XNA / MonoGame topics to include <a href="http://xbox.create.msdn.com/en-US/education/catalog/sample/localization">localization</a>, custom <a href="http://kgiannakakis.github.io/MonoGameEffects">shaders</a></li>
+<li>Apply similar XNA / MonoGame techniques to transition XNA / Unity3D</li>
+<li>Research additional <a href="http://www.pixelprospector.com/the-big-list-of-indie-game-sites">Indie</a> portals to publish including Steam Greenlight</li>
+<li>Publish more source code.  Checkout sources other than <a href="https://www.codeplex.com/site/users/view/SteveProXNA">CodePlex</a> (Git)</li>
+</ul>
+</td>
+</tr>
+</table>
+<br />
+In 2015, StevePro Studios consolidated many ideas from this Indie game development blog to produce game project to be self-published on PC (outside <a href="https://en.wikipedia.org/wiki/Xbox_Live_Indie_Games">XBLIG</a>) but also on mobile platforms: <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a>.
+<br /><br />
+The game project "<a href="http://steveproxna.blogspot.com/2015/11/candy-kid-is-live.html">Retro Candy Kid</a>" was inspired by the original 8-bit title <i><a href="http://www.segaretro.org/Candy_Kid">Candy Kid</a></i>: a "type-in" video game published by New Zealand's Sega Computer <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue02?gallerypage=17">Magazine</a> in the September 1984 issue, pages 17-18.
+<br /><br />
+"Retro Candy Kid" was re-written in C#/XNA 4.0 and employed many techniques discussed in this blog:
+<table width="97%" border="1">
+<tr>
+<td valign="top">&nbsp;<b><a href="http://steveproxna.blogspot.com/2011/02/xna-and-agile-software-development.html">Agile Software Development</a></b></td>
+<td valign="top">&nbsp;<b><a href="http://steveproxna.blogspot.com/2012/07/xna-and-data-driven-design.html">Data Driven Design</a></b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<a href="http://steveproxna.blogspot.com/2011/02/xna-and-dependency-injection.html">Dependency Injection</a></td>
+<td valign="top">&nbsp;<a href="http://steveproxna.blogspot.com/2012/08/xna-and-system-testing.html">System Testing</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<a href="http://steveproxna.blogspot.com/2011/03/xna-and-ioc-container.html">IoC Container</a> (Ninject)</td>
+<td valign="top">&nbsp;<a href="http://steveproxna.blogspot.com/2012/08/xna-and-level-validation.html">Level Validation</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<a href="http://steveproxna.blogspot.com/2011/03/xna-and-unit-testing.html">Unit Testing</a></td>
+<td valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<a href="http://steveproxna.blogspot.com/2011/04/xna-and-test-driven-development.html">Test Driven Development</a></td>
+<td valign="top">&nbsp;</td>
+</tr>
+</table>
+<br />
+However, now that XNA is "<a href="http://steveproxna.blogspot.com/2013/02/xna-is-dead.html">dead</a>", this was also an opportunity to transition away from XNA 4.0 to other options e.g. MonoGame and use Xamarin for <a href="http://steveproxna.blogspot.com/2015/09/candy-kid-ios-port.html">iOS</a> / <a href="http://steveproxna.blogspot.com/2015/08/candy-kid-android-port.html">Android</a> port.  TODO: future project may use Unity3D.
+<br /><br />
+<u>Quality vs. Velocity</u><br />
+Finally, by leveraging techniques (above), 95% of all game code was written in an external library that was <a href="http://steveproxna.blogspot.com/2011/03/xna-and-unit-testing.html">unit tested</a> in isolation plus integration done via <a href="http://steveproxna.blogspot.com/2012/08/xna-and-system-testing.html">system testing</a> with minimal client UI intervention.
+<br /><br />
+This development style facilitates high level of code <a href="http://steveproxna.blogspot.com/2012/09/quality-vs-velocity.html">quality</a> written extremely fast to get the best of both worlds:  Game finished in short timeframe with low (zero) bug count: critical for Indie game development!
+<br /><br />
+<u>Summary</u><br />
+To summarize, "Retro Candy Kid" proved successful game project because of all points outlined above.
+<br />
+As such, this type of game project is perfect candidate for 8-bit console port e.g. <a href="https://en.wikipedia.org/wiki/Master_System">Sega Master System</a>!
+</span>
