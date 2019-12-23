@@ -1,0 +1,88 @@
+<span style="font-family:verdana;font-size:85%;">
+Last year, I conducted a simple <a href="http://steveproxna.blogspot.com/2017/01/retrospective-viii.html">retrospective</a> for 2016. Therefore, here is a retrospective for 2017.
+<br /><br />
+<u>2017 Achievements</u><br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>Setup studio for <a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Windows</a> PC, <a href="https://en.wikipedia.org/wiki/MacOS">Mac OS/X</a> and <a href="https://en.wikipedia.org/wiki/Linux">Linux</a> cross platform development</li>
+<li>Employ large scale C++ program architecture using <a href="http://steveproxna.blogspot.ie/2017/02/large-scale-cpp-projects.html">levelization</a> and <a href="http://steveproxna.blogspot.ie/2017/03/large-scale-cpp-projects-ii.html">insulation</a></li>
+<li>Graduate <a href="https://epiportal.com/Ebooks/Addison.Wesley.Effective.CPP.3rd.Edition.May.2005.pdf">Effective</a> C++ to <a href="https://edisciplinas.usp.br/pluginfile.php/1995323/mod_resource/content/1/Effective%20Modern%20C%2B%2B%202014.pdf">Modern</a> Effective C++ theory + practical examples</li>
+<li>Align <a href="https://en.wikipedia.org/wiki/OpenGL">OpenGL</a> graphics learning [desktop] with <a href="https://en.wikipedia.org/wiki/OpenGL_ES">OpenGL ES</a> [mobile platforms]</li>
+<li>Source control branches out <a href="https://en.wikipedia.org/wiki/SVN">SVN</a>, <a href="https://en.wikipedia.org/wiki/Git">Git</a> + <a href="https://en.wikipedia.org/wiki/Mercurial">Mercurial</a> with HgFlow on Source Tree</li>
+<li>Extend retro game development on Sega Master System using the <a href="http://steveproxna.blogspot.ie/search/label/devkitSMS">devkitSMS</a></li>
+<li>Complete Sega Master System <a href="http://www.smspower.org/Homebrew/CandyKidDemo-SMS">demo</a> on real hardware <a href="http://steveproxna.blogspot.ie/2017/07/sega-master-everdrive.html">using</a> Master Everdrive</li>
+<li>Support <a href="https://spartanconsole.com">Spartan</a> Console proposed next gen Sega console to showcase <a href="http://steveproxna.blogspot.ie/2016/03/3dcity-code-complete.html">game</a>!</li>
+</ul>
+Note: running Sega Master System <a href="http://www.smspower.org/Homebrew/CandyKidDemo-SMS">demo</a> on real hardware without glitches is an achievement!
+</td>
+</tr>
+</table>
+<br />
+<u>2018 Objectives</u><br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>Continue <a href="https://en.wikipedia.org/wiki/C%2B%2B11">C++11</a> language improvements to <a href="https://en.wikipedia.org/wiki/C%2B%2B14">C++14</a> and <a href="https://en.wikipedia.org/wiki/C%2B%2B17">C++17</a> standard additions</li>
+<li>Virtual Reality with Unity3D + Unreal game engine integration: <a href="https://en.wikipedia.org/wiki/Google_Cardboard">GoogleVR</a> <a href="https://xinreality.com/wiki/SteamVR">SteamVR</a></li>
+<li>Augmented Reality Unity3D + Unreal game engine integration: <a href="https://en.wikipedia.org/wiki/ARToolKit">ARToolKit</a> + <a href="https://en.wikipedia.org/wiki/Vuforia_Augmented_Reality_SDK">Vuforia</a></li>
+<li>Investigate new tech: Crypto currency [<a href="https://en.wikipedia.org/wiki/Bitcoin">Bitcoin</a> | Blockchain] and Machine Learning</li>
+</ul>
+</td>
+</tr>
+</table>
+<br />
+<u>Virtual Reality</u>
+<br />
+Building upon 2016, as every Virtual Reality evangelist will tell you was "the <a href="https://www.vrs.org.uk/2016-the-year-of-vr">year</a> of VR", research and development began with Unity3D game engine integration using plugins such as <a href="https://developers.google.com/vr/unity">Google VR</a> [C#/.NET].
+<br /><br />
+However, as VR design and <a href="http://dsky9.com/rift/vr-design-best-practices">best practices</a> demand delivery of minimum 75fps, .NET languages like C# may be less suited for VR since they require a virtual machine to run.  Also, services such as automatic garbage collection can have a negative effect on performance as well.
+<br /><br />
+Conversely, C++ is arguably more suited performance-wise since code written is compiled directly into machine code and doesn't suffer from the overhead imposed by virtual machine and garbage collection.
+<br /><br />
+Therefore, Unreal Engine may be better choice for VR game engine integration 
+because C++ is default language.  Otherwise, if writing from <a href="https://www.quora.com/What-programming-language-is-used-to-create-virtual-reality-experiences-and-programs">scratch</a>, C++ with OpenGL should perform well on any platform.
+<br /><br />
+<u>Augmented Reality</u>
+<br />
+Alternatively, Augmented Reality has <a href="https://www.eurostaffgroup.com/media-hub/is-2017-the-year-for-augmented-reality-84320">grown</a> in popularity this year, especially with releases like Pokémon GO.  <a href="http://deadline.com/2017/11/apple-tim-cook-augmented-reality-fourth-quarter-2017-earnings-1202200710">Apple</a> has incorporated AR into their iOS 11 mobile operating system with expectations that AR will "change the way we use technology forever".
+<br /><br />
+Consequently, AR is currently being used more on mobile devices which will limit the language choice to:
+<table width="98%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Type</b></td>
+<td valign="top">&nbsp;<b>Specific</b></td>
+<td valign="top">&nbsp;<b>Generic</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Android</td>
+<td valign="top">&nbsp;Java</td>
+<td valign="top">&nbsp;C++</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;iOS</td>
+<td valign="top">&nbsp;Objective-C</td>
+<td valign="top">&nbsp;C++</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Mono</td>
+<td valign="top">&nbsp;C#/.NET</td>
+<td valign="top">&nbsp;C++</td>
+</tr>
+</table>
+Subsequently, AR is also performance critical thus languages like C++ with OpenGL may also be better suited for this type of native development or alternatively Unreal Engine for game engine integration.
+<br /><br />
+<u>Modern C++</u>
+<br />
+In the above examples, C++ is the common denominator regularly listed.  Fortunately, the C++ language has improved upon previous iterations with <a href="https://en.wikipedia.org/wiki/C%2B%2B11">C++11</a> and additions to the standard i.e. C++14 and C++17.
+<br /><br />
+At it's base: <a href="http://cpprocks.com/9-reasons-to-start-using-c11">C++11</a> offers greater performance benefits with move semantics, which is a way to optimize copying, and improved productivity e.g. the new <i>auto</i> keyword which helps make code shorter + clearer.
+<br /><br />
+There are also other <a href="https://blog.smartbear.com/development/the-biggest-changes-in-c11-and-why-you-should-care">features</a> added to the C++11 standard, such as enum classes, lambda expressions, automatic type deduction, etc. all of which are coincidentally available as the baseline for Unreal Engine.
+<br /><br />
+<u>Summary</u>
+<br />
+Outside commercial development, much work was done during the year with the Sega Master System!
+<br /><br />
+Writing low level C code to run on real hardware with limited memory + storage requires performance-critical algorithms to be written at all times to achieve consistent maximum frame rate.  Perfecting this skill becomes beneficial especially when transitioning future development to VR / AR environments <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>
+</span>

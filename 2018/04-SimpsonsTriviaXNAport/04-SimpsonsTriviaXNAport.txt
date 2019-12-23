@@ -1,0 +1,514 @@
+<span style="font-family:verdana;font-size:85%;">
+In 2015, <a href="http://steveproxna.blogspot.com/2015/05/candy-kid-video-game.html">Candy Kid</a> was written in <a href="https://en.wikipedia.org/wiki/Microsoft_XNA">XNA</a> as a simple maze chase video game and ported to <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a> and <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a> mobile platforms using <a href="http://www.monogame.net/">MonoGame</a>.  The game code was written in an external library and scaled out using <a href="http://steveproxna.blogspot.com/2016/06/svn-externals-application.html">SVN Externals</a>. 
+<br /><br />
+Earlier in 2018, <a href="http://steveproxna.blogspot.com/2018/05/simpsons-trivia-code-complete.html">Simpsons Trivia</a> was built for the <a href="https://en.wikipedia.org/wiki/Master_System">Sega Master System</a>.  Now, we would like to employ similar techniques to re-write the game in XNA / MonoGame and scale out across multiple game clients accordingly.
+<a href="https://2.bp.blogspot.com/-Tj8LlOE6Aqo/W3puqQZTIHI/AAAAAAAAE1E/7uXetGMo7VskEm3JpPkSzYrkoeUQzJXDQCLcBGAs/s1600/00_SimpsonsTrivia.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-Tj8LlOE6Aqo/W3puqQZTIHI/AAAAAAAAE1E/7uXetGMo7VskEm3JpPkSzYrkoeUQzJXDQCLcBGAs/s640/00_SimpsonsTrivia.png" width="98%" height="505" data-original-width="642" data-original-height="507" /></a>
+Let's check it out!
+<br /><br />
+<u>Outline</u><br />
+Create <a href="https://github.com/SteveProXNA/SimpsonsTrivia">solution</a> in Visual Studio and build the entire game using <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA">XNA</a>.  Write all game code in an external library to be consumed by multiple thin clients for all destination platforms.  Add any experimental clients.
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Alias</b></td>
+<td valign="top">&nbsp;<b>Name</b></td>
+<td valign="top">&nbsp;<b>Development</b></td>
+<td valign="top">&nbsp;<b>Framework</b></td>
+<td valign="top">&nbsp;<b>Description</b></td>
+<td valign="top">&nbsp;<b>Source Code</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;XNA</td>
+<td valign="top">&nbsp;Windows Game</td>
+<td valign="top">&nbsp;Visual Studio 2010</td>
+<td valign="top">&nbsp;XNA 4.0</td>
+<td valign="top">&nbsp;Game server</td>
+<td valign="top">&nbsp;<a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP7</td>
+<td valign="top">&nbsp;Windows Phone 7</td>
+<td valign="top">&nbsp;Visual Studio 2010</td>
+<td valign="top">&nbsp;XNA 4.0</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WP7">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WIN</td>
+<td valign="top">&nbsp;Windows Project</td>
+<td valign="top">&nbsp;Visual Studio 2015</td>
+<td valign="top">&nbsp;MonoGame 3.6</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WIN">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;AND</td>
+<td valign="top">&nbsp;Android Project</td>
+<td valign="top">&nbsp;Visual Studio 2017</td>
+<td valign="top">&nbsp;MonoGame 3.4</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.AND">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;IOS</td>
+<td valign="top">&nbsp;iOS Project</td>
+<td valign="top">&nbsp;Visual Studio 2017</td>
+<td valign="top">&nbsp;MonoGame 3.5</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.IOS">Download</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP8</td>
+<td valign="top">&nbsp;Windows Phone 8</td>
+<td valign="top">&nbsp;Visual Studio 2015</td>
+<td valign="top">&nbsp;MonoGame 3.6</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WP8">Experimental</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;MAC</td>
+<td valign="top">&nbsp;Cross Platform Desktop</td>
+<td valign="top">&nbsp;Visual Studio 2017</td>
+<td valign="top">&nbsp;MonoGame 3.6</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.MAC">Experimental</a></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;UWP</td>
+<td valign="top">&nbsp;Windows Universal Project</td>
+<td valign="top">&nbsp;Visual Studio 2017</td>
+<td valign="top">&nbsp;MonoGame 3.6</td>
+<td valign="top">&nbsp;Game client</td>
+<td valign="top">&nbsp;<a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.UWP">Experimental</a></td>
+</tr>
+</table>
+<br />
+IMPORTANT
+<br />
+Now that Microsoft integrates iOS templates into Visual Studio all clients can be developed on Windows PC.  Mac computer is still required for iOS and Mac deployments, however.
+<br /><br />
+<u>Implementation</u><br />
+Create top level SimpsonsTrivia node in Subversion SVN.  Add 1x sub-node for the XNA solution and multiple sub-nodes, one sub-node for each destination client such as <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WP7">WinPhone7</a> [WP7], <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WIN">Windows</a> PC, <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.AND">Android</a> + <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.IOS">iOS</a>.
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Alias</b></td>
+<td valign="top">&nbsp;<b>Path</b></td>
+<td valign="top">&nbsp;<b>URL</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;XNA</td>
+<td valign="top">&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.XNA</td>
+<td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.XNA&nbsp;</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP7</td>
+<td valign="top">&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WP7</td>
+<td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.WP7</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WIN</td>
+<td valign="top">&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WIN</td>
+<td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.WIN</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;AND</td>
+<td valign="top">&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.AND</td>
+<td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.AND</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;IOS</td>
+<td valign="top">&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.IOS</td>
+<td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.IOS</td>
+</tr>
+</table>
+As Simpsons Trivia is small stand-alone game there will not be standard SVN branches / tags / trunk setup.
+<br /><br />
+<i>XNA Game Server</i><br />
+Launch Visual Studio 2010.  Create blank solution.  Add the following 4x new C#/.NET projects to solution:
+<a href="https://2.bp.blogspot.com/-fAs6PFyGnGc/W3pu8lh_V1I/AAAAAAAAE1M/nFpYEWzRMjw7jtzEcYFHLbGVSKh_MznswCLcBGAs/s1600/01_BlankSolution.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-fAs6PFyGnGc/W3pu8lh_V1I/AAAAAAAAE1M/nFpYEWzRMjw7jtzEcYFHLbGVSKh_MznswCLcBGAs/s640/01_BlankSolution.png" width="98%" height="395" data-original-width="786" data-original-height="485" /></a>
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Project</b></td>
+<td valign="top">&nbsp;<b>Type</b></td>
+<td valign="top">&nbsp;<b>Description</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;SimpsonsTrivia.XNA</td>
+<td valign="top">&nbsp;XNA 4.0 Game</td>
+<td valign="top">&nbsp;Entry point + game built content</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;SimpsonsTrivia.XNA.Library</td>
+<td valign="top">&nbsp;XNA 4.0 Game Library</td>
+<td valign="top">&nbsp;Generic game library for all clients</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;SimpsonsTrivia.XNA.SystemTests</td>
+<td valign="top">&nbsp;Windows Class Library</td>
+<td valign="top">&nbsp;Uses for game library system tests </td>
+</tr>
+<tr>
+<td valign="top">&nbsp;SimpsonsTrivia.XNA.UnitTests</td>
+<td valign="top">&nbsp;Windows Class Library</td>
+<td valign="top">&nbsp;Uses for game library unit tests</td>
+</tr>
+</table>
+<br />
+<u>Checklist</u><br />
+Here is a quick checklist of tasks to complete first including Delete the default C#/.NET file, Update project properties profile to use "Reach" and Rename the default namepsace to WindowsGame.  Add the <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA/packages">packages</a>:
+<br /><br />
+<i>packages</i>
+<table width="99%" border="0">
+<tr>
+<td valign="top" width="50%"><ul>
+  <li>log4net.2.0.5</li>
+  <li>Ninject.3.2.2.0</li>
+</ul></td>
+<td valign="top"><ul>
+  <li>NUnit.3.2.1</li>
+  <li>RhinoMocks.3.6.1</li>
+</ul></td>
+</tr>
+</table>
+<i>SimpsonsTrivia.XNA</i>
+<table width="99%" border="0">
+<tr>
+<td valign="top" width="50%"><ul>
+  <li>Add <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA/SimpsonsTrivia.XNAContent/Data">Data</a> folder for all text file data</li>
+  <li>Add SimpsonsTrivia.XNA.Library ref</li>
+</ul></td>
+<td valign="top"><ul>
+  <li>Remove all unused XNA references</li>
+  <li>Replace all initial game icons</li>
+</ul></td>
+</tr>
+</table>
+<i>SimpsonsTrivia.XNA.Library</i>
+<table width="99%" border="0">
+<tr>
+<td valign="top" width="50%"><ul>
+  <li>Add <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Common">Common</a> folder for all game code logic</li>
+  <li>Add <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Master">Master</a> folder for all game engine code</li>
+  <li>Remove all unused XNA references</li>
+</ul></td>
+<td valign="top"><ul>
+  <li>Add XNA Input Touch reference</li>
+  <li>Add log4net reference</li>
+  <li>Add Ninject reference</li>
+</ul></td>
+</tr>
+</table>
+<i>SimpsonsTrivia.XNA.SystemTests</i>
+<table width="99%" border="0">
+<tr>
+<td valign="top" width="50%"><ul>
+  <li>Remove DataSetExtensions reference</li>
+  <li>Add SimpsonsTrivia.XNA.Library ref</li>
+</ul></td>
+<td valign="top"><ul>
+  <li>Add nunit framework reference</li>
+  <li>Add nunit GUI test runner</li>
+</ul></td>
+</tr>
+</table>
+<i>SimpsonsTrivia.XNA.UnitTests</i>
+<table width="99%" border="0">
+<tr>
+<td valign="top" width="50%"><ul>
+  <li>Remove DataSetExtensions reference</li>
+  <li>Add SimpsonsTrivia.XNA.Library ref</li>
+  <li>Add nunit framework reference</li>
+</ul></td>
+<td valign="top"><ul>
+  <li>Add Rhino Mocks reference</li>
+  <li>Add nunit GUI test runner</li>
+</ul></td>
+</tr>
+</table>
+<br />
+IMPORTANT
+<br />
+Create directory symbolic link using <i><a href="https://technet.microsoft.com/en-us/library/cc753194(v=ws.11).aspx">mklink</a></i> to XNA Content folder to run system tests [and on build server]
+<br /><br />
+Start | run | cmd
+<pre class="csharp" name="code">
+mklink /D C:\SimpsonsTrivia.XNA.Content 
+C:\SVN\SimpsonsTrivia\SimpsonsTrivia.XNA\SimpsonsTrivia.XNA\SimpsonsTrivia.XNA\bin\x86\Debug\
+
+// BaseSsytemTests.cs
+protected const String CONTENT_ROOT = @"C:\SimpsonsTrivia.XNA.Content\";
+</pre>
+<br />
+Manually edit system and unit test projects in Notepad and add following XML to mitigate MSIL <a href="http://stackoverflow.com/questions/10113532/how-do-i-fix-the-visual-studio-compile-error-mismatch-between-processor-archit">warning</a>:
+<pre class="csharp" name="code">
+&lt;PropertyGroup&gt;
+  &lt;ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch&gt;None&lt;/ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch&gt;
+&lt;/PropertyGroup&gt;
+</pre>
+<br />
+<i>ALL Game Clients</i><br />
+Refer to initial table and launch Visual Studio to create multiple thin client projects.  SVN externals used to link XNA library to all destination platforms [below] such as <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WP7">WinPhone7</a> [WP7], <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WIN">Windows</a> PC, <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.AND">Android</a> + <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.IOS">iOS</a>.
+<br /><br />
+<br />
+<b>SVN Externals</b><br />
+Employ SVN Externals to avoid <a href="https://en.wikipedia.org/wiki/Copy_and_paste_programming">copy + paste</a> programming for <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Common">Common</a> and <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Master">Master</a> code and content <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA/SimpsonsTrivia.XNAContent/Data">Data</a>.
+<br />
+At the start of a project, there won't be any SVN Externals setup by default.  Verify from Command prompt:
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Alias</b>&nbsp;</td>
+<td valign="top">&nbsp;<b>Folder</b>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP7</td>
+<td valign="top">&nbsp;cd C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WP7\SimpsonsTrivia.WP7</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WIN</td>
+<td valign="top">&nbsp;cd C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WIN\SimpsonsTrivia.WIN</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;AND</td>
+<td valign="top">&nbsp;cd C:\SVN\SimpsonsTrivia\SimpsonsTrivia.AND\SimpsonsTrivia.AND</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;IOS</td>
+<td valign="top">&nbsp;cd C:\SVN\SimpsonsTrivia\SimpsonsTrivia.IOS\SimpsonsTrivia.IOS</td>
+</tr>
+<tr>
+</table>
+Start | run | cmd.  Type <i>svn propget -R svn:externals</i>
+<br />
+<i>empty</i>
+<br /><br />
+<br />
+<i>SimpsonsTrivia.XNA</i><br />
+Scale game built content including all text file <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA/SimpsonsTrivia.XNAContent/Data">Data</a> as shared across multiple thin clients via SVN Externals:
+<br /><br />
+DATA<br />
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;Path</td>
+<td valign="top">&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.XNA\SimpsonsTrivia.XNA\SimpsonsTrivia.XNAContent\Data</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;URL</td>
+<td valign="top">&nbsp;H://svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA/SimpsonsTrivia.XNAContent/Data</td>
+</tr>
+</table>
+* H:// = http://build/
+<br /><br />
+Launch Windows Explorer | Navigate to following [parent] folder:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Alias</b>&nbsp;</td>
+<td valign="top" colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP7</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WP7\SimpsonsTrivia.WP7
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "SimpsonsTrivia.WP7Content" folder
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WIN</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WIN\SimpsonsTrivia.WIN
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "Content" folder
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;AND</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.AND\SimpsonsTrivia.AND\Assets
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "Content" folder
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;IOS</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.IOS\SimpsonsTrivia.IOS
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "Content" folder
+</td>
+</tr>
+<tr>
+</table>
+<br />
+Tortoise SVN | Properties | New... | Externals
+<br />
+In popup window click New button:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;Local path:</td>
+<td valign="top">&nbsp;Data</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;URL:</td>
+<td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA/SimpsonsTrivia.XNAContent/Data</td>
+</tr>
+</table>
+<a href="https://4.bp.blogspot.com/-tIP0N9xCYEI/W3pvKPFC0oI/AAAAAAAAE1Q/3eqbqvD6jvMLttld6CZAPvfFWuEh2RiywCLcBGAs/s1600/02_SVNExternalsData.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-tIP0N9xCYEI/W3pvKPFC0oI/AAAAAAAAE1Q/3eqbqvD6jvMLttld6CZAPvfFWuEh2RiywCLcBGAs/s640/02_SVNExternalsData.png" width="98%" height="225" data-original-width="729" data-original-height="256" /></a>
+OK | OK | OK
+<br /><br />
+Start | run | cmd.  Type <i>svn propget -R svn:externals</i>
+<br />
+. - http://build/svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA/SimpsonsTrivia.XNAContent/Data
+<br /><br />
+Windows Explorer | Navigate to [parent] folder as before.  Tortoise SVN | Check for modifications | Commit 
+<br />
+Finally, right click C:\SVN\SimpsonsTrivia | SVN Update.  Data folder available to include in ALL clients.
+<br /><br />
+<br />
+<i>SimpsonsTrivia.XNA.Library</i><br />
+Scale all <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Common">Common</a> game code and logic + <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Master">Master</a> engine code across multiple thin clients via SVN Externals:
+<br /><br />
+COMMON<br />
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;Path</td>
+<td valign="top">&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.XNA\SimpsonsTrivia.XNA.Library\Common</td>
+<td valign="top">&nbsp;Common game</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;URL</td>
+<td valign="top">&nbsp;H://svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Common</td>
+<td valign="top">&nbsp;code and logic.</td>
+</tr>
+</table>
+* H:// = http://build/
+<br /><br />
+Launch Windows Explorer | Navigate to following [parent] folder:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Alias</b>&nbsp;</td>
+<td valign="top" colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP7</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WP7\SimpsonsTrivia.WP7
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "SimpsonsTrivia.WP7" folder
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WIN</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WIN
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "SimpsonsTrivia.WIN" folder
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;AND</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.AND
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "SimpsonsTrivia.AND" folder
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;IOS</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.IOS
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "SimpsonsTrivia.IOS" folder
+</td>
+</tr>
+<tr>
+</table>
+<br />
+Tortoise SVN | Properties | New... | Externals
+<br />
+In popup window click New button:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;Local path:</td>
+<td valign="top">&nbsp;Common</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;URL:</td>
+<td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Common</td>
+</tr>
+</table>
+<a href="https://3.bp.blogspot.com/-xhYhCljuLkQ/W3pvTmddc7I/AAAAAAAAE1U/dpIXVh7tWvcu8nyEnwyX_ETCoX0BId_cgCLcBGAs/s1600/03_SVNExternalsCommon.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-xhYhCljuLkQ/W3pvTmddc7I/AAAAAAAAE1U/dpIXVh7tWvcu8nyEnwyX_ETCoX0BId_cgCLcBGAs/s640/03_SVNExternalsCommon.png" width="98%" height="253" data-original-width="648" data-original-height="256" /></a>
+OK | OK | OK
+<br /><br />
+Start | run | cmd.  Type <i>svn propget -R svn:externals</i>
+<br />
+. - http://build/svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Common Common
+<br /><br />
+Windows Explorer | Navigate to [parent] folder as before.  Tortoise SVN | Check for modifications | Commit 
+<br />
+Finally, right click C:\SVN\SimpsonsTrivia | SVN Update.  Common folder available to include in ALL clients.
+<br /><br />
+<br />
+MASTER<br />
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;Path</td>
+<td valign="top">&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.XNA\SimpsonsTrivia.XNA.Library\Master</td>
+<td valign="top">&nbsp;Master game</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;URL</td>
+<td valign="top">&nbsp;H://svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Master</td>
+<td valign="top">&nbsp;engine code.</td>
+</tr>
+</table>
+* H:// = http://build/
+<br /><br />
+Launch Windows Explorer | Navigate to following [parent] folder:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Alias</b>&nbsp;</td>
+<td valign="top" colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WP7</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WP7\SimpsonsTrivia.WP7
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "SimpsonsTrivia.WP7" folder
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;WIN</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WIN
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "SimpsonsTrivia.WIN" folder
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;AND</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.AND
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "SimpsonsTrivia.AND" folder
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;IOS</td>
+<td valign="top" colspan="2">&nbsp;<b>Folder :</b>&nbsp;&nbsp;C:\SVN\SimpsonsTrivia\SimpsonsTrivia.IOS
+<br />&nbsp;<b>Action :</b>&nbsp;&nbsp;Right click "SimpsonsTrivia.IOS" folder
+</td>
+</tr>
+<tr>
+</table>
+<br />
+Tortoise SVN | Properties | New... | Externals
+<br />
+In popup window click New button:
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;Local path:</td>
+<td valign="top">&nbsp;Master</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;URL:</td>
+<td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Master</td>
+</tr>
+</table>
+<a href="https://1.bp.blogspot.com/-fqJm3SImsKs/W3pvdUCg3rI/AAAAAAAAE1c/ZcyDem5ski4s2gM8zdcAmcF-XbxmKYEgACLcBGAs/s1600/04_SVNExternalsMaster.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-fqJm3SImsKs/W3pvdUCg3rI/AAAAAAAAE1c/ZcyDem5ski4s2gM8zdcAmcF-XbxmKYEgACLcBGAs/s640/04_SVNExternalsMaster.png" width="98%" height="253" data-original-width="648" data-original-height="256" /></a>
+OK | OK | OK
+<br /><br />
+Start | run | cmd.  Type <i>svn propget -R svn:externals</i>
+<br />
+. - http://build/svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Master Master
+<br /><br />
+Windows Explorer | Navigate to [parent] folder as before.  Tortoise SVN | Check for modifications | Commit 
+<br />
+Finally, right click C:\SVN\SimpsonsTrivia | SVN Update.  Master folder available to include in ALL clients.
+<br /><br />
+<br />
+<u>Summary</u><br />
+To summarize, there will most likely become a point where it is difficult / impossible to install XNA 4.0 plus required Visual Studio 2010 pre-requisite onto Windows PC.  Especially if / when Windows 7 is deprecated.
+<br /><br />
+Therefore, it seems sensible to upgrade to Windows 10 : transfer these skills to integrate MonoGame 3.6 on Visual Studio 2015 as new baseline.  After this, Android and iOS ports can resume using Visual Studio 2017.
+<br /><br />
+Consequently, the next posts will document just that; starting with <a href="http://steveproxna.blogspot.com/2018/08/simpsons-trivia-windows-port.html">Windows</a> port then to <a href="http://steveproxna.blogspot.com/2018/09/simpsons-trivia-android-port.html">Android</a>
+ and <a href="http://steveproxna.blogspot.com/2018/11/simpsons-trivia-ios-port.html">iOS</a> <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>
+</span>

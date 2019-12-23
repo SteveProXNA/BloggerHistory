@@ -1,0 +1,301 @@
+<span style="font-family:verdana;font-size:85%;">
+In the previous <a href="http://steveproxna.blogspot.com/2018/07/simpsons-trivia-xna-port.html">post</a>, we introduced <a href="http://steveproxna.blogspot.com/2018/05/simpsons-trivia-code-complete.html">Simpsons Trivia</a>: a simple quiz game for the <a href="https://en.wikipedia.org/wiki/Master_System">Sega Master System</a>.  Here we outlined tasks to port game to XNA 4.0.  Now we will port to <a href="http://www.monogame.net/">MonoGame</a> for Windows as a new baseline.
+<br /><br />
+The motivation here assumes a point where it is difficult / impossible to install <a href="https://en.wikipedia.org/wiki/Microsoft_XNA">XNA</a> 4.0 plus required Visual Studio 2010 pre-requisite onto Windows PC. Especially if / when Windows 7 is deprecated for Windows 10.  [In fact, currently you may be prompted to install <a href="https://go.microsoft.com/fwlink/?LinkID=201134">GFWL</a> for Windows 10 compatibility.]
+<a href="https://4.bp.blogspot.com/-3di0Oxi9fMY/VcHj28p2JUI/AAAAAAAADkU/5GN8_BoVdxw/s1600/MonoGameLogo.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-3di0Oxi9fMY/VcHj28p2JUI/AAAAAAAADkU/5GN8_BoVdxw/s640/MonoGameLogo.png" width="98%" /></a>
+Let's check it out!
+<br /><br />
+<u>Setup</u><br />
+Follow all instructions from this <a href="http://steveproxna.blogspot.com/2015/08/candy-kid-android-port.html">post</a> to setup MonoGame, Visual Studio and, if necessary, Xamarin Studio.
+<br /><br />
+<u>Outline</u><br />
+Similar to previous <a href="http://steveproxna.blogspot.com/2018/07/simpsons-trivia-xna-port.html">post</a>, write all game code in an external library to be consumed by multiple thin clients.  Configure SVN Externals as previous <a href="http://steveproxna.blogspot.com/2018/07/simpsons-trivia-xna-port.html">post</a> but library and test projects now driven from Windows solution!
+<br /><br />
+<i>WIN Game Server</i><br />
+Launch Visual Studio 2015. Create blank solution. Add the following 4x new C#/.NET projects to solution:
+<a href="https://2.bp.blogspot.com/-c0trXMGO9qc/W4FxU5BzMfI/AAAAAAAAE2I/E9-w9luxqpMYzi53YfiD7zcrNwJd9BgIwCLcBGAs/s1600/01_BlankSolution.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-c0trXMGO9qc/W4FxU5BzMfI/AAAAAAAAE2I/E9-w9luxqpMYzi53YfiD7zcrNwJd9BgIwCLcBGAs/s640/01_BlankSolution.png" width="98%" height="405" data-original-width="842" data-original-height="533" /></a>
+<table width="100%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Project</b></td>
+<td valign="top">&nbsp;<b>Type</b></td>
+<td valign="top">&nbsp;<b>Description</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;SimpsonsTrivia.WIN</td>
+<td valign="top">&nbsp;MonoGame 3.6 Windows</td>
+<td valign="top">&nbsp;Entry point + game built content</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;SimpsonsTrivia.WIN.Library</td>
+<td valign="top">&nbsp;MonoGame 3.6 Windows</td>
+<td valign="top">&nbsp;Generic game library for all clients</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;SimpsonsTrivia.WIN.SystemTests</td>
+<td valign="top">&nbsp;Windows Class Library</td>
+<td valign="top">&nbsp;Uses for game library system tests </td>
+</tr>
+<tr>
+<td valign="top">&nbsp;SimpsonsTrivia.WIN.UnitTests</td>
+<td valign="top">&nbsp;Windows Class Library</td>
+<td valign="top">&nbsp;Uses for game library unit tests</td>
+</tr>
+</table>
+Download code sample <b><a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WIN">here</a></b>.
+<br /><br />
+Note: as there is not a corresponding XNA Library project template for MonoGame, create 2x MonoGame Windows projects but set the second project output type for SimpsonsTrivia.WIN.Library to Class Library:
+<a href="https://4.bp.blogspot.com/-4vDVuVe0idc/W4Fy1wbpgwI/AAAAAAAAE2U/444kb4lsKLwIrYpgBNIK5cCNKMxt7eRJwCLcBGAs/s1600/03_WIN.LibraryProperties.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-4vDVuVe0idc/W4Fy1wbpgwI/AAAAAAAAE2U/444kb4lsKLwIrYpgBNIK5cCNKMxt7eRJwCLcBGAs/s640/03_WIN.LibraryProperties.png" width="98%" height="411" data-original-width="811" data-original-height="521" /></a>
+<br /><br />
+<u>Checklist</u><br />
+Here is a quick checklist of tasks to complete first including Delete the default C#/.NET file, Update project properties profile to use "Reach" and Rename the default namepsace to WindowsGame.  Add the <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WIN/packages">packages</a>:
+<br /><br />
+<i>packages</i>
+<table width="99%" border="0">
+<tr>
+<td valign="top" width="50%"><ul>
+  <li>log4net.2.0.8</li>
+  <li>Ninject.3.3.4</li>
+</ul></td>
+<td valign="top"><ul>
+  <li>NUnit.3.2.1</li>
+  <li>RhinoMocks.3.6.1</li>
+</ul></td>
+</tr>
+</table>
+<i>SimpsonsTrivia.WIN</i>
+<table width="99%" border="0">
+<tr>
+<td valign="top" width="50%"><ul>
+  <li>Add <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WIN/SimpsonsTrivia.WIN/Content/Data">Data</a> folder for all text file data</li>
+  <li>Add SimpsonsTrivia.WIN.Library ref</li>
+</ul></td>
+<td valign="top"><ul>
+  <li>Update EXE binary output path</li>
+  <li>Replace all initial game icons</li>
+</ul></td>
+</tr>
+</table>
+<i>SimpsonsTrivia.WIN.Library</i>
+<table width="99%" border="0">
+<tr>
+<td valign="top" width="50%"><ul>
+  <li>Add <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WIN/SimpsonsTrivia.WIN.Library/Common">Common</a> folder for all game code logic</li>
+  <li>Add <a href="https://github.com/SteveProXNA/SimpsonsTrivia/tree/master/SimpsonsTrivia.WIN/SimpsonsTrivia.WIN.Library/Master">Master</a> folder for all game engine code</li>
+</ul></td>
+<td valign="top"><ul>
+  <li>Add log4net reference</li>
+  <li>Add Ninject reference</li>
+</ul></td>
+</tr>
+</table>
+<i>SimpsonsTrivia.WIN.SystemTests</i>
+<table width="99%" border="0">
+<tr>
+<td valign="top" width="50%"><ul>
+  <li>Remove DataSetExtensions reference</li>
+  <li>Add SimpsonsTrivia.WIN.Library ref</li>
+</ul></td>
+<td valign="top"><ul>
+  <li>Add nunit framework reference</li>
+  <li>Add nunit GUI test runner</li>
+</ul></td>
+</tr>
+</table>
+<i>SimpsonsTrivia.WIN.UnitTests</i>
+<table width="99%" border="0">
+<tr>
+<td valign="top" width="50%"><ul>
+  <li>Remove DataSetExtensions reference</li>
+  <li>Add SimpsonsTrivia.WIN.Library ref</li>
+  <li>Add nunit framework reference</li>
+</ul></td>
+<td valign="top"><ul>
+  <li>Add Rhino Mocks reference</li>
+  <li>Add nunit GUI test runner</li>
+</ul></td>
+</tr>
+</table>
+<br />
+IMPORTANT
+<br />
+Create directory symbolic link using <i><a href="https://technet.microsoft.com/en-us/library/cc753194(v=ws.11).aspx">mklink</a></i> to WIN Content folder to run system tests [and on build server]
+<br /><br />
+Start | run | cmd
+<pre class="csharp" name="code">
+mklink /D C:\SimpsonsTrivia.WIN.Content 
+C:\SVN\SimpsonsTrivia\SimpsonsTrivia.WIN\SimpsonsTrivia.WIN\bin\x86\Debug\
+
+// BaseSsytemTests.cs
+protected const String CONTENT_ROOT = @"C:\SimpsonsTrivia.WIN.Content\";
+</pre>
+<br />
+<b>Warnings</b><br />
+Manually edit system and unit test projects in Notepad and add following XML to mitigate MSIL <a href="http://stackoverflow.com/questions/10113532/how-do-i-fix-the-visual-studio-compile-error-mismatch-between-processor-archit">warning</a>:
+<pre class="csharp" name="code">
+&lt;PropertyGroup&gt;
+  &lt;ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch&gt;None&lt;/ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch&gt;
+&lt;/PropertyGroup&gt;
+</pre>
+<br />
+<a href="https://social.msdn.microsoft.com/Forums/vstudio/en-US/3f3436cb-5c0b-49a4-82c3-8829f830eec8/how-to-reinstall-nuget-packages-installed-using-a-different-target-framework?forum=netfxbcl">Re-install</a> NuGet packages as necessary to mitigate against warning using a different target framework:
+<br />
+Tools | NuGet Package Manager | Package Manager Console.  Type <i>update-package -reinstall</i>
+<br /><br />
+Finally, action the following if <a href="https://github.com/dotnet/sdk/issues/1351">conflicts</a> found between different versions of the same dependent assemblies:
+<br />
+Open SimpsonsTrivia.WIN.csproj in Notepad++  Add XML following &lt;OutputType&gt;WinExe&lt;/OutputType&gt;
+<pre class="csharp" name="code">
+  &lt;OutputType&gt;WinExe&lt;/OutputType&gt;
+  &lt;AutoGenerateBindingRedirects&gt;true&lt;/AutoGenerateBindingRedirects&gt;
+</pre>
+
+<br />
+<b>NUnit</b><br />
+Don't forget to setup the *.nunit files to open with NUnit (x86) version by default.  Right click SystemTests or UnitTests nunit file | Open With... | Add as "<i>C:\Program Files (x86)\NUnit 2.5.7\bin\net-2.0\nunit-x86.exe</i>"
+<br />
+<table width="98%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Key</b></td>
+<td valign="top">&nbsp;<b>Value</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Program:</td>
+<td valign="top">&nbsp;"C:\Program Files (x86)\NUnit 2.5.7\bin\net-2.0\nunit-x86.exe"</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Arguments:</td>
+<td valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Friendly name:</td>
+<td valign="top">&nbsp;NUnit (x86)</td>
+</tr>
+</table>
+<br /><br />
+<u>Audio</u><br />
+The original <a href="https://github.com/SteveProXNA/SimpsonsTriviaSMS/tree/master/psg/raw">music</a> used for Simpsons Trivia was in <a href="https://en.wikipedia.org/wiki/VGM_(file_format)">VGM</a> format for title and game over and <a href="https://en.wikipedia.org/wiki/Programmable_sound_generator">PSG</a> format for the sound effects.  Therefore, these must be converted to <a href="https://en.wikipedia.org/wiki/MP3">MP3</a> + <a href="https://en.wikipedia.org/wiki/WAV">WAV</a> format respectively for Windows PC.
+<br /><br />
+<b>Music</b><br />
+Download <a href="http://www.smspower.org/Music/AudioOverload">Audio Overload</a> application and <a href="http://www.smspower.org/uploads/Music/ao20-w64.zip?sid=d6d22f1a4b3b3b1aa3d00a4b492a1773">extract</a>.  Launch aowin64.exe.  Dag VGM file into application.  Save clip as WAV file and click Play button.  Play song to end.  Once finished will save.  Convert WAV to MP3 <a href="https://www.zamzar.com/convert/wav-to-mp3">online</a>.
+<br /><br />
+Note: <a href="https://www.audacityteam.org">Audacity</a> can also be used to convert WAV files to MP3.  Open WAV file.  Choose File | Export Audio and Save as MP3.  However, it may be required to download <a href="https://lame.buanzo.org/#lamewindl">Lame</a> to complete export!  Download Lame from <a href="https://lame.buanzo.org/Lame_v3.99.3_for_Windows.exe">here</a>.
+<br /><br />
+<b>Sound</b><br />
+First write <a href="http://steveproxna.blogspot.com/2017/11/devkitsms-programming-sample.html">sample</a> program to play PSG files in Sega Master System program.  These will recorded manually:
+<pre class="csharp" name="code">
+#include "..\lib\SMSlib.h"
+#include "..\lib\PSGlib.h"
+#include "gfx.h"
+#include "psg.h"
+
+#define SFX_RIGHT_PSG sfx_right_psg
+#define SFX_WRONG_PSG sfx_wrong_psg
+#define SFX_CHEAT_PSG sfx_cheat_psg
+
+void main (void)
+{
+ PSGSFXPlay( SFX_RIGHT_PSG, SFX_CHANNEL2 );
+ SMS_displayOn();
+ for (;;)
+ {
+  SMS_waitForVBlank();
+  PSGSFXFrame();
+ }
+}
+SMS_EMBED_SEGA_ROM_HEADER( 9999, 0 );
+SMS_EMBED_SDSC_HEADER( 1, 2, 2018, 3, 27, "StevePro Studios", "Simpsons Trivia", "Simpsons Trivia game for the SMS Power! 2018 Competition" );
+</pre>
+<br />
+Setup computer as follows:
+<br />
+Unplug speaker cable from audio jack.  Plug black cable from microphone into headphone jack.  Launch Voice Recorder.  Start recorder.  Play Sega Master System program.  Stop recorder.  Save as, or convert to, WAV file.
+<br />
+<br /><br />
+<u>Content</u><br />
+MonoGame Windows project templates add a "Content" folder as the default location for all Content.  Right click the "Content" folder | Add New Folder. Simpsons Trivia uses the 4x following subfolders (listed below): 
+<br /><br />
+<b>Data</b><br />
+Contains flat TXT + XML data files to be consumed by the game. Do not need to be built as <a href="https://fileinfo.com/extension/xnb">XNB</a> files!
+<br />
+Right click each data file | Properties | Build action: None | Copy to output directory: Copy if newer
+<br /><br />
+<b>Fonts</b><br />
+Font XNB files may need to be rebuilt for Windows using the MonoGame Pipeline; instructions below:
+<br />
+Right click each font file | Properties | Build action: Content | Copy to output directory: Copy if newer
+<a href="https://3.bp.blogspot.com/-GYzLJL3XbNc/VcHZ8MxRgzI/AAAAAAAADi4/nQi9BbGoEbE/s1600/BuildProperties01.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-GYzLJL3XbNc/VcHZ8MxRgzI/AAAAAAAADi4/nQi9BbGoEbE/s640/BuildProperties01.png" width="98%" /></a>
+<br /><br />
+<b>Sound</b>
+<br />
+Sound effect XNB files may need to be rebuilt for Windows using the MonoGame Pipeline; see below: 
+<br />
+Right click sound effect | Properties | Build action: Content | Copy to output directory: Copy if newer
+<br /><br />
+Song XNB files may also be rebuilt along with corresponding WMA files to be included in the project:
+<br />
+Right click music files | Properties | Build action: Content | Copy to output directory: Copy if newer
+<br /><br />
+<b>Textures</b><br />
+Here texture XNB files may need to be rebuilt for Windows using the MonoGame Pipeline; see below:
+<br />
+Right click sound effect | Properties | Build action: Content | Copy to output directory: Copy if newer 
+<br />
+<br /><br />
+<u>MonoGame Pipeline</u><br />
+The MonoGame <a href="http://www.monogame.net/documentation/?page=Pipeline">Pipeline</a> Tool is used to manage MonoGame content and generate corresponding XNB files.  Follow <a href="https://docs.microsoft.com/en-us/xamarin/graphics-games/cocossharp/content-pipeline/walkthrough">this</a> documentation on how to use the MonoGame Pipeline Tool.  Create Simpsons Trivia WIN project:
+<br /><br />
+Start | run | MonoGame Pipeline.  File | New.  File name: WindowsProject.mgcb | Save content pipeline file.  Select top level "WindowsProject" node.  In the Properties window choose Platform; in this case Windows.
+<a href="https://2.bp.blogspot.com/-0BOrMhyDwPc/W4qkU04zsKI/AAAAAAAAE28/9cMhpZiAF4oWJC7g27XaL0VDgKRTvGIvACLcBGAs/s1600/04-MonoGamePipeline.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-0BOrMhyDwPc/W4qkU04zsKI/AAAAAAAAE28/9cMhpZiAF4oWJC7g27XaL0VDgKRTvGIvACLcBGAs/s640/04-MonoGamePipeline.png" width="98%" height="637" data-original-width="98%" data-original-height="570" /></a>
+Import all content from original game such as Fonts, Sound [music + sound FX] and Textures [images].  Right click on top level node and choose Rebuild.  The converted XNB files will be generated in bin folder.
+<br /><br />
+<i>MAC Game Server</i><br />
+In the previous <a href="http://steveproxna.blogspot.com/2018/07/simpsons-trivia-xna-port.html">post</a>, it was assumed to use Cross Platform Desktop project template for MAC.  However, this seems more Linux-based.  Instead, on the Mac, launch Xamarin Studio.  Create Xamarin Mac Classic project:
+<a href="https://3.bp.blogspot.com/-Rqv0h54a7lE/W40eV0N7BxI/AAAAAAAAE34/gTa5XeIPKH0jVcIKQf6lojdl2VfWsa6ZACLcBGAs/s1600/05-XamarinMacClassic.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-Rqv0h54a7lE/W40eV0N7BxI/AAAAAAAAE34/gTa5XeIPKH0jVcIKQf6lojdl2VfWsa6ZACLcBGAs/s640/05-XamarinMacClassic.png" width="98%" height="465" data-original-width="98%" data-original-height="653" /></a>
+Unfortunately, as this is an experimental build, it was not currently possible to integrate music and sound FX.  Open Info.plist and choose minimum deployment target available.  At this time the minimum version is <b>10.7</b>.
+<br /><br />
+Finally, set up SVN Externals manually similar to this post:
+<pre class="csharp" name="code">
+cd ~/SVN/SimpsonsTrivia/SimpsonsTrivia.MAC/SimpsonsTrivia.MAC/Content
+svn propset svn:externals 'Data http://build/svn/SimpsonsTrivia/SimpsonsTrivia.WIN/SimpsonsTrivia.WIN/Content/Data' .
+
+cd ~/SVN/SimpsonsTrivia/SimpsonsTrivia.MAC/SimpsonsTrivia.MAC
+svn propset svn:externals 'Common http://build/svn/SimpsonsTrivia/SimpsonsTrivia.WIN/SimpsonsTrivia.WIN.Library/Common' .
+svn propset svn:externals 'Master http://build/svn/SimpsonsTrivia/SimpsonsTrivia.WIN/SimpsonsTrivia.WIN.Library/Master' .
+
+svn status
+cd ~/SVN/SimpsonsTrivia/SimpsonsTrivia.MAC/SimpsonsTrivia.MAC
+svn commit -m "Add SVN Externals"
+svn update
+</pre>
+<br />
+<i>WP7 Game Server</i><br />
+Previously, WinPhone7 [<a href="https://en.wikipedia.org/wiki/Windows_Phone_7">WP7</a>] was used as a destination client intermediary between Windows PC and mobile device deployment + testing on Windows 7.  However, WP7 projects may fail to build in Visual Studio 2010 as <i><a href="https://stackoverflow.com/questions/22184855/xna-visual-studios-2010-unusual-deploy-errors">FilterItemsBySupportedCultures</a> task failed unexpectedly</i>.  
+<br /><br />
+If this error occurs then close Visual Studio 2010.  Update the binding redirect in the devenv.exe.config file:
+<br />
+Edit devenv.exe.config found as here C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\
+<pre class="csharp" name="code">
+&lt;runtime&gt;
+  &lt;UseSmallInternalThreadStacks enabled="true"/&gt;
+  &lt;dependentAssembly xmlns="urn:schemas-microsoft-com:asm.v1"&gt;&lt;Tag ...
+    &lt;dependentAssembly&gt;
+      &lt;assemblyIdentity name="Microsoft.Build.Framework" publicKeyToken="b03f5f7f11d50a3a" culture="neutral"/&gt;
+      &lt;bindingRedirect oldVersion="12.0.0.0-14.0.0.0" newVersion="4.0.0.0"/&gt;
+    &lt;/dependentAssembly&gt;
+</pre>
+However, this may not be required with the upgrade of Windows 10 as WP7 may now not be compatible!
+<br /><br />
+<br />
+<i>WP8 Game Server</i><br />
+The successor to WP7 is <a href="https://en.wikipedia.org/wiki/Windows_Phone_8">WP8</a>.  Therefore, it makes sense to look for an experimental client to replace WP7.  While it's possible to get corresponding build, there may be Hyper V Manager issues on some Windows PCs:
+<a href="https://1.bp.blogspot.com/-Q1AyTJjazsM/XAV-EeLqrWI/AAAAAAAAFDw/wRapSdnScCA6ejuDt8-gq9ofFaUHszA9wCLcBGAs/s1600/06-WP8error.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-Q1AyTJjazsM/XAV-EeLqrWI/AAAAAAAAFDw/wRapSdnScCA6ejuDt8-gq9ofFaUHszA9wCLcBGAs/s640/06-WP8error.png" width="98%" height="250" data-original-width="349" data-original-height="205" /></a>
+Follow instructions <a href="https://stackoverflow.com/questions/26773036/windows-phone-emulator-is-unable-to-create-a-differencing-disk">here</a> but refer to <b>8.1</b> parent folder in C:\Program Files (x86)\Microsoft XDE\<b>8.1</b>\xde.exe.  Start | run | Hyper V Manager lists WP8 emulators available to connect ignoring the Virtual Switch Manager.
+<br /><br />
+Right click C:\ Program Files (x86)\Microsoft SDKs\Windows Phone\v8.1\Emulation\Images and disable file compression.  Right click %USERPROFILE%\AppData\Local\Microsoft\XDE and disable file compression also.
+<br /><br />
+<br />
+<u>Summary</u><br />
+To summarize, the transition from XNA 4.0 + Visual Studio 2010 + Windows 7 to MonoGame 3.6 + Visual Studio 2015 + Windows 10 was very smooth.  Plus, was an opportunity for additional experimental builds.
+<br /><br />
+This included, an exploration of WP7 to WP8 for mobile device deployment + testing from the Windows PC.  Finally, in order to complete mobile device deployment, the next posts will include ports to <a href="http://steveproxna.blogspot.com/2018/09/simpsons-trivia-android-port.html">Android</a> + <a href="http://steveproxna.blogspot.com/2018/11/simpsons-trivia-ios-port.html">iOS</a>!
+</span>
