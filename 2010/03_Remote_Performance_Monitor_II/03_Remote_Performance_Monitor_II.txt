@@ -1,0 +1,62 @@
+<span style="font-family:verdana;font-size:85%;">In the previous <a href="http://steveproxna.blogspot.com/2010/02/remote-performance-monitor.html">post</a>, we began a discussion on the XNA Framework <a href="http://msdn.microsoft.com/en-us/library/bb975830.aspx">Remote Performance Monitor</a>.  To recap, the Remote Performance Monitor exposes 2x common game code scenarios that unnecessarily generate garbage on the XNA platform:<ol><li>Unnecessary string object creation<li>Unnecessary boxed value types</ol>In the previous post, we discussed the first scenario: Unnecessary string object creation.  Now, let's complete this discussion with the second scenario: Unnecessary boxed value types.<br /><br /><u>Unnecessary boxed value types</u><br />In a typical game, there are often enemies to kill, obstacles to avoid, gems to collect etc.  Usually game code stores, for example, a list of enemy sprites to kill, in one collection variable:
+<pre class="csharp" name="code">
+IList&lt;Sprite&gt; Enemies { get; set; }
+</pre>
+During game play, game code may need to iterate through the list of enemy sprites every single frame to invoke the Update() and/or Draw() methods accordingly.  In .NET, iterating through an IList&lt;T&gt; can typically be done either using the <i>for</i> statement or the <i>foreach</i>.<br /><br /><a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=B0332FAA-A3CA-4051-AFB2-9BA8206D61AF">Code Optimization Demos</a> measure the performance of the <i>for</i> statement compared to the <i>foreach</i>: the <i>for</i> statement is generally more performant although the <i>foreach</i> statement provides better readability in code.  However, if used incorrectly, the <i>foreach</i> statement can unnecessarily generate garbage, impact performance and potentially drop frames.<br /><br />Let's check out an example using the <i>foreach</i> statement in more detail.<br />Consider the following Sprite class:
+<pre class="csharp" name="code">
+public class Sprite()
+{
+ public Sprite()  {}  // ctor.
+ public void Update(GameTime gameTime) {}
+ public void Draw(GameTime gameTime) {}
+}
+</pre>
+As above, game code may store, for example, a list of enemy sprites to kill, in one collection variable and construct the collection accordingly:
+<pre class="csharp" name="code">
+IList&lt;Sprite&gt; Enemies { get; set; }
+Enemies = new List&lt;Sprite&gt;();
+</pre>
+During game play, game code may iterate through the list of enemy sprites and update each sprite accordingly:
+<pre class="csharp" name="code">
+public void Update(GameTime gameTime)
+{
+ foreach (Sprite Enemy in Enemies)
+ {
+  Enemy.Update();
+ }
+}
+</pre>
+The previous game code snippet may seem harmless enough, however, the Remote Performance Monitor reveals a single managed object allocated on the heap and a single value type is boxed every single frame.  When game code executes this Update() method at 60fps then 60x value types are boxed every second:<br /><a href="http://1.bp.blogspot.com/_Ra2ABd_qklc/S5Fyen-nINI/AAAAAAAABF4/HFIGpeiNzeU/s1600-h/IListForEach.jpg"><img style="float:left; margin:0 10px 10px 0;cursor:pointer; cursor:hand;width: 97%; height: 394px;" src="http://1.bp.blogspot.com/_Ra2ABd_qklc/S5Fyen-nINI/AAAAAAAABF4/HFIGpeiNzeU/s400/IListForEach.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5445259294920876242" /></a><br /><br />What happened?  Why is this simple game code snippet generating so much garbage?<br /><br />The problem begins with our collection variable declaration: 
+the collection is declared as an IList&lt;T&gt; but game code actually constructs a new List&lt;T&gt;.
+<pre class="csharp" name="code">
+IList&lt;Sprite&gt; Enemies { get; set; }
+Enemies = new List&lt;Sprite&gt;();
+</pre>
+The problem then manifests itself with the <i>foreach</i> statement: the <i>foreach</i> statement requires an enumerator to iterate through each enemy sprite in the list.
+<pre class="csharp" name="code">
+foreach (Sprite Enemy in Enemies)
+{
+ Enemy.Update();
+}
+</pre>
+In .NET, both List&lt;T&gt; and IList&lt;T&gt; implement the IEnumerable&lt;T&gt; interface.  The IEnumerable&lt;T&gt; interface has one method: GetEnumerator(), which returns the enumerator required to iterate through each object in the list.<br /><br />However, the implementation of the GetEnumerator() method differs between List&lt;T&gt; and IList&lt;T&gt;: List&lt;T&gt; GetEnumerator() method returns Enumerator&lt;T&gt;, which is a struct: a value type stored on the stack.  Whereas IList&lt;T&gt; GetEnumerator() method returns IEnumerator&lt;T&gt;, which is an interface, a reference type stored on the heap.<br /><br />Therefore the previous game code snippet initially returns an Enumerator&lt;T&gt;, as a value type for the List&lt;T&gt;, but then boxes the enumerator value type to a reference type because the collection is actually declared as an IList&lt;T&gt;!<br /><br />Therefore, there are 2x potential solutions to resolve this issue with Unnecessary boxed value types:<ol><li>Update the collection variable declaration to List&lt;T&gt;<li>Replace <i>foreach</i> with the <i>for</i> statement altogether</ol><br />The first solution simply updates the collection variable declaration thus no boxing will be necessary:
+<pre class="csharp" name="code">
+List&lt;Sprite&gt; Enemies { get; set; }
+Enemies = new List&lt;Sprite&gt;();
+
+foreach (Sprite Enemy in Enemies)
+{
+ Enemy.Update();
+}
+</pre>
+The second solution simply replaces the <i>foreach</i> with the <i>for</i> statement thus no enumerator will be required:
+<pre class="csharp" name="code">
+IList&lt;Sprite&gt; Enemies { get; set; }
+Enemies = new List&lt;Sprite&gt;();
+
+for (Int32 index = 0; index < Enemies.Length; index++)
+{
+ Enemies[index].Update();
+}
+</pre>
+Either way, the results in the Remote Performance Monitor are the same:<br /><a href="http://2.bp.blogspot.com/_Ra2ABd_qklc/S2nTf92LQ1I/AAAAAAAABCA/wbAIGYhzkxM/s1600-h/Strings02.jpg"><img style="float:left; margin:0 10px 10px 0;cursor:pointer; cursor:hand;width: 97%; height: 371px;" src="http://2.bp.blogspot.com/_Ra2ABd_qklc/S2nTf92LQ1I/AAAAAAAABCA/wbAIGYhzkxM/s400/Strings02.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5434106971530412882" /></a><br /><br />To summarize, when using an object in which Enumerator&lt;T&gt; is a value type, like List&lt;T&gt;, game code can employ either the <i>foreach</i> or <i>for</i> statement and not generate garbage.  When using an object in which IEnumerator&lt;T&gt; is a reference type, like IList&lt;T&gt;, the <i>foreach</i> statement may generate garbage whereas the <i>for</i> statement will not.<br /><br />In conclusion, the XNA Framework Remote Performance Monitor a simple tool to detect if game code is generating garbage on the XNA platform.  Typically, there are 3x static statistics that require the most attention during performance testing:<ul><li>Managed String Objects Allocated<li>Managed Objects Allocated<li>Boxed Value Types</ul>However, there is also one final statistic that is important to monitor: "Exceptions Thrown".  In a perfect game, the "Delta" column in the Remote Performance Monitor will be zero at all times.</span>

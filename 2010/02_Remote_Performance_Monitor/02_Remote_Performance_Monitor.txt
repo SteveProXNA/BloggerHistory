@@ -1,0 +1,44 @@
+<span style="font-family:verdana;font-size:85%;">Performance is critical in game development.  In XNA, game performance will degrade if you allow garbage to be generated during game play.  On Xbox 360, generating too much garbage will force full garbage collection.  If garbage collection takes longer than 1/60th of a second then the game will drop frames, and the more frequently full garbage collection occurs, the more frequently the game will drop frames.<br /><br />The XNA Framework <a href="http://msdn.microsoft.com/en-us/library/bb975830.aspx">Remote Performance Monitor</a> is a simple tool that can detect if game code is generating too much garbage.  Here is a common work flow to game development and performance testing using the Remote Performance Monitor:<ul><li>Write game code on Windows<li>Test game play on Windows<li>Deploy game code to Xbox 360<li>Launch Remote Performance Monitor<li>Start game from Remote Performance Monitor<li>Monitor performance results<li>Resolve performance issues as necessary<li>Repeat process</ul><br /><a href="http://msdn.microsoft.com/en-us/library/bb198208.aspx">Here</a> is a quick tutorial on how to use the XNA Framework Remote Performance Monitor if you have never used the tool before.<br /><br />There is a large source of information available on the Internet, in the form of blog posts, audio casts, articles and white papers that gives detailed analysis on <i>all</i> the statistics generated from the Remote Performance Monitor; from Pinned Objects to Platform Invoke Calls.<br /><br />However, in my experience, there are typically 3x statistics that require the most attention during performance testing:<ul><li>Managed String Objects Allocated<li>Managed Objects Allocated<li>Boxed Value Types</ul><br />
+Ideally, the goal is to have the "Delta" column in the Remote Performance Monitor for these 3x statistics consistently set to zero during game play:<br />
+<a href="http://2.bp.blogspot.com/_Ra2ABd_qklc/S2nTf92LQ1I/AAAAAAAABCA/wbAIGYhzkxM/s1600-h/Strings02.jpg"><img style="float:left; margin:0 10px 10px 0;cursor:pointer; cursor:hand;width: 97%; height: 371px;" src="http://2.bp.blogspot.com/_Ra2ABd_qklc/S2nTf92LQ1I/AAAAAAAABCA/wbAIGYhzkxM/s400/Strings02.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5434106971530412882" /></a>This ensures game code does not unnecessarily generate garbage, force full collections and drop frames.<br /><br />Unfortunately, during game development on the XNA platform, there appears to be 2x common game code scenarios that cause the "Delta" column in the Remote Performance Monitor to be consistently set to values greater than zero during game play:<ol><li>Unnecessary string object creation<li>Unnecessary boxed value types</ol><br />Each scenario reveals game code that consistently generates too much garbage, impacts performance and has the potential to drop frames.<br /><br />Let's check out each scenario in greater detail:<br /><br /><u>Unnecessary String Object Creation</u><br />In a typical game, there is often a lot of numeric data that must be displayed on screen to the player, for example: score, hi score, level, lives, bonus etc.  Consequently, there are numerous game code snippets similar to the following:
+<pre class="csharp" name="code">
+public void Draw()
+{
+ spriteBatch.DrawString(spriteFont, score.ToString(), position, color);
+}
+</pre>
+Each time game code executes score.ToString(), the .NET Framework will allocate a single managed string object on the heap.  When game code executes score.ToString() unconditionally at 60fps then 60x additional managed string objects will be allocated accordingly every second:<br />
+<a href="http://1.bp.blogspot.com/_Ra2ABd_qklc/S2nTPg9PZMI/AAAAAAAABB4/Yxblih_HI3A/s1600-h/Strings01.jpg"><img style="float:left; margin:0 10px 10px 0;cursor:pointer; cursor:hand;width: 97%; height: 390px;" src="http://1.bp.blogspot.com/_Ra2ABd_qklc/S2nTPg9PZMI/AAAAAAAABB4/Yxblih_HI3A/s400/Strings01.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5434106688897508546" /></a><br /><br />However, there is no reason for game code to execute score.ToString() unconditionally every single frame.<br /><br />A better approach would be to create 2x variables: one variable to store the integer score value and another variable to store the equivalent string representation of the score:
+<pre class="csharp" name="code">
+private Int32 scoreValue;
+private String scoreText;
+</pre>
+Now game code would only be required to execute score.ToString() when the score actually changed:
+<pre class="csharp" name="code">
+public void Update()
+{
+ if (playerKilledSomething)
+ {
+  scoreValue += 100;
+  scoreText = scoreValue.ToString();
+ }
+}
+public void Draw()
+{
+ spriteBatch.DrawString(spriteFont, scoreText, position, color);
+}
+</pre>
+During a standard frame, in which the score value will not change, the "Delta" column in the Remote Performance Monitor for Managed String Objects Allocated will now be set to zero as no garbage generation occurs:<br />
+<a href="http://2.bp.blogspot.com/_Ra2ABd_qklc/S2nTf92LQ1I/AAAAAAAABCA/wbAIGYhzkxM/s1600-h/Strings02.jpg"><img style="float:left; margin:0 10px 10px 0;cursor:pointer; cursor:hand;width: 97%; height: 371px;" src="http://2.bp.blogspot.com/_Ra2ABd_qklc/S2nTf92LQ1I/AAAAAAAABCA/wbAIGYhzkxM/s400/Strings02.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5434106971530412882" /></a><br /><br />This simple approach to avoid unnecessary string creation may seem obvious, but it is surprising how many times the following game code can be found in Production:
+<pre class="csharp" name="code">
+public void Draw()
+{
+ spriteBatch.DrawString(spriteFont1, score.ToString(), position1, color1);
+ spriteBatch.DrawString(spriteFont2, hiScore.ToString(), position2, color2);
+ spriteBatch.DrawString(spriteFont3, level.ToString(), position3, color3);
+ spriteBatch.DrawString(spriteFont4, lives.ToString(), position4, color4);
+ spriteBatch.DrawString(spriteFont5, bonus.ToString(), position5, color5);
+ // continue draw method...
+}
+</pre>
+In the next <a href="http://steveproxna.blogspot.com/2010/03/remote-performance-monitor-ii.html">post</a>, we will continue this discussion on the Remote Performance Monitor with unnecessary boxed value types.</span>
