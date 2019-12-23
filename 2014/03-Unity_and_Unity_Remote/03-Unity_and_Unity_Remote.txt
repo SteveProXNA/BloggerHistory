@@ -1,0 +1,228 @@
+<span style="font-family:verdana;font-size:85%;">
+<a href="http://en.wikipedia.org/wiki/Unity_(game_engine)">Unity3D</a> is a cross platform game engine to develop video games for web, desktop, consoles and mobile.
+<br /><br />
+During development, game code written in <a href="http://steveproxna.blogspot.co.uk/2014/05/unity3d-and-visual-studio.html">Visual Studio</a> can be tested quickly; directly in the Editor.  However, game code will eventually need to be deployed, for example, onto an actual mobile device.
+<br /><br />
+Thus, typical programming sequence, especially for mobile, may be something like this:
+<br />
+&nbsp;1. Build (or update) scene in Unity3D.<br />&nbsp;2. Write game code in Visual Studio.<br />&nbsp;3. Test game code in Unity3D Editor.<br />&nbsp;4. Switch platform to mobile device.<br />&nbsp;5. Build and Run game on device.<br />&nbsp;6. Rinse and repeat.<br /><br />
+The method to switch platform to build and run game code on mobile device can be a lengthy process;
+<br />
+Fortunately, there is a more efficient way to test game code on mobile devices directly: <a href="http://docs.unity3d.com/Manual/UnityRemote4.html">Unity Remote</a>.
+<br /><br />
+Let's check it out!
+<br /><br />
+<u>Unity Remote</u>
+<br />
+Unity Remote: an application that targets mobile device as remote control for your project in Unity editor.  Development is quicker to test through remote control rather  than deploy to the device after each change. 
+<br /><br />
+At the time of this writing, Unity Remote is available for Android on <a href="http://en.wikipedia.org/wiki/Personal_computer">PC</a> and both Android / iOS on the <a href="http://en.wikipedia.org/wiki/Macintosh">Mac</a>.
+<a href="http://4.bp.blogspot.com/-ExudqcMNQW0/U7_YbAnQSrI/AAAAAAAAC5U/jjrBDPhtoSo/s1600/01-UnityRemote.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-ExudqcMNQW0/U7_YbAnQSrI/AAAAAAAAC5U/jjrBDPhtoSo/s640/01-UnityRemote.jpg" width="98%" /></a>
+<br /><br />
+<u>Windows PC</u>
+<br />
+Reference: Unity Remote setup tutorial on <a href="https://www.youtube.com/watch?v=06PsZYnLHIM">You Tube</a>.  Outline of steps also available on <a href="http://answers.unity3d.com/questions/198853/unity-remote-for-android-not-working-solution.html">Unity Answers</a>.
+<br /><br />
+<b>Java SDK</b>
+<br />
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Download</a> Java SDK and install.  Unity3D may also require 32-bit JDK installed on 64-bit Windows.
+<br /><br />
+<b>Android Device</b>
+<br />
+<a href="https://play.google.com/store/apps/details?id=com.unity3d.androidremote">Download</a> Unity Remote onto Android device (Samsung Galaxy 4.2.2).
+<br />
+Choose Settings | More (top right) | Developer options and configure.
+<br /><br />
+Ensure the following Developer options are checked: 
+<br />
+&nbsp;1. Stay awake.<br />
+&nbsp;2. USB debugging.<br />
+&nbsp;3. Allow mock locations.<br />
+<br />
+Note: Developer options may be hidden by default!  If so then perform the following:
+<br />
+Choose Settings | More (top right) | About device.  Tap Build number <a href="http://docs.unity3d.com/Documentation/Manual/android-sdksetup.html">multiple times</a>.
+<br /><br />
+<b>Android SDK</b>
+<br />
+<a href="http://developer.android.com/sdk/index.html">Download</a> the Android SDK and extract to root folder, for example, D:\Android.
+<br />
+Note: apparently the Unity3D application does not agree with root C:\Android.
+<br /><br />
+Update any additional Android packages required for all target devices as necessary.
+<br />
+For example, it is standard to install the Android SDK Tools and Google USB Drivers:
+<a href="http://1.bp.blogspot.com/-pGu9RI4Hyq4/U7_YsdHCNUI/AAAAAAAAC5c/i1ibO_n_ZeA/s1600/02-SDK-USB-Driver.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-pGu9RI4Hyq4/U7_YsdHCNUI/AAAAAAAAC5c/i1ibO_n_ZeA/s640/02-SDK-USB-Driver.png" width="98%" /></a>
+<br />
+Launch Eclipse for Android Developer Tools (ADT) from D:\Android\eclipse\eclipse.exe
+<br />
+Window menu | Android SDK Manager | Select Tools, Android APIs, Extras | Install
+<br /><br />
+Finally, set the Android SDK Location if this has not already been set:
+<br />
+Window menu | Preferences | Android | SDK Location: D:\Android\sdk
+<br /><br />
+<b>Environment Variables</b>
+<br />
+Export environment variables for Android SDK and Android Debug Bridge (<a href="http://developer.android.com/tools/help/adb.html">ADB</a>) tools:
+<br />
+Right click Computer | Properties | Advanced system settings | Environment Variables.
+<br /><br />
+Add new System variable for name ANDROID_HOME as D:\Android\sdk
+<br />
+Extend to Path System variable: ;%ANDROID_HOME%\platform-tools 
+<br /><br />
+Launch command prompt: Windows | Start | Run | cmd.  Type "adb devices".
+<br />
+List of devices attached should be empty when no Android device attached.
+<br /><br />
+<b>USB Drivers</b>
+<br />
+Connect Android device to PC; Windows <i>should</i> download and install correct USB drivers automatically.
+<br />
+However, on certain Android devices, you may need to download and install the USB drivers <a href="http://developer.android.com/tools/extras/oem-usb.html#InstallingDriver">manually</a>.
+<br /><br />
+Navigate to the device manufacturer website and download USB drivers as necessary (e.g. <a href="http://samsung-usb-driver-for-mobile-phones.en.lo4d.com/download/mirror-hs1">Samsung</a>).
+<br /><br />
+After USB drivers installed, launch command prompt: Windows | Start | Run | cmd. Type "adb devices". 
+<br />
+List of devices attached should now include hex code for currently connected Android device (as above).
+<br /><br />
+Finally, launch the Unity Remote application on the device <u>before</u> executing the next step: Unity3D.
+<br /><br />
+<b>Unity3D</b>
+<br />
+Launch Unity3D.  Choose to create new project or simply open an existing project.
+<br />
+Edit menu | Preferences | External Tools | Android SDK Location | D:\Android\sdk
+<br /><br />
+In order to run the currently opened scene on the Android device, simply perform the following:
+<br />
+Edit menu | Project Settings | Editor | Unity Remote | Device | Choose Any Android Device
+<br /><br />
+Click the Play button.  The game will play directly on Android device as well as in Unity Editor!
+<a href="http://1.bp.blogspot.com/-ogr4U7bdWAU/U7_d0AyiBiI/AAAAAAAAC6E/NHtgRxcHxwE/s1600/04-Android.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-ogr4U7bdWAU/U7_d0AyiBiI/AAAAAAAAC6E/NHtgRxcHxwE/s640/04-Android.jpg" width="98%" /></a>
+<br /><br />
+<u>Apple Mac</u>
+<br />
+Below are instructions to setup Unity Remote on both Android / iOS devices but this time on the Mac.
+<br /><br />
+<b>Java SDK</b>
+<br />
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Download</a> Java SDK and install.  Here, there is typically only one option for the Mac OS X.
+<br /><br />
+<b>iOS Device</b>
+<br />
+<a href="https://itunes.apple.com/us/app/unity-remote-4/id871767552">Download</a> Unity Remote onto iOS device.  No additional configuration should be required.
+<br /><br />
+<b>Android SDK</b>
+<br />
+<a href="http://developer.android.com/sdk/index.html">Download</a> the Android SDK and extract to root folder, for example, to root /Android.
+<br /><br />
+Update any additional Android packages required for all target devices as necessary.
+<br />
+For example, it is standard to install the Android SDK Tools and any relevant Extras.
+<br /><br />
+Launch Eclipse for Android Developer Tools (ADT) via Terminal window:
+<br />
+cd /Android/eclipse/Eclipse.app/Contents/MacOS then execute ./eclipse
+<br /><br />
+Window menu | Android SDK Manager | Select Tools, Android APIs, Extras | Install
+<br /><br />
+Finally, set the Android SDK Location if this has not already been set:
+<br />
+ADT menu | Preferences | Android | SDK Location: /Android/sdk
+<br /><br />
+<b>Environment Variables</b>
+<br />
+Export environment variables for Android SDK and Android Debug Bridge (<a href="http://developer.android.com/tools/help/adb.html">ADB</a>) tools:
+<br />
+Launch Terminal window.  Add new ANDROID_HOME system variable and extend Path.
+<br /><br />
+export ANDROID_HOME=/Android/sdk
+<br />
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+<a href="http://1.bp.blogspot.com/-FM3qmiesaP0/U7_ax80q-2I/AAAAAAAAC54/AIejOJYVebg/s1600/03-MacExports.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-FM3qmiesaP0/U7_ax80q-2I/AAAAAAAAC54/AIejOJYVebg/s640/03-MacExports.png" width="98%" /></a>
+<br />
+While Terminal window is still open, type in the following: "adb devices".
+<br />
+List of devices attached should be empty when no devices are attached.
+<br /><br />
+<b>USB Drivers</b>
+<br />
+Connect Android / iOS device to Mac.  Apple <i>should</i> detect device without any additional configuration. 
+<br /><br />
+Launch Terminal window.  Type "adb devices".  Hex code for connected Android device should be listed.
+<br />
+Finally, launch the Unity Remote application on the device <u>before</u> executing the next step: Unity3D.
+<br /><br />
+<b>Unity3D</b>
+<br />
+Launch Unity3D.  Choose to create new project or simply open an existing project.
+<br />
+Unity menu | Preferences | External Tools | Android SDK Location | /Android/sdk
+<br /><br />
+In order to run the currently opened scene on the iOS device, simply perform the following:
+<br />
+Edit menu | Project Settings | Editor | Unity Remote | Device | Choose Any iOS Device
+<br /><br />
+Click the Play button.  The game will play directly on iOS device as well as in Unity Editor!
+<br />
+Note: choose Any Android Device for equivalent experience on Android as outlined above.
+<a href="http://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s1600/05-iOS.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s640/05-iOS.jpg" width="98%" /></a>
+<br /><br />
+<b>Conditional Compilation</b>
+<br />
+Unity3D includes preprocessor directives to <a href="http://docs.unity3d.com/Manual/PlatformDependentCompilation.html">compile</a> and execute sections of platform dependent code:
+<pre class="csharp" name="code">
+#if UNITY_IPHONE
+  //Execute script code when Build Settings Platform: iOS.
+#endif
+
+#if UNITY_ANDROID
+  //Execute script code when Build Settings Platform: Android.
+#endif
+</pre>
+Note: targeting single code base to multiple devices may benefit from <a href="http://steveproxna.blogspot.ie/2009/10/device-factory.html">Device Factory</a> implementation.
+<br /><br />
+Therefore, here is full list of all current Unity Remote scenarios:<br />
+&nbsp;1. Connect target device(s) to machine<br />
+&nbsp;2. Launch Unity Remote on device(s).<br />
+&nbsp;3. Launch Unity3D game project.<br />
+&nbsp;4. Choose platform + device.<br />
+&nbsp;5. Click Play button.
+<br /><br />
+Choose PLATFORM:&nbsp;&nbsp;File menu | Build Settings | Platform | Switch Platform
+<br />
+Choose DEVICE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit menu | Project Settings | Editor | Unity Remote | Device
+<br /><br />
+<table width="100%" border="1">
+<tr><td valign="top">&nbsp;Unity3D on <b>PC</b></td><td valign="top">&nbsp;Choose Any iOS Device</td><td valign="top">&nbsp;Choose Any Android Device</td></tr>
+<tr><td valign="top">&nbsp;PLATFORM: iOS</td><td valign="top">&nbsp;Scene NOT render on iOS<br />&nbsp;Execute UNITY_IPHONE code</td><td valign="top">&nbsp;Scene renders on Android<br />&nbsp;Execute UNITY_IPHONE code</td></tr>
+<tr><td valign="top">&nbsp;PLATFORM: Android</td><td valign="top">&nbsp;Scene NOT render on iOS<br />&nbsp;Execute UNITY_ANDROID code</td><td valign="top">&nbsp;Scene renders on Android<br />&nbsp;Execute UNITY_ANDROID code</td></tr>
+</table>
+<br />
+<table width="100%" border="1">
+<tr><td valign="top">&nbsp;Unity3D on <b>MAC</b></td><td valign="top">&nbsp;Choose Any iOS Device</td><td valign="top">&nbsp;Choose Any Android Device</td></tr>
+<tr><td valign="top">&nbsp;PLATFORM: iOS</td><td valign="top">&nbsp;Scene will render on iOS<br />&nbsp;Execute UNITY_IPHONE code</td><td valign="top">&nbsp;Scene renders on Android<br />&nbsp;Execute UNITY_IPHONE code</td></tr>
+<tr><td valign="top">&nbsp;PLATFORM: Android</td><td valign="top">&nbsp;Scene will render on iOS<br />&nbsp;Execute UNITY_ANDROID code</td><td valign="top">&nbsp;Scene renders on Android<br />&nbsp;Execute UNITY_ANDROID code</td></tr>
+</table>
+<br />
+At the time of this writing, Unity Remote will not work when iOS device attached to PC unfortunately.
+<br />
+Important: pressing play will always execute UNITY_EDITOR code regardless of platform or device!
+<br /><br />
+<u>Summary</u>
+<br />
+Unity Remote does lessen time taken to view constant (minor) changes on target mobile device(s).
+<br />
+However, you will eventually you will need to deploy game code to the device and test directly!
+<br /><br />
+Again, this can be channelled through Unity3D: choose target mobile platform then Build and Run.
+<br />
+On the other hand, the process to build and run once per device can also be a lengthy process.
+<br /><br />
+Therefore, it would be better to package game code once to be deployed to multiple devices.
+<br />
+That is, the process of Automated Builds.  This will be the topic in the next <a href="http://steveproxna.blogspot.ie/2014/07/unity3d-and-automated-builds.html">post</a>.
+</span>

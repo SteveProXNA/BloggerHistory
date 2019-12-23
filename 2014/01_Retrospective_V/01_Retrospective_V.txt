@@ -1,0 +1,118 @@
+<span style="font-family:verdana;font-size:85%;">
+Last year, I conducted a simple 
+<a href="http://steveproxna.blogspot.ie/2013/01/retrospective-iv.html">retrospective</a> for 2012.  Therefore, here is a retrospective for 2013.
+<br /><br />
+<u>2013 Achievements</u>
+<br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>
+Publish <a href="http://steveproxna.blogspot.ie/2013/02/xna-is-dead.html">XNA is Dead</a> article to commemorate <a href="https://twitter.com/search?q=%23becauseofxna&src=typd">#becauseofxna</a>
+</li>
+<li>
+Explore alternatives to XNA such as <a href="http://monogame.codeplex.com">MonoGame</a> and <a href="http://unity3d.com">Unity3D</a></li>
+<li>
+Download <a href="http://www.steampowered.com/steamworks">Steamworks</a> SDK and integrate <a href="https://developer.valvesoftware.com/wiki/Alien_Swarm_SDK">Alien Swarm</a> SDK
+</li>
+<li>
+Research <a href="http://en.wikipedia.org/wiki/DirectX">DirectX</a> developments beyond DirectX9 with C++
+</li>
+<li>
+Build C++ Match Three game Windows 7 port to <a href="http://en.wikipedia.org/wiki/OS_X">Mac OS/X</a></li>
+<li>
+<a href="https://developer.apple.com/xcode">Xcode</a> setup on Mac Book Pro for <a href="http://en.wikipedia.org/wiki/IPhone">iPhone</a> / <a href="http://en.wikipedia.org/wiki/IPad">iPad</a> deployment
+</li>
+<li>
+Native C/C++ development extends to Objective-C for <a href="http://en.wikipedia.org/wiki/IOS">iOS</a>
+</li>
+<li>
+Celebrate the 30 year anniversary for <a href="http://steveproxna.blogspot.ie/2013/06/sega-retro-gaming.html">Sega Retro Gaming</a>
+</li>
+</ul>
+Note: emphasis on Sega <a href="http://steveproxna.blogspot.ie/2013/07/sega-machine-code-programming.html">Machine Code</a>, Z80 <a href="http://steveproxna.blogspot.ie/2013/08/sega-assembly-programming.html">Assembly</a> and <a href="http://steveproxna.blogspot.ie/2013/09/sega-console-programming.html">Console</a> programming!
+</td>
+</tr>
+</table>
+<br />
+<u>2014 Objectives</u>
+<br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>
+Continued focus on native C++ large scale development and general best practices
+</li>
+<li>
+Target mobile development long-term with focus on native C++ for cross platform
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<br />
+In late January 2013, an <a href="http://ventspace.wordpress.com/2013/01/30/directxxna-phase-out-continues">email</a> was sent to DirectX/XNA MVPs which explained that Microsoft would no longer be maintaining the XNA toolset: XNA would be fully retired effective April 1, 2014 as a result.
+<br /><br />
+While this news was disappointing to independent game developers, the announcement was hardly a shock: there had been no XNA update since late 2011 and many developers at Microsoft had <a href="http://blogs.msdn.com/b/shawnhar/archive/2011/12/13/from-games-to-telephones.aspx">moved</a>.
+<br /><br />
+<u>Console</u>
+<br />
+In November 2013 saw the launch of <a href="http://en.wikipedia.org/wiki/History_of_video_game_consoles_(eighth_generation)">eighth</a> generation video game consoles which included the Nintendo <a href="http://en.wikipedia.org/wiki/Wii_U">Wii U</a>, the <a href="http://en.wikipedia.org/wiki/PlayStation_4">PlayStation 4</a> and the <a href="http://en.wikipedia.org/wiki/Xbox_One">Xbox One</a>.  These launches also brought much speculation over the future of independent game development and ability to self-publish.
+<br /><br />
+For example: Microsoft announced the <a href="http://www.i-programmer.info/news/144-graphics-and-games/6139-home-grown-games-allowed-on-every-xbox-one.html">ability</a> to run your own code on the Xbox One but without an official program like XNA, it would seem only logical to create a new programming environment and leverage existing investment in WinRT; similar to Metro-style applications on Windows 8.
+<br /><br />
+Consequently, Microsoft now <a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh452744">promotes</a> C++ over C# for high performance DirectX graphics and games programming: the only "real" support for DirectX using C# long-term seems constrained to <a href="http://en.wikipedia.org/wiki/SharpDX">SharpDX</a>.
+<br /><br />
+The focus on C++ here is nothing new: C++ has been the dominant language for commercial game studios for years and is one-of-the-most cost-effective solutions for porting game code cross platform.
+<br /><br />
+This will be an interesting development, so too will be the ever-growing future target platform: Mobile.
+<br /><br />
+<u>Mobile</u>
+<br />
+A new <a href="http://www.develop-online.net/news/mobile-revenues-forecast-to-reach-79bn-in-2017/0187132">report</a> suggests that mobile revenues are forecast to grow from $39 billion in 2013 to an estimated $79 billion in 2017.  The report bases these findings on improvements in monetization strategies combined with more app-based devices like smart watches, which seem fundamental to growth.
+<br /><br />
+Engaging this new online <a href="http://www.g3-247.com/2013/12/engaging-new-battles-online-gaming">battleground</a>, the biggest challenge may actually be which technology to choose:
+<br /><br />
+<b>HTML5</b>
+<br />
+An initial choice for creating mobile games but because each browser supports the technology differently, efforts are required to adapt code to each supported browser.  The same may hold true for <a href="http://forums.xamarin.com/discussion/1003/your-opinion-about-several-crossplatform-frameworks">PhoneGap</a> too.
+<br /><br />
+<b>Adobe AIR</b>
+<br />
+The future of Adobe AIR seems uncertain like Adobe Flash, it may be doomed as a long-term technology.
+<br /><br />
+<b>Unity 3D</b>
+<br />
+A popular choice for game development, vendors in the gambling sector are also exploring this technology although there is concern on load times for mobile devices which have far less memory and slower CPUs.
+<br /><br />
+<b>MonoGame</b>
+<br />
+The de-facto choice for many XNA developers however there is concern in the on-going development and long-term future of the open-source project.  The same may apply for <a href="http://en.wikipedia.org/wiki/Xamarin">Xamarin</a>; the Mono-based project.
+<br /><br />
+<b>Native</b>
+<br />
+Similar to console game development, C++ may become increasingly popular for <a href="http://www.infoworld.com/t/mobile-development/and-the-winner-cross-platform-mobile-app-dev-c-208770">cross platform</a> mobile development for apps/games on devices that demand high performance and a smaller memory footprint.
+<br /><br />
+<u>Conclusion</u>
+<br />
+C++ can be leveraged for building native apps on <a href="https://developer.apple.com/technologies/ios">Apple</a> iOS, <a href="http://www.google.ie/mobile/android">Google</a> Android, <a href="http://www.windowsphone.com">Microsoft</a> Windows Phone 8.  It seems best suited for apps that require sophisticated UIs and high performance client-side calculations:
+<br /><br />
+<b>Apple</b>
+<br />
+Objective-C remains Apple's language of choice however the Xcode compiler (LLVM) fully supports C++.
+<br /><br />
+<b>Google</b>
+<br />
+The Android NDK enables parts of an app built using native C++ for self-contained CPU-intensive code.
+<br /><br />
+<b>Microsoft</b>
+<br />
+Windows Phone 8 has full support for C++ and also supports WinRT application development.
+<br /><br />
+<u>Summary</u>
+<br />
+It will be interesting to see if C++ gains popularity as a choice for cross platform mobile development; C++ is currently considered a niche language for mobile development compared to other alternatives.
+<br /><br />
+However, it is always exciting to revisit existing technologies; similar to <a href="http://steveproxna.blogspot.ie/2013/06/sega-retro-gaming.html">Sega Retro Gaming</a>
+ last year!
+</span>

@@ -1,0 +1,711 @@
+<span style="font-family:verdana;font-size:85%;">
+In the previous <a href="http://steveproxna.blogspot.co.uk/2014/06/unity3d-and-unity-remote.html">post</a>, we discussed <a href="http://docs.unity3d.com/Manual/UnityRemote4.html">Unity Remote</a> to lessen the time taken to view constant changes on target platforms.  Now, we would like to package game code once to be deployed to multiple devices.
+<br /><br />
+In this post, we use <a href="http://en.wikipedia.org/wiki/Jenkins_(software)">Jenkins</a>: an open source continuous integration tool to perform automated builds.
+<br />
+At the time of this writing, Jenkins is available for Android on
+<a href="http://en.wikipedia.org/wiki/Personal_computer">PC</a> and both Android / iOS on the 
+<a href="http://en.wikipedia.org/wiki/Macintosh">Mac</a>.
+<a href="http://4.bp.blogspot.com/-QbsalarRa0c/U90fBkSXWjI/AAAAAAAAC_c/NhZEzCu5ik4/s1600/jenkins.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-QbsalarRa0c/U90fBkSXWjI/AAAAAAAAC_c/NhZEzCu5ik4/s640/jenkins.jpg" width="98%"></a>
+<br /><br />
+Let's check it out!
+<br /><br />
+<u>Windows PC</u>
+<br />
+Ensure you have the following pre-requisites installed and setup as per previous
+<a href="http://steveproxna.blogspot.co.uk/2014/06/unity3d-and-unity-remote.html">post</a>.
+<table width="80%" border="1">
+<tr>
+<td valign="top">&nbsp;The <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java SDK</a>
+<td valign="top">&nbsp;Environment Variables</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<a href="http://developer.android.com/sdk/index.html">Android SDK</a></td>
+</td><td valign="top">&nbsp;USB Drivers</td>
+</tr>
+<tr><td valign="top">&nbsp;<a href="https://unity3d.com/unity/download">Unity 3D</a></td>
+<td valign="top"></td></tr>
+</table>
+Also, ensure you have an SVN client installed on localhost, for example, 
+<a href="http://tortoisesvn.net/downloads.html">Tortoise SVN</a>.
+<br><br>
+<u>Example</u>
+<br />
+As an example, let's upload <a href="https://www.assetstore.unity3d.com/en/#!/content/12175">Angry Bots</a> into source control (<a href="http://en.wikipedia.org/wiki/Apache_Subversion">SVN</a>) to demonstrate automated builds.
+<br /><br />
+Add the following "PerformBuild.cs" file to the "Editor" folder to help automate the Android build:
+<br />
+Note: upgrade to Unity Pro licence if you would like to programmatically Build the Player Pipeline. 
+<pre class="csharp" name="code">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
+using UnityEngine;
+using Object = UnityEngine.Object;
+
+public class PerformBuild
+{ 
+  [MenuItem("Automated/Automated Android Build")]
+  static void CommandLineBuildOnCheckinAndroid()
+  {
+    const BuildTarget target = BuildTarget.Android;
+
+    string[] levels = GetBuildScenes();
+    const string locationPathName = "AngryBotsAndroid.apk";
+    const BuildOptions options = BuildOptions.None;
+
+    DeleteStreamingAssets();
+    BuildPipelineBuildAssetBundle(target);
+    BuildPipelineBuildPlayer(levels, locationPathName, target, options);
+  }
+ 
+  private static string[] GetBuildScenes()
+  {
+    List&lt;string&gt; names = new List&lt;string&gt;();
+    foreach (EditorBuildSettingsScene e in EditorBuildSettings.scenes)
+    {
+      if (e == null) { continue; }
+      if (e.enabled) { names.Add(e.path); }
+    }
+    return names.ToArray();
+  }
+ 
+  private static void DeleteStreamingAssets()
+  {
+    // Delete streaming assets (downloaded from source control).
+    string[] filesToDelete = Directory.GetFiles(Application.streamingAssetsPath, "*.unity3d*");
+    foreach (string file in filesToDelete) 
+    {
+      File.Delete(file);
+    }
+  }
+
+  private static void BuildPipelineBuildAssetBundle(BuildTarget buildTarget)
+  {
+    string[] assetPaths = AssetDatabase.GetAllAssetPaths();
+  
+    string pathName = Application.streamingAssetsPath;
+    foreach (string f in assetPaths)
+    {
+      if (!f.Contains("Master Assets")) { continue; }
+      Object a = Resources.LoadAssetAtPath(f, typeof(Object));
+      if (a == null) { continue; }
+
+      Object[] asset = new Object[1];
+      asset[0] = a;
+      string assetType = a.GetType().Name;
+      if (assetType.Equals("Object")) { continue; }
+
+      string assetName = assetType + "_" + asset[0].name + ".unity3d";
+      string fullName = pathName + "/" + assetName;
+
+      const BuildAssetBundleOptions options = BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets | BuildAssetBundleOptions.UncompressedAssetBundle;
+ 
+      BuildPipeline.BuildAssetBundle(a, asset, fullName, options, buildTarget);
+    }
+  }
+
+  private static void BuildPipelineBuildPlayer(string[] levels, string locationPathName, BuildTarget target, BuildOptions options)
+  {
+    PlayerSettings.productName = "Angry Bots";
+    PlayerSettings.bundleIdentifier = "com.studiosstevepro.angrybots";
+    PlayerSettings.bundleVersion = "1.0";
+
+    String error = BuildPipeline.BuildPlayer(levels, locationPathName, target, options);
+    if (!String.IsNullOrEmpty(error))
+    {
+      throw new System.Exception("Build failed: " + error);
+    }  
+  }
+}
+</pre>
+<b>Jenkins</b>
+<br />
+<a href="http://mirrors.jenkins-ci.org/windows/latest">Download</a> Jenkins Binary Installer and run.  Restart computer.   Navigate to <a href="http://localhost:8080">http://localhost:8080</a>.
+<br /><br />
+<i>Manage Plugins</i>
+<br />
+Main dashboard | Click Manage Jenkins | Click Manage Plugins | Click "Available" tab.
+<br />
+Ensure the following plugins are installed: Subversion Plugin and Unity3d plugin.
+<a href="http://1.bp.blogspot.com/-NtkvvoVUPAo/U9qXEFRknAI/AAAAAAAAC9w/OW52Rs1zM9U/s1600/bb-plugins.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-NtkvvoVUPAo/U9qXEFRknAI/AAAAAAAAC9w/OW52Rs1zM9U/s640/bb-plugins.jpg" width="98%"></a>
+<br />
+<i>Restart Plugins</i>
+<br />
+Start | run | services.msc.  Scroll down to Jenkins.  Right click.  Restart.
+<a href="http://2.bp.blogspot.com/-Go4-dQ3s4Og/U9ACHKct_MI/AAAAAAAAC7Y/tu8T3zJJ8EA/s1600/bb-service.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-Go4-dQ3s4Og/U9ACHKct_MI/AAAAAAAAC7Y/tu8T3zJJ8EA/s1600/bb-service.jpg" width="98%"></a>
+<br />
+<i>Configure System</i>
+<br />
+Main dashboard | Click Manage Jenkins | Click Configure System.  Enter the following:
+<a href="http://3.bp.blogspot.com/-IVu9FgsJQ-0/U-yiNrrFe3I/AAAAAAAADAA/4z2jh_DDqiM/s1600/aa-configure.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-IVu9FgsJQ-0/U-yiNrrFe3I/AAAAAAAADAA/4z2jh_DDqiM/s640/aa-configure.jpg" width="98%"></a>
+<br />
+Unity3d | Add Unity3d | Unity3d installations
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Name</td><td valign="top">&nbsp;Unity3D</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Installation directory</td>
+<td valign="top">&nbsp;C:\Program Files (x86)\Unity\</td></tr>
+</table>
+<br />
+Jenkins Location
+<br />
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Jenkins URL</td>
+<td valign="top">&nbsp;http://buildserver:8080</td></tr>
+<tr><td valign="top" width="50%">&nbsp;System Admin e-mail address</td>
+<td valign="top">&nbsp;build@mycompany.com</td></tr>
+</table>
+<br />
+Subversion
+<br />
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Subversion Workspace Version</td>
+<td valign="top">&nbsp;1.7</td></tr>
+</table>
+<br />
+E-mail Notification
+<br />
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;SMTP server</td>
+<td valign="top">&nbsp;smtp@mycompany.com</td></tr>
+</table>
+<br />
+<i>New Item</i>
+<br />
+Main dashboard | Click New Item | Enter Item name: AngryBotsAndroid.
+<br>
+Click radio button next to "Build a free-style software project".  Click OK.
+<a href="http://2.bp.blogspot.com/-uOLKMZM38bA/U9qRG19wUcI/AAAAAAAAC9Q/ijW8EzV8idk/s1600/ee-newjob1.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-uOLKMZM38bA/U9qRG19wUcI/AAAAAAAAC9Q/ijW8EzV8idk/s640/ee-newjob1.jpg" width="98%"></a>
+<br>
+Configuration
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Project Name</td>
+<td valign="top">&nbsp;AngryBotsAndroid</td></tr>
+</table>
+<br>
+Source Code Management
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Subversion Modules</td>
+<td valign="top">&nbsp;Checked</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Repository URL</td>
+<td valign="top">&nbsp;https://mycompany.com/svn/AngryBots</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Check-out Strategy</td>
+<td valign="top">&nbsp;Use 'svn update', with 'svn revert'</td></tr>
+</table>
+Note: you may be prompted to enter SVN source control credentials at this point.
+<br>
+<a href="http://4.bp.blogspot.com/-ukOlm9wLqpw/U9qRYHRGsMI/AAAAAAAAC9Y/Sb2hlsDtcks/s1600/ff-credentials.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-ukOlm9wLqpw/U9qRYHRGsMI/AAAAAAAAC9Y/Sb2hlsDtcks/s640/ff-credentials.jpg" width="98%"></a>
+Credentials | Click Add button | Add SVN source control Username and Password.
+<br><br>
+Build | Add build step | Invoke Unity3d Editor
+<table width="84%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Unity3d installation name</td>
+<td valign="top">&nbsp;Unity3D</td></tr>
+<tr><td valign="top" colspan="2">&nbsp;Editor command line arguments:
+<br />
+&nbsp;-quit -batchmode -executeMethod PerformBuild.CommandLineBuildOnCheckinAndroid
+</td></tr>
+</table>
+<br>
+Build | Add build step | Execute shell
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Command</td>
+<td valign="top">&nbsp;echo ${WORKSPACE}
+</td></tr>
+</table>
+<br>
+Post-build Actions | E-mail Notification
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Recipients</td><td valign="top">&nbsp;<i>Enter email distribution list</i></td></tr>
+</table>
+<br>
+Click Apply button | Click Save button | Click Build Now.
+<br>
+<a href="http://3.bp.blogspot.com/-avElKd22CsE/U9qRxbdeesI/AAAAAAAAC9g/QOQ8fs4m1og/s1600/ii-AngryBotsAndroid.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-avElKd22CsE/U9qRxbdeesI/AAAAAAAAC9g/QOQ8fs4m1og/s640/ii-AngryBotsAndroid.jpg" width="98%"></a>
+<br>
+Note: during build job, Unity may <a href="http://lacostej.blogspot.ie/2012/03/unity3d-from-commit-to-deployment-onto.html">prompt</a> you to select Android SDK path.  Choose D:\Android\sdk
+<br><br>
+<i>Deploy</i>
+<br>
+Main dashboard | Click AngryBotsAndroid | Build History | Click DateTime link | Console Output.
+<br><br>
+Scroll to bottom: note the absolute path to AngryBotsAndroid build job workspace entered there.
+<br>
+For example, it may be C:\Program Files (x86)\Jenkins\jobs\AngryBotsAndroid\workspace
+<br><br>
+Connect Android device to PC.  Launch command prompt, navigate to Android APK file and install:
+<br>
+Start | run | cmd | cd "C:\Program Files (x86)\Jenkins\jobs\AngryBotsAndroid\workspace"
+<br>
+adb install -r AngryBotsAndroid.apk
+<br><br>
+Congratulations!  Angry Bots should be installed on your Android device ready to play.
+<a href="http://1.bp.blogspot.com/-ogr4U7bdWAU/U7_d0AyiBiI/AAAAAAAAC6E/NHtgRxcHxwE/s1600/04-Android.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-ogr4U7bdWAU/U7_d0AyiBiI/AAAAAAAAC6E/NHtgRxcHxwE/s640/04-Android.jpg" width="98%"></a>
+<br><br>
+<u>Apple Mac</u>
+<br />
+Ensure you have the following pre-requisites installed and setup as per previous <a href="http://steveproxna.blogspot.co.uk/2014/06/unity3d-and-unity-remote.html">post</a>.
+<table width="80%" border="1">
+<tr><td valign="top">&nbsp;The <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java SDK</a></td><td valign="top">&nbsp;Environment Variables</td></tr>
+<tr><td valign="top">&nbsp;<a href="http://developer.android.com/sdk/index.html">Android SDK</a></td>
+<td valign="top">&nbsp;USB Drivers</td></tr>
+<tr><td valign="top">&nbsp;<a href="https://unity3d.com/unity/download">Unity 3D</a></td>
+<td valign="top">&nbsp;<a href="https://developer.apple.com/xcode">Xcode</a></td></tr>
+</table>
+Also, ensure you have an SVN client installed on localhost, for example, <a href="https://code.google.com/p/svnx/downloads/list">svnx</a> for Mac.
+<br><br>
+In order to deploy code to an iOS device, this post assumes you have an Apple <a href="https://developer.apple.com/register/index.action">Developer ID</a>.
+<br />
+This post also assumes you have a <a href="http://mobilegbl.wordpress.com/2013/05/21/from-unity-to-an-ios-device">Provisioning Profile</a> setup via the Apple Developer portal.
+<br><br>
+<u>Archive</u>
+<br />
+Automated builds may actually benefit from archiving final packaged products to a network file share.
+<br />
+That way, packages can be deployed from mounted network file share on to multiple devices directly.
+<br /><br />
+<i>Mount Drive</i>
+<br />
+For example: there is a Shared/builds folder on ARCHIVE-SERVER for automated builds.
+<br /><br />
+Finder | Go menu | Connect to Server...  Enter the following Server Address:
+smb://<i>username</i>:<i>password</i>@ARCHIVE-SERVER/Shared.  Click Connect button.
+<br /><br />
+Launch Terminal window to manually <a href="http://apple.stackexchange.com/questions/697/how-can-i-mount-an-smb-share-from-the-command-line">mount</a> drive.  Type the following (as root):
+<br />
+sudo su | cd /mnt | mkdir builds | cd builds 
+<br />
+mount_smbfs //ARCHIVE-SERVER/Shared/builds /mnt/builds
+<br /><br />
+<i>Root User</i>
+<br />
+Important: Jenkins must run as root user in order to have copy permission to mount drive.
+<br />
+Launch Terminal window to elevate Jenkins privileges as root user.  Modify configuration:
+<a href="http://2.bp.blogspot.com/-yXZV79poUOs/U9o2F3_P0II/AAAAAAAAC80/p-vF1TYEU3w/s1600/dd-root.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-yXZV79poUOs/U9o2F3_P0II/AAAAAAAAC80/p-vF1TYEU3w/s640/dd-root.jpg" width="98%"></a>
+cd /Library/LaunchDaemons | vi org.jenkins-ci.plist | Find &lt;key&gt;UserName&lt;/key&gt;
+<br />Change &lt;string&gt;<b>Jenkins</b>&lt;/string&gt; TO &lt;string&gt;<b>root</b>&lt;/string&gt; | Type <b>!wq</b> to Save.
+<br /><br />
+<u>Example</u>
+<br />
+Update the "PerformBuild.cs" file that exists in the "Editor" folder to help automate the iOS build:
+<br />
+Note: upgrade to Unity Pro licence if you would like to programmatically Build the Player Pipeline.
+<pre class="csharp" name="code">
+public class PerformBuild
+{
+  [MenuItem("Automated/Automated iOS Build")]
+  static void CommandLineBuildOnCheckinIOS()
+  {
+    const BuildTarget target = BuildTarget.iPhone;
+
+    string[] levels = GetBuildScenes();
+    const string locationPathName = "iOSbuild";
+    const BuildOptions options = BuildOptions.None;
+
+    DeleteStreamingAssets();
+    BuildPipelineBuildAssetBundle(target);
+    BuildPipelineBuildPlayer(levels, locationPathName, target, options);
+  }
+
+  // same code as before.
+}
+</pre>
+<b>Jenkins</b>
+<br />
+<a href="http://mirrors.jenkins-ci.org/osx/latest">Download</a> Jenkins Binary Installer and run.  Restart computer.   Navigate to <a href="http://localhost:8080">http://localhost:8080</a>.
+<br /><br />
+Note: if you receive warning "Jenkins.pkg can't be opened because from unidentified developer"
+<br />
+Choose: System Preferences | Security & Privacy | Click "Open anyway" button | Install.
+<br /><br />
+<i>Manage Plugins</i>
+<br />
+Main dashboard | Click Manage Jenkins | Click Manage Plugins | Click "Available" tab.
+<br />
+Ensure the following plugins are installed: Subversion, Unity3d and the Xcode plugin.
+<br /><br />
+<i>Restart Plugins</i>
+<br />
+The Jenkins <a href="https://wiki.jenkins-ci.org/display/JENKINS/Thanks+for+using+OSX+Installer">Installer</a> sets up a launch daemon listening on port 8080 for all incoming requests.
+<br />
+Therefore, launch Terminal window to manually restart daemon.  Type the following (as root):
+<a href="http://3.bp.blogspot.com/-DbfsAgQ2w9s/U9dUgVBeKzI/AAAAAAAAC8k/mRl46_wZpY0/s1600/cc-restart.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-DbfsAgQ2w9s/U9dUgVBeKzI/AAAAAAAAC8k/mRl46_wZpY0/s640/cc-restart.jpg" width="98%"></a>
+Manually stop daemon: sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+<br />
+Manually start daemon: sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
+<br /><br />
+<i>Configure System</i>
+<br />
+Main dashboard | Click Manage Jenkins | Click Configure System.  Enter the following:
+<a href="http://3.bp.blogspot.com/-pXTgJADRjf0/U9qYbREnyZI/AAAAAAAAC98/5_6q0euia0Q/s1600/aa-configure2.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-pXTgJADRjf0/U9qYbREnyZI/AAAAAAAAC98/5_6q0euia0Q/s640/aa-configure2.jpg" width="98%"></a>
+Configuration
+<br />
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Home directory</td>
+<td valign="top">&nbsp;/Users/Shared/Jenkins/Home</td></tr>
+</table>
+<br />
+Unity3d | Add Unity3d | Unity3d installations
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Name</td><td valign="top">&nbsp;Unity3D</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Installation directory</td>
+<td valign="top">&nbsp;/Applications/Unity/Unity.app</td></tr>
+</table>
+<br />
+Xcode Builder
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;xcodebuild executable path</td>
+<td valign="top">&nbsp;/usr/bin/xcodebuild</td></tr>
+<tr><td valign="top" width="50%">&nbsp;agvtool executable path</td>
+<td valign="top">&nbsp/usr/bin/agvtool</td></tr>
+<tr><td valign="top" width="50%">&nbsp;xcrun executable path</td>
+<td valign="top">&nbsp/usr/bin/xcrun</td></tr>
+</table>
+<br />
+Jenkins Location
+<br />
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Jenkins URL</td>
+<td valign="top">&nbsp;http://buildserver:8080</td></tr>
+<tr><td valign="top" width="50%">&nbsp;System Admin e-mail address</td>
+<td valign="top">&nbsp;build@mycompany.com</td></tr>
+</table>
+<br />
+Subversion
+<br />
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Subversion Workspace Version</td>
+<td valign="top">&nbsp;1.7</td></tr>
+</table>
+<br />
+E-mail Notification
+<br />
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;SMTP server</td>
+<td valign="top">&nbsp;smtp@mycompany.com</td></tr>
+</table>
+<br />
+<i>New Item</i>
+<br />
+Main dashboard | Click New Item | Enter Item name: AngryBotsIOS.
+<br>
+Click radio button next to "Build a free-style software project".  OK.
+<a href="http://4.bp.blogspot.com/-69RaRiPU5RE/U9qaZFmw43I/AAAAAAAAC-I/An9kzT54DwM/s1600/ee-newjob2.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-69RaRiPU5RE/U9qaZFmw43I/AAAAAAAAC-I/An9kzT54DwM/s640/ee-newjob2.jpg" width="98%"></a>
+<br>
+Configuration
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Project Name</td>
+<td valign="top">&nbsp;AngryBotsIOS</td></tr>
+</table>
+<br>
+Source Code Management
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Subversion Modules</td>
+<td valign="top">&nbsp;Checked</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Repository URL</td><td 
+valign="top">&nbsp;https://mycompany.com/svn/AngryBots</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Check-out Strategy</td>
+<td valign="top">&nbsp;Use 'svn update', with 'svn revert'</td></tr>
+</table>
+Note: you may be prompted to enter SVN source control credentials at this point.
+<br>
+Credentials | Click Add button | Add SVN source control Username and Password.
+<br><br>
+Build Triggers
+<br>
+For example, poll build server every 10 minutes for any source code revisions.
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Poll SCM</td>
+<td valign="top">&nbsp;Checked</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Schedule</td>
+<td valign="top">&nbsp;H/10 * * * *</td></tr>
+</table>
+<br>
+Build | Add build step | Invoke Unity3d Editor
+<a href="http://2.bp.blogspot.com/-OQ_sKxKvwbs/U9qdpANZTII/AAAAAAAAC-U/13e5hgPWzQo/s1600/jj-AngryBotsIOS.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-OQ_sKxKvwbs/U9qdpANZTII/AAAAAAAAC-U/13e5hgPWzQo/s640/jj-AngryBotsIOS.jpg" width="98%"></a>
+<table width="82%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Unity3d installation name</td><td valign="top">&nbsp;Unity3D</td></tr>
+<tr><td valign="top" colspan="2">&nbsp;Editor command line arguments:
+<br />
+&nbsp;-quit -batchmode -executeMethod PerformBuild.CommandLineBuildOnCheckinIOS
+</td></tr>
+</table>
+<br>
+Xcode | General build settings
+<br>
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Target</td><td valign="top">&nbsp;Unity-iPhone</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Clean before build?</td>
+<td valign="top">&nbsp;Checked</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Configuration</td><td valign="top">&nbsp;Release</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Pack application and build .ipa?</td>
+<td valign="top">&nbsp;Checked</td></tr>
+<tr><td valign="top" width="50%">&nbsp;.ipa filename pattern</td>
+<td valign="top">&nbsp;AngryBotsIOS</td></tr>
+</table>
+<br>
+Xcode | Code signing & OS X keychain options
+<br>
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Code signing & OS X keychain options</td><td valign="top">&nbsp;iPhone Distribution</td></tr>
+</table>
+Note: leave blank if you do not wish to override the code signing identity in project. 
+<br><br>
+Xcode | Advanced Xcode build options
+<a href="http://3.bp.blogspot.com/--yAg0pSJs9Q/U9qdwuzd2AI/AAAAAAAAC-c/KseuP_fKus4/s1600/jj-AngryBotsIOS2.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/--yAg0pSJs9Q/U9qdwuzd2AI/AAAAAAAAC-c/KseuP_fKus4/s640/jj-AngryBotsIOS2.jpg" width="98%"></a><table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Xcode Project Directory</td><td valign="top">&nbsp;iOSbuild</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Build output directory</td><td valign="top">&nbsp;${WORKSPACE}/output</td></tr>
+</table>
+<br>
+Build | Add build step | Execute shell.  Enter the following shell script:
+<br>
+<pre class="csharp" name="code">
+# This is the output IPA file.
+filename="AngryBotsIOS.ipa"
+
+echo "Copying $filename to /mnt/builds now STARTING..."
+echo "Running as :"
+whoami
+
+# Navigate to destination.
+cd /mnt/builds
+
+# Remove current file if exists.
+if [ -f "$filename" ]; then rm "$filename"; fi
+
+# Copy latest version of file.
+cp ${WORKSPACE}/output/"$filename" .
+
+# Create archive directory if necessary.
+testdate=${BUILD_ID}
+filedate=`echo "$testdate" | cut -d '_' -f1`
+
+if [ -d "$filedate" ]; then echo "$filedate" exists; else mkdir "$filedate"; fi
+cd "$filedate"
+
+# Remove archive file if exists.
+archfile=${SVN_REVISION}_"$filename"
+if [ -f "$archfile" ]; then rm "$archfile"; fi
+
+# Copy archive version of file.
+cp ${WORKSPACE}/output/"$filename" ./"$archfile"
+
+echo "Copying $filename to /mnt/builds now COMPLETE..."
+echo Finished
+</pre>
+Click Apply button | Click Save Button | Click Build Now.
+<br><br>
+<b>Errors</b>
+<br>
+iOS automated builds may encounter errors if the build server is not completely setup.
+<br /><br />
+<a href="http://code-dojo.blogspot.co.uk/2012/09/fix-ios-code-signing-issue-when-using.html">Code Sign Errors</a>
+<br>
+<i>There are no valid certificate/private key pairs in the default keychain</i>
+<br>
+Open "Keychain Access" application.  Finder | Applications | Utilities | Keychain Access
+<br><br>
+Click login tab (top right) | Right click "iPhone Developer YOUR NAME" | Choose Copy
+<br>
+Click System tab | Right click in area | Choose Paste 2 items
+<br /><br />
+Note: you may need to repeat with the "iPhone Distribution YOUR NAME" certificate.
+<br /><br />
+<i>Provisioning profile 'xxxxx-xxxx-xxxx-xxxxx' can't be found</i>
+<br>
+Copy your username mobile device provisioning profile to the shared Jenkins folder:
+<br />
+Launch Terminal window to copy provisioning profile. Type the following (as root):
+<br /><br />
+Copy /Users/<i>username</i>/Library/MobileDevice folder TO /Users/Shared/Jenkins
+<br>
+Copy /Users/<i>username</i>/Library/MobileDevice folder TO /System/Library
+<br /><br />
+<b>Upgrade</b><br />
+Mac OS/X El Capitan 10.11 upgrade <i>magically</i> removes the MobileDevice folder under /System/Library/
+<br />
+Thus, without provisioning profiles stored there, Jenkins system process will fail to sign the iOS builds;
+<br /><br />
+Therefore provisioning profiles must be copied back to /System/Library/MobileDevice folder as before.
+<br />
+However, when you attempt to copy them back you may receive the "Operation not permitted" error.
+<br /><br />
+<a href="http://stackoverflow.com/questions/32659348/operation-not-permitted-when-on-root-el-capitan-rootless-disabled">Solution</a>: Reboot Mac | Press cmd + R on boot | OS X Utilities prompt | choose Utilities menu | Terminal
+<br />
+Type csrutil disable | Type reboot.  Now when back in to you can manually copy the MobileDevice folder
+<br />
+Launch Terminal window.  Type cp /Users/Shared/Jenkins/MobileDevice  /System/Library/MobileDevice
+<br /><br />
+<i>FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL</i>
+<br>
+If you encounter this error then Jenkins wants to run as its own private user instead of Mac OS/X.
+<br>
+Create <a href="http://www.ourdailycodes.com/2013/09/building-unity3d-project-on-jenkins.html">slave</a> node on Jenkins thus the Unity process can connect as Mac OS/X user accordingly:
+<br><br>
+Main dashboard | Click Manage Jenkins | Click Manage Nodes | New Node
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Node name</td><td valign="top">&nbsp;Unity3D</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Dumb slave</td><td valign="top">&nbsp;Checked</td></tr>
+</table>
+<a href="http://3.bp.blogspot.com/-wPpLMZy6KYc/U-OmkODq_9I/AAAAAAAAC_w/9-6aNtgO238/s1600/hh-dumbslave.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-wPpLMZy6KYc/U-OmkODq_9I/AAAAAAAAC_w/9-6aNtgO238/s640/hh-dumbslave.jpg" width="98%"></a>
+<br>
+Configure
+<table width="99%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Name</td><td valign="top">&nbsp;Unity3D</td></tr>
+<tr><td valign="top" width="50%">&nbsp;# of executors</td><td valign="top">&nbsp;2</td></tr>
+<tr><td valign="top" width="50%">&nbspRemote root directory</td><td valign="top">&nbsp;/Users/<i>username</i>/JenkinsNode</td></tr>
+<tr><td valign="top" width="50%">&nbspUsage</td><td valign="top">&nbsp;Leave this machine for tied Jobs only</td></tr>
+<tr><td valign="top" width="50%">&nbspLaunch method</td><td valign="top">&nbsp;Launch slave agents via Java Web Start</td></tr>
+<tr><td valign="top" width="50%">&nbspAvailability</td><td valign="top">&nbsp;Keep this slave on-line as much as possible</td></tr>
+</table>
+<br>
+<i>UnityException: Launching iOS project via Xcode4 failed. Check editor log for details</i>
+<br />
+If you are using Unity 4.3.* and Xcode 5.1.* then you may possibly receive this error.
+<br /><br />
+Manually edit Xcode plugin metadata <a href="http://forum.unity3d.com/threads/nityexception-launching-ios-project-via-xcode4-failed.234557">Info.plist</a> file for Unity and add the missing key:
+<br />
+Launch Terminal window. Type the following (as root):
+<br /><br />
+cd /Applications/Unity/Unity.app/Contents/BuildTargetTools
+<br />
+cd iPhonePlayer/Unity4XC.xcplugin/Contents
+<br /><br />
+vi Info.plist | Search for DVTPlugInCompatibilityUUIDs | Add key:
+<br>
+&lt;string&gt;<b>A2E4D43F-41F4-4FB9-BB94-7177011C9AED</b>&lt;/string&gt;
+<br><br>
+<i>UnityException: Launching iOS project via Xcode4 failed. Check editor log for details</i>
+<br />
+If you are using Unity 4.5.* and Xcode 6.0.* then you may possibly receive this error.
+<br /><br />
+Manually edit Xcode plugin metadata <a href="http://forum.unity3d.com/threads/ios8-xcode6-compatibility.249533/page-2">Info.plist</a> file for Unity and add the missing key:
+<br />
+Launch Terminal window. Type the following (as root):
+<br /><br />
+cd /Applications/Unity/Unity.app/Contents/PlaybackEngines
+<br />
+cd iOSSupport/Tools/OSX/Unity4XC.xcplugin/Contents
+<br /><br />
+vi Info.plist | Search for DVTPlugInCompatibilityUUIDs | Add key:
+<br>
+&lt;string&gt;<b>C4A681B0-4A26-480E-93EC-1218098B9AA0</b>&lt;/string&gt;
+<br><br>
+<i>UnityException: Launching iOS project via Xcode4 failed. Check editor log for details</i>
+<br />
+If you are using Unity 4.6.* and Xcode 6.2.* then you may possibly receive this error.
+<br /><br />
+Manually edit Xcode plugin metadata <a href="http://forum.unity3d.com/threads/ios8-xcode6-compatibility.249533/page-2">Info.plist</a> file for Unity and add the missing key:
+<br />
+Launch Terminal window. Type the following (as root):
+<br /><br />
+cd /Applications/Unity/Unity.app/Contents/PlaybackEngines
+<br />
+cd iOSSupport/Tools/OSX/Unity4XC.xcplugin/Contents
+<br /><br />
+vi Info.plist | Search for DVTPlugInCompatibilityUUIDs | Add key:
+<br>
+&lt;string&gt;<b>A16FF353-8441-459E-A50C-B071F53F51B7</b>&lt;/string&gt;
+<br><br>
+<u>Method</u>
+<br>
+In order to determine which GUID must be added follow steps as outlined <a href="http://microsoft.matrechkabook.ru/neer/_3Ef_d2JvAE/unityexception-launching-ios-project-via-xcode4-failed.html">here</a>:
+<br>
+Finder | Applications | Right click Xcode | Show Package Contents | Contents
+<br>
+Double click Info.plist.  Choose DVT PluginCompatibility UUID | Copy GUID
+<br><br>
+<i>Next</i>
+<br>
+Finder | Applications | Unity | Right click Unity.app | Show Package Contents
+<br>
+Contents | PlaybackEngines | iOSsupport | Tools | OSX
+<br>
+Right click Unity4XC.xcplugin | Contents | Double click Info.plist
+<br>
+Choose DVT PluginCompatibility UUID | Click + | Paste GUID
+<br><br>
+<u>Deploy</u>
+<br>
+After the iOS build is successful, deploy packaged game code once to multiple devices:
+<br><br>
+Connect an iOS device to your PC | Launch iTunes | Click the top left drop down arrow
+<br>
+Add File to Library... | Navigate to \\ARCHIVE-SERVER\Shared | Double click AngryBotsIOS.ipa
+<a href="http://1.bp.blogspot.com/-KLS_jjVXB0M/U90J3dL_giI/AAAAAAAAC_E/QG7TQasbvsg/s1600/kk-AppStore.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-KLS_jjVXB0M/U90J3dL_giI/AAAAAAAAC_E/QG7TQasbvsg/s640/kk-AppStore.jpg" width="98%"></a>
+Click iPhone button | Click Apps button | Click Install button (next to AngryBots) | Click Apply button.
+<a href="http://4.bp.blogspot.com/-Fi2j1_6pRSw/U90KGyVm92I/AAAAAAAAC_M/2-Y5abFAXVE/s1600/kk-AppStore2.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-Fi2j1_6pRSw/U90KGyVm92I/AAAAAAAAC_M/2-Y5abFAXVE/s640/kk-AppStore2.jpg" width="98%"></a>
+Congratulations!  Angry Bots should be installed on your iOS device ready to play.
+<a href="http://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s1600/05-iOS.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s640/05-iOS.jpg" width="98%"></a>
+<br><br>
+<u>Summary</u>
+<br>
+The only automated build option outstanding here is an Android build deployed on the Mac.
+<br>
+Fortunately, this is simple: clone iOS build job, remove Xcode build step and modify script.
+<br><br>
+<i>Clone iOS build</i>
+<br>
+Main dashboard | Click New Item | Enter Item name: AngryBotsAndroid.
+<br>
+Click radio button next to "Copy existing Item".  Enter "AngryBotsIOS".
+<br><br>
+Build | Add build step | Invoke Unity3d Editor
+<table width="82%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Unity3d installation name</td><td 
+valign="top">&nbsp;Unity3D</td></tr>
+<tr><td valign="top" colspan="2">&nbsp;Editor command line arguments:
+<br />
+-quit -batchmode -executeMethod PerformBuild.CommandLineBuildOnCheckinAndroid
+</td></tr>
+</table>
+<br>
+<i>Remove Xcode build step</i>
+<br>
+Scroll down to Xcode | General build settings | Click Delete button.
+<br><br>
+<i>Modify script.</i>
+<br>
+Make the following changes to shell script to accommodate Android packaged game code:
+<pre class="csharp" name="code">
+# This is the output APK file.
+filename="AngryBotsAndroid.APK"
+
+echo "Copying $filename to /mnt/builds now STARTING..."
+echo "Running as :"
+whoami
+
+# Navigate to destination.
+cd /mnt/builds
+
+# Remove current file if exists.
+if [ -f "$filename" ]; then rm "$filename"; fi
+
+# Copy latest version of file.
+cp ${WORKSPACE}/"$filename" .
+
+# Create archive directory if necessary.
+testdate=${BUILD_ID}
+filedate=`echo "$testdate" | cut -d '_' -f1`
+
+if [ -d "$filedate" ]; then echo "$filedate" exists; else mkdir "$filedate"; fi
+cd "$filedate"
+
+# Remove archive file if exists.
+archfile=${SVN_REVISION}_"$filename"
+if [ -f "$archfile" ]; then rm "$archfile"; fi
+
+# Copy archive version of file.
+cp ${WORKSPACE}/"$filename" ./"$archfile"
+
+echo "Copying $filename to /mnt/builds now COMPLETE..."
+echo Finished
+</pre>
+<u>Conclusion</u>
+<br />
+In conclusion, Continuous Integration has many <a href="http://en.wikipedia.org/wiki/Continuous_integration#Advantages">advantages</a>; one of which of course is stability: an automated build process constantly checks state of the code and immediately reports build errors.
+<br /><br />
+The timeliness of this feedback is critical for maintaining stable code.  Especially for software being regularly deployed to multiple devices; most of which avail to frequent online mobile store updates!
+</span>

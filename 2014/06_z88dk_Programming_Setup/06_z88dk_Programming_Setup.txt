@@ -1,0 +1,288 @@
+<span style="font-family:verdana;font-size:85%;">
+In 2013, we checked out <a href="http://steveproxna.blogspot.ie/2013/09/sega-console-programming.html">Sega Console Programming</a>, specifically for the <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a> (SMS).
+<br />
+The <a href="http://www.smspower.org">SMS</a> was the last ever 8-bit video game console manufactured by Sega built using the Z80 chip.
+<br /><br />
+Here, we built simple a Hello World program similar to how 8-bit video games were written 30 years ago!
+<br />
+(Cartridge-based video games built for 8-bit <a href="http://steveproxna.blogspot.ie/2013/06/sega-retro-gaming.html">Sega Retro Gaming</a> consoles were written in pure assembly)
+<br /><br />
+Therefore, the process to write <a href="http://en.wikipedia.org/wiki/Zilog_Z80#Z80_assembly_language">Z80 assembly language</a> from scratch for the SMS can be very daunting.
+<br />
+Fortunately, there is another way: write game code in <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C language</a> using <a href="http://en.wikipedia.org/wiki/Z88DK">Z88 Development Kit</a> (z88dk).
+<table width="90%" border="0">
+<tr>
+<td valign="top">
+<a href="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s1600/z88dk.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s640/z88dk.jpg" /></a>
+&nbsp;&nbsp;
+<a href="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s1600/z88dk.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s640/z88dk.jpg" /></a>
+&nbsp;&nbsp;
+<a href="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s1600/z88dk.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s640/z88dk.jpg" /></a>
+</td>
+</tr>
+</table>
+<br />
+Let’s check it out!
+<br /><br />
+<u>z88dk</u>
+<br />
+The z88dk is a Z80 / C <a href="http://en.wikipedia.org/wiki/Cross_compiler">cross compiler</a> supplied with an assembler, linker and a set of C standard libraries.
+<br />
+The compiler is portable: targets Amiga OS, HP-UX 9, Linux, Mac OS/X, MS-DOS, Windows and the SMS.
+<br /><br />
+Follow all instructions from the previous <a href="http://steveproxna.blogspot.ie/2013/09/sega-console-programming.html">post</a>: this documents how to setup the pre-requisite software.
+<br /><br />
+<b>Text Editor</b>
+<br />
+Download and install <a href="http://www.contexteditor.org/downloads">ConTEXT</a>.  Download the syntax highlighter <a href="http://www.smspower.org/maxim/uploads/HowToProgram/contextwlaz80highlighter.zip">file</a>.  Save to the <b>Highlighters</b> folder.
+<br /><br />
+<b>Assembler</b>
+<br />
+Recommended is the <a href="http://www.villehelin.com/wla.html">WLA DX</a> assembler.  Download compiled <a href="http://www.smspower.org/maxim/uploads/HowToProgram/wlaz80win32.zip">binaries</a> and extract to C:\wlaz80win32.
+<br />
+Add C:\wlaz80win32 to PATH environment variable for custom batch scripts to compile Z80 / C code.
+<br /><br />
+<b>Emulators</b>
+<br />
+If you followed the <a href="http://steveproxna.blogspot.ie/2013/06/sega-retro-gaming.html">Sega Retro Gaming</a> series then you would have both Fusion and Meka installed:
+<br />
+- <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/404-kega-fusion">Fusion</a>: popular emulator used to play Sega retro games.  Download <a href="http://www.emutopia.com/index.php?option=com_cobalt&task=files.download&no_html=1&id=3537&fid=20&fidx=2&rid=404&return=aHR0cDovL3d3dy5lbXV0b3BpYS5jb20vaW5kZXgucGhwL2Rvd25sb2Fkcy1lbXVsYXRvcnMvaXRlbS8yOTgtc2VnYS1zZy0xMDAwLXNjLTMwMDAvNDA0LWtlZ2EtZnVzaW9u">Fusion364.zip</a> and extract.
+<br />
+- <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/239-meka">Meka</a>: emulator with some excellent debugging features.  Download <a href="http://www.emutopia.com/index.php?option=com_cobalt&task=files.download&no_html=1&id=1912&fid=20&fidx=3&rid=239&return=aHR0cDovL3d3dy5lbXV0b3BpYS5jb20vaW5kZXgucGhwL2Rvd25sb2Fkcy1lbXVsYXRvcnMvaXRlbS8yOTgtc2VnYS1zZy0xMDAwLXNjLTMwMDAvMjM5LW1la2E%3D">mekaw073.zip</a> and extract.
+<br /><br />
+<b>Disassembler</b>
+<br />
+Recommended is the <a href="http://www.smspower.org/Development/SMSExamine">SMS Examine</a> disassembler.  Download <a href="http://www.smspower.org/uploads/Development/smsexamine1_2a.zip">smsexamine1_2a.zip</a> and extract.
+<br />
+Note: output is recompilable by WLA DX; thus perfect to reverse engineer binary output files.
+<br /><br />
+<b>Hex Editor</b>
+<br />
+Also, install <a href="http://en.wikipedia.org/wiki/Hex_editor">Hex Editor</a> to inspect binary data generated from the assembler:
+<br />
+Download and extract <b>HxD</b> <a href="http://mh-nexus.de/downloads/HxDSetupEN.zip">Hex Editor</a>.  Double click the setup.exe to install.  
+<br /><br />
+<u>Setup</u>
+<br />
+Follow all instructions from <a href="http://www.allthingsmicro.com/tutorials/creating-a-z80-development-environment">All Things Micro</a>: this documents how to setup the Z80 dev environment.
+<br /><br />
+<b>Cygwin</b>
+<br />
+Download and install <a href="http://cygwin.com/install.html">Cygwin</a> to C:\cygwin.  Accept the default packages location C:\cygwin\packages.
+<br />
+Ensure you install <b>devel</b> package category.  This is required to use Linux commands like cp and make.
+<a href="http://2.bp.blogspot.com/-CWVUrKs-cd0/VCsCnopMCCI/AAAAAAAADDs/eCzKqUkLLxU/s1600/07.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-CWVUrKs-cd0/VCsCnopMCCI/AAAAAAAADDs/eCzKqUkLLxU/s640/07.jpg" width="98%" /></a>
+<br />
+Finally, add C:\cygwin\bin to PATH environment variable to use Linux commands on Windows:
+<br />
+Right click Computer | Properties | Advanced system settings | Environment Variables | Path
+<a href="http://3.bp.blogspot.com/-mLdWeIQa6ZY/VCr7Y3G4qmI/AAAAAAAADC4/0N39UGoANxU/s1600/Path.gif" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-mLdWeIQa6ZY/VCr7Y3G4qmI/AAAAAAAADC4/0N39UGoANxU/s640/Path.gif" /></a>
+<br />
+Start | Run | cmd.  Enjoy Linux commands on Windows like cp and make!
+<br /><br />
+<b>z88dk</b>
+<br />
+Download and install <a href="http://sourceforge.net/projects/z88dk/files/z88dk/1.8/z88dk-1.8.0-setup.exe/download">z88dk-1.8.0-setup.exe</a> to C:\z88dk.  Choose full installation all options.
+<a href="http://1.bp.blogspot.com/-QgsUMPcNntY/VCr86xgFbvI/AAAAAAAADDI/nMTuOzcA3Ew/s1600/01-z88dk.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-QgsUMPcNntY/VCr86xgFbvI/AAAAAAAADDI/nMTuOzcA3Ew/s640/01-z88dk.jpg" /></a>
+<br />
+Add  C:\z88dk\bin to PATH environment variable.  Update Temp directory to C:\Temp\Temp.
+<br />
+Also, ensure the z88dk installation configures the following User environment variables:
+<table width="82%" border="1">
+<tr><td valign="top">&nbsp;Z80_OZFILES</td><td valign="top">&nbsp;c:\z88dk\lib</td><tr>
+<tr><td valign="top">&nbsp;ZCCCFG</td><td valign="top">&nbsp;c:\z88dk\lib\config</td><tr>
+</table>
+<a href="http://4.bp.blogspot.com/-S9GB4J80izU/VCr5uxLeMdI/AAAAAAAADCs/s6K6BIlOOaw/s1600/01-z88dkENV.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-S9GB4J80izU/VCr5uxLeMdI/AAAAAAAADCs/s6K6BIlOOaw/s640/01-z88dkENV.jpg" /></a>
+<br />
+Start | Run | cmd.  Type cd C:\z88dk\libsrc | Type <b>zcc</b>.  The following should display:
+<a href="http://1.bp.blogspot.com/-a5Zm7JOkA0Q/VCr77LBggkI/AAAAAAAADDA/kACFAKLCI5o/s1600/zcc.gif" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-a5Zm7JOkA0Q/VCr77LBggkI/AAAAAAAADDA/kACFAKLCI5o/s640/zcc.gif" width="98%" /></a>
+<br />
+Type <b>make clean</b>.  Deletes all pre-compiled libraries and objects needed for current platforms.
+<br />
+Type <b>make all</b>.  Makes all libraries for all the current platforms; this process may take a while!
+<br /><br />
+<b>Crimson IDE</b>
+<br />
+Recommended is Crimson <a href="http://www.emeraldeditor.com">Emerald Editor</a>.  Download and install <a href="http://sourceforge.net/projects/emeraldeditor/files/crimsoneditor/crimson-editor-3.72-r286m">cedt-286M-setup.exe</a>.
+<br />
+Configure the IDE with custom batch script to compile, link, and run all Z80 / C code.
+<br /><br />
+<u>Hello World</u>
+<br />
+As an example, let's work through the <b>libctest.c</b> "Hello" program found in C:\z88dk\examples\sms.
+<br />
+First, create new directory: C:\HelloWorld.  Next, add the following 3x files: test.c, test.s and linkfile.
+<br /><br />
+<b>test.c</b>
+<pre class="csharp" name="code">
+#include &lt;sms.h&gt;
+#include &lt;stdio.h&gt;
+
+unsigned char pal1[] = {0x00, 0x20, 0x08, 0x28, 0x02, 0x22, 0x0A, 0x2A, 0x15, 0x35, 0x1D, 0x3D, 0x17, 0x37, 0x1F, 0x3F};
+unsigned char pal2[] = {0x00, 0x03, 0x08, 0x28, 0x02, 0x22, 0x0A, 0x2A, 0x15, 0x35, 0x1D, 0x3D, 0x17, 0x37, 0x1F, 0x3F};
+
+void main()
+{
+ set_vdp_reg(VDP_REG_FLAGS1, VDP_REG_FLAGS1_SCREEN);
+ load_tiles(standard_font, 0, 255, 1);
+ load_palette(pal1, 0, 16);
+ load_palette(pal2, 16, 16);
+
+ printf("Hello!");
+ for (;;)
+ {
+  wait_vblank_noint();
+ }
+}
+ 
+</pre>
+Important: ensure the final blank line is included otherwise an "Unexpected end of file error" may occur.
+<br /><br />
+<b>test.s</b>
+<pre class="csharp" name="code">
+.MEMORYMAP
+SLOTSIZE $8000
+DEFAULTSLOT 0
+SLOT 0 $0000
+SLOT 1 $8000
+.ENDME
+
+.ROMBANKMAP
+BANKSTOTAL 1
+BANKSIZE $8000
+BANKS 1
+.ENDRO
+
+.SDSCTAG 1.0, "Hello World", "Obligatory Hello World program", "StevePro Studios"
+
+.EMPTYFILL $C9                ;ret.
+.COMPUTESMSCHECKSUM           ;compute sms checksum for this rom.
+
+.BANK 0 SLOT 0
+.ORG 0
+
+.INCBIN "test.bin"
+</pre>
+<b>linkfile</b>
+<pre class="csharp" name="code">
+[objects]
+test.o
+</pre>
+<br />
+Note: before continuing, ensure you make the following changes to the C:\wlaz80win32\Compile.bat file:
+<pre class="csharp" name="code">
+set WLAPATH=%~dp0
+
+rem Cleanup to avoid confusion
+if exist test.o del test.o
+
+rem Compile
+"%WLAPATH%wla-z80.exe" -o %1 test.o
+
+rem Make linkfile
+echo [objects]&gt;linkfile
+echo test.o&gt;&gt;linkfile
+
+rem Link
+"%WLAPATH%wlalink.exe" -drvs linkfile output.sms
+
+rem Fixup for eSMS
+if exist output.sms.sym del output.sms.sym
+ren output.sym output.sms.sym
+
+rem Cleanup to avoid mess
+if exist test.o del test.o
+</pre>
+<br />
+<u>Build</u>
+<br />
+Manually compile, assemble and link the Hello program.  Launch command prompt: Start | Run | cmd.
+<a href="http://3.bp.blogspot.com/-Aeo5tKDDHt4/VDRCt9jm5DI/AAAAAAAADEY/uXnKlA_GF9w/s1600/BuildCode01.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-Aeo5tKDDHt4/VDRCt9jm5DI/AAAAAAAADEY/uXnKlA_GF9w/s640/BuildCode01.jpg" width="98%" /></a>
+<br />
+Change directory cd C:\HelloWorld.  Next, execute the following 3x commands (in bold):
+<table width="82%" border="1">
+<tr>
+<td valign="top">&nbsp;ACTION</td>
+<td valign="top">&nbsp;COMMAND</td>
+<td valign="top">&nbsp;OUTPUT</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Compile</td>
+<td valign="top">&nbsp;<b>zcc +sms test.c -o test.bin -m -create-app</b></td>
+<td valign="top">&nbsp;test.bin</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Assemble</td>
+<td valign="top">&nbsp;<b>wla-z80 -o test.s</b></td>
+<td valign="top">&nbsp;test.o</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Link</td>
+<td valign="top">&nbsp;<b>wlalink -v linkfile test.sms</b></td>
+<td valign="top">&nbsp;test.sms</td>
+</tr>
+</table>
+<br />
+Finally, type <b>test.sms</b>.  The Hello program should launch in the Fusion emulator.
+<br />
+Congratulations!  You have just written your first SMS program in C language.
+<a href="http://1.bp.blogspot.com/-VAAH9-LFyqc/VDV-mwt5WqI/AAAAAAAADEo/U6NZ8x5DYZM/s1600/Hello01.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-VAAH9-LFyqc/VDV-mwt5WqI/AAAAAAAADEo/U6NZ8x5DYZM/s640/Hello01.jpg" width="98%" /></a>
+<br /><br />
+<u>Automate</u>
+<br />
+Let's automate the build process: create <b>PerformBuild.bat</b> script file that contains the commands.
+<br />
+Configure Crimson IDE to perform build process through Tools menu | Preferences... | User Tools.
+<br /><br />
+Create the following file C:\PerfomBuild.bat.
+<pre class="csharp" name="code">
+REM PerfomBuild.bat
+zcc +sms test.c -o test.bin -m -create-app
+wla-z80 -o test.s
+wlalink -v linkfile test.sms
+test.sms
+</pre>
+Launch Crimson IDE.  Navigate to Tools menu | Preferences... | User Tools.  Configure Ctrl+1 hot key.
+<a href="http://4.bp.blogspot.com/-5YlbeHjBNyI/VDWA4GcF8lI/AAAAAAAADE0/EkMMldZn4dg/s1600/Crimson.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-5YlbeHjBNyI/VDWA4GcF8lI/AAAAAAAADE0/EkMMldZn4dg/s640/Crimson.jpg" width="98%" /></a>
+<table width="80%" border="1">
+<tr><td valign="top">&nbsp;Menu Text</td><td valign="top">&nbsp;PerformBuild</td></tr>
+<tr><td valign="top">&nbsp;Command</td><td valign="top">&nbsp;C:\PerformBuild.bat</td></tr>
+<tr><td valign="top">&nbsp;Initial Dir</td><td valign="top">&nbsp;$(FileDir)</td></tr>
+<tr><td valign="top">&nbsp;Hot Key</td><td valign="top">&nbsp;None</td></tr>
+<tr><td valign="top">&nbsp;Close on exit</td><td valign="top">&nbsp;Checked</td></tr>
+<tr><td valign="top">&nbsp;Save before execute</td><td valign="top">&nbsp;Checked</td></tr>
+</table>
+<br />
+Next, modify the existing file <b>test.c</b>.  For example, change print statement to "Hello World!".  Hit Ctrl+1.
+<a href="http://4.bp.blogspot.com/-oHSaSwee9Jg/VDWEzbmqZrI/AAAAAAAADFA/0gZe5scaijQ/s1600/Hello02.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-oHSaSwee9Jg/VDWEzbmqZrI/AAAAAAAADFA/0gZe5scaijQ/s640/Hello02.jpg" width="98%" /></a>
+<br /><br />
+<u>Disassemble</u>
+<br />
+Finally, disassemble the compiled binary file <b>test.sms</b> generated from the Crimson IDE batch script.
+<br />
+In directory C:\HelloWorld, copy the 2x files Opcodes.dat + smsexamine.exe from <a href="http://www.smspower.org/Development/SMSExamine">SMS Examine</a> zip.
+<br /><br />
+Launch command prompt, change directory cd C:\HelloWorld.  Type: <b>smsexamine.exe test.sms</b>.
+<br />
+This action will generate <b>test.sms.asm</b> and any data files.  Launch ConTEXT.  Open test.sms.asm:
+<a href="http://2.bp.blogspot.com/-b15p2lN87Q0/VGzmNR0eqyI/AAAAAAAADGQ/rl9T-d00WgM/s1600/ConTEXTasmSDSC.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-b15p2lN87Q0/VGzmNR0eqyI/AAAAAAAADGQ/rl9T-d00WgM/s640/ConTEXTasmSDSC.jpg" width="98%" /></a>
+<br /><br />
+Follow instructions from the previous <a href="http://steveproxna.blogspot.ie/2013/09/sega-console-programming.html">post</a> to setup hotkeys: <b>F9</b> (compile) <b>F10</b> (run) <b>F11</b> (debug).
+<br /><br />
+Recommended also is the following setting in ConTEXT to "Automatically update changed files":
+<br />
+Options menu | Environment Options | General | Automatically update changed files | Checked
+<a href="http://3.bp.blogspot.com/-sEn-MHMtaKY/VDZFq9Yr2JI/AAAAAAAADGA/zjl_-4dfQlo/s1600/ContTEXTsettings.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-sEn-MHMtaKY/VDZFq9Yr2JI/AAAAAAAADGA/zjl_-4dfQlo/s640/ContTEXTsettings.jpg" /></a>
+<br /><br />
+Press <b>F9</b> to compile and link "test.sms.asm".   This generates the "output.sms" binary file.
+<br />
+Press <b>F10</b> to run program in the Fusion emulator.  Press <b>F11</b> to debug in Meka emulator:
+<a href="http://4.bp.blogspot.com/-3zr_gZuwsRY/VDWTbzUtIoI/AAAAAAAADFw/R4AcPM1_E2s/s1600/MekaDebugging.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-3zr_gZuwsRY/VDWTbzUtIoI/AAAAAAAADFw/R4AcPM1_E2s/s640/MekaDebugging.jpg" width="98%" /></a>
+<br /><br />
+Compare machine code in the debugger with the raw binary output file from <b>test.sms</b>.
+<a href="http://1.bp.blogspot.com/-z79fnjNAZUA/VDWRWEcwyzI/AAAAAAAADFk/5sYmXPLc2KQ/s1600/HxDbinary.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-z79fnjNAZUA/VDWRWEcwyzI/AAAAAAAADFk/5sYmXPLc2KQ/s640/HxDbinary.jpg" width="98%" /></a>
+<br /><br />
+<u>Summary</u>
+<br />
+Writing source code in <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C language</a> and using <a href="http://en.wikipedia.org/wiki/Z88DK">Z88 Development Kit</a> are an alternative way to produce <a href="http://en.wikipedia.org/wiki/Zilog_Z80#Z80_assembly_language">Z80 assembly language</a> required for 8-bit cartridge-based video games consoles like the <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a>!
+</span>

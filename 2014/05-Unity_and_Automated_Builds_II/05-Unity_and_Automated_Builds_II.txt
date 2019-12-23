@@ -1,0 +1,477 @@
+<span style="font-family:verdana;font-size:85%;">
+In the previous <a href="http://steveproxna.blogspot.co.uk/2014/07/unity3d-and-automated-builds.html">post</a>, we automated the build process for Unity3D game development using <a href="http://en.wikipedia.org/wiki/Jenkins_(software)">Jenkins</a>.
+<br />
+Here we built and packaged game code to streamline the deployment process to multiple devices.
+<br /><br />
+While this approach works well, it is somewhat inflexible: whatever source code that is checked-in, it is built verbatim.  That is, it is not possible to configure Jenkins build jobs to target different environments.
+<br /><br />
+Also, during development, we may like to produce Test builds internally plus build and distribute Beta builds externally using <a href="https://www.testflightapp.com/dashboard">TestFlight</a>.  All of which can be done by extending the Automated Build process.
+<a href="http://1.bp.blogspot.com/-wqAvnBT-lTc/VAYBD7gOgWI/AAAAAAAADAU/qjHTeCF9QNo/s1600/TestFlight.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-wqAvnBT-lTc/VAYBD7gOgWI/AAAAAAAADAU/qjHTeCF9QNo/s640/TestFlight.jpg" width="98%"></a>
+<br /><br />
+Let’s check it out!
+<br /><br />
+<u>Pre-requisites</u>
+<br />
+Ensure you have all the pre-requisites installed and setup for Jenkins automation as per previous <a href="http://steveproxna.blogspot.co.uk/2014/07/unity3d-and-automated-builds.html">post</a>.
+<br /><br />
+<u>Example</u>
+<br />
+As an example, let’s extend <a href="https://www.assetstore.unity3d.com/en/#!/content/12175">Angry Bots</a> and configure a Patch Server to target different environments:
+<table width="80%" border="1">
+<tr>
+<td valign="top">&nbsp;TEST</td>
+<td valign="top">&nbsp;Used for internal development and testing.</td>
+<tr>
+<tr>
+<td valign="top">&nbsp;BETA</td>
+<td valign="top">&nbsp;Used for external development and testing.</td>
+<tr>
+<tr>
+<td valign="top">&nbsp;PROD</td>
+<td valign="top">&nbsp;Used for the Live Production environment.</td>
+<tr>
+</table>
+<br />
+<u>Jenkins</u>
+<br />
+The existing Angry Bots build job executes PerformBuild CommandLineBuildOnCheckinIOS method as it is.
+<br />
+Now we would like to configure the execute method to accept arguments to target different environments.
+<br /><br />
+Unfortunately, Jenkins does not allow arguments to be passed to the execute method; we must build this infrastructure ourselves.  <a href="http://epixcode.com/unity-custom-arguments-through-command-line">Here</a> is a great code sample that demonstrates how to implement this manually.
+<br /><br />
+In our example we would like to override the following information as configured by default in Unity3D:
+<br />
+Target build environment (Test / Beta / Prod), Build version number and finally the Bundle Identifier.
+<br /><br />
+Note: it may be necessary to override the Bundle ID to distinguish Beta and Prod side-by-side builds.
+<br /><br />
+<u>Implementation</u>
+<br />
+Add the following "CommandLineReader.cs" file to the "Editor" folder to parse command line arguments: 
+<pre class="csharp" name="code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class CommandLineReader
+{
+ public static string GetCustomArgument(string argumentName)
+ {
+  var customArgsDict = GetCustomArguments();
+  string argumentValue;
+
+  if (customArgsDict.ContainsKey(argumentName))
+  {
+   argumentValue = customArgsDict[argumentName];
+  }
+  else
+  {
+   Debug.Log("GetCustomArgument() Can't retrieve any custom argument named [" + argumentName + "] in command line [" + GetCommandLine() + "].");
+   argumentValue = String.Empty;
+  }
+
+  Debug.Log("CommandLineReader " + argumentName + "=\"" + argumentValue + "\"");
+  return argumentValue;
+ }
+
+ //Config
+ private const string CUSTOM_ARGS_PREFIX = "-CustomArgs:";
+ private const char CUSTOM_ARGS_SEPARATOR = ';';
+
+ private static string[] GetCommandLineArgs()
+ {
+  return Environment.GetCommandLineArgs();
+ }
+
+ private static string GetCommandLine()
+ {
+  string[] args = GetCommandLineArgs();
+  if (args.Length > 0)
+  {
+   return string.Join(" ", args);
+  }
+  else
+  {
+   Debug.LogError("GetCommandLine() - Can't find any command line arguments!");
+   return String.Empty;
+  }
+ }
+
+ private static Dictionary&lt;string, string&gt; GetCustomArguments()
+ {
+  var customArgsDict = new Dictionary&lt;string, string&gt;();
+  string[] commandLineArgs = GetCommandLineArgs();
+
+  string customArgsStr;
+  try
+  {
+   customArgsStr = commandLineArgs.SingleOrDefault(row => row.Contains(CUSTOM_ARGS_PREFIX));
+   if (String.IsNullOrEmpty(customArgsStr))
+   {
+    return customArgsDict;
+   }
+  }
+  catch (Exception e)
+  {
+   Debug.LogError("GetCustomArguments() - Can't retrieve any custom arguments in command line [" + commandLineArgs + "]. Exception: " + e);
+   return customArgsDict;
+  }
+
+  customArgsStr = customArgsStr.Replace(CUSTOM_ARGS_PREFIX, String.Empty);
+  string[] customArgs = customArgsStr.Split(CUSTOM_ARGS_SEPARATOR);
+
+  foreach (string customArg in customArgs)
+  {
+   string[] customArgBuffer = customArg.Split('=');
+   if (customArgBuffer.Length == 2)
+   {
+    customArgsDict.Add(customArgBuffer[0], customArgBuffer[1]);
+   }
+   else
+   {
+    Debug.LogWarning("GetCustomArguments() - The custom argument [" + customArg + "] seems to be malformed.");
+   }
+  }
+  return customArgsDict;
+ }
+}
+</pre>
+Update the existing "PerformBuild.cs" file in the "Editor" folder to read arguments passed in to the build:
+<pre class="csharp" name="code">
+using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
+using UnityEngine;
+using Object = UnityEngine.Object;
+
+public class PerformBuild
+{
+ [MenuItem("Automated/Automated iOS Build")]
+ static void CommandLineBuildOnCheckinIOS()
+ {
+  const BuildTarget target = BuildTarget.iPhone;
+  
+  string[] levels = GetBuildScenes();
+  const string locationPathName = "iOSbuild";
+  const BuildOptions options = BuildOptions.None;
+
+  DeleteStreamingAssets();
+  BuildPipelineBuildAssetBundle(target);
+
+  string environment = CommandLineReader.GetCustomArgument("Environment");
+  string version = CommandLineReader.GetCustomArgument("Version");
+  string bundleID = CommandLineReader.GetCustomArgument("BundleID");
+
+  string bundleIdentifier = (0 == bundleID.Length) ? "com.studiosstevepro.angrybots" : bundleID;
+  BuildPipelineBuildPlayer(levels, locationPathName, target, options, environment, version, bundleIdentifier);
+ }
+
+ // similar code as previous post.
+
+ private static void BuildPipelineBuildPlayer(string[] levels, string locationPathName, BuildTarget target,
+  BuildOptions options, string environment, string version, string bundleIdentifier)
+ {  
+  PlayerSettings.productName = "Angry Bots";
+  PlayerSettings.bundleIdentifier = bundleIdentifier;
+
+  string bundleVersion = (0 == version.Length) ? "1.0" : version;
+  PlayerSettings.bundleVersion = bundleVersion;
+
+  if (0 != environment.Length)
+  {   
+   string fullPath = Application.streamingAssetsPath + "/Environment.txt";
+   File.WriteAllText(fullPath, environment);  
+  }
+  
+  String error = BuildPipeline.BuildPlayer(levels, locationPathName, target, options);
+  if (!String.IsNullOrEmpty(error))
+  {
+   throw new System.Exception("Build failed: " + error);
+  }
+ }
+}
+</pre>
+Finally, write Unity3D client code that consumes the Patch Server build environment variable accordingly:
+<pre class="csharp" name="code">
+public class Utilities
+{ 
+ internal static string PATCH_SERVER_ROOT
+ {
+  get
+  {
+   if (String.IsNullOrEmpty(_patchServerRootData))
+   {
+    SetBuildEnvironmentVariables();
+   }
+
+   return _patchServerRootData;
+  }
+ }
+
+ private static void SetBuildEnvironmentVariables()
+ {
+  TargetEnviroment target = TargetEnviroment.Test;
+  string environment = target.ToString();
+
+  string fullPath = Application.streamingAssetsPath + "/Environment.txt";
+  if (File.Exists(fullPath))
+  {
+   environment = File.ReadAllText(fullPath);
+  }
+
+  try
+  {
+   target = (TargetEnviroment) Enum.Parse(typeof (TargetEnviroment), environment, true);
+  }
+  catch
+  {
+   // Must do this was as Enum.TryParse not available in .NET 2.0.
+  }
+
+  switch (target)
+  {
+   case TargetEnviroment.Test:
+    _patchServerRootData = "http://TestPatchServer/"; break;
+
+   case TargetEnviroment.Beta:
+    _patchServerRootData = "http://BetaPatchServer/"; break;
+
+   case TargetEnviroment.Prod:
+    _patchServerRootData = "http://ProdPatchServer/"; break;
+  }
+ }
+
+ private static string _patchServerRootData;
+
+ enum TargetEnviroment
+ {
+  Test, Beta, Prod
+ }
+}
+</pre>
+From here, any reference to the Patch Server from the Unity3D client code can be made simply like this:
+<pre class="csharp" name="code">
+  string patchServerRoot = Utilities.PATCH_SERVER_ROOT;
+</pre>
+Note: ensure Optimization Api Compatibility Level is updated to accommodate Enum.Parse();
+<br /><br />
+Navigate to File menu | Build Settings | Platform | Switch Platform | Other Settings
+<br />
+Change Optimization Api Compatibility Level from <b>.NET 2.0 Subset</b> to <b>.NET 2.0</b>.
+<a href="http://4.bp.blogspot.com/-R9Q_ovtl3bc/VA7-fPoSZZI/AAAAAAAADBA/g0x5kEXYbRg/s1600/Unity3D.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-R9Q_ovtl3bc/VA7-fPoSZZI/AAAAAAAADBA/g0x5kEXYbRg/s640/Unity3D.jpg" width="98%"></a>
+<br /><br />
+<u>Build Job</u>
+<br />
+Make one small change to the existing AngryBotsIOS build job: pass arguments to the executeMethod.
+<table width="96%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Unity3d installation name</td><td valign="top">&nbsp;Unity3D</td></tr>
+<tr><td valign="top" colspan="2">&nbsp;Editor command line arguments:
+<br />
+&nbsp;-quit -batchmode -executeMethod PerformBuild.CommandLineBuildOnCheckinIOS &nbsp;-CustomArgs:Environment=<b>Beta</b>;Version=<b>2.0</b>;BundleID=<b>com.studiosstevepro.angrybotsbeta</b>
+</td></tr>
+</table>
+<br />
+Click Save button | Click Build Now.  Deploy Angry Bots to iOS device as per previous <a href="http://steveproxna.blogspot.co.uk/2014/07/unity3d-and-automated-builds.html">instructions</a>.
+<a href="http://2.bp.blogspot.com/-C_OZjVZ-QHg/VA3u7UzEnPI/AAAAAAAADAs/NfZ4iK_ilNs/s1600/11-AngryBotsIOS.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-C_OZjVZ-QHg/VA3u7UzEnPI/AAAAAAAADAs/NfZ4iK_ilNs/s640/11-AngryBotsIOS.jpg" width="98%"></a>
+<br />
+Congratulations! Angry Bots should be installed as before but now target Beta build environment.
+<a href="http://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s1600/05-iOS.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s640/05-iOS.jpg" width="98%"></a>
+<br /><br />
+<u>TestFlight</u>
+<br />
+<a href="https://developer.apple.com/app-store/testflight">TestFlight</a> Beta Testing makes it easy to invite users to test pre-release versions of iOS apps before they are released to the App Store.  Up to 1,000 beta testers can be invited using just their email addresses.
+<br /><br />
+<a href="http://changhoward.blogspot.co.uk/2012/02/ios-developer-how-to-use-testflight-to.html">Here</a> is a good tutorial on how to setup TestFlight and how to use TestFlight to distribute the beta app:
+<a href="http://2.bp.blogspot.com/-gTrl7PUXgYw/VBh_-wkS9VI/AAAAAAAADCU/X8xMwf51j_8/s1600/30-TestFlight.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-gTrl7PUXgYw/VBh_-wkS9VI/AAAAAAAADCU/X8xMwf51j_8/s640/30-TestFlight.jpg" width="98%"></a>
+<br />
+1.&nbsp;Create an account on <a href="https://www.testflightapp.com/dashboard">TestFlight</a> with "Developer" option checked.<br />
+2.&nbsp;Log in to the TestFlight web site and "Add a team" for your app.<br />
+3.&nbsp;Add teammates, either testers or developers or available public.<br />
+4.&nbsp;Ask teammates to register iOS devices following the instructions.<br />
+5.&nbsp;Once accepted / registered, device information will be available.<br />
+6.&nbsp;Add devices / UDIDs to Devices section of <a href="https://developer.apple.com/account/ios/device/deviceList.action">Apple</a> web site portal.<br />
+7.&nbsp;Update provisioning profile and install onto Jenkins build server.
+<br /><br />
+<u>Upload API</u>
+<br />
+Extend the Automated Build process to upload latest revision to TestFlight via Upload API.
+<br /><br />
+<i>API Token</i>
+<br />
+<a href="https://testflightapp.com/account/#api">API Token</a> gives access to Upload API and any endpoints for future TestFlight releases.
+<br />
+In TestFlight, click User icon (top right) | Account Settings | Upload API | API Token.
+<br /><br />
+<i>Team Token</i>
+<br />
+<a href="https://testflightapp.com/dashboard/team/edit/?next=/api/doc">Team Token</a> is the token used for the Upload API "Team" parameter (in Jenkins).
+<br />
+In TestFlight, click Team name (top right) | Edit Info | Team Info | Team Token.
+<br /><br />
+<i>Distribution List</i>
+<br />
+Create distribution list to notify testers once latest revision upload to TestFlight:
+<br />
+In TestFlight, click People tab | click "+" icon next to "Distribution Lists" to <a href="https://testflightapp.com/dashboard/team/list/add">add</a>.
+<br /><br />
+<u>Apple</u>
+<br />
+Add same device information to the <a href="https://developer.apple.com">Apple</a> portal and include in Distribution provisioning profile.
+<a href="http://4.bp.blogspot.com/-0jBh7g_7PI0/VBiAPDwTL8I/AAAAAAAADCc/nVOv-k4Hu2c/s1600/32-Apple.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-0jBh7g_7PI0/VBiAPDwTL8I/AAAAAAAADCc/nVOv-k4Hu2c/s640/32-Apple.jpg" width="98%"></a>
+<br />
+Navigate to Apple portal | iOS Apps | Log In | Certificates, Identifiers & Profiles | Devices.
+<br />
+Click the "+" icon (top right) to Register new device(s): Enter a valid name and the UDID.
+<br /><br />
+Once all the device(s) have been registered, include in the Distribution provisioning profile:
+<br />
+Provisioning Profiles | Distribution | Click profile | Edit  | Select All devices | Click Generate.
+<br /><br />
+Download the updated Distribution provisioning profile and install onto Jenkins build server:
+<br />
+Copy /Users/username/Downloads/*.mobileprovision file to here:
+<br /><br />
+1.&nbsp;/Users/<i>username</i>/Library/MobileDevice/Provisioning\ Profiles/<br />
+2.&nbsp;/Users/Shared/Jenkins/MobileDevice/Provisioning\ Profiles/<br />
+3.&nbsp;/System/Library/MobileDevice/Provisioning\ Profiles/
+<br /><br />
+<b>Upgrade</b><br />
+Mac OS/X El Capitan 10.11 upgrade <i>magically</i> removes the MobileDevice folder under /System/Library/
+<br />
+Thus, without provisioning profiles stored there, Jenkins system process will fail to sign the iOS builds;
+<br /><br />
+Therefore provisioning profiles must be copied back to /System/Library/MobileDevice folder as before.
+<br />
+However, when you attempt to copy them back you may receive the "Operation not permitted" error.
+<br /><br />
+<a href="http://stackoverflow.com/questions/32659348/operation-not-permitted-when-on-root-el-capitan-rootless-disabled">Solution</a>: Reboot Mac | Press cmd + R on boot | OS X Utilities prompt | choose Utilities menu | Terminal
+<br />
+Type csrutil disable | Type reboot.  Now when back in to you can manually copy the MobileDevice folder
+<br />
+Launch Terminal window.  Type cp /Users/Shared/Jenkins/MobileDevice  /System/Library/MobileDevice
+<br /><br />
+<b>Jenkins</b>
+<br />
+Finally, update Jenkins automation: install the TestFlight plugin and add new nightly build job.
+<br /><br />
+<i>Manage Plugins</i>
+<br />
+Main dashboard | Click Manage Jenkins | Click Manage Plugins | Click "Available" tab. 
+<br />
+Ensure the following plugin is installed: Testflight plugin (upload to <a href="https://www.testflightapp.com/dashboard">testflightapp.com</a>)
+<a href="http://4.bp.blogspot.com/-WKY5-VZoGAw/VA9BPTVXOQI/AAAAAAAADBM/WlFFTZihTIg/s1600/01-TestFlightPlugin.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-WKY5-VZoGAw/VA9BPTVXOQI/AAAAAAAADBM/WlFFTZihTIg/s640/01-TestFlightPlugin.jpg" width="98%"></a> 
+<br />
+<i>Restart Plugins</i>
+<br />
+Manually stop daemon: sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+<br />
+Manually start daemon: sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
+<br /><br />
+<i>Configure System</i>
+<br />
+Main dashboard | Click Manage Jenkins | Click Configure System. Enter the following: 
+<a href="http://2.bp.blogspot.com/-zwJzKVCieSM/VA9CahXyViI/AAAAAAAADBU/DM9-t61ltAM/s1600/02-TestFlightConfigure.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-zwJzKVCieSM/VA9CahXyViI/AAAAAAAADBU/DM9-t61ltAM/s640/02-TestFlightConfigure.jpg" width="98%"></a>
+Test Flight | Test Flight Tokens
+<br />
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Token Pair Name</td>
+<td valign="top">&nbsp;AngryBotsIOSTestFlight</td></tr>
+<tr><td valign="top" width="50%">&nbsp;API Token</td>
+<td valign="top">&nbsp;<i>Enter API Token from Test Flight</i></td></tr>
+<tr><td valign="top" width="50%">&nbsp;Team Token</td>
+<td valign="top">&nbsp;<i>Enter Team Token from Test Flight</i></td></tr>
+</table>
+<br />
+<i>New Item</i>
+<br />
+Main dashboard | Click New Item | Enter Item name: AngryBotsIOSTestFlight.
+<br />
+Click radio button next to "Copy existing Item". Enter "AngryBotsIOS".
+<a href="http://2.bp.blogspot.com/-PpXsxhznayE/VBh3ZYikUGI/AAAAAAAADBw/5IfOTbW3iFs/s1600/40-AngryBotsIOSTestFlight.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-PpXsxhznayE/VBh3ZYikUGI/AAAAAAAADBw/5IfOTbW3iFs/s640/40-AngryBotsIOSTestFlight.jpg" width="98%"></a>
+Build Triggers
+<br>
+For example, build every night at 8pm Sunday-Thursday, ready for next working day.
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Build periodically</td>
+<td valign="top">&nbsp;Checked</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Schedule</td>
+<td valign="top">&nbsp;H 20 * * 0,1,2,3,4</td></tr>
+</table>
+<br>
+Build | Add build step | Invoke Unity3d Editor
+<table width="96%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Unity3d installation name</td><td valign="top">&nbsp;Unity3D</td></tr>
+<tr><td valign="top" colspan="2">&nbsp;Editor command line arguments:
+<br />
+&nbsp;-quit -batchmode -executeMethod PerformBuild.CommandLineBuildOnCheckinIOS &nbsp;-CustomArgs:Environment=<b>Beta</b>;Version=<b>2.0</b>;BundleID=<b>com.studiosstevepro.angrybotsbeta</b>
+</td></tr>
+</table>
+<br>
+Xcode | General build settings
+<br>
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Target</td><td valign="top">&nbsp;Unity-iPhone</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Clean before build?</td>
+<td valign="top">&nbsp;Checked</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Configuration</td><td valign="top">&nbsp;Release</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Pack application and build .ipa?</td>
+<td valign="top">&nbsp;Checked</td></tr>
+<tr><td valign="top" width="50%">&nbsp;.ipa filename pattern</td>
+<td valign="top">&nbsp;AngryBotsIOSTestFlight</td></tr>
+</table>
+<br>
+Build | Add build step | Execute shell. Enter the following shell script:
+<br>
+<pre class="csharp" name="code">
+# This is the output IPA file.
+filename="AngryBotsIOSTestFlight.ipa"
+
+echo "Copying $filename to /mnt/builds now STARTING..."
+echo "Running as :"
+whoami
+
+# Navigate to destination.
+cd /mnt/builds
+
+# Remove current file if exists.
+if [ -f "$filename" ]; then rm "$filename"; fi
+
+# Copy latest version of file.
+cp ${WORKSPACE}/output/"$filename" .
+
+echo "Copying $filename to /mnt/builds now COMPLETE..."
+echo Finished
+</pre>
+Post build Actions | Upload to TestFlight
+<a href="http://1.bp.blogspot.com/-VMOWp8zLLm0/VBh57tmhXLI/AAAAAAAADCE/Eq2QF5srJbQ/s1600/42-AngryBotsIOSTestFlight.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-VMOWp8zLLm0/VBh57tmhXLI/AAAAAAAADCE/Eq2QF5srJbQ/s640/42-AngryBotsIOSTestFlight.jpg" width="98%"></a>
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Token Pair</td>
+<td valign="top">&nbsp;AngryBotsIOSTestFlight</td></tr>
+<tr><td valign="top" width="50%">&nbsp;IPA/APK Files (optional)</td>
+<td valign="top">&nbsp;/mnt/builds/AngryBotsIOSTestFlight.ipa</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Build Notes</td>
+<td valign="top">&nbsp;Angry Bots IOS no. ${SVN_REVISION}</td></tr>
+<tr><td valign="top" width="50%">&nbsp;Append changelog to build notes</td>
+<td valign="top">&nbsp;Checked</td></tr>
+</table>
+<br>
+Click Advanced button | Update the following:
+<table width="80%" border="1">
+<tr><td valign="top" width="50%">&nbsp;Distribution List</td>
+<td valign="top">&nbsp;<i>Enter Distribution List from Test Flight</i></td></tr>
+<tr><td valign="top" width="50%">&nbsp;Notify Team</td>
+<td valign="top">&nbsp;Checked</td></tr>
+</table>
+<br />
+Click Save button.  Build job will now upload latest revision to TestFlight automatically!
+<br />
+Note: Beta testers will receive notification once latest revision available for download.
+<br /><br />
+<u>Conclusion</u>
+<br />
+In conclusion, open source continuous integration tools like Jenkins make it easy to
+successfully build Test / Beta / Prod ready binaries.  Additional tools like TestFlight make them even easier to distribute!
+</span>
