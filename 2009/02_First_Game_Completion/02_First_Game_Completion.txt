@@ -1,0 +1,12 @@
+<span style="font-family:verdana;"><span style="font-size:85%;">Recently, I completed a basic 2D game to gain more experience in end-to-end game development on the XNA platform.The game, <a href="http://catalog.xna.com/en-US/GameDetails.aspx?catalogEntryId=2c11b9b8-5cb8-426e-b462-ecaa0827a151&type=2">Henway</a>, is basically a Frogger clone. The goal is to cross the road without being killed; hence this game is based on real life.<br/><br/><a href="http://catalog.xna.com/en-US/GameDetails.aspx?catalogEntryId=2c11b9b8-5cb8-426e-b462-ecaa0827a151&type=2">Henway</a> is built using content that I purchased in 2003. The game play is simple; which was important in order to concentrate on the end-to-end game 
+development experience in XNA.
+
+<a href="http://1.bp.blogspot.com/_Ra2ABd_qklc/Sw6mxDXoTYI/AAAAAAAABAo/ANi-jlKCp7Q/s1600/HenwayScreen02.jpg"><img style="float:left; margin:0 10px 10px 0;cursor:pointer; cursor:hand;width: 320px; height: 180px;" src="http://1.bp.blogspot.com/_Ra2ABd_qklc/Sw6mxDXoTYI/AAAAAAAABAo/ANi-jlKCp7Q/s320/HenwayScreen02.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5408443564166761858" /></a>
+<br/><br/><br/><br/><br/><br/><br/><br /><br /><br /><br />The game took about four months to write outside work hours. A further month was spent upgrading game features to comply with XNA's </span><a href="http://creators.xna.com/en-us/education/bestpractices"><span style="font-size:85%;">best practices</span></a><span style="font-size:85%;"> and </span></span><a href="http://creators.xna.com/en-US/faq#anchor_1_14"><span style="font-family:verdana;font-size:85%;">publishing requirements</span></a><span style="font-family:verdana;font-size:85%;">.</span>
+<span style="font-family:verdana;font-size:85%;"></span>
+<span style="font-size:85%;"><span style="font-family:verdana;"><br/><br/>The game is available on Windows, Xbox 360 and Zune.
+<br/>
+Click <a href="http://catalog.xna.com/en-US/GameDetails.aspx?catalogEntryId=2c11b9b8-5cb8-426e-b462-ecaa0827a151&type=2">here</a> for more information on this title.
+</span>
+<span style="font-family:verdana;"><br/><br/>This blog will document some of the design and performance challenges </span></span><span style="font-family:verdana;font-size:85%;">encountered during development on the XNA platform, and game development in general.
+This information will be available in subsequent posts.</span>

@@ -1,0 +1,147 @@
+<span style="font-family:verdana;font-size:85%;">The <a href="http://www.dofactory.com/Patterns/PatternCommand.aspx">Command</a> design pattern encapsulates a command request as an object.  In game code, an example of a command request could be a simple move command: e.g. move sprite left, right, up, down.<br /><br />The Command design pattern is used to express a command request, including the method call and all of its required parameters, into a command object.  The command object may then be executed immediately, queued for later use or reused to support undoable actions.<br /><br />Note: the command object does not contain the functionality that is to be executed; only the information required to perform an action.  The functionality is contained within a <i>receiver</i> object.  This removes the direct link between the command object and the functionality to promote loose coupling.  Finally, neither the command object nor the receiver is responsible for determining the execution of the command request; this is controlled using an <i>invoker</i>.<br /><br />In our move sprite example above, the move command object encapsulates the method invocation to update the position of the sprite.  The receiver object is the sprite itself.  The invoker is input detection from the player’s controller to determine the execution of the move command request.<br /><br />Initially, the thought of using the Command design pattern to move a sprite seems overkill.  In game code, this can easily be accomplished using the following excerpt:
+<pre class="csharp" name="code">
+protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+{
+ Single velocityX = GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X;
+ Single velocityY = GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y;
+ if (velocityX == 0 && velocityY == 0)  
+ {  
+  return;  
+ }  
+
+ sprite.Velocity = new Vector2(velocityX, velocityY);
+ sprite.Update();
+}
+</pre>
+However, by implementing the Command design pattern to move a sprite we are now able to record each move command, add to a list of move command objects, and persist to playback at a later time.  This can be useful, for example, to implement a demo mode in a game.  In fact, this is exactly how the game <a href="http://www.youtube.com/watch?v=1rjvB6k7rsc">Henway</a> employs a demo mode in the title screen.  Let’s check it out:<br /><br />First, define an interface to be implemented by each command object.  Typically, this interface contains a single Execute() method but can be extended to support Undo() operations:
+<pre class="csharp" name="code">
+public interface ICommand
+{
+ void Execute();
+}
+</pre>
+Next, construct a concrete implementation class for each command object in the game.  In our example there is simply one command object: MoveCommand.
+<pre class="csharp" name="code">
+public struct MoveCommand : ICommand
+{
+ private readonly Sprite sprite;
+ private readonly Vector2 velocity;
+
+ public MoveCommand(Sprite sprite, Vector2 velocity): this()
+ {
+  this.sprite = sprite;
+  this.velocity = velocity;
+ }
+
+ public void Execute()
+ {
+  sprite.Velocity = velocity;
+  sprite.Update();
+ }
+}
+</pre>
+Next, construct a list of command objects.  This list will record each command object as it’s created in game code and will be used to playback at a later time.
+<pre class="csharp" name="code">
+public IList&lt;ICommand&gt; CommandsSave { get; set; }
+</pre>
+Note: you will also need to construct a list of integers that record the number of frames that elapse between each command object being recorded; this is required for playback mode.
+<pre class="csharp" name="code">
+public IList&lt;Int32&gt; CommandsDelta { get; set; }
+</pre>
+Next, update the main game class Update() method: replace the <i>simple</i> sprite update above with game code that now:<ul><li>constructs a new command object;<li> sets all required parameters;<li>executes the command;<li>records the command for later use;</ul>
+<pre class="csharp" name="code">
+protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+{
+ updateFrame++;
+   
+ Single velocityX = GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.X;
+ Single velocityY = GamePad.GetState(PlayerIndex.One).ThumbSticks.Left.Y;
+ if (velocityX == 0 && velocityY == 0)
+ {
+  return;
+ }
+
+ Vector2 velocity = new Vector2(velocityX, velocityY);
+ ICommand command = new MoveCommand(sprite, velocity);
+ command.Execute();
+
+ CommandsSave.Add(command);
+ CommandsDelta.Add(updateFrame);
+
+ updateFrame = 0;
+}
+</pre>
+Finally, after all command objects have been recorded through the revised Update() method, the list of frame deltas and the list of command objects can be formatted and saved:
+<pre class="csharp" name="code">
+private void SaveCommands()
+{
+ for (Int32 index = 0; index < CommandsSave.Count; index++)
+ {
+  Int32 frame = CommandsDelta[index];
+
+  MoveCommand command = CommandsSave[index];
+  Single velocityX = ((MoveCommand)command).Velocity.X;
+  Single velocityY = ((MoveCommand)command).Velocity.Y;
+
+  String format = String.Format("{0},{1},{2}",
+   frame,
+   velocityX,
+   velocityY,
+   );
+
+  // Persist command object data.
+ }
+}
+</pre>
+Now the list of frame deltas and the list of command objects can be loaded at a later time, for example, during the title screen:
+<pre class="csharp" name="code">
+public ICommand[] Commands;
+public Int32[] Frames;
+
+private void LoadCommands()
+{
+ IList&lt;String&gt; lines = GetCommandData();
+
+ Int32 maxCommand = lines.Count;
+ Commands = new ICommand[maxCommand];
+ Frames = new Int32[maxCommand];
+
+ for (Int32 index = 0; index < maxCommand; index++)
+ {
+  String line = lines[index];
+  String[] values = line.Split(new[] { ',' });
+
+  Frames [index] = Convert.ToInt32(values[0]);
+
+  Single velocityX = Convert.ToSingle(values[1]);
+  Single velocityY = Convert.ToSingle(values[2]);
+  Vector2 velocity = new Vector2(velocityX, velocityY);
+
+  Commands[index] = new MoveCommand(sprite, velocity);
+ } 
+}
+</pre>
+And the list of frame deltas and the list of command objects can be played back as a demo mode:
+<pre class="csharp" name="code">
+private Int32 frame = 0;
+private Int32 index = 0;
+private Int32 maxCommand = Commands.GetLength(0);
+
+protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+{
+ frame++;
+ if (frame >= Frames[index])
+ {
+  frame = 0;
+  Commands[index].Execute();
+
+  index++;
+  if (index >= maxCommand)
+  {
+   // All commands executed – stop playback.
+  }
+ }  
+}
+</pre>
+To summarize, the Command design pattern can be very useful in game development: by encapsulating method invocation, game code can crystallize pieces of computation so that the object invoking the computation doesn’t need to worry about how to do things; it just uses the crystallized method to get its work done.
+</span>

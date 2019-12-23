@@ -1,0 +1,121 @@
+<span style="font-family:verdana;font-size:85%;">XNA 3.0 allows game development to target 3x independent devices: Windows, Xbox 360 and Zune. Consequently, Microsoft released the <a href="http://msdn.microsoft.com/en-us/library/dd254918.aspx">Platformer</a> Starter Kit to demonstrate how a single game code base can be deployed and executed on these 3x devices independently.<br /><br />The ability to target a single game code base to multiple devices creates some interesting challenges: there are elements of a game that are dependent on each target device, for example: screen resolution, input detection, frame rate, content, storage, trial mode, volume, etc.<br /><br />The <a href="http://msdn.microsoft.com/en-us/library/dd254918.aspx">Platformer</a> Starter Kit deploys the same game code on Windows and Xbox 360. However, all Zune specific game code is wrapped within the following #if-#else-#endif conditional statement:
+<pre class="csharp" name="code">
+#if ZUNE
+ // Execute Zune device dependent code.
+#else
+ // Execute Windows / Xbox 360 code.
+#endif
+</pre>
+Game code that contains multiple #if-#else#endif conditional statements throughout the code base like this becomes cumbersome and error prone. Also, this approach does not scale: if 4x, 5x, 6x, etc devices were added to target the XNA platform, then this approach would become unwieldy and difficult to manage.<br /><br />A cleaner solution would be to implement a Device Factory. Essentially, the Device Factory is an abstract base class that contains all game code common to every device, but allows device specific game code to be overridden in the concrete implementation class through polymorphism.
+<pre class="csharp" name="code">
+public abstract class AbstractDeviceFactory
+{
+ protected readonly Game game;
+
+ protected AbstractDeviceFactory(Game game)
+ {
+  this.game = game;
+ }
+ public virtual void Initialize()
+ {
+  // Initialize code common to every device.
+ }
+ public virtual void LoadContent()
+ {
+  // LoadContent code common to every device.
+ }
+ public virtual void Update(Microsoft.Xna.Framework.GameTime gameTime)
+ {
+  // Update code common to every device.
+ }
+ public virtual void Draw(Microsoft.Xna.Framework.GameTime gameTime)
+ {
+  // Draw code common to every device.
+ }
+
+ // Properties common to every device.
+}
+</pre>
+In our example, there will be 3x device factory concrete implementation classes: Windows, Xbox 360 and Zune.
+Each concrete implementation class will contain all game code to target that specific device. 
+<pre class="csharp" name="code">
+public class WorkDeviceFactory : AbstractDeviceFactory
+{
+ // Windows specific game code implementation.
+ public WorkDeviceFactory(Game game) : base(game)
+ {
+ }
+
+ // Override property and method implementations for Windows.
+}
+public class XboxDeviceFactory : AbstractDeviceFactory
+{
+ // Xbox 360 specific game code implementation.
+ public XboxDeviceFactory(Game game) : base(game)
+ {
+ }
+
+ // Override property and method implementations for Xbox 360.
+}
+public class ZuneDeviceFactory : AbstractDeviceFactory
+{
+ // Zune specific game code implementation.
+ public ZuneDeviceFactory(Game game) : base(game)
+ {
+ }
+
+ // Override property and method implementations for Zune.
+}
+</pre>
+The main game constructor is now responsible for creating the device factory concrete implementation for the device the game is deployed to, and this instance will be used throughout the game.
+<pre class="csharp" name="code">
+public class MyGame : Microsoft.Xna.Framework.Game
+{
+ public AbstractDeviceFactory DeviceFactory { get; set; }
+
+ public MyGame()
+ {
+  DeviceFactory = CreateDeviceFactory();
+ }
+
+ private AbstractDeviceFactory CreateDeviceFactory()
+ {
+  AbstractDeviceFactory deviceFactory;
+#if WINDOWS
+  deviceFactory = new WorkDeviceFactory(this);
+#elif XBOX
+  deviceFactory = new XboxDeviceFactory(this);
+#elif ZUNE
+  deviceFactory = new ZuneDeviceFactory(this);
+#else
+  throw new NotSupportedException("Device not found");
+#endif
+  return deviceFactory;
+ }
+}
+</pre>
+Note: there must be at least one #if-#else-#endif conditional statement to determine at runtime what device the game is being executed on.<br /><br />The standard XNA methods in the main game class will be now very lean as each method will delegate the corresponding action to the device factory.
+<pre class="csharp" name="code">
+protected override void Initialize()
+{
+ DeviceFactory.Initialize();
+ base.Initialize();
+}
+protected override void LoadContent()
+{
+ DeviceFactory.LoadContent();
+ base.LoadContent();
+}
+protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+{
+ DeviceFactory.Update(gameTime);
+ base.Update(gameTime);
+}
+protected override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
+{
+ DeviceFactory.Draw(gameTime);
+ base.Draw(gameTime);
+}
+</pre>
+Each device factory concrete implementation will either execute device dependent game code, or simply invoke the base class where the game code is the same for all devices.<br /><br />Finally, this solution is scalable: if another device is added to target the XNA platform then simply add a new device factory concrete implementation class that contains all game code specific to that device, and extend the CreateDeviceFactory() method in the main game class to target this new device.
+</span>

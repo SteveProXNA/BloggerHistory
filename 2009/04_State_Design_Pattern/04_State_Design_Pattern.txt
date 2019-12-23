@@ -1,0 +1,208 @@
+<span style="font-family:verdana;font-size:85%;">During its lifecycle, each game will transition through many states, for example: splash screen, title, introduction, menus, instructions, options, game play, level complete, death sequence, game over, hi scores etc<br /><br />Consequently, there should be an easy mechanism to transition from one game state to another in game code.  A typical approach is to construct a custom enum type in game code and set one entry for each game state:
+<pre class="csharp" name="code">
+public enum GameState
+{
+ SplashScreen,
+ Title,
+ Introduction,
+ Menus,
+ Instructions,
+ Options,
+ GamePlay,
+ LevelComplete,
+ DeathSequence,
+ GameOver,
+ HiScores
+}
+</pre>
+Therefore the game can execute state specific code depending on the current state of the custom enum type at each particular frame.<br /><br />A simple example of this approach can be demonstrated in Microsoft's Mini Game <a href="http://creators.xna.com/en-US/minigame/catapult">Catapult</a>.  This game contains 6x states which are stored in a custom enum type, <i>CatapultState</i>, in game code:
+<pre class="csharp" name="code">
+public enum CatapultState 
+{ 
+    Rolling, 
+    Firing, 
+    Crash, 
+    ProjectileFlying, 
+    ProjectileHit,
+    Reset
+}
+</pre>
+Unfortunately, the logic to execute state specific code in the Update() and Draw() methods is wrapped in a long if-elseif-else code block:
+<pre class="csharp" name="code">
+private CatapultState currentState;
+
+if (currentState == CatapultState.Rolling)
+{
+}
+else if (currentState == CatapultState.Firing)
+{
+}
+else if (currentState == CatapultState.Crash)
+{
+}
+else if (currentState == CatapultState.ProjectileFlying)
+{
+}
+else if (currentState == CatapultState.ProjectileHit)
+{
+}
+else if (currentState == CatapultState.Reset)
+{
+}
+</pre>
+Game code that contains multiple if-elseif-else statements throughout the code base like this becomes cumbersome and error prone.  Also, this approach does not scale: if 7x, 8x, 9x etc states were added to the game then this approach would become unwieldly and difficult to manage.<br /><br />A cleaner approach would be to implement the <a href="http://www.dofactory.com/Patterns/PatternState.aspx">State</a> design pattern.  The State design pattern allows an object, in this case our game, to alter its behavior when its internal state changes.  The object will appear to change its class.<br /><br />In the <a href="http://creators.xna.com/en-US/minigame/catapult">Catapult</a> example, we would like to localize the behavior of each state into its own class.<br /><br />First, define an interface to be implemented by all game state objects.  This interface contains all actions that each game state object will implement.  In our example there are 2x actions, Update() and Draw():
+<pre class="csharp" name="code">
+public abstract class AbstractGameState
+{
+ protected readonly Game game;
+
+ protected AbstractGameState(Game game)
+ {
+  this.game = game;
+ }
+ public virtual void Update(Microsoft.Xna.Framework.GameTime gameTime)
+ {
+  // Update code common to every state.
+ }
+ public virtual void Draw(Microsoft.Xna.Framework.GameTime gameTime)
+ {
+  // Draw code common to every state.
+ }
+}
+</pre>   
+Next, construct one concrete implementation class for each state in the game.  In our example there are 6x game state objects, thus one for each state:
+<pre class="csharp" name="code">
+public class RollingState : AbstractGameState
+{
+ // Rolling state specific code.
+ public RollingState(Game game) : base(game) {}
+ public override void Update(Microsoft.Xna.Framework.GameTime gameTime) {}
+ public override void Draw(Microsoft.Xna.Framework.GameTime gameTime) {}
+}
+public class FiringState : AbstractGameState
+{
+ // Firing state specific code.
+ public FiringState(Game game) : base(game) {}
+ public override void Update(Microsoft.Xna.Framework.GameTime gameTime) {}
+ public override void Draw(Microsoft.Xna.Framework.GameTime gameTime) {}
+}
+public class CrashState : AbstractGameState
+{
+ // Crash state specific code.
+ public CrashState(Game game) : base(game) {}
+ public override void Update(Microsoft.Xna.Framework.GameTime gameTime) {}
+ public override void Draw(Microsoft.Xna.Framework.GameTime gameTime) {}
+}
+public class ProjectileFlyingState : AbstractGameState
+{
+ // ProjectileFlying state specific code.
+ public ProjectileFlyingState(Game game) : base(game) {}
+ public override void Update(Microsoft.Xna.Framework.GameTime gameTime) {}
+ public override void Draw(Microsoft.Xna.Framework.GameTime gameTime) {}
+}
+public class ProjectileHitState : AbstractGameState
+{
+ // ProjectileHit state specific code.
+ public ProjectileHitState(Game game) : base(game) {}
+ public override void Update(Microsoft.Xna.Framework.GameTime gameTime) {}
+ public override void Draw(Microsoft.Xna.Framework.GameTime gameTime) {}
+}
+public class ResetState : AbstractGameState
+{
+ // Reset state specific code.
+ public ResetState(Game game) : base(game) {}
+ public override void Update(Microsoft.Xna.Framework.GameTime gameTime) {}
+ public override void Draw(Microsoft.Xna.Framework.GameTime gameTime) {}
+}
+</pre>
+Note: state specific code is now localized to each game state object instead of being embedded in a long if-elseif-else code block.<br /><br />Next, we construct a custom enum type as before:
+<pre class="csharp" name="code">
+public enum CatapultState 
+{ 
+    Rolling, 
+    Firing, 
+    Crash, 
+    ProjectileFlying, 
+    ProjectileHit,
+    Reset
+}
+</pre>
+But now we store a reference to the current game state in a private variable of this custom enum type in the main game class:
+<pre class="csharp" name="code">
+private CatapultState currentState;
+</pre>
+Finallly, we create an array of AbstractGameState objects, instantiate one concrete implementation class for each state in the game and add to the array:
+<pre class="csharp" name="code">
+private AbstractGameState[] States;
+
+protected override void Initialize()
+{
+ // Use reflection to determine how many states there are as
+ // .NET Compact Framework does not support Enum.GetValues().
+ Type type = typeof(CatapultState);
+ FieldInfo[] info = type.GetFields(BindingFlags.Static | BindingFlags.Public);
+ Int32 numberStates = info.Length;
+
+ // Instantiate each game state.
+ States = new AbstractGameState[numberStates];
+ States[(Int32)CatapultState.Rolling] = new RollingState(this);
+ States[(Int32)CatapultState.Firing] = new FiringState(this);
+ States[(Int32)CatapultState.Crash] = new CrashState(this);
+ States[(Int32)CatapultState.ProjectileFlying] = new ProjectileFlyingState(this);
+ States[(Int32)CatapultState.ProjectileHit] = new ProjectileHitState(this);
+ States[(Int32)CatapultState.Reset] = new ResetState(this);
+
+ // Initialize current game state.
+ currentState = CatapultState.Rolling;
+ base.Initialize();
+}
+</pre>
+The <i>States</i> array will now be referenced in the main game class Update() and Draw() methods to delegate the corresponding action to the correct game state concrete implementation class:
+<pre class="csharp" name="code">
+protected override void Update(GameTime gameTime)
+{
+ States[(Int32)currentState].Update(gameTime);
+ base.Update(gameTime);
+}
+protected override void Draw(GameTime gameTime)
+{
+ States[(Int32)currentState].Draw(gameTime);
+ base.Draw(gameTime);
+}
+</pre>
+This solution is scalable: as more states are added to the game, each new game state can be added to the existing custom enum type, then simply add a new game state concrete implementation class to encapsulate all game code specific to that state.<br /><br />One final note: the State design pattern can also be used in conjunction with the <a href="http://steveproxna.blogspot.com/2009/10/device-factory.html">Device Factory</a>.  The main game class invokes the Update() and Draw() methods on the Device Factory as before:
+<pre class="csharp" name="code">
+// Game.cs
+protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+{
+ DeviceFactory.Update(gameTime);
+ base.Update(gameTime);
+}
+protected override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
+{
+ DeviceFactory.Draw(gameTime);
+ base.Draw(gameTime);
+}
+</pre>
+However, each device factory method would now execute state specific code depending on the state of the game at that particular frame but now for the appropriate device:
+<pre class="csharp" name="code">
+// AbstractDeviceFactory.cs
+public abstract class AbstractDeviceFactory
+{
+ protected readonly Game game;
+
+ protected AbstractDeviceFactory(Game game)
+ {
+  this.game = game;
+ }
+ public virtual void Update(Microsoft.Xna.Framework.GameTime gameTime)
+ {
+  game.States[(Int32)game.CurrentState].Update(gameTime);
+ }
+ public virtual void Draw(Microsoft.Xna.Framework.GameTime gameTime)
+ {
+  game.States[(Int32)game.CurrentState].Draw(gameTime);
+ }
+}
+</pre>
+</span>

@@ -1,0 +1,89 @@
+<span style="font-family:verdana;font-size:85%;">In XNA, the Update() and Draw() methods are invoked, by default, 60 frames per second.  During each frame, a general algorithm for both the Update() and Draw() methods could be applied in game code as follows:<br /><br /><table width="100%"><tr><td>Update Algorithm</td><td>Draw Algorithm</td></tr><tr><td><ul><li>update input<li>update objects<li>update HUD (<i>heads up display</i>)</ul></td><td><ul><li>draw background<li>draw objects<li>draw HUD (<i>heads up display</i>)</ul></td></tr></table><br />Here we have defined a template for both the Update() and Draw() methods.  A template is a method that defines an algorithm as a set of steps.  One or more of these steps can be implemented by the main game code, or deferred to a subclass where appropriate.  This ensures that the structure of the algorithm stays the same, while subclasses can provide some part of the implementation as required.<br /><br />By definition, the <a href="http://www.dofactory.com/Patterns/PatternTemplate.aspx">Template Method</a> design pattern defines the skeleton of an algorithm in an operation, deferring some steps to subclasses.   Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.<br /><br />Let’s complete the discussion with a simple code sample.<br /><br />First, create the skeleton of an algorithm for both the Update() and Draw() methods in the main game code:
+<pre class="csharp" name="code">
+// Template method for Update.
+public void Update(Microsoft.Xna.Framework.GameTime gameTime)
+{
+ if (IsActive)
+ {
+  return;
+ }
+
+ UpdateInput(gameTime); 
+ UpdateObjects(gameTime);
+ UpdateHUD(gameTime);
+}
+
+// Template method for Draw.
+public void Draw(Microsoft.Xna.Framework.GameTime gameTime)
+{
+ if (IsActive)
+ {
+  return;
+ }
+
+ DrawBackground(); 
+ DrawObjects();
+ DrawHUD();
+}
+</pre>
+Next, create the steps to be implemented by the template methods in the main game code:
+<pre class="csharp" name="code">
+public virtual void UpdateInput(GameTime gameTime) {}
+public virtual void UpdateObjects(GameTime gameTime) {}
+public virtual void UpdateHUD(GameTime gameTime) {}
+
+public virtual void DrawBackground() {}
+public virtual void DrawObjects() {}
+public virtual void DrawHUD() {}
+</pre>
+As this is a simple example, none of the steps will be deferred to subclasses; each step would execute the same game code each frame.<br /><br />However, the Template Method can be used in conjunction with the <a href="http://steveproxna.blogspot.com/2009/11/state-design-pattern.html">State</a> design pattern to redefine certain steps of the algorithm without changing the algorithm’s structure.<br /><br />First, define an interface to be implemented by all game state objects.  This interface contains all actions that each game state object will implement.  In our example, the 2x actions Update() and Draw(), are now defined as template methods; this ensures that the structure of the Update() and Draw() algorithms stays the same while subclasses can provide some part of the implementation as required:
+<pre class="csharp" name="code">
+public class AbstractGameState
+{   
+ protected readonly Game game;   
+  
+ protected AbstractGameState(Game game)   
+ {   
+  this.game = game;   
+ }   
+ public void Update(GameTime gameTime)
+ {
+  if (IsActive)
+  {
+   return;
+  }
+
+ UpdateInput(gameTime); 
+ UpdateObjects(gameTime);
+ UpdateHUD(gameTime);
+}
+
+public void Draw(Microsoft.Xna.Framework.GameTime gameTime)
+{
+ if (IsActive)
+ {
+  return;
+ }
+
+ DrawBackground(); 
+ DrawObjects();
+ DrawHUD();
+}
+</pre>
+Next, construct one concrete implementation class for each state in the game.  Each step in both the Update() and Draw() template methods can now be deferred to the concrete implementation class as required.<br /><br />For example, imagine the Splash Screen game state concrete implementation class is responsible for detecting the Start button press and displaying the splash screen only:
+<pre class="csharp" name="code">
+public class SplashScreenState : AbstractGameState
+{
+ public override void UpdateInput(GameTime gameTime)
+ {
+  // Detect player press Start button.
+ }
+
+ public override void DrawHUD (GameTime gameTime)
+ {
+  // Draw splash screen
+ }
+}
+</pre>
+Note: the remaining steps in both the Update() and Draw() template methods are invoked automatically by the algorithms contained in the base game state class.<br /><br /> To summarize, the Template Method design pattern offers algorithm encapsulation so that subclasses can hook themselves right into a computation anytime they want.
+</span>
