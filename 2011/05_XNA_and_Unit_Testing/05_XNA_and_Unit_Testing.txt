@@ -1,0 +1,318 @@
+<span style="font-family:verdana;font-size:85%;">In the previous <a href="http://steveproxna.blogspot.com/2011/03/xna-and-ioc-container.html">post</a>, we discussed the topic of XNA and an IoC Container.<br />Now, let's build on this information to discuss Unit Testing with <a href="http://en.wikipedia.org/wiki/XNA_(Microsoft)">XNA</a>.<br /><br />Note: this post includes complete code sample on <a href="http://steveproxna03ut.codeplex.com">CodePlex</a>.<br />Download code sample <b><a href="http://steveproxna03ut.codeplex.com/SourceControl/list/changesets">here</a></b>.<br /><br /><u>Unit Testing</u><br /><a href="http://en.wikipedia.org/wiki/Unit_testing">Unit testing</a> is the practice in which individual units of source code are tested in isolation.  Consequently, unit tests do not measure how objects interact with dependent objects; these are integration <a href="http://en.wikipedia.org/wiki/Integration_testing">tests</a>.<br /><br />In order to successfully unit test an individual game component, external dependencies are broken, and replaced by <a href="http://en.wikipedia.org/wiki/Mock_object">mock objects</a>: fake objects that emulate real classes and help test expectations about how that class should function.<br /><br />Therefore, clean unit tests should be written <a href="http://java.dzone.com/articles/why-you-should-read-clean-code">F.I.R.S.T</a>:<br /><table width="100%"><tr><td valign="top">Fast<br />Independent<br />Repeatable<br />Self-validating<br />Timely<br /></td><td valign="top">Tests should be fast<br />Tests should not depend on each other<br />Tests should be repeatable in any environment<br />Tests should have a Boolean output: either they pass or fail<br />
+Tests should be written in a timely fashion<br /></td></tr></table><br /><u>Example</u><br />As an example, let's revise the <a href="http://msdn.microsoft.com/en-us/library/bb203896(v=XNAGameStudio.31).aspx">Going Beyond</a> tutorial to demonstrate XNA and Unit Testing.<br /><br /><u>Sample</u><br />The following code sample refactors the tutorial to move a 3D model using input from the controller.<br />In order to test the model's rotate and move methods in isolation, the external dependency on the controller must be broken.<br /><br /><a href="http://steveproxna02ioc.codeplex.com/SourceControl/list/changesets">Download</a> the code sample from XNA and IoC Container <a href="http://steveproxna.blogspot.com/2011/03/xna-and-ioc-container.html">post</a>; Unit Tests will be added to this code.<br />
+Write all code changes first then add unit tests afterwards to assert the correct behavior.<br /><br />First, identify the <a href="http://en.wikipedia.org/wiki/System_under_test">System Under Test</a>: the component that will drive the unit tests: Game Object Manager<br />The Game Object Manager is responsible for managing all objects in the game: currently 1x spaceship.
+<br /><br />Therefore, all unit tests will involve the interaction between the SpaceShip and input from the controller:<br /><table width="100%"><tr>
+<td valign="top"><u>Action</u><br />Rotate Left<br />Rotate Right<br />Move Forward<br />Warp Center<br /></td><td valign="top"><u>Windows PC</u><br />Press left key<br />Press right key <br />Press space key<br />Press enter key<br /></td>
+<td valign="top"><u>Windows Phone 7</u><br />Tap screen bottom left<br />Tap screen bottom  right<br />Tap screen top right<br />Tap screen top left<br /></td>
+<td valign="top"><u>Xbox 360</u><br />Move controller left<br />Move controller right<br />Press right trigger<br />Press A button<br /></td></tr></table><br />All logic to load, update and draw the model can be encapsulated into a single game object:<br />SPACE SHIP 
+<pre class="csharp" name="code">
+public class SpaceShip
+{
+ private Model spaceShipModel;
+ private Matrix[] transforms;
+
+ public SpaceShip() : this(Vector3.Zero)
+ {
+ }
+
+ public SpaceShip(Vector3 modelPosition)
+ {
+  ModelRotation = 0.0f;
+  ModelPosition = modelPosition;
+  ModelVelocity = Vector3.Zero;
+ }
+
+ // Load model and set view/projection matrices.
+ public void LoadContent(Model theSpaceShipModel, Matrix viewMatrix, Matrix projectionMatrix)
+ {
+  // Same code as previous post.
+ }
+
+ // Update rotate, move and warp if actions are invoked.
+ public void Update(Single rotate, Single move, Boolean warp)
+ {
+  // Rotate.
+  if (rotate != 0)
+  {
+   const Single scale = 0.10f;
+   ModelRotation -= rotate * scale;
+  }
+
+  // Move.
+  if (move != 0)
+  {
+   // Create some velocity if move action invoked.
+   Vector3 modelVelocityAdd = Vector3.Zero;
+
+   // Find out thrust direction using rotation.
+   Single sin = -(Single)Math.Sin(ModelRotation);
+   Single cos = -(Single)Math.Cos(ModelRotation);
+
+   modelVelocityAdd.X = sin;
+   modelVelocityAdd.Z = cos;
+
+   // Scale direction by the amount of movement.
+   modelVelocityAdd *= move;
+
+   // Finally, add this vector to our velocity.
+   ModelVelocity += modelVelocityAdd;
+  }
+
+  // Warp.
+  if (warp)
+  {
+   ModelPosition = Vector3.Zero;
+   ModelVelocity = Vector3.Zero;
+   ModelRotation = 0.0f;
+  }
+
+  // Add velocity to position and bleed off velocity over time.
+  ModelPosition += ModelVelocity;
+  ModelVelocity *= 0.97f;
+ }
+
+ // Draw model.
+ public void Draw()
+ {
+  // Same code as previous post.
+ }
+
+ public Single ModelRotation { get; private set; }
+ public virtual Vector3 ModelPosition { get; private set; }
+ public Vector3 ModelVelocity { get; private set; }
+}
+</pre>
+Next, update the Game Object Manager: detect input and set the rotate, move and warp values:<br />
+GAME OBJECT MANAGER
+<pre class="csharp" name="code">
+public class GameObjectManager : IGameObjectManager
+{
+ // GameObjectManager has dependency on CameraManager, ContentManager, InputManager and SpaceShip.
+ private readonly ICameraManager cameraManager;
+ private readonly IContentManager contentManager;
+ private readonly IInputManager inputManager;
+ private readonly SpaceShip spaceShip;
+
+ public GameObjectManager(ICameraManager cameraManager, IContentManager contentManager, IInputManager inputManager, SpaceShip spaceShip)
+ {
+  this.cameraManager = cameraManager;
+  this.contentManager = contentManager;
+  this.inputManager = inputManager;
+  this.spaceShip = spaceShip;
+ }
+
+ // Load content for each game object.
+ public void LoadContent()
+ {
+  spaceShip.LoadContent(contentManager.SpaceShipModel, cameraManager.ViewMatrix, cameraManager.ProjectionMatrix);
+ }
+
+ // Update each game object.
+ public void Update(GameTime gameTime)
+ {
+  Single rotate = inputManager.Rotate();
+  Single move = inputManager.Move();
+  Boolean warp = inputManager.Warp();
+
+  spaceShip.Update(rotate, move, warp);
+ }
+
+ // Draw each game object.
+ public void Draw()
+ {
+  spaceShip.Draw();
+ }
+
+ public SpaceShip SpaceShip { get { return spaceShip; } }
+}
+</pre>
+Finally, input detection: each device will have its own rotate, move and warp implementation:<br />
+INPUT MANAGER
+<pre class="csharp" name="code">
+public class InputManager : IInputManager
+{
+ // InputManager has dependency on InputFactory.
+ private readonly AInputFactory inputFactory;
+
+ public InputManager(AInputFactory inputFactory)
+ {
+  this.inputFactory = inputFactory;
+ }
+
+ public Single Rotate() { return inputFactory.Rotate(); }
+ public Single Move() { return inputFactory.Move(); }
+ public Boolean Warp() { return inputFactory.Warp(); }
+}
+</pre>
+INPUT FACTORY
+<pre class="csharp" name="code">
+public abstract class AInputFactory
+{
+ public abstract Single Rotate();
+ public abstract Single Move();
+ public abstract Boolean Warp();
+}
+
+public class PhoneInputFactory : AInputFactory
+{
+ public override Single Rotate() { // Logic goes here. }
+ public override Single Move() { // Logic goes here. }
+ public override Boolean Warp() { // Logic goes here. }
+}
+
+public class WorkInputFactory : AInputFactory
+{
+ public override Single Rotate() { // Logic goes here. }
+ public override Single Move() { // Logic goes here. }
+ public override Boolean Warp() { // Logic goes here. }
+}
+
+public class XboxInputFactory : AInputFactory
+{
+ public override Single Rotate() { // Logic goes here. }
+ public override Single Move() { // Logic goes here. }
+ public override Boolean Warp() { // Logic goes here. }
+}
+</pre>
+<br />
+<u>Unit Tests</u><br />Write the unit tests, one for each action: Rotate Left, Rotate Right, Move Forward and Warp Center.<br /><br />First, add New Windows Game Library project to the solution; this project will contain the unit tests.<br />Next, add references to the following managed libraries: <a href="http://www.nunit.org">NUnit</a> Framework and <a href="http://www.ayende.com/projects/rhino-mocks.aspx">Rhino Mocks</a>.<br /><br />Next, add one test fixture for the system under test: Game Object Manager<br />Note: external dependencies are broken and replaced by <a href="http://en.wikipedia.org/wiki/Mock_object">mock objects</a>:<br />
+<pre class="csharp" name="code">
+[TestFixture]
+public class GameObjectManagerTests
+{
+ // System under test.
+ private IGameObjectManager gameObjectManager;
+
+ private ICameraManager cameraManager;
+ private IContentManager contentManager;
+ private IInputManager inputManager;
+ private SpaceShip spaceShip;
+ private readonly GameTime gameTime = new GameTime();
+
+ [SetUp]
+ public void SetUp()
+ {
+  cameraManager = MockRepository.GenerateStub&lt;ICameraManager&gt;();
+  contentManager = MockRepository.GenerateStub&lt;IContentManager&gt;();
+  inputManager = MockRepository.GenerateStub&lt;IInputManager&gt;();
+  spaceShip = new SpaceShip();
+
+  gameObjectManager = new GameObjectManager(
+   cameraManager,
+   contentManager,
+   inputManager,
+   spaceShip);
+ }
+}
+</pre>
+Test #1: <b>Rotate Left</b><br />
+<table width="100%">
+<tr>
+<td valign="top">
+<ul>
+<li>Simulate input from the controller to return the Rotate Left action</li>
+<li>Update the Game Object Manager which updates the SpaceShip</li>
+<li>Assert the rotation of the SpaceShip updates correctly</li>
+</ul>
+<pre class="csharp" name="code">
+[Test]
+public void Left()
+{
+ // Arrange.
+ inputManager.Stub(im => im.Rotate()).Return(-1);
+
+ // Act.
+ gameObjectManager.Update(gameTime);
+
+ // Assert.
+ Assert.AreEqual(0.1f, gameObjectManager.SpaceShip.ModelRotation);
+}
+</pre>
+</td>
+</tr>
+</table>
+Test #2: <b>Rotate Right</b><br />
+<table width="100%">
+<tr>
+<td valign="top">
+<ul>
+<li>Simulate input from the controller to return the Rotate Right action</li>
+<li>Update the Game Object Manager which updates the SpaceShip</li>
+<li>Assert the rotation of the SpaceShip updates correctly</li>
+</ul>
+<pre class="csharp" name="code">
+[Test]
+public void Right()
+{
+ // Arrange.
+ inputManager.Stub(im => im.Rotate()).Return(1);
+
+ // Act.
+ gameObjectManager.Update(gameTime);
+
+ // Assert.
+ Assert.AreEqual(-0.1f, gameObjectManager.SpaceShip.ModelRotation);
+}
+</pre>
+</td>
+</tr>
+</table>
+Test #3: <b>Move Forward</b><br />
+<table width="100%"><tr>
+<td valign="top">
+<ul>
+<li>Simulate input from the controller to return the Move Forward action</li>
+<li>Update the Game Object Manager which updates the SpaceShip</li>
+<li>Assert the position of the SpaceShip updates correctly</li>
+</ul>
+<pre class="csharp" name="code">
+[Test]
+public void Move()
+{
+ // Arrange.
+ inputManager.Stub(im => im.Move()).Return(1);
+
+ // Act.
+ gameObjectManager.Update(gameTime);
+
+ // Assert.
+ Assert.AreEqual(-1.0f, gameObjectManager.SpaceShip.ModelPosition.Z);
+}
+</pre>
+</td>
+</tr></table>
+Test #4: <b>Warp Center</b><br />
+<table width="100%"><tr>
+<td valign="top">
+<ul>
+<li>Simulate input from the controller to return the Warp Center action</li>
+<li>Update the Game Object Manager which updates the SpaceShip</li>
+<li>Assert the position of the SpaceShip updates correctly</li>
+</ul>
+<pre class="csharp" name="code">
+[Test]
+public void Warp()
+{
+ // Arrange.
+ Vector3 modelPostion = new Vector3(10, 20, 30);
+ spaceShip = new SpaceShip(modelPostion);
+
+ gameObjectManager = new GameObjectManager(
+  cameraManager,
+  contentManager,
+  inputManager,
+  spaceShip);
+
+ inputManager.Stub(im => im.Warp()).Return(true);
+
+ // Act.
+ gameObjectManager.Update(gameTime);
+
+ // Assert.
+ Assert.AreEqual(Vector3.Zero, gameObjectManager.SpaceShip.ModelPosition);
+}
+</pre>
+</td>
+</tr></table>
+Download code sample <b><a href="http://steveproxna03ut.codeplex.com/SourceControl/list/changesets">here</a></b>.<br /><br /><u>Summary</u><br />The revised <a href="http://msdn.microsoft.com/en-us/library/bb203896(v=XNAGameStudio.31).aspx">Going Beyond</a> tutorial demonstrates how to integrate Unit Tests into an existing code <a href="http://steveproxna02ioc.codeplex.com/SourceControl/list/changesets">base</a>.<br />However, simply adding unit tests after the code is written does not guarantee bug free code!<br /><br />For example: subtle bugs may be introduced in code that are not caught when tested in isolation simply because the tests may return false positive results.
+<br /><br />Unit tests state what you expect the code to do.  Therefore, a better approach is to write the tests first: Writing the test <i>before</i> the code should uncover issues quicker because assertions in the test can fail.<br /><br />The practice of writing unit tests <i>before</i> the objects they test is called: <a href="http://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a>.<br />This will be the topic in the next <a href="http://steveproxna.blogspot.com/2011/04/xna-and-test-driven-development.html">post</a>.</span>

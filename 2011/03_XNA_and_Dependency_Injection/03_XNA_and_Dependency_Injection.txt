@@ -1,0 +1,351 @@
+<span style="font-family:verdana;font-size:85%;">In the previous <a href="http://steveproxna.blogspot.com/2011/02/xna-and-agile-software-development.html">post</a>, we discussed the topic of XNA and Agile Software Development.<br />Now, let's build on this information to discuss Dependency Injection with <a href="http://en.wikipedia.org/wiki/XNA_(Microsoft)">XNA</a>.<br /><br />Note: this post includes complete code sample on <a href="http://steveproxna01di.codeplex.com">CodePlex</a>.<br />Download code sample <b><a href="http://steveproxna01di.codeplex.com/SourceControl/list/changesets">here</a></b>.<br /><br /><u>Dependency Injection</u><br /><a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection</a> is a simple pattern to loosely couple objects and break their dependencies.<br />The resulting design principle, <a href=" http://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency Inversion</a>, states: <i>Depend upon abstractions.<br />Do not depend upon concrete classes.</i><br /><br />By coupling an object to an interface instead of a specific concrete implementation, you have the ability to use any implementation with minimal change and risk.  This concept is important, especially when testing an object in isolation (unit testing).<br /><br /><u>Example</u><br />As an example, let's revise the <a href="http://msdn.microsoft.com/en-us/library/bb197293(v=XNAGameStudio.31).aspx">Going Beyond</a> tutorial to demonstrate XNA and Dependency Injection.<br /><br />First, isolate the components used throughout the tutorial:
+<table width="100%"><tr><td valign="top"><u>Component</u><br />CameraManager<br />ContentManager<br />GameObjectManager<br />GraphicsManager<br />ScreenManager</td><td valign="top"><u>Responsibility</u><br />manages fixed camera<br />manages all game content<br />manages all game objects<br />manages all graphics<br />manages all screens</td><td valign="top"><u>Information</u><br />view / projection matrices
+<br />currently only 1x model<br />currently only 1x spaceship<br />all graphics properties<br />currently only 1x screen</td></tr></table><br />Next, identify the dependencies between the components:<table width="100%"><tr><td valign="top"><u>Component</u><br />CameraManager<br />GameObjectManager<br />GameObjectManager<br />ScreenManager<br />ScreenManager</td><td valign="top"><u>Dependency</u><br />depends on GraphicsManager<br />depends on CameraManager<br />depends on ContentManager<br />depends on GameObjectManager<br />depends on GraphicsManager</td><td valign="top"><u>Information</u><br />aspect ratio on graphics device<br />game object view / projection<br />load game object content<br />update / draw game objects<br />clear graphics device</td></tr></table><br /><u>Sample</u><br />
+The following code sample refactors the <a href="http://msdn.microsoft.com/en-us/library/bb197293(v=XNAGameStudio.31).aspx">Going Beyond</a> tutorial to render a 3D model on screen.<br />All logic to load, update and draw the model can be encapsulated into a single game object:<br /><br />SPACE SHIP
+<pre class="csharp" name="code">
+public class SpaceShip
+{
+ private Model spaceShipModel;
+ private Matrix[] transforms;
+
+ public SpaceShip()
+ {
+  ModelRotation = 0.0f;
+  ModelPosition = Vector3.Zero;
+  ModelVelocity = Vector3.Zero;
+ }
+
+ // Load model and set view/projection matrices.
+ public void LoadContent(Model theSpaceShipModel, Matrix viewMatrix, Matrix projectionMatrix)
+ {
+  spaceShipModel = theSpaceShipModel;
+  transforms = new Matrix[spaceShipModel.Bones.Count];
+  spaceShipModel.CopyAbsoluteBoneTransformsTo(transforms);
+
+  foreach (BasicEffect effect in spaceShipModel.Meshes.SelectMany(mesh => mesh.Effects.Cast&lt;BasicEffect&gt;()))
+  {
+   effect.EnableDefaultLighting();
+   effect.View = viewMatrix;
+   effect.Projection = projectionMatrix;
+  }
+ }
+
+ // Update angle of rotation.
+ public void Update(GameTime gameTime)
+ {
+  Single temps = MathHelper.ToRadians(0.05f);
+  Single delta = (Single)gameTime.ElapsedGameTime.TotalMilliseconds;
+  ModelRotation -= delta * temps;
+ }
+
+ // Draw model.
+ public void Draw()
+ {
+  foreach (ModelMesh mesh in spaceShipModel.Meshes)
+  {
+   foreach (BasicEffect effect in mesh.Effects)
+   {
+    effect.World = transforms[mesh.ParentBone.Index]
+     * Matrix.CreateRotationY(ModelRotation)
+     * Matrix.CreateTranslation(ModelPosition);
+   }
+
+   mesh.Draw();
+  }
+ }
+
+ public Single ModelRotation { get; private set; }
+ public Vector3 ModelPosition { get; private set; }
+ public Vector3 ModelVelocity { get; private set; }
+}
+</pre>
+Next, build the components that do not have any dependencies:<br />CONTENT MANAGER
+<pre class="csharp" name="code">
+using XnaContentManager = Microsoft.Xna.Framework.Content.ContentManager;
+
+public class ContentManager : IContentManager
+{
+ private XnaContentManager content;
+
+ // Load all content.
+ public void LoadContent(XnaContentManager xnaContent)
+ {
+  if (null != content)
+  {
+   return;
+  }
+
+  content = xnaContent;
+  content.RootDirectory = "Content";
+  SpaceShipModel = content.Load&lt;Model&gt;("Models/p1_wedge");
+ }
+
+ // Unload all content.
+ public void UnloadContent()
+ {
+  if (null == content)
+  {
+   return;
+  }
+
+  content.Unload();
+ }
+
+ public Model SpaceShipModel { get; private set; }
+}
+</pre>
+GRAPHICS MANAGER
+<pre class="csharp" name="code">
+using XnaGraphicsDeviceManager = Microsoft.Xna.Framework.GraphicsDeviceManager;
+
+public class GraphicsManager : IGraphicsManager
+{
+ private XnaGraphicsDeviceManager graphics;
+
+ // Initialize all graphics properties.
+ public void Initialize(XnaGraphicsDeviceManager xnaGraphics)
+ {
+  if (null != graphics)
+  {
+   return;
+  }
+
+  graphics = xnaGraphics;
+  graphics.PreferredBackBufferWidth = 800;
+  graphics.PreferredBackBufferHeight = 480;
+  graphics.IsFullScreen = false;
+  graphics.ApplyChanges();
+
+  GraphicsDevice = graphics.GraphicsDevice;
+  SpriteBatch = new SpriteBatch(GraphicsDevice);
+ }
+
+ public GraphicsDevice GraphicsDevice { get; private set; }
+ public Single AspectRatio { get { return GraphicsDevice.Viewport.AspectRatio; } }
+ public SpriteBatch SpriteBatch { get; private set; }
+} 
+</pre>
+Next, build the the remaining components that do have dependencies; here each dependent component is injected manually using <a href="http://www.codeproject.com/KB/architecture/DependencyInjection.aspx">constructor injection</a> technique:<br /><br />CAMERA MANAGER
+<pre class="csharp" name="code">
+public class CameraManager : ICameraManager
+{
+ // CameraManager has dependency on GraphicsManager.
+ private readonly IGraphicsManager graphicsManager;
+
+ public CameraManager(IGraphicsManager graphicsManager)
+ {
+  this.graphicsManager = graphicsManager;
+ }
+
+ // Initialize camera view/projection matrices.
+ public void Initialize(Vector3 cameraPosition)
+ {
+  ViewMatrix = Matrix.CreateLookAt(cameraPosition, Vector3.Zero, Vector3.Up);
+  ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, graphicsManager.AspectRatio, 1.0f, 10000.0f);
+ }
+
+ public Matrix ViewMatrix { get; private set; }
+ public Matrix ProjectionMatrix { get; private set; }
+}
+</pre>
+GAME OBJECT MANAGER
+<pre class="csharp" name="code">
+public class GameObjectManager : IGameObjectManager
+{
+ // GameObjectManager has dependency on CameraManager and ContentManager.
+ private readonly ICameraManager cameraManager;
+ private readonly IContentManager contentManager;
+ private readonly SpaceShip spaceShip;
+
+ public GameObjectManager(ICameraManager cameraManager, IContentManager contentManager)
+ {
+  this.cameraManager = cameraManager;
+  this.contentManager = contentManager;
+  spaceShip = new SpaceShip();
+ }
+
+ // Load content for each game object.
+ public void LoadContent()
+ {
+  spaceShip.LoadContent(contentManager.SpaceShipModel, cameraManager.ViewMatrix, cameraManager.ProjectionMatrix);
+ }
+
+ // Update each game object.
+ public void Update(GameTime gameTime)
+ {
+  spaceShip.Update(gameTime);
+ }
+
+ // Draw each game object.
+ public void Draw()
+ {
+  spaceShip.Draw();
+ }
+}
+</pre>
+SCREEN MANAGER
+<pre class="csharp" name="code">
+public class ScreenManager : IScreenManager
+{
+ // ScreenManager has dependency on GameObjectManager and GraphicsManager.
+ private readonly IGameObjectManager gameObjectManager;
+ private readonly IGraphicsManager graphicsManager;
+
+ public ScreenManager(IGameObjectManager gameObjectManager, IGraphicsManager graphicsManager)
+ {
+  this.gameObjectManager = gameObjectManager;
+  this.graphicsManager = graphicsManager;
+ }
+
+ // Update each game object using GameObjectManager.
+ public void Update(GameTime gameTime)
+ {
+  gameObjectManager.Update(gameTime);
+ }
+
+ // Draw each game object using GameObjectManager.
+ public void Draw()
+ {
+  graphicsManager.GraphicsDevice.Clear(Color.Black);
+  gameObjectManager.Draw();
+ }
+}
+</pre>
+Finally, build a GameManager component to manage all interaction between the main game class and each game component listed above.  Again, each dependent component is injected manually using <a href="http://www.codeproject.com/KB/architecture/DependencyInjection.aspx">constructor injection</a> technique:<br /><br />GAME MANAGER
+<pre class="csharp" name="code">
+public class GameManager : IGameManager
+{
+ private readonly ICameraManager cameraManager;
+ private readonly IContentManager contentManager;
+ private readonly IGameObjectManager gameObjectManager;
+ private readonly IGraphicsManager graphicsManager;
+ private readonly IScreenManager screenManager;
+
+ public GameManager(
+  ICameraManager cameraManager,
+  IContentManager contentManager,
+  IGameObjectManager gameObjectManager,
+  IGraphicsManager graphicsManager,
+  IScreenManager screenManager
+  )
+ {
+  this.cameraManager = cameraManager;
+  this.contentManager = contentManager;
+  this.gameObjectManager = gameObjectManager;
+  this.graphicsManager = graphicsManager;
+  this.screenManager = screenManager;
+ }
+
+ // Initialize graphics and camera.
+ public void Initialize(GraphicsDeviceManager graphics)
+ {
+  graphicsManager.Initialize(graphics);
+  cameraManager.Initialize(new Vector3(0.0f, 50.0f, 5000.0f));
+ }
+
+ // Load all content.
+ public void LoadContent(XnaContentManager content)
+ {
+  contentManager.LoadContent(content);
+  gameObjectManager.LoadContent();
+ }
+
+ // Unload all content.
+ public void UnloadContent()
+ {
+  contentManager.UnloadContent();
+ }
+
+ // Update each screen.
+ public void Update(GameTime gameTime)
+ {
+  screenManager.Update(gameTime);
+ }
+
+ // Draw each screen.
+ public void Draw()
+ {
+  screenManager.Draw();
+ }
+}
+</pre>
+For simplicity, build a GameFactory to construct a single instance of the GameMananger component:<br />GAME FACTORY
+<pre class="csharp" name="code">
+public static class GameFactory
+{
+ private static IGameManager gameManager;
+
+ public static IGameManager GetGameManager()
+ {
+  if (null == gameManager)
+  {
+   IContentManager contentManager = new ContentManager();
+   IGraphicsManager graphicsManager = new GraphicsManager();
+   ICameraManager cameraManager = new CameraManager(graphicsManager);
+   IGameObjectManager gameObjectManager = new GameObjectManager(cameraManager, contentManager);
+   IScreenManager screenManager = new ScreenManager(gameObjectManager, graphicsManager);
+
+   gameManager = new GameManager(
+    cameraManager,
+    contentManager,
+    gameObjectManager,
+    graphicsManager,
+    screenManager
+    );
+  }
+
+  return gameManager;
+ }
+}
+</pre>
+For completeness, here is the main game class; the GameManager now manages all game actions:<br />GAME
+<pre class="csharp" name="code">
+public class MyGame : Game
+{
+ private readonly GraphicsDeviceManager graphics;
+ private readonly IGameManager gameManager;
+
+ public MyGame()
+ {
+  graphics = new GraphicsDeviceManager(this);
+  gameManager = GameFactory.GetGameManager();
+ }
+
+ protected override void Initialize()
+ {
+  gameManager.Initialize(graphics);
+  base.Initialize();
+ }
+
+ protected override void LoadContent()
+ {
+  gameManager.LoadContent(Content);
+  base.LoadContent();
+ }
+
+ protected override void UnloadContent()
+ {
+  gameManager.UnloadContent();
+  base.UnloadContent();
+ }
+
+ protected override void Update(GameTime gameTime)
+ {
+  if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+   Keyboard.GetState().IsKeyDown(Keys.Escape))
+  {
+   Exit();
+  }
+  gameManager.Update(gameTime);
+  base.Update(gameTime);
+ }
+
+ protected override void Draw(GameTime gameTime)
+ {
+  gameManager.Draw();
+  base.Draw(gameTime);
+ }
+}
+</pre>
+Download code sample <b><a href="http://steveproxna01di.codeplex.com/SourceControl/list/changesets">here</a></b>.<br /><br />
+<u>Summary</u><br />The revised <a href="http://msdn.microsoft.com/en-us/library/bb197293(v=XNAGameStudio.31).aspx">Going Beyond</a> example demonstrates how to isolate components using dependency injection:<br />Game components are able to be tested in isolation as dependencies can be replaced by <a href="http://en.wikipedia.org/wiki/Mock_object">mock objects</a>.<br/ ><br/ >The biggest drawback from the code sample above, however, is that all dependent components must be constructed manually in the factory before they can be injected.<br/ ><br/ >Fortunately, there is a framework component available to developers that resolves this issue:<br />The <a href="http://www.martinfowler.com/articles/injection.html">IoC Container</a>.  This will be the topic in the next <a href="http://steveproxna.blogspot.com/2011/03/xna-and-ioc-container.html">post</a>.</span>

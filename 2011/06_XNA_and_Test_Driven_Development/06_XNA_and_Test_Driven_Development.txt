@@ -1,0 +1,486 @@
+<span style="font-family:verdana;font-size:85%;">In the previous <a href="http://steveproxna.blogspot.com/2011/03/xna-and-unit-testing.html">post</a>, we discussed the topic of XNA and Unit Testing.<br />Now, let's discuss the topic of Test Driven Development with <a href="http://en.wikipedia.org/wiki/XNA_(Microsoft)">XNA</a>.<br /><br />Note: this post includes complete code sample on <a href="http://steveproxna03ut.codeplex.com">CodePlex</a>.<br />Download code sample <b><a href="http://steveproxna03ut.codeplex.com/SourceControl/list/changesets">here</a></b>.<br /><br /><u>Test Driven Development (TDD)</u><br /><a href="http://en.wikipedia.org/wiki/Test-driven_development">Test driven development</a> (TDD) is similar to <a href="http://en.wikipedia.org/wiki/Unit_testing">unit testing</a> except the unit tests are written <i>before</i> the objects they test.  TDD is gaining as a development best practice because objects are designed with testability in mind: an object and its dependencies must be loosely coupled from the outset.<br /><br />TDD practitioners follow these three <a href="http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/5571/pdf/imm5571.pdf">laws</a>:<br /><table width="100%"><tr><td valign="top">First Law:<br />Second Law:<br />Third Law:<br /></td><td valign="top">You may not write production code unless you&#8217;ve first written a failing unit test<br />You may not write more of a unit test than is sufficient to fail<br />You may not write more production code than is sufficient to make the failing unit test pass<br /></td></tr></table><br />Instead of designing a module, coding then testing, you turn the process around and do the <a href="http://www.codeproject.com/KB/dotnet/tdd_in_dotnet.aspx">testing</a> first.<br />To put it another way, you don't write a single line of production code until you have a test that fails.<br /><br />
+The typical programming sequence is something like this:<br />
+&nbsp;1. Write a test.<br /> &nbsp;2. Run the test. It fails to compile because the code you're trying to test doesn't even exist yet!<br >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>This is the same thing as failing.</i><br />&nbsp;3. Write a bare-bones stub to make the test compile.<br /> &nbsp;4. Run the test. It should fail.&nbsp;&nbsp;<i>If it doesn't, then the test wasn't very good.</i><br />&nbsp;5. Implement the code to make the test pass.<br /> &nbsp;6. Run the test. It should pass.&nbsp;&nbsp;<i>If it doesn't, back up one step and try again.</i><br />&nbsp;7. Start over with a new test!<br /><br /><u>Example</u><br />As an example, let's revise the <a href="http://msdn.microsoft.com/en-us/library/bb203896(v=XNAGameStudio.31).aspx">Going Beyond</a> tutorial to demonstrate XNA and Test Driven Development.<br /><br /><u>Sample</u><br />The following code sample refactors the tutorial to move a 3D model using input from the controller.
+<br />In order to test the model's rotate and move methods in isolation, the external dependency on the controller must be broken.<br /><br /><a href="http://steveproxna02ioc.codeplex.com/SourceControl/list/changesets">Download</a> the code sample from XNA and IoC Container <a href="http://steveproxna.blogspot.com/2011/03/xna-and-ioc-container.html">post</a>; Unit Tests will be added to this code.<br />However, this time the unit tests will be written <i>before</i> the objects they test.<br /><br />First, identify the <a href="http://en.wikipedia.org/wiki/System_under_test">System Under Test</a>: the component that will drive the unit tests: Game Object Manager<br />The Game Object Manager is responsible for managing all objects in the game: currently 1x spaceship.
+<br /><br />Therefore, all unit tests will involve the interaction between the SpaceShip and input from the controller:<br /><table width="100%"><tr>
+<td valign="top"><u>Action</u><br />Rotate Left<br />Rotate Right<br />Move Forward<br />Warp Center<br /></td><td valign="top"><u>Windows PC</u><br />Press left key<br />Press right key <br />Press space key<br />Press enter key<br /></td>
+<td valign="top"><u>Windows Phone 7</u><br />Tap screen bottom left<br />Tap screen bottom  right<br />Tap screen top right<br />Tap screen top left<br /></td>
+<td valign="top"><u>Xbox 360</u><br />Move controller left<br />Move controller right<br />Press right trigger<br />Press A button<br /></td></tr></table><br />
+<u>Unit Tests</u><br />Write the unit tests, one for each action: Rotate Left, Rotate Right, Move Forward and Warp Center.<br /><br />First, add New Windows Game Library project to the solution; this project will contain the unit tests.<br />
+Next, add references to the following managed libraries: <a href="http://www.nunit.org">NUnit</a> Framework and <a href="http://www.ayende.com/projects/rhino-mocks.aspx">Rhino Mocks</a>.<br /><br />Next, add one test fixture for the system under test: Game Object Manager<br />Note: external dependencies are broken and replaced by <a href="http://en.wikipedia.org/wiki/Mock_object">mock objects</a>:<br />
+<pre class="csharp" name="code">
+[TestFixture]
+public class GameObjectManagerTests
+{
+ // System under test.
+ private IGameObjectManager gameObjectManager;
+
+ private ICameraManager cameraManager;
+ private IContentManager contentManager;
+ private IInputManager inputManager;
+ private SpaceShip spaceShip;
+ private readonly GameTime gameTime = new GameTime();
+
+ [SetUp]
+ public void SetUp()
+ {
+  cameraManager = MockRepository.GenerateStub&lt;ICameraManager&gt;();
+  contentManager = MockRepository.GenerateStub&lt;IContentManager&gt;();
+  inputManager = MockRepository.GenerateStub&lt;IInputManager&gt;();
+  spaceShip = new SpaceShip();
+
+  gameObjectManager = new GameObjectManager(
+   cameraManager,
+   contentManager,
+   inputManager,
+   spaceShip);
+ }
+}
+</pre>
+Test #1: <b>Warp Center</b><br /><table width="100%"><tr><td valign="top"><ul><li>Simulate input from the controller to return the Warp Center action</li>
+<li>Update the Game Object Manager which updates the SpaceShip</li><li>Assert the position of the SpaceShip updates correctly</li></ul>&nbsp;1. Write a test.
+<pre class="csharp" name="code">
+[Test]
+public void Warp()
+{
+ // Arrange.
+ Vector3 modelPostion = new Vector3(10, 20, 30);
+ spaceShip = new SpaceShip(modelPostion);
+
+ gameObjectManager = new GameObjectManager(
+  cameraManager,
+  contentManager,
+  inputManager,
+  spaceShip);
+
+ inputManager.Stub(im => im.Warp()).Return(true);
+
+ // Act.
+ gameObjectManager.Update(gameTime);
+
+ // Assert.
+ Assert.AreEqual(Vector3.Zero, gameObjectManager.SpaceShip.ModelPosition);
+}
+</pre>
+</td></tr></table>&nbsp;2. Run the test. It fails to compile because the code you're trying to test doesn't even exist yet!<br />
+&nbsp;3. Write a bare-bones stub to make the test compile.<br /><br />
+SPACE SHIP
+<pre class="csharp" name="code">
+public class SpaceShip
+{
+ private Model spaceShipModel;
+ private Matrix[] transforms;
+
+ public SpaceShip() : this(Vector3.Zero)
+ {
+ }
+
+ public SpaceShip(Vector3 modelPosition)
+ {
+  ModelRotation = 0.0f;
+  ModelPosition = modelPosition;
+  ModelVelocity = Vector3.Zero;
+ }
+
+ // Same code as previous post.
+}
+</pre>
+INPUT MANAGER
+<pre class="csharp" name="code">
+public class InputManager : IInputManager
+{
+ // InputManager has dependency on InputFactory.
+ private readonly AInputFactory inputFactory;
+
+ public InputManager(AInputFactory inputFactory)
+ {
+  this.inputFactory = inputFactory;
+ }
+
+ public Boolean Warp() { return inputFactory.Warp(); }
+}
+</pre>
+INPUT FACTORY
+<pre class="csharp" name="code">
+public abstract class AInputFactory
+{
+ public abstract Boolean Warp();
+}
+
+public class PhoneInputFactory : AInputFactory
+{
+ public override Boolean Warp() { // Logic goes here. }
+}
+
+public class WorkInputFactory : AInputFactory
+{
+ public override Boolean Warp() { // Logic goes here. }
+}
+
+public class XboxInputFactory : AInputFactory
+{
+ public override Boolean Warp() { // Logic goes here. }
+}
+</pre>
+GAME OBJECT MANAGER
+<pre class="csharp" name="code">
+public class GameObjectManager : IGameObjectManager
+{
+ // GameObjectManager has dependency on CameraManager, ContentManager, InputManager and SpaceShip.
+ private readonly ICameraManager cameraManager;
+ private readonly IContentManager contentManager;
+ private readonly IInputManager inputManager;
+ private readonly SpaceShip spaceShip;
+
+ public GameObjectManager(ICameraManager cameraManager, IContentManager contentManager, IInputManager inputManager, SpaceShip spaceShip)
+ {
+  this.cameraManager = cameraManager;
+  this.contentManager = contentManager;
+  this.inputManager = inputManager;
+  this.spaceShip = spaceShip;
+ }
+
+ // Same code as previous post.
+
+ public SpaceShip SpaceShip { get { return spaceShip; } }
+}
+</pre>
+&nbsp;4. Run the test. It should fail.<br />
+&nbsp;5. Implement the code to make the test pass.<br /><br />
+GAME OBJECT MANAGER
+<pre class="csharp" name="code">
+public class GameObjectManager : IGameObjectManager
+{
+ // Same code as previous post.
+
+ // Update each game object.
+ public void Update(GameTime gameTime)
+ {
+  Boolean warp = inputManager.Warp();
+  spaceShip.Update(warp);
+ }
+}
+</pre>
+SPACE SHIP
+<pre class="csharp" name="code">
+public class SpaceShip
+{
+ // Same code as previous post.
+
+ // Update warp if action is invoked.
+ public void Update(Boolean warp)
+ {
+  // Warp.
+  if (warp)
+  {
+   ModelPosition = Vector3.Zero;
+   ModelVelocity = Vector3.Zero;
+   ModelRotation = 0.0f;
+  }
+ }
+}
+</pre>
+&nbsp;6. Run the test. It should pass.<br />&nbsp;7. Start over with a new test!
+<br /><br />Test #2: <b>Rotate Left</b><br /><table width="100%"><tr><td valign="top"><ul><li>Simulate input from the controller to return the Rotate Left action</li><li>Update the Game Object Manager which updates the SpaceShip</li>
+<li>Assert the rotation of the SpaceShip updates correctly</li></ul>&nbsp;1. Write a test.
+<pre class="csharp" name="code">
+[Test]
+public void Left()
+{
+ // Arrange.
+ inputManager.Stub(im => im.Rotate()).Return(-1);
+
+ // Act.
+ gameObjectManager.Update(gameTime);
+
+ // Assert.
+ Assert.AreEqual(0.1f, gameObjectManager.SpaceShip.ModelRotation);
+}
+</pre></td></tr></table>&nbsp;2. Run the test. It fails to compile because the code you're trying to test doesn't even exist yet!<br />&nbsp;3. Write a bare-bones stub to make the test compile.<br /><br />
+INPUT MANAGER
+<pre class="csharp" name="code">
+public class InputManager : IInputManager
+{
+ // InputManager has dependency on InputFactory.
+ private readonly AInputFactory inputFactory;
+
+ public InputManager(AInputFactory inputFactory)
+ {
+  this.inputFactory = inputFactory;
+ }
+
+ public Single Rotate() { return inputFactory.Rotate(); }
+ public Boolean Warp() { return inputFactory.Warp(); }
+}
+</pre>
+INPUT FACTORY
+<pre class="csharp" name="code">
+public abstract class AInputFactory
+{
+ public abstract Single Rotate();
+ public abstract Boolean Warp();
+}
+
+public class PhoneInputFactory : AInputFactory
+{
+ public override Single Rotate() { // Logic goes here. }
+ public override Boolean Warp() { // Logic goes here. }
+}
+
+public class WorkInputFactory : AInputFactory
+{
+ public override Single Rotate() { // Logic goes here. }
+ public override Boolean Warp() { // Logic goes here. }
+}
+
+public class XboxInputFactory : AInputFactory
+{
+ public override Single Rotate() { // Logic goes here. }
+ public override Boolean Warp() { // Logic goes here. }
+}
+</pre>
+&nbsp;4. Run the test. It should fail.<br />&nbsp;5. Implement the code to make the test pass.<br /><br />
+GAME OBJECT MANAGER
+<pre class="csharp" name="code">
+public class GameObjectManager : IGameObjectManager
+{
+ // Same code as previous post.
+
+ // Update each game object.
+ public void Update(GameTime gameTime)
+ {
+  Single rotate = inputManager.Rotate();
+  Boolean warp = inputManager.Warp();
+
+  spaceShip.Update(rotate, warp);
+ }
+}
+</pre>
+SPACE SHIP
+<pre class="csharp" name="code">
+public class SpaceShip
+{
+ // Same code as previous post.
+
+ // Update rotate and warp if actions are invoked.
+ public void Update(Single rotate, Boolean warp)
+ {
+  // Rotate.
+  if (rotate != 0)
+  {
+   const Single scale = 0.10f;
+   ModelRotation -= rotate * scale;
+  }
+
+  // Warp.
+  if (warp)
+  {
+   ModelPosition = Vector3.Zero;
+   ModelVelocity = Vector3.Zero;
+   ModelRotation = 0.0f;
+  }
+ }
+}
+</pre>&nbsp;6. Run the test. It should pass.<br />&nbsp;7. Start over with a new test!<br /><br />Test #3: <b>Rotate Right</b><br /><table width="100%"><tr>
+<td valign="top"><ul><li>Simulate input from the controller to return the Rotate Right action</li><li>Update the Game Object Manager which updates the SpaceShip</li>
+<li>Assert the rotation of the SpaceShip updates correctly</li></ul>&nbsp;1. Write a test.
+<pre class="csharp" name="code">
+[Test]
+public void Right()
+{
+ // Arrange.
+ inputManager.Stub(im => im.Rotate()).Return(1);
+
+ // Act.
+ gameObjectManager.Update(gameTime);
+
+ // Assert.
+ Assert.AreEqual(-0.1f, gameObjectManager.SpaceShip.ModelRotation);
+}
+</pre></td></tr></table>&nbsp;2. Run the test. It fails to compile because the code you're trying to test doesn't even exist yet!<br />&nbsp;3. Write a bare-bones stub to make the test compile.<br /> &nbsp;4. Run the test. It should fail.<br />&nbsp;5. Implement the code to make the test pass.<br /> &nbsp;6. Run the test. It should pass.<br />&nbsp;7. Start over with a new test!<br /><br />Test #4: <b>Move Forward</b><br /><table width="100%"><tr><td valign="top"><ul><li>Simulate input from the controller to return the Move Forward action</li><li>Update the Game Object Manager which updates the SpaceShip</li><li>Assert the position of the SpaceShip updates correctly</li></ul>&nbsp;1. Write a test.
+<pre class="csharp" name="code">
+[Test]
+public void Move()
+{
+ // Arrange.
+ inputManager.Stub(im => im.Move()).Return(1);
+
+ // Act.
+ gameObjectManager.Update(gameTime);
+
+ // Assert.
+ Assert.AreEqual(-1.0f, gameObjectManager.SpaceShip.ModelPosition.Z);
+}
+</pre></td></tr></table>&nbsp;2. Run the test. It fails to compile because the code you're trying to test doesn't even exist yet!<br />&nbsp;3. Write a bare-bones stub to make the test compile.<br /><br />
+INPUT MANAGER
+<pre class="csharp" name="code">
+public class InputManager : IInputManager
+{
+ // InputManager has dependency on InputFactory.
+ private readonly AInputFactory inputFactory;
+
+ public InputManager(AInputFactory inputFactory)
+ {
+  this.inputFactory = inputFactory;
+ }
+
+ public Single Rotate() { return inputFactory.Rotate(); }
+ public Single Move() { return inputFactory.Move(); }
+ public Boolean Warp() { return inputFactory.Warp(); }
+}
+</pre>
+INPUT FACTORY
+<pre class="csharp" name="code">
+public abstract class AInputFactory
+{
+ public abstract Single Rotate();
+ public abstract Single Move();
+ public abstract Boolean Warp();
+}
+
+public class PhoneInputFactory : AInputFactory
+{
+ public override Single Rotate() { // Logic goes here. }
+ public override Single Move() { // Logic goes here. }
+ public override Boolean Warp() { // Logic goes here. }
+}
+
+public class WorkInputFactory : AInputFactory
+{
+ public override Single Rotate() { // Logic goes here. }
+ public override Single Move() { // Logic goes here. }
+ public override Boolean Warp() { // Logic goes here. }
+}
+
+public class XboxInputFactory : AInputFactory
+{
+ public override Single Rotate() { // Logic goes here. }
+ public override Single Move() { // Logic goes here. }
+ public override Boolean Warp() { // Logic goes here. }
+}
+</pre>&nbsp;4. Run the test. It should fail.<br />&nbsp;5. Implement the code to make the test pass.<br /><br />
+GAME OBJECT MANAGER
+<pre class="csharp" name="code">
+public class GameObjectManager : IGameObjectManager
+{
+ // Same code as previous post.
+
+ // Update each game object.
+ public void Update(GameTime gameTime)
+ {
+  Single rotate = inputManager.Rotate();
+  Single move = inputManager.Move();
+  Boolean warp = inputManager.Warp();
+
+  spaceShip.Update(rotate, move, warp);
+ }
+}
+</pre>
+SPACE SHIP
+<pre class="csharp" name="code">
+public class SpaceShip
+{
+ // Same code as previous post.
+
+ // Update rotate, move and warp if actions are invoked.
+ public void Update(Single rotate, Single move, Boolean warp)
+ {
+  // Rotate.
+  if (rotate != 0)
+  {
+   const Single scale = 0.10f;
+   ModelRotation -= rotate * scale;
+  }
+
+  // Move.
+  if (move != 0)
+  {
+   // Create some velocity if move action invoked.
+   Vector3 modelVelocityAdd = Vector3.Zero;
+
+   // Find out thrust direction using rotation.
+   Single sin = -(Single)Math.Sin(ModelRotation);
+   Single cos = -(Single)Math.Cos(ModelRotation);
+
+   modelVelocityAdd.X = sin;
+   modelVelocityAdd.Z = cos;
+
+   // Scale direction by the amount of movement.
+   modelVelocityAdd *= move;
+
+   // Finally, add this vector to our velocity.
+   ModelVelocity += modelVelocityAdd;
+  }
+
+  // Warp.
+  if (warp)
+  {
+   ModelPosition = Vector3.Zero;
+   ModelVelocity = Vector3.Zero;
+   ModelRotation = 0.0f;
+  }
+
+  // Add velocity to position and bleed off velocity over time.
+  ModelPosition += ModelVelocity;
+  ModelVelocity *= 0.97f;
+ }
+}
+</pre>&nbsp;6. Run the test. It should pass.<br />&nbsp;7. All tests complete!<br /><br />Download code sample <b><a href="http://steveproxna03ut.codeplex.com/SourceControl/list/changesets">here</a></b>.<br /><br /><u>Summary</u><br />
+The revised <a href="http://msdn.microsoft.com/en-us/library/bb203896(v=XNAGameStudio.31).aspx">Going Beyond</a> tutorial demonstrates how to integrate Unit Tests into an existing code <a href="http://steveproxna02ioc.codeplex.com/SourceControl/list/changesets">base</a>.
+<br />However, writing the unit tests <i>before</i> the code helps drive development of the systems under test.<br /><br />In conclusion, agile software development does seem to have the potential to scale using XNA:<br /><table width="100%"><tr><td valign="top"><ul><li><a href="http://steveproxna.blogspot.com/2011/02/xna-and-dependency-injection.html">XNA and Dependency Injection</a></li><li><a href="http://steveproxna.blogspot.com/2011/03/xna-and-ioc-container.html">XNA and an IoC Container</a></li><li><a href="http://steveproxna.blogspot.com/2011/03/xna-and-unit-testing.html">XNA and Unit Testing</a></li><li><a href="http://steveproxna.blogspot.com/2011/04/xna-and-test-driven-development.html">XNA and Test Driven Development</a></li></ul></td></tr></table>
+However, in it's current form, dependency injection may be susceptible to circular references:<br /><table width="100%"><tr><td valign="top"><ul><li>ComponentA depends on ComponentB</li><li>ComponentB depends on ComponentA</li></ul></td></tr></table>
+A better implementation may be to construct a base class component that all subsystems inherit from;<br />Extract the GameManager into the base to manage interaction between all subsystems in the game:
+<pre class="csharp" name="code">
+public abstract class BaseComponent
+{
+ public GameManager GameManager
+ {
+  get { return gameManager; }
+  set { if (null == gameManager) { gameManager = value;  }}
+ }
+
+ private GameManager gameManager;
+}
+
+public class ComponentA : BaseComponent
+{
+ public ComponentA()
+ {
+  PropertyA = "Hello";
+ }
+ public void Print()
+ {
+  PropertyA = GameManager.ComponentB.PropertyB;
+ }
+
+ public String PropertyA { get; private set; }
+}
+
+public class ComponentB : BaseComponent
+{
+ public ComponentB()
+ {
+  PropertyB = "World";
+ }
+ public void Print()
+ {
+  PropertyB = GameManager.ComponentA.PropertyA;
+ }
+
+ public String PropertyB { get; private set; }
+}
+
+public class GameManager
+{
+ public GameManager(ComponentA componentA, ComponentB componentB)
+ {
+  ComponentA = componentA;
+  ComponentB = componentB;
+ }
+
+ public ComponentA ComponentA { get; private set; }
+ public ComponentB ComponentB { get; private set; }
+}
+</pre>
+Once issues such as circular references have been resolved, then there is an opportunity to integrate more complex game code using XNA and agile software development techniques.
+</span>

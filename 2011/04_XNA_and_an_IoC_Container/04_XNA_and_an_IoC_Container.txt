@@ -1,0 +1,314 @@
+<span style="font-family:verdana;font-size:85%;">In the previous <a href="http://steveproxna.blogspot.com/2011/02/xna-and-dependency-injection.html">post</a>, we discussed the topic of XNA and Dependency Injection.<br />Now, let's build on this information to discuss an IoC Container with <a href="http://en.wikipedia.org/wiki/XNA_(Microsoft)">XNA</a>.
+<br /><br />Note: this post includes complete code sample on <a href="http://steveproxna02ioc.codeplex.com">CodePlex</a>.<br />
+Download code sample <b><a href="http://steveproxna02ioc.codeplex.com/SourceControl/list/changesets">here</a></b>.
+<br /><br /><u>IoC Container</u><br />An <a href="http://www.martinfowler.com/articles/injection.html">IoC Container</a> is a framework component that automatically resolves all dependent references for an object: when an object is constructed, the container will instantiate all dependent objects automatically and injects them into the source object accordingly.<br /><br />There are many IoC containers available to .NET developers:
+<br /><table width="100%"><tr><td valign="top"><ul><li><a href="http://code.google.com/p/autofac">Autofac</a></li><li><a href="http://www.castleproject.org/container/index.html">Castle Windsor</a></li><li><a href="http://ninject.org">Ninject</a></li><li><a href="http://www.springframework.net">Spring.NET</a></li><li><a href="http://structuremap.net/structuremap/index.html">StructureMap</a></li><li><a href="http://unity.codeplex.com">Unity</a></li></ul></td></tr></table>However, <a href="http://ninject.org">Ninject</a> is currently the only IoC container that is compatible with the <a href="http://en.wikipedia.org/wiki/.NET_Compact_Framework">.NET Compact Framework</a> and will work on <a href="http://www.microsoft.com/windowsphone/en-us/default.aspx">Windows Phone 7</a> and <a href="http://www.xbox.com">Xbox 360</a>.<br /><br /><u>Example</u><br />As an example, let's revise the <a href="http://msdn.microsoft.com/en-us/library/bb197293(v=XNAGameStudio.31).aspx">Going Beyond</a> tutorial to demonstrate XNA and an IoC Container.
+<br /><br /><u>Sample</u><br /><a href="http://steveproxna01di.codeplex.com/SourceControl/list/changesets">Download</a> the code sample from the previous post; the IoC Container will be added to this code.<br />
+All logic to resolve dependent component references can be encapulated into a single object:<br /><br />IOC CONTAINER
+<pre class="csharp" name="code">
+public static class IoCContainer
+{
+ private static IKernel kernel;
+
+ public static T Resolve<T>()
+ {
+  if (null == kernel)
+  {
+   INinjectModule staticModule = new StaticModule();
+   INinjectModule[] modules = new[] { staticModule };
+
+   kernel = new StandardKernel(modules);
+  }
+
+  return kernel.Get<T>();
+ }
+
+ public static void Release()
+ {
+  if (null == kernel)
+  {
+   return;
+  }
+
+  kernel.Dispose();
+  kernel = null;
+ }
+}
+</pre>
+Next, build a module to configure the bindings and manage the lifetime of all component references:<br />STATIC MODULE
+<pre class="csharp" name="code">
+public class StaticModule : NinjectModule
+{
+ public override void Load()
+ {
+  Bind&lt;IGameManager&gt;().To&lt;GameManager&gt;().InSingletonScope();
+  Bind&lt;ICameraManager&gt;().To&lt;CameraManager&gt;().InSingletonScope();
+  Bind&lt;IContentManager&gt;().To&lt;ContentManager&gt;().InSingletonScope();
+  Bind&lt;IGameObjectManager&gt;().To&lt;GameObjectManager&gt;().InSingletonScope();
+  Bind&lt;IGraphicsManager&gt;().To&lt;GraphicsManager&gt;().InSingletonScope();
+  Bind&lt;IScreenManager&gt;().To&lt;ScreenManager&gt;().InSingletonScope();
+ }
+}</pre>
+Next, invoke the IoC Container to construct a single instance of the GameManager component:<br />GAME FACTORY
+<pre class="csharp" name="code">
+public static class GameFactory
+{
+ private static IGameManager gameManager;
+
+ public static IGameManager GetGameManager()
+ {
+  return gameManager ?? (gameManager = IoCContainer.Resolve&lt;IGameManager&gt;());
+ }
+
+ public static void Release()
+ {
+  IoCContainer.Release();
+ }
+}
+</pre>
+Finally, dispose of the IoC Container when the game exits:<br />GAME MANAGER
+<pre class="csharp" name="code">
+public class GameManager : IGameManager
+{
+ // Same code as previous post.
+
+ // Exit game.
+ public void Exit()
+ {
+  GameFactory.Release();
+ }
+}
+</pre>
+GAME
+<pre class="csharp" name="code">
+public class MyGame : Game
+{
+ // Same code as previous post.
+
+ protected override void OnExiting(object sender, EventArgs args)
+ {
+  gameManager.Exit();
+  base.OnExiting(sender, args);
+ }
+}
+</pre>
+Execute the updated game code: the output should be identical to the previous <a href="http://steveproxna.blogspot.com/2011/02/xna-and-dependency-injection.html">post</a>.
+<br /><br />
+<u>Device Factory</u>
+<br />
+In an older <a href="http://steveproxna.blogspot.com/2009/10/device-factory.html">post</a>, we discussed the topic of a Device Factory.  Essentially, the Device Factory is an abstract base class that contains all game code common to every device, but allows device specific game code to be overridden in the concrete implementation class through polymorphism.<br /><br />Let's complete the sample by extending the current code base to target all devices currently available in<br /><a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=9ac86eca-206f-4274-97f2-ef6c8b1f478f">XNA 4.0</a>: Windows PC, Windows Phone 7 and Xbox 360.<br /><br />
+First, build the Device Factory abstract base class and all concrete implementation classes:<br />DEVICE FACTORY
+<pre class="csharp" name="code">
+public abstract class ADeviceFactory
+{
+ // GraphicsManager.
+ public Int32 PreferredBackBufferWidth { get; protected set; }
+ public Int32 PreferredBackBufferHeight { get; protected set; }
+ public Boolean IsFullScreen { get; protected set; }
+
+ // ContentManager.
+ public String RootDirectory { get; protected set; }
+}
+
+public class PhoneDeviceFactory : ADeviceFactory
+{
+ public PhoneDeviceFactory()
+ {
+  PreferredBackBufferWidth = 800;
+  PreferredBackBufferHeight = 480;
+  IsFullScreen = true;
+  RootDirectory = "Content";
+ }
+}
+
+public class WorkDeviceFactory : ADeviceFactory
+{
+ public WorkDeviceFactory()
+ {
+  PreferredBackBufferWidth = 1280;
+  PreferredBackBufferHeight = 720;
+  IsFullScreen = false;
+  RootDirectory = "Content";
+ }
+}
+
+public class XboxDeviceFactory : ADeviceFactory
+{
+ public XboxDeviceFactory()
+ {
+  PreferredBackBufferWidth = 1280;
+  PreferredBackBufferHeight = 720;
+  IsFullScreen = false;
+  RootDirectory = "Content";
+ }
+}
+</pre>
+Next, build a Device Manager to delegate all work to the Device Factory:<br />DEVICE MANAGER
+<pre class="csharp" name="code">
+public class DeviceManager : IDeviceManager
+{
+ // DeviceManager has dependency on DeviceFactory.
+ private readonly ADeviceFactory deviceFactory;
+
+ public DeviceManager(ADeviceFactory deviceFactory)
+ {
+  this.deviceFactory = deviceFactory;
+ }
+
+ public ADeviceFactory DeviceFactory
+ {
+  get { return deviceFactory; }
+ }
+}
+</pre>
+Note: build an Input Factory and Input Manager; these will be placeholders available for future posts:<br />INPUT FACTORY
+<pre class="csharp" name="code">
+public abstract class AInputFactory
+{
+}
+public class PhoneInputFactory : AInputFactory
+{
+}
+public class WorkInputFactory : AInputFactory
+{
+}
+public class XboxInputFactory : AInputFactory
+{
+}
+</pre>
+INPUT MANAGER
+<pre class="csharp" name="code">
+public class InputManager : IInputManager
+{
+}
+</pre>
+Next, build a module to configure the bindings and manage the lifetime of all device specific components:<br />DYNAMIC MODULE
+<pre class="csharp" name="code">
+ public class DynamicModule : NinjectModule
+ {
+  public override void Load()
+  {
+#if WINDOWS_PHONE
+   Bind&lt;ADeviceFactory&gt;().To&lt;PhoneDeviceFactory&gt;().InSingletonScope();
+   Bind&lt;AInputFactory&gt;().To&lt;PhoneInputFactory&gt;().InSingletonScope();
+#elif WINDOWS
+   Bind&lt;ADeviceFactory&gt;().To&lt;WorkDeviceFactory&gt;().InSingletonScope();
+   Bind&lt;AInputFactory&gt;().To&lt;WorkInputFactory&gt;().InSingletonScope();
+#elif XBOX
+   Bind&lt;ADeviceFactory&gt;().To&lt;XboxDeviceFactory&gt;().InSingletonScope();
+   Bind&lt;AInputFactory&gt;().To&lt;XboxInputFactory&gt;().InSingletonScope();
+#else
+   throw new ArgumentOutOfRangeException("DynamicModule");
+#endif
+  }
+ }
+</pre>
+Next, update the IoC Container:<br />IOC CONTAINER
+<pre class="csharp" name="code">
+public static class IoCContainer
+{
+ private static IKernel kernel;
+
+ public static T Resolve<T>()
+ {
+  if (null == kernel)
+  {
+   INinjectModule staticModule = new StaticModule();
+   INinjectModule dynamicModule = new DynamicModule();
+
+   INinjectModule[] modules = new[] { staticModule, dynamicModule };
+   kernel = new StandardKernel(modules);
+  }
+
+  return kernel.Get<T>();
+ }
+
+ public static void Release()
+ {
+  if (null == kernel)
+  {
+   return;
+  }
+
+  kernel.Dispose();
+  kernel = null;
+ }
+}
+</pre>
+Finally, inject all device specific components using <a href="http://www.codeproject.com/KB/architecture/DependencyInjection.aspx">constructor injection</a> technique:<br />CONTENT MANAGER
+<pre class="csharp" name="code">
+public class ContentManager : IContentManager
+{
+ // ContentManager has dependency on DeviceManager.
+ private readonly IDeviceManager deviceManager;
+ private XnaContentManager content;
+
+ public ContentManager(IDeviceManager deviceManager)
+ {
+  this.deviceManager = deviceManager;
+ }
+
+ // Load all content.
+ public void LoadContent(XnaContentManager xnaContent)
+ {
+  if (null != content)
+  {
+   return;
+  }
+
+  content = xnaContent;
+  content.RootDirectory = deviceManager.DeviceFactory.RootDirectory;
+  SpaceShipModel = content.Load&lt;Model&gt;("Models/p1_wedge");
+ }
+
+ // Unload all content.
+ public void UnloadContent()
+ {
+  if (null == content)
+  {
+   return;
+  }
+
+  content.Unload();
+ }
+
+ public Model SpaceShipModel { get; private set; }
+}
+</pre>
+GRAPHICS MANAGER
+<pre class="csharp" name="code">
+public class GraphicsManager : IGraphicsManager
+{
+ // GraphicsManager has dependency on DeviceManager.
+ private readonly IDeviceManager deviceManager;
+ private XnaGraphicsDeviceManager graphics;
+
+ public GraphicsManager(IDeviceManager deviceManager)
+ {
+  this.deviceManager = deviceManager;
+ }
+
+ // Initialize all graphics properties.
+ public void Initialize(XnaGraphicsDeviceManager xnaGraphics)
+ {
+  if (null != graphics)
+  {
+   return;
+  }
+
+  graphics = xnaGraphics;
+  graphics.PreferredBackBufferWidth = deviceManager.DeviceFactory.PreferredBackBufferWidth;
+  graphics.PreferredBackBufferHeight = deviceManager.DeviceFactory.PreferredBackBufferHeight;
+  graphics.IsFullScreen = deviceManager.DeviceFactory.IsFullScreen;
+  graphics.ApplyChanges();
+
+  GraphicsDevice = graphics.GraphicsDevice;
+  SpriteBatch = new SpriteBatch(GraphicsDevice);
+ }
+
+ public GraphicsDevice GraphicsDevice { get; private set; }
+ public Single AspectRatio { get { return GraphicsDevice.Viewport.AspectRatio; } }
+ public SpriteBatch SpriteBatch { get; private set; }
+}
+</pre>
+Download code sample <b><a href="http://steveproxna02ioc.codeplex.com/SourceControl/list/changesets">here</a></b>.<br /><br /><u>Summary</u><br />The revised <a href="http://msdn.microsoft.com/en-us/library/bb197293(v=XNAGameStudio.31).aspx">Going Beyond</a> example demonstrates how to add an IoC Container to an existing code <a href="http://steveproxna01di.codeplex.com/SourceControl/list/changesets">base</a>.  Once the bindings for each game component have been configured, the IoC Container will automatically resolve all dependent references for an object.<br /><br />Therefore, the code base is now in a testable state: each game component is now able to be tested in isolation: <a href="http://en.wikipedia.org/wiki/Unit_testing">Unit Testing</a>.  This will be the topic in the next <a href="http://steveproxna.blogspot.com/2011/03/xna-and-unit-testing.html">post</a>.</span>
