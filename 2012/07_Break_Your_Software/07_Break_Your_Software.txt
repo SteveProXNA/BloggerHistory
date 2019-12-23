@@ -1,0 +1,17 @@
+<span style="font-family: verdana; font-size: 85%;">
+In Software Engineering, there seems to be a general acceptance that as long as there is software then there will always be software bugs.
+<br/><br/>
+<a href="http://en.wikipedia.org/wiki/Software_bug">Bugs</a> in software are defects that produce incorrect or unexpected results or cause the software to behave in unintended ways.  The majority of bugs in software arise from errors written in developers’ source code; yet it is generally the primary task of <a href="http://en.wikipedia.org/wiki/Quality_assurance">QA</a> testers to find said bugs.
+<br/><br/>
+Nonetheless, testing for bugs in software should be the responsibility of the entire team: developers typically focus on <a href="http://en.wikipedia.org/wiki/Unit_testing">unit testing</a> to exercise units of source code in isolation whereas testers concentrate more on <a href="http://en.wikipedia.org/wiki/Functional_testing">functional testing</a> to verify the correctness of software end-to-end.
+<br/><br/>
+Developers benefit from unit testing simply because it allows them to find problems in the source code quicker: they can zone in on code at the lowest (unit) level and assert the code functions as expected.<br/>It also facilitates difficult-to-reproduce scenarios, such as database offline, by using mock frameworks developers can fake external dependencies, and ensure the code is resilient to unhandled exceptions. 
+<br/><br/>
+To summarize: the earlier bugs are detected, the cheaper they are to fix.
+<br/><br/>
+Writing testable code allows developers to push the boundaries and effectively "break their software".  By proactively breaking their software, developers identify defects before anyone else does.  These defects can, and should, be fixed immediately before any further work continues.   This way, the software is more robust: stability is built into the code base and quality software can be delivered at speed as you code with confidence.
+<br/><br/>
+<a href="http://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a> is a formal way to break your software: you do not write one line of production code unitl you have written a test that fails.  Implement the code to make the test pass and no more.  Rinse and repeat.  This style of programming does come at a <a href="http://steveproxna.blogspot.ie/2012/09/quality-vs-velocity.html">cost</a> but the additional time spent during development should be supplemented by a reduced QA cycle as fewer bugs are reported.
+<br/><br/>
+One final thought: in a world of abundant choice, people pay for quality in products and services that are important to them.  Software is no exception.  So go ahead: break your software (before anyone else does) and deliver the best software you can.
+</span>

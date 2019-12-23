@@ -1,0 +1,175 @@
+<span style="font-family: verdana; font-size: 85%;">
+In the previous <a href="http://steveproxna.blogspot.ie/2012/07/xna-and-data-driven-design.html">post</a>, we discussed the topic of XNA and Data Driven Design.
+<br />
+Now, let's build on this information to discuss System Testing with <a href="http://en.wikipedia.org/wiki/XNA_(Microsoft)">XNA</a>.
+<br />
+<br />
+Note: this post includes complete code sample on <a href="http://steveproxna04st.codeplex.com">CodePlex</a>.
+<br />
+Download code sample <b><a href="http://steveproxna04st.codeplex.com/SourceControl/list/changesets">here</a></b>.
+<br />
+<br />
+<u>System Testing</u>
+<br />
+<a href="http://en.wikipedia.org/wiki/System_testing">System Testing</a> is the practice in which complete, end-to-end software is tested to evaluate the system’s compliance with its specified requirements.
+<br /><br />
+Game development that implements data driven design may find system testing effective because it can be used to validate all data before fully integrating into the game.
+<br /><br /> 
+When experimenting with new ideas, all changes made to game data must be valid, otherwise it may be possible to easily break the system, or have the system behave in an unpredictable fashion.
+<br /><br />
+System testing allows for this feedback quickly, efficiently and without need to execute the entire game.
+<br /><br />
+Here is a common workflow to integrate system testing into game development:
+<table width="100%"><tr><td valign="top">
+<ul>
+<li>Write game code and edit game data</li>
+<li>Run system tests and validate</li>
+<li>Launch game with current data</li>
+<li>Update any game data as necessary</li>
+<li>Re-run system tests and validate</li>
+<li><i>Hot swap</i> updated game data</li>
+<li>Repeat process: no constant build / deploy</li>
+</ul>
+</td></tr></table>
+<u>Example</u>
+<br />
+As an example, let’s build a basic snake simulation to demonstrate XNA and System Testing.
+<br />
+First, create a system that can parse text files on demand (not just at start up):
+<pre class="csharp" name="code">
+public interface IFileManager
+{
+ IList&lt;String&gt; LoadTxt(String file);
+ T LoadXml&lt;T&gt;(String file);
+ XElement LoadXElement(String file);
+}
+</pre>
+Next, create a component to manage all data that will be loaded into the game:
+<pre class="csharp" name="code">
+public interface IDataManager
+{
+ AllData LoadData(String[] files);
+}
+</pre>
+<u>Sample</u>
+<br />
+The following code sample builds a simulation to integrate an unlimited number of snakes into a maze using data driven design and validates each snake through system tests.
+<table width="100%"><tr><td valign="top">
+<a href="http://4.bp.blogspot.com/-oqQcKo06Jh8/UEByk8vip5I/AAAAAAAABuE/Ar9TRb4DpVY/s1600/Snake.jpg" imageanchor="1" style="clear:left; float:left;margin-right:1em; margin-bottom:1em">
+<img border="0" height="211" width="400" src="http://4.bp.blogspot.com/-oqQcKo06Jh8/UEByk8vip5I/AAAAAAAABuE/Ar9TRb4DpVY/s400/Snake.jpg" /></a>
+</td></tr></table>
+First, define a simple text file that will store all 3x possible maze sizes: Small, Medium, and Large.
+<br />
+Next, define an XML file that stores an unlimited number of snakes available; each snake defines: 
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>Start position in maze and direction</li>
+<li>Length of the snake tail</li>
+<li>Time delay on each tile</li>
+<li>No. tiles before direction change</li>
+</ul>
+</td></tr></table>
+<pre class="xml" name="code">
+&lt;?xml version="1.0"?&gt;
+&lt;ArrayOfSnakeData&gt;
+ &lt;SnakeData&gt;
+  &lt;StartPosX&gt;10&lt;/StartPosX&gt;
+  &lt;StartPosY&gt;5&lt;/StartPosY&gt;
+  &lt;Direction&gt;Left&lt;/Direction&gt;
+  &lt;TailLength&gt;20&lt;/TailLength&gt;
+  &lt;TimeOnTile&gt;50&lt;/TimeOnTile&gt;
+  &lt;TileToMove&gt;10&lt;/TileToMove&gt;
+ &lt;/SnakeData&gt;
+&lt;/ArrayOfSnakeData&gt;
+</pre>
+Finally, write system tests to validate all data before fully integrating into the game.
+<br />
+Note: an <a href="http://steveproxna.blogspot.ie/2011/03/xna-and-ioc-container.html">IoC Container</a> will be used to construct all components used throughout.
+<br />
+<br />
+FILE MANAGER TESTS
+<pre class="csharp" name="code">
+[TestFixture]
+public class FileManagerTests
+{
+ // System under test.
+ private IFileManager fileManager;
+ 
+ [SetUp]
+ public void SetUp()
+ {
+  fileManager = IoCContainer.Resolve&lt;IFileManager&gt;();
+ }
+
+ [Test]
+ public void BoardDataTest()
+ {
+  String boardFile = GetPath("BoardData.txt");
+
+  IList&lt;String&gt; lines = fileManager.LoadTxt(boardFile);
+  String line = lines[0];
+
+  GameSize gameSize = (GameSize)Enum.Parse(typeof(GameSize), line, true);
+  Assert.AreEqual(GameSize.Small, gameSize);
+ }
+
+ [Test]
+ public void SnakeDataTest()
+ {
+  String snakeFile = GetPath("SnakeData.xml");
+  SnakeData[] snakeData = fileManager.LoadXml&lt;SnakeData[]&gt;(snakeFile);
+  Assert.AreEqual(1, snakeData.Length);
+
+  SnakeData snake = snakeData[0];
+  Assert.AreEqual(10, snake.StartPosX);
+  Assert.AreEqual(5, snake.StartPosY);
+  Assert.AreEqual(Direction.Left, snake.Direction);
+  Assert.AreEqual(20, snake.TailLength);
+  Assert.AreEqual(50, snake.TimeOnTile);
+  Assert.AreEqual(10, snake.TileToMove);
+ }
+}
+</pre>
+DATA MANAGER TESTS
+<pre class="csharp" name="code">
+[TestFixture]
+public class DataManagerTests
+{
+ // System under test.
+ private IDataManager dataManager;
+
+ [SetUp]
+ public void SetUp()
+ {
+  dataManager = IoCContainer.Resolve&lt;IDataManager&gt;();
+ }
+
+ [Test]
+ public void AllDataTest()
+ {
+  String boardFile = GetPath("BoardData.txt");
+  String snakeFile = GetPath("SnakeData.xml");
+
+  String[] files = new[] { boardFile, snakeFile };
+  AllData data = dataManager.LoadData(files);
+
+  Assert.AreEqual(GameSize.Small, data.GameSize);
+  Assert.AreEqual(1, data.SnakeData.Length);
+  
+ }
+}
+</pre>
+Download code sample <b><a href="http://steveproxna04st.codeplex.com/SourceControl/list/changesets">here</a></b>.
+<br />
+<br />
+<u>Summary</u>
+<br />
+The snake simulation demonstrates how to integrate an unlimited number of snakes into a maze using data driven design: simply update the XML file to add more snakes without constant need to recompile and validate all data quickly and efficiently through system tests.
+<br />
+<br />
+In reality, more complex text files will be loaded into a game, for example, to build game levels.  Level data may require more complex validation to ensure all data is true and correct, and that all rules are observed before the level is actually loaded into the game.
+<br />
+<br />
+This will be the topic in the next <a href="http://steveproxna.blogspot.ie/2012/08/xna-and-level-validation.html">post</a>.
+</span>

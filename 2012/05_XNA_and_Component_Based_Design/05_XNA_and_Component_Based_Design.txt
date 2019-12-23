@@ -1,0 +1,150 @@
+<span style="font-family: verdana; font-size: 85%;">
+In the previous <a href="http://steveproxna.blogspot.ie/2012/08/xna-and-level-validation.html">post</a>, we discussed the topic of XNA and Level Validation.
+<br />
+Now, let's build on this information to discuss Component Based Design.
+<br />
+<br />
+Note: this post includes complete code sample on <a href="http://steveproxna06cbd.codeplex.com">CodePlex</a>.
+<br />
+Download code sample <b><a href="http://steveproxna06cbd.codeplex.com/SourceControl/list/changesets">here</a></b>.
+<br />
+<br />
+<u>Component Based Design</u>
+<br />
+<a href="http://en.wikipedia.org/wiki/Component-based_software_engineering">Component Based Design</a> is a common approach to build game objects that are flexible, maintainable and scalable: each component encapsulates a set of related functions, or data, so that additional game objects can be created without any extra code.
+<br /><br />
+In game development, component based object data is typically stored in XML files.  The logic used to parse XML and build game objects can be complex and error prone; consequently, system tests can<br />be used to validate all game objects before fully integrating into the game.
+<br /><br />
+<u>Example</u>
+<br />
+As an example, let’s revise the <a href="http://create.msdn.com/en-US/education/catalog/sample/spacewar">Spacewar</a> starter kit to demonstrate XNA and Component Based Design.
+<br />
+First, create a system that can parse XML files and build proxy objects for game consumption:
+<pre class="csharp" name="code">
+public class ProxyObjectBuilder
+{  
+ public void BuildProxyObjects(String folder, String txtFile); 
+ public void BuildProxyObjects(String folder, IList&lt;String&gt; xmlFiles); 
+ public ProxyObject GetProxyObject(String name); 
+}
+</pre>
+Next, create a component that can be used to build custom game objects at run-time:
+<pre class="csharp" name="code">
+public class GameObjectBuilder
+{ 
+ public T BuildGameObject&lt;T&gt;(String assetName) where T : GameObject;
+ public GameObject BuildGameObject(String assetName);
+ public GameObject BuildGameObject(ProxyObject proxyObject);   
+}
+</pre>
+<u>Sample</u>
+<br />
+The following code sample refactors the starter kit to integrate an unlimited number of spaceships using data driven design and validates each spaceship through system tests.
+<table width="100%"><tr><td valign="top">
+<a href="http://3.bp.blogspot.com/-4FUj9NOTuxg/UEt2louH-0I/AAAAAAAABuw/xycX8YLFc0Y/s1600/Sparewar.jpg" imageanchor="1" style="clear:left; float:left;margin-right:1em; margin-bottom:1em"><img border="0" height="212" width="400" src="http://3.bp.blogspot.com/-4FUj9NOTuxg/UEt2louH-0I/AAAAAAAABuw/xycX8YLFc0Y/s400/Sparewar.jpg" /></a>
+</td></tr></table>
+First, define an XML file that stores an unlimited number of spaceships available; each spaceship defines:
+<table width="100%"><tr><td valign="top">
+<ul>
+<li>3D model, ship class and ship skin</li>
+<li>Position, rotation, flight boundary</li>
+<li>Thrust power and bleed velocity</li>
+</ul>
+</td></tr></table>
+<pre class="xml" name="code">
+&lt;Assets&gt;
+ &lt;Asset name="PencilOneSkinOne" type="Spaceship"&gt;
+  &lt;ModelComponent id="100" shipClass="PencilOne" modelName="p1_pencil" textureName="pencil_p1_diff_v1" /&gt;
+  &lt;PhysicsComponent id="200" modelScale="0.02" rotateScale="0.02" position="0,0,0" rotation="90,0,0" boundLeft="-400" boundRight="400" boundTop="-250" boundBottom="250" /&gt;
+  &lt;ThrustComponent id="300" textureName="thrust_stripSmall" thrustFrame="12.0" thrustConstant="12" thrustMaximum="29" thrustFactor="1.0" thrustPower="100" bleedVelocity="0.3" /&gt;
+&lt;/Asset&gt;
+</pre>
+Also, define an XML file that stores an unlimited number of weapons available to each spaceship:
+<pre class="xml" name="code">
+&lt;Assets&gt;
+ &lt;Asset name="RocketTwo" type="Weapon"&gt;
+  &lt;ModelComponent id="100" modelName="p2_rocket" textureName="p2_rocket" /&gt;
+  &lt;PhysicsComponent id="200" modelScale="0.02" rotation="90,0,0" boundLeft="-400" boundRight="400" boundTop="-250" boundBottom="250" /&gt;
+  &lt;WeaponComponent id="400" cost="3000 " lifetime="1.5" maximum="1" burst="1" acceleration="300" damage="5" /&gt;
+ &lt;/Asset&gt;
+&lt;/Assets&gt;
+</pre>
+Finally, write system tests to validate all data before fully integrating into the game.
+<br />
+Note: an <a href="http://steveproxna.blogspot.ie/2011/03/xna-and-ioc-container.html">IoC Container</a> will be used to construct all components used throughout.
+<br />
+<br />
+PROXY OBJECT BUILDER TESTS
+<pre class="csharp" name="code">
+[TestFixture]
+public class ProxyObjectBuilderTests
+{
+ // System under test.
+ private ProxyObjectBuilder proxyObjectBuilder;
+ 
+ [SetUp]
+ public void SetUp()
+ {
+  proxyObjectBuilder = IoCContainer.Resolve&lt;ProxyObjectBuilder&gt;();
+ }
+
+ [Test]
+ public void BuildProxyObjectsSpaceshipsTest()
+ {
+  String path = GetPath();
+  String[] xmlFiles = new[] { "Spaceships.xml" };
+
+  proxyObjectBuilder.BuildProxyObjects(path, xmlFiles);
+
+  Assert.AreEqual(18, proxyObjectBuilder.ProxyObjectManager.ProxyObjects.Count);
+ }
+}
+</pre>
+GAME OBJECT BUILDER TESTS
+<pre class="csharp" name="code">
+[TestFixture]
+public class GameObjectBuilderTests
+{
+ // System under test.
+ private GameObjectBuilder gameObjectBuilder; 
+
+ [SetUp]
+ public void SetUp()
+ {
+  gameObjectBuilder = IoCContainer.Resolve&lt;GameObjectBuilder&gt;();
+ }
+
+ [Test]
+ public void BuildGameObjectSpaceshipComponentTest()
+ {
+  String path = GetPath();
+  String[] xmlFiles = new[] { "Spaceships.xml" };
+  gameObjectBuilder.ProxyObjectBuilder.BuildProxyObjects(path, xmlFiles);
+
+  String assetName = "WedgeTwoSkinOne";
+  Spaceship spaceship = gameObjectBuilder.BuildGameObject&lt;Spaceship&gt;(assetName);
+
+  var component = spaceship.GetComponent&lt;ModelComponent&gt;();
+  Assert.AreEqual(ShipClass.WedgeTwo, component.ShipClass);
+  Assert.AreEqual("p2_wedge", component.ModelName);
+  Assert.AreEqual("wedge_p2_diff_v1", component.TextureName);
+ }
+}
+</pre>
+Download code sample <b><a href="http://steveproxna06cbd.codeplex.com/SourceControl/list/changesets">here</a></b>.
+<br />
+<br />
+<u>Summary</u>
+<br />
+The revised <a href="http://create.msdn.com/en-US/education/catalog/sample/spacewar">Spacewar</a> starter kit demonstrates how to integrate an unlimited number of spaceships using data driven design:  simply update the XML file to add more spaceships without constant need to recompile and validate all data quickly and efficiently through system tests.
+<br /><br />
+In conclusion, data driven design does seem to have the potential to scale using XNA:
+<table width="100%"><tr><td valign="top">
+<ul>
+<li><a href="http://steveproxna.blogspot.ie/2012/08/xna-and-system-testing.html">XNA and System Testing</a></li>
+<li><a href="http://steveproxna.blogspot.ie/2012/08/xna-and-level-validation.html">XNA and Level Validation</a></li>
+<li><a href="http://steveproxna.blogspot.ie/2012/09/xna-and-component-based-design.html">XNA and Component Based Design</a></li>
+</ul>
+</td></tr></table>
+Consequently, there is an opportunity to integrate more complex game code and data using XNA and<br /><a href="http://steveproxna.blogspot.ie/2012/07/xna-and-data-driven-design.html">data driven design</a> techniques.
+</span>

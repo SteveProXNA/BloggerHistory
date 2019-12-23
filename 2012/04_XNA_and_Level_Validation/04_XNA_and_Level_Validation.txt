@@ -1,0 +1,152 @@
+<span style="font-family: verdana; font-size: 85%;">
+In the previous <a href="http://steveproxna.blogspot.ie/2012/08/xna-and-system-testing.html">post</a>, we discussed the topic of XNA and System Testing.
+<br />
+Now, let's build on this information to discuss Level Validation with <a href="http://en.wikipedia.org/wiki/XNA_(Microsoft)">XNA</a>.
+<br />
+<br />
+Note: this post includes complete code sample on <a href="http://steveproxna05lv.codeplex.com">CodePlex</a>.
+<br />
+Download code sample <b><a href="http://steveproxna05lv.codeplex.com/SourceControl/list/changesets">here</a></b>.
+<br />
+<br />
+<u>Level Validation</u>
+<br />
+In game development, level data is most often stored in text files.  For example, the <a href="http://create.msdn.com/en-US/education/catalog/sample/platformer">Platformer</a> starter kit contains 3x levels, although an unlimited number of levels could be added using data driven design.
+<br /><br />
+Level data can then be validated through system tests to ensure all data is true and correct, and that all rules are observed before the level is actually loaded into the game.
+<br /><br />
+<u>Example</u>
+<br />
+As an example, let’s revise the <a href="http://create.msdn.com/en-US/education/catalog/sample/platformer">Platformer</a> starter kit to demonstrate XNA and Level Validation.
+<br />
+First, create a system that can parse text files on demand; use the interface from previous <a href="http://steveproxna.blogspot.ie/2012/08/xna-and-system-testing.html">post</a>:
+<pre class="csharp" name="code">
+public interface IFileManager
+{
+ IList&lt;String&gt; LoadTxt(String file);
+ T LoadXml&lt;T&gt;(String file);
+ XElement LoadXElement(String file);
+}
+</pre>
+Next, define all the rules for each Level in the game; for example, each Level must have:
+<table width="100%"><tr><td valign="top">
+<ul>
+<li>Valid characters only for player, enemy, tiles  + gems</li>
+<li>Same number of tiles width for each row in level</li>
+<li>Exactly one entry for player - no more, no less</li>
+<li>Exactly one entry for the exit - no more, no less</li>
+<li>A passable tile immediately above the exit</li>
+</ul>
+</td></tr></table>
+<u>Sample</u>
+<br />
+The following code sample refactors the starter kit to integrate an unlimited number of levels using data driven design and validates each level through system tests.
+<table width="100%"><tr><td valign="top">
+<a href="http://1.bp.blogspot.com/-6lVzj1wZYvY/UEUPc92KEtI/AAAAAAAABuc/rC62S-KVFcY/s1600/Platformer.jpg" imageanchor="1" style="clear:left; float:left;margin-right:1em; margin-bottom:1em"><img border="0" height="212" width="400" src="http://1.bp.blogspot.com/-6lVzj1wZYvY/UEUPc92KEtI/AAAAAAAABuc/rC62S-KVFcY/s400/Platformer.jpg" /></a>
+</td></tr></table>
+First, define a simple text file that will store all levels to load in the game and in correct order.
+<br />
+Next, add all the corresponding level data for all levels in the game; one level per text file:
+<br /><br />
+E.g. <b>Level 10</b>
+<br />
+<pre class="xml" name="code">
+...........G.G.G.G..
+...1............A...
+..######..########..
+.....G.G.....G.....G
+......B.............
+G...-----...--.G..--
+....................
+--.G.G........--...G
+....C........G......
+..----.G.G..--....--
+........D...........
+.......----...--....
+.G.G.........G.G.G..
+..X.................
+######......########
+</pre>
+Add a method to the Level class to validate all level data according to the rules as defined above:
+<pre class="csharp" name="code">
+public class Level : IDisposable
+{
+ public void Validate()
+ {
+  if (null == levelData)
+  {
+   throw new Exception("No level data loaded.");
+  }
+
+  string validCharacters = ".XG-ABCD~:1#";
+
+  // RULES:
+  // Ensure only valid characters parsed.
+  // Ensure same tile width for each row.
+  // Exactly one entry for player!
+  // Exactly one entry for exit!
+  // Ensure exit point passable!
+ }
+}
+</pre>
+Finally, write system tests to validate all data before fully integrating into the game.
+<br />
+Note: an <a href="http://steveproxna.blogspot.ie/2011/03/xna-and-ioc-container.html">IoC Container</a> will be used to construct all components used throughout.
+<br />
+<br />
+FILE MANAGER TESTS
+<pre class="csharp" name="code">
+[TestFixture]
+public class FileManagerTests
+{
+ // System under test.
+ private IFileManager fileManager;
+ 
+ [SetUp]
+ public void SetUp()
+ {
+  fileManager = IoCContainer.Resolve&lt;IFileManager&gt;();
+ }
+
+ [Test]
+ public void LevelDataValidateTest()
+ {
+  String levelsFile = GetPath("LevelData.txt");
+  levelIndexes = fileManager.LoadTxt(levelsFile);
+  numberOfLevels = levelIndexes.Count;
+
+  // There must be at least one level!
+  Assert.IsTrue(numberOfLevels > 0);
+
+  for (Int32 levelIndex = 0; levelIndex < numberOfLevels; ++levelIndex)
+  {
+   String levelFile = levelIndexes[levelIndex];
+   Validate(levelFile, levelIndex);
+  }
+ }
+
+ private void Validate(String levelFile, Int32 levelIndex)
+ {
+  String levelPath = GetPath(Constants.LEVELS_DIRECTORY, levelFile + ".txt");
+  IList&lt;String&gt; levelData = fileManager.LoadTxt(levelPath);
+  level = new Level(levelData);
+  level.Validate();
+
+  String text = String.Format("Level #{0} = {1}.txt [{2} rows]", (levelIndex + 1), levelFile, levelData.Count);
+  Console.WriteLine(text);
+ }
+}
+</pre>
+Download code sample <b><a href="http://steveproxna05lv.codeplex.com/SourceControl/list/changesets">here</a></b>.
+<br />
+<br />
+<u>Summary</u>
+<br />
+The revised <a href="http://create.msdn.com/en-US/education/catalog/sample/platformer">Platformer</a> starter kit demonstrates how to integrate an unlimited number of levels using data driven design: simply update the text file to add more levels without constant need to recompile and validate all data quickly and efficiently through system tests.
+<br />
+<br />
+In addition to complex text files, complex XML files may also be loaded into a game, for example, to build game objects using component based design.
+<br />
+<br />
+This will be the topic in the next post.
+</span>

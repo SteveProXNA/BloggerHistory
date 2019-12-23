@@ -1,0 +1,71 @@
+<span style="font-family: verdana; font-size: 85%;">
+Games are made up of two things: <i>logic</i> and <i>data</i>.  The logic defines the core rules and algorithms of the game engine, while the data provides the details of content and behavior.
+<br /><br />
+When logic and data are decoupled from each other, the whole team, including designers and testers,<br />can experiment with different variations and tune the data to get the exact behavior they desire.
+<br /><br />
+Therefore, game data should, ideally be loaded from text files; not embedded inside the code base.
+<br />
+This concept is essential to putting data driven design to work:
+<table width="100%"><tr><td valign="top">
+<ul>
+<li>Create a system that can parse text files on demand (not just at start up)</li>
+<li>Put constants in text files so they can be changed easily without recompiling code</li>
+<li>Don’t hard-code anything; assume that anything can change, and probably will!</li>
+</ul>
+</td></tr></table>
+<u>Example</u>
+<br />
+<a href="http://en.wikipedia.org/wiki/Galaga">Galaga</a>: if the game requires only 3x types of enemy spaceships then you could program a perfectly good system that encompasses all of them.  However, if you abstract away the functionality of each spaceship, using data to define its behavior, then you allow for an unlimited number; each with its own personality.
+<br /><br />
+When core design decisions are flexible, the game is allowed to evolve to its full potential.  In fact, the process of abstracting a game to its core helps tremendously in the design; this forces recognition of<br />what should be built, instead of the limited behavior outlined in the design document.
+<br /><br />
+<u>System Testing</u>
+<br />
+<a href="http://en.wikipedia.org/wiki/System_testing">System Testing</a> is the practice in which complete, end-to-end software is tested to evaluate the system’s compliance with its specified requirements.
+<br /><br />
+Game development that implements data driven design may find system testing effective because it can be used to validate all data before fully integrating into the game.
+<br /><br /> 
+When experimenting with new ideas, all changes made to game data must be valid, otherwise it may be possible to easily break the system, or have the system behave in an unpredictable fashion.
+<br /><br />
+System testing allows for this feedback quickly, efficiently and without need to execute the entire game.
+<br /><br />
+Here is a common workflow to integrate system testing into game development:
+<table width="100%"><tr><td valign="top">
+<ul>
+<li>Write game code and edit game data</li>
+<li>Run system tests and validate</li>
+<li>Launch game with current data</li>
+<li>Update any game data as necessary</li>
+<li>Re-run system tests and validate</li>
+<li><i>Hot swap</i> updated game data</li>
+<li>Repeat process: no constant build / deploy</li>
+</ul>
+</td></tr></table>
+Two examples in which game data can be verified through system tests include:
+<br /> 
+Level Validation and Component Based Design.
+<br /><br />
+<u>Level Validation</u>
+<br />
+In game development, level data is most often stored in text files.  For example, the <a href="http://create.msdn.com/en-US/education/catalog/sample/platformer">Platformer</a> starter kit contains 3x levels, although an unlimited number of levels could be added using data driven design.
+<br /><br />
+Level data can then be validated through system tests to ensure all data is true and correct, and that all rules are observed before the level is actually loaded into the game.
+<br /><br />
+<u>Component Based Design</u>
+<br />
+<a href="http://en.wikipedia.org/wiki/Component-based_software_engineering">Component Based Design</a> is a common approach to build game objects that are flexible, maintainable and scalable: each component encapsulates a set of related functions, or data, so that additional game objects can be created without any extra code.
+<br /><br />
+In game development, component based object data is typically stored in XML files.  The logic used to parse XML and build game objects can be complex and error prone; consequently, system tests can<br />be used to validate all game objects before fully integrating into the game.
+<br /><br />
+Therefore, it seems only relevant to try and integrate data driven design into XNA game development.
+<br />
+As an exercise, I would like to prototype data driven design using the following examples:
+<table width="100%"><tr><td valign="top">
+<ul>
+<li><a href="http://steveproxna.blogspot.ie/2012/08/xna-and-system-testing.html">XNA and System Testing</a></li>
+<li><a href="http://steveproxna.blogspot.ie/2012/08/xna-and-level-validation.html">XNA and Level Validation</a></li>
+<li><a href="http://steveproxna.blogspot.ie/2012/09/xna-and-component-based-design.html">XNA and Component Based Design</a></li>
+</ul>
+</td></tr></table>
+In conclusion, it will be interesting to see if data driven design has the potential to scale using XNA!
+</span>

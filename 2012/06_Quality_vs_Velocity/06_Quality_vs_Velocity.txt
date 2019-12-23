@@ -1,0 +1,63 @@
+<span style="font-family: verdana; font-size: 85%;">
+In Software Engineering terms, 
+<a href="http://en.wikipedia.org/wiki/Software_quality">quality</a>
+reflects how well the software conforms to a given design, based on functional requirements and the degree to which the software is built correctly.  Whereas <a href="http://en.wikipedia.org/wiki/Velocity_(software_development)">velocity</a> simply measures how fast the software is built.
+<br /><br />
+<u>Example</u>
+<br />
+A piece of functionality needs to be added to the system; there are typically 2x options:
+<table width="100%"><tr><td valign="top">
+<ol>
+<li>Build a clean and solid design that is well tested but may take longer to integrate</li>
+<li>Apply a quick and dirty change that works but makes future coding more difficult</li>
+</ol>
+</td></tr></table>
+Cutting corners in terms of code quality may provide short term gains as features are implemented quicker, but this false economy leads to future <a href="https://medium.com/p/3d0417fba991">costs</a>:
+time spent refactoring, time spent fixing bugs; time spent re-understanding how the code works etc.
+<br /><br />
+<u>Technical Debt</u>
+<br />
+<a href="http://en.wikipedia.org/wiki/Technical_debt">Technical Debt</a> refers to this false economy as the eventual consequence of poor software architecture and development within a code base.
+<br /><br />
+In the example above, the quick and dirty change creates <a href="http://martinfowler.com/bliki/TechnicalDebt.html">technical debt</a>; similar to financial debt, technical debt incurs interest payments, which comes in the form of extra development which must be done in future because of the quick and dirty change.
+<br /><br />
+In business, companies may be willing to incur financial debt to take advantage of market opportunities; they may also put pressure on developers to incur technical debt in order to hit important deadlines:
+<br /><br />
+Here trading quality for development speed is really trading time now for time later; however, there is compound interest to putting off the work.
+<br /><br />
+Therefore, there is constant challenge to minimize technical debt: work at high pace in order to meet aggressive deadlines while maintaining high levels of quality in the code.
+<br /><br />
+<u>Process</u>
+<br />
+<a href="http://en.wikipedia.org/wiki/Scrum_(development)">SCRUM</a>
+process is being adopted more frequently to provide an iterative incremental framework for managing complex work, minimize rework and improve velocity.
+<br /><br />
+However, it is still important to focus on <a href="http://en.wikipedia.org/wiki/Agile_software_development">agile software development</a> techniques in order to improve quality and minimize technical debt.
+<br /><br />
+Why?  Because good code quality should help you move faster:
+<table width="100%"><tr><td valign="top">
+<ul>
+<li>Consistent coding style / naming conventions makes code easier to maintain</li>
+<li>Well-defined interfaces make self-documenting code easier to understand</li>
+<li>High test coverage can uncover issues quicker and reduce potential bugs</li>
+<li>High test coverage also allows teams to refactor code with confidence</li>
+</ul>
+</td></tr></table>
+Let’s revisit the example above:
+<br /><br />
+Build a clean and solid design that is well tested but may take longer to integrate: the additional time spent during development should be supplemented by a reduced QA cycle as fewer bugs are reported.
+<br /><br />
+In my experience, promoting quality over velocity, in the long-term: projects always take a lot less time.
+<br /><br />
+<u>Summary</u>
+<br />
+In conclusion, agile software development techniques such as the following can help instil quality:
+<table width="100%"><tr><td valign="top">
+<ul>
+<li>Unit testing, test-driven development, pair programming</li>
+<li>Design patterns, domain-driven design, code refactoring</li>
+<li>Stability through automated tests / continuous integration</li>
+</ul>
+</td></tr></table>
+Goal: drive quality through each software development project in order to eliminate technical debt!
+</span>
