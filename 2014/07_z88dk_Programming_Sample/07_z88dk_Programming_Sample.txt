@@ -1,0 +1,216 @@
+<span style="font-family:verdana;font-size:85%;">
+In the previous <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-and-programming-setup.html">post</a>, we checked out z88dk Programming Setup.  The z88dk is a portable Z80 / C <a href="http://en.wikipedia.org/wiki/Cross_compiler">cross compiler</a> that targets hardware such as the 8-bit video games console: the <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a> (SMS).
+<br /><br />
+Using <a href="http://en.wikipedia.org/wiki/Z88DK">z88dk</a>, it is possible to write game code in high level <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C language</a> rather than pure <a href="http://en.wikipedia.org/wiki/Zilog_Z80#Z80_assembly_language">Z80 assembly</a>.
+<br />
+Therefore, we would now like to extend this knowledge and write more detailed programming sample.
+<br /><br />
+Let's check it out!
+<br /><br />
+<u>Software</u>
+<br />
+Follow all instructions from the previous <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-and-programming-setup.html">post</a>: this documents how to setup the pre-requisite software.
+<br /><br />
+Here is a summary of all required software to be installed:
+<table width="90%" border="0">
+<tr>
+<td>
+<table width="100%" border="1">
+<tr><td valign="top">&nbsp;<b>Name</b></td><td valign="top">&nbsp;<b>Version</b></td></tr>
+<tr><td valign="top">&nbsp;Z80 Editor</td><td valign="top">&nbsp;<a href="http://www.contexteditor.org/downloads">ConTEXT</a></td></tr>
+<tr><td valign="top">&nbsp;Assembler</td><td valign="top">&nbsp;<a href="http://www.villehelin.com/wla.html">WLA DX</a></td></tr>
+<tr><td valign="top">&nbsp;Emulators</td><td valign="top">&nbsp<a href="http://www.emutopia.com/index.php?option=com_cobalt&task=files.download&no_html=1&id=3537&fid=20&fidx=2&rid=404&return=aHR0cDovL3d3dy5lbXV0b3BpYS5jb20vaW5kZXgucGhwL2Rvd25sb2Fkcy1lbXVsYXRvcnMvaXRlbS8yOTgtc2VnYS1zZy0xMDAwLXNjLTMwMDAvNDA0LWtlZ2EtZnVzaW9u">Fusion</a>, <a href="http://www.emutopia.com/index.php?option=com_cobalt&task=files.download&no_html=1&id=1912&fid=20&fidx=3&rid=239&return=aHR0cDovL3d3dy5lbXV0b3BpYS5jb20vaW5kZXgucGhwL2Rvd25sb2Fkcy1lbXVsYXRvcnMvaXRlbS8yOTgtc2VnYS1zZy0xMDAwLXNjLTMwMDAvMjM5LW1la2E%3D">Meka</a></td></tr>
+<tr><td valign="top">&nbsp;Disassembler</td><td valign="top">&nbsp;<a href="http://www.smspower.org/uploads/Development/smsexamine1_2a.zip">SMS Examine</a></td></tr>
+</table>
+</td>
+<td>&nbsp;
+</td>
+<td>
+<table width="100%" border="1">
+<tr><td valign="top">&nbsp;<b>Name</b></td><td valign="top">&nbsp;<b>Version</b></td></tr>
+<tr><td valign="top">&nbsp;C IDE Editor</td><td valign="top">&nbsp;<a href="http://sourceforge.net/projects/emeraldeditor/files/crimsoneditor/crimson-editor-3.72-r286m">Crimson IDE</a></td></tr>
+<tr><td valign="top">&nbsp;Cross compiler</td><td valign="top">&nbsp;<a href="http://sourceforge.net/projects/z88dk/files/z88dk/1.8/z88dk-1.8.0-setup.exe/download">Z88 Dev Kit</a></td></tr>
+<tr><td valign="top">&nbsp;Make files</td><td valign="top">&nbsp;<a href="http://cygwin.com/install.html">Cygwin</a></td></tr>
+<tr><td valign="top">&nbsp;Hex Editor</td><td valign="top">&nbsp;<a href="http://mh-nexus.de/downloads/HxDSetupEN.zip">HxD</a></td></tr>
+</table>
+</td>
+</tr>
+</table>
+<br />
+<u>Example</u>
+<br />
+As an example, let's write the main loop of a simple "Shoot 'em up" style game, similar to the previous post, that simply moves a target sprite around the screen based on user input; preferably the joystick. 
+<a href="http://3.bp.blogspot.com/-1NHibHJi9p4/VG4z_OL5brI/AAAAAAAADGg/uzWWHg4F2F4/s1600/Fusion.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-1NHibHJi9p4/VG4z_OL5brI/AAAAAAAADGg/uzWWHg4F2F4/s640/Fusion.jpg" width="98%" /></a>
+<br /><br />
+<u>Graphics</u>
+<br />
+<a href="http://www.smspower.org/maxim/HowToProgram/SettingUpTheGraphics">Graphics</a> on the Sega Master System are built up from four things: Palette, Tiles, Tilemap, Sprite table.
+<br />
+In our example, convert target sprite into a programming format the Sega Master System understands.
+<br /><br />
+Here we will use the <a href="http://www.smspower.org/maxim/Software/BMP2Tile">BMP2Tile</a> utility from <a href="http://www.smspower.org/maxim">Maxim </a> to convert the 16x16 pixel target sprite into SMS data.
+<br />
+Create 16x16 pixel target sprite (as above).  Save target sprite as BMP (bitmap) file.  Load in MS Paint:
+<a href="http://1.bp.blogspot.com/-WU-hLcbU5Fw/VG41EVQLLwI/AAAAAAAADGo/pC9WJjD6Pdo/s1600/01-Sprite.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-WU-hLcbU5Fw/VG41EVQLLwI/AAAAAAAADGo/pC9WJjD6Pdo/s640/01-Sprite.jpg" width="98%" /></a>
+<br /><br />
+Note: sprite / tile data on the SMS must be max. 4bpp (bits per pixel).  Save as type 16 Color Bitmap:
+<a href="http://4.bp.blogspot.com/-g7AFNIf13Vs/VG41V5kKYyI/AAAAAAAADGw/CbHRNrjMI3U/s1600/02-Sprite.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-g7AFNIf13Vs/VG41V5kKYyI/AAAAAAAADGw/CbHRNrjMI3U/s640/02-Sprite.jpg" width="98%" /></a>
+<br /><br />
+<u>BMP2Tile</u>
+<br />
+Download and launch BMP2Tile.   Drag n' drop 16x16 pixel target sprite onto open "Source" tab.
+<br /><br />
+Choose "Tiles" tab.  Ensure that "Remove duplicates" and "Planar tile output" are both checked.
+<br />
+Set "Index of first tile" to 1.  It seems best practice to leave <i>empty</i> background tile at index 0.
+<a href="http://1.bp.blogspot.com/-8yMPgX_bj0s/VG41ocMaG7I/AAAAAAAADG4/iwN-kplROqo/s1600/03-bmp2tile.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-8yMPgX_bj0s/VG41ocMaG7I/AAAAAAAADG4/iwN-kplROqo/s640/03-bmp2tile.jpg" width="98%" /></a>
+<br /><br />
+Choose "Tilemap" tab.  Leave "Use sprite palette" and "In front of sprites" options unchecked.
+<a href="http://3.bp.blogspot.com/-UcZ3KhNyQF4/VG42AiSRmBI/AAAAAAAADHA/7b-ZBxdhslY/s1600/04-bmp2tile.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-UcZ3KhNyQF4/VG42AiSRmBI/AAAAAAAADHA/7b-ZBxdhslY/s640/04-bmp2tile.jpg" width="98%" /></a>
+<br /><br />
+Choose "Palette" tab.  Leave the "Output hex (SMS)" option checked for Sega Master System.
+<a href="http://2.bp.blogspot.com/-2S_QUhPAHfc/VG42S73YYcI/AAAAAAAADHI/XX2zCYe81h4/s1600/05-bmp2tile.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-2S_QUhPAHfc/VG42S73YYcI/AAAAAAAADHI/XX2zCYe81h4/s640/05-bmp2tile.jpg" width="98%" /></a>
+<br />
+Click Save button on "Tiles", "Tilemap", "Palette" tabs.  All data here is used in the game code.
+<br /><br />
+
+<u>Target Sprite</u>
+<br />
+As an example, let's build on the existing <b>test.c</b> program found here at C:\z88dk\examples\sms.
+<br />
+First, create new directory: C:\TargetSprite. Next, add the following 2x files: test.s and linkfile.
+<br /><br />
+<b>test.s</b>
+<pre class="csharp" name="code">
+.MEMORYMAP
+SLOTSIZE $8000
+DEFAULTSLOT 0
+SLOT 0 $0000
+SLOT 1 $8000
+.ENDME
+
+.ROMBANKMAP
+BANKSTOTAL 1
+BANKSIZE $8000
+BANKS 1
+.ENDRO
+
+.SDSCTAG 1.0, "Target Sprite", "Shoot 'em up game main loop", "StevePro Studios"
+
+.EMPTYFILL $C9                ;ret.
+.COMPUTESMSCHECKSUM           ;compute sms checksum for this rom.
+
+.BANK 0 SLOT 0
+.ORG 0
+
+.INCBIN "test.bin"
+</pre>
+<b>linkfile</b>
+<pre class="csharp" name="code">
+[objects]
+test.o
+</pre>
+Launch Crimson IDE.  File | New file.  Save test.c.  Next, type in the following following code: test.c.
+<br /><br />
+<b>test.c</b>
+<pre class="csharp" name="code">
+#include &lt;sms.h&gt;
+
+unsigned char pal1[] = {0x00, 0x02, 0x08, 0x0A, 0x20, 0x22, 0x28, 0x2A, 0x3F, 0x03, 0x0C, 0x0F, 0x30, 0x33, 0x3C, 0x3F};
+unsigned char pal2[] = {0x00, 0x02, 0x08, 0x0A, 0x20, 0x22, 0x28, 0x2A, 0x3F, 0x03, 0x0C, 0x0F, 0x30, 0x33, 0x3C, 0x00};
+
+unsigned char all_tiles[] =
+{
+  // blank tile.
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 
+  // target sprite.
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x39, 0x00, 0x00, 0x39, 0x20, 0x00, 0x00, 0x20, 0x21, 0x00, 0x00, 0x21, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x01, 0x2A, 0x00, 0x00, 0x2A,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x9C, 0x00, 0x00, 0x9C, 0x04, 0x00, 0x00, 0x04, 0x84, 0x00, 0x00, 0x84, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x80, 0x54, 0x00, 0x00, 0x54,
+  0x2A, 0x00, 0x00, 0x2A, 0x01, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x00, 0x21, 0x20, 0x00, 0x00, 0x20, 0x39, 0x00, 0x00, 0x39, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0x54, 0x00, 0x00, 0x54, 0x80, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x84, 0x00, 0x00, 0x84, 0x04, 0x00, 0x00, 0x04, 0x9C, 0x00, 0x00, 0x9C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+};
+
+void setSprite(int x, int y)
+{
+  // priority, x, y, tile.
+  set_sprite(0, x+0, y+0, 1);
+  set_sprite(1, x+8, y+0, 2);
+  set_sprite(2, x+0, y+8, 3);
+  set_sprite(3, x+8, y+8, 4); 
+}
+
+void main()
+{
+  int idx, off, x, y; 
+  set_vdp_reg(VDP_REG_FLAGS1, VDP_REG_FLAGS1_SCREEN);
+
+  // array, start, count, bpp.
+  load_tiles(all_tiles, 0, 5, 4);
+
+  // array, start, count.
+  load_palette(pal1,  0, 16);
+  load_palette(pal2, 16, 16);
+
+  x=120, y=88; 
+  setSprite(x, y);
+  for (;;)
+  {
+    off = 2;
+    idx = read_joypad1();
+    if (idx & JOY_FIREB) { off = 4; }
+    if (idx & JOY_LEFT)
+    {      
+      x -= off;
+      if (x &lt; 0)      { x = 0; }
+    }
+    if (idx & JOY_RIGHT)
+    {
+      x += off;
+      if (x &gt; 240)    { x = 240; }
+    }
+    if (idx & JOY_UP)
+    {      
+      y -= off;
+      if (y &lt; 0)      { y = 0; }
+    }
+    if (idx & JOY_DOWN)
+    {
+      y += off;
+      if (y &gt; 176)    { y = 176; }
+    }
+    wait_vblank_noint();
+    setSprite(x, y);
+  }
+}
+ 
+</pre>
+If you have C:\PerfomBuild.bat setup as per previous <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-and-programming-setup.html">post</a> then simply hit <b>Ctrl+1</b> hot key to run!
+<br />
+Note: move target sprite left, right, up or down.  Press "Fire2" button to double movement speed.
+<br /><br />
+<u>Disassemble</u>
+<br />
+Finally, disassemble the compiled binary file <b>test.sms</b> generated from the Crimson IDE batch script.
+<br />
+In directory C:\TargetSprite, copy the 2x files Opcodes.dat + smsexamine.exe from <a href="http://www.smspower.org/Development/SMSExamine">SMS Examine</a> zip.
+<br /><br />
+Launch command prompt, change directory cd C:\TargetSprite.  Type: <b>smsexamine.exe test.sms</b>.
+<br />
+This action will generate <b>test.sms.asm</b> and any data files.  Launch ConTEXT.  Open test.sms.asm:
+<a href="http://2.bp.blogspot.com/-rYAVeS_gobA/VG5AYSVsnMI/AAAAAAAADHY/KoQ1FHQDAog/s1600/ConTEXT.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-rYAVeS_gobA/VG5AYSVsnMI/AAAAAAAADHY/KoQ1FHQDAog/s640/ConTEXT.jpg" width="98%" /></a>
+<br /><br />
+Follow instructions from the previous <a href="http://steveproxna.blogspot.ie/2013/09/sega-console-programming.html">post</a> to setup hotkeys: <b>F9</b> (compile) <b>F10</b> (run) <b>F11</b> (debug).
+<br /><br />
+Press <b>F9</b> to compile and link "test.sms.asm".   This generates the "output.sms" binary file.
+<br />
+Press <b>F10</b> to run program in the Fusion emulator.  Press <b>F11</b> to debug in Meka emulator:
+<a href="http://4.bp.blogspot.com/-3zr_gZuwsRY/VDWTbzUtIoI/AAAAAAAADFw/R4AcPM1_E2s/s1600/MekaDebugging.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-3zr_gZuwsRY/VDWTbzUtIoI/AAAAAAAADFw/R4AcPM1_E2s/s640/MekaDebugging.jpg" width="98%" /></a>
+<br /><br />
+Compare machine code in the debugger with the raw binary output file from <b>test.sms</b>.
+<a href="http://1.bp.blogspot.com/-z79fnjNAZUA/VDWRWEcwyzI/AAAAAAAADFk/5sYmXPLc2KQ/s1600/HxDbinary.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-z79fnjNAZUA/VDWRWEcwyzI/AAAAAAAADFk/5sYmXPLc2KQ/s640/HxDbinary.jpg" width="98%" /></a>
+<br /><br />
+<u>Summary</u>
+<br />
+This simple programming sample creates building blocks necessary to produce an 8-bit video game for <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a>.  The next steps would be to build an 8-bit Homebrew video game to completion!
+</span>

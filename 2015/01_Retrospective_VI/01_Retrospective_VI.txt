@@ -1,0 +1,69 @@
+<span style="font-family:verdana;font-size:85%;">
+Last year, I conducted a simple 
+<a href="http://steveproxna.blogspot.ie/2014/01/retrospective-v.html">retrospective</a> for 2013.  Therefore, here is a retrospective for 2014.
+<br /><br />
+<u>2014 Achievements</u>
+<br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>Focus on cross platform mobile development; specifically <a href="http://unity3d.com">Unity 3D</a></li>
+<li>Integrate native plugins with Unity 3D using C++, Obj-C and Java</li>
+<li>Administration of iOS apps includes certificates / devices / profiles</li>
+<li>Complete <a href="http://en.wikipedia.org/wiki/Software_development_process">SDLC</a> using Jenkins for <a href="http://steveproxna.blogspot.ie/2014/07/unity3d-and-automated-builds.html">automated builds</a> + deployments</li>
+<li>Successful 3rd party integration of In App Purchases into software</li>
+<li>Collaborate on F2P 3D MMO release to App Store and Google Play!</li>
+<li>Explore additional engines / tech. like <a href="http://www.unrealengine.com">Unreal Engine</a> and Cocos 2D</li>
+<li>Retro game development extends C / Z80 integration using <a href="http://en.wikipedia.org/wiki/Z88DK">z88dk</a></li>
+</ul>
+Note: retro game development using C / Z80 with limited documentation is an achievement!
+</td>
+</tr>
+</table>
+<br />
+<u>2015 Objectives</u>
+<br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>Continued focus on cross platform development with an interesting mix of technologies
+</li>
+<li>Further 8-bit retro game development exploration with graphics, music + sound effects
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<br />
+2014 was described as the <a href="http://www.develop-online.net/opinions/2014-the-year-that-unlocked-the-game-engine/0201434">year</a> that unlocked the game engine.  New subscription models for two of the most powerful engines on the market: Unity 3D + Unreal Engine "tore down the walls" of development.
+<br /><br />
+Increased competition has been a key driver in lowering the price of game engines and barriers to entry as smaller independent game studios are able to produce higher quality games with far lower budgets.
+<br /><br />
+<a href="http://celtic-heroes.com">Celtic Heroes</a> is a great example of this: the Free-to-Play 3D MMO fully leverages Unity 3D game engine.  Sourced from single code base but targets cross-platform mobile available on <a href="http://itunes.apple.com/us/app/3d-mmo-celtic-heroes/id431837446?mt=...">App Store</a> and <a href="https://play.google.com/store/apps/details?id=com.onethumbmobile.celticheroes">Google Play</a>.
+<br /><br />
+<u>Experience</u>
+<br />
+In my experience, using an existing game engine like Unity 3D does provide interesting development opportunities: C# scripted game objects, C++ native plugins, Obj-C and Java for device specific code.
+<br /><br />
+However, the downside appears that the game can become tightly coupled to the engine itself: it can prove difficult to write common / library code in isolation because of the lack of a main() entry point.
+<br /><br />
+Despite diminishing costs, developers may feel less in control and choose to write everything anyway!
+<br /><br />
+<u>Homebrew</u>
+<br />
+Outside commercial game development, homebrew projects continue to be very dominant underground.
+<br />
+Many developers like to explore ideas for 8-bit video games.  For me, it's the <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a> (SMS).
+<br /><br />
+Writing game code on 8-bit hardware is very challenging as the memory + storage is extremely limited; Algorithms <u>must</u> be written efficiently.  Plus it is expensive to patch buggy code thus quality is improved.
+<br /><br />
+These concepts attract well disciplined programmers + are very relevant in today's mobile environment.
+<br /><br />
+<u>Summary</u>
+<br />
+It will interesting to see if developers continue to rely on game engines like Unity 3D and Unreal Engine.  Especially in the mobile space.  Sure, it reduces costs but many developers always like to build their own.
+<br /><br />
+Finally, a key driver in maintaining engine popularity may be the community that supports the technology.  This was apparent for <a href="http://en.wikipedia.org/wiki/XNA_(Microsoft)">XNA</a> which attracted a rich + vibrant community excited about game development. 
+<br /><br />
+Homebrew communities like <a href="http://www.smspower.org">SMS Power</a> are active since 1997 for Sega 8-bit preservation and fanaticism;  Hopefully there won't ever be <a href="http://steveproxna.blogspot.ie/2013/02/xna-is-dead.html">XNA is Dead</a> equivalent as the technology is already considered obsolete <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>
+</span>

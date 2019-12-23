@@ -1,0 +1,159 @@
+<span style="font-family:verdana;font-size:85%;">
+<a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue02?gallerypage=17">Candy Kid</a> is a simple maze chase video game originally programmed in 1984.  Re-written in <a href="https://en.wikipedia.org/wiki/Microsoft_XNA">XNA</a> and ported to <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a> / <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a> using MonoGame, the Pacman clone has more features that can be found <a href="http://steveproxna.blogspot.ie/2015/05/candy-kid-video-game.html">here</a>.
+<br /><br />
+In the old days of <a href="https://en.wikipedia.org/wiki/Retrogaming">retro gaming</a>, cartridge-based video games had very few instructions in game.  The game would be distributed with "How to Play" instruction manual.  This post attempts to replicate that.
+<br /><br />
+Let's check it out!
+<a href="http://3.bp.blogspot.com/-HhE52YX--Sk/VhVNk3GGySI/AAAAAAAADns/dWLvRbTjOGc/s1600/02-Play.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-HhE52YX--Sk/VhVNk3GGySI/AAAAAAAADns/dWLvRbTjOGc/s640/02-Play.jpg" width="98%" /></a><br />
+<u>Goal</u>
+<br />
+The goal of Candy Kid is very simple: eat all the candy to pass each level!  Here are some more tips:
+<table width="95%" border="1">
+<tr>
+<td valign="top">&nbsp;Eat all candy in maze to pass each level</td>
+<td valign="top">&nbsp;Avoid the 3x Candy Mamas who chase you</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Eat bonus optional but scores more points</td>
+<td valign="top">&nbsp;Avoid trees (death trees kill on contact!)</td>
+</tr>
+</table>
+Note: eat all candy + all bonus rewards extra 5,000 pts.  Every fifth perfect level rewards 10,000pts.
+<br /><br />
+<u>Characters</u>
+<br />
+Here are the characters.  There are basically 2x types: Candy Kid (you) and Candy Mama (enemy)
+<table width="95%" border="1">
+<tr>
+<td valign="top" align="center"><a href="http://3.bp.blogspot.com/-IQ8X6NV8xCA/VhU4MtZCLOI/AAAAAAAADl0/DYTa3mMvvis/s1600/Kid.png" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-IQ8X6NV8xCA/VhU4MtZCLOI/AAAAAAAADl0/DYTa3mMvvis/s1600/Kid.png" /></a></td>
+<td valign="top">&nbsp;"Kid"</td>
+<td valign="top">&nbsp;Candy Kid.  You must eat all the candy to pass each level.<br />&nbsp;Simple!</td>
+</tr>
+<tr>
+<td valign="top" align="center"><a href="http://1.bp.blogspot.com/-abrWcDlQYzw/VhU4olup22I/AAAAAAAADl8/1RjC6Cbq0VQ/s1600/Pro.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-abrWcDlQYzw/VhU4olup22I/AAAAAAAADl8/1RjC6Cbq0VQ/s1600/Pro.png" /></a></td>
+<td valign="top">&nbsp;"Pro"</td>
+<td valign="top">&nbsp;Candy Mama #1.  Super aggressive.  High attack range.
+<br />&nbsp;Favorite direction: Horizontal (will go side-to-side first).</td>
+</tr>
+<tr>
+<td valign="top" align="center"><a href="http://1.bp.blogspot.com/-KbxHy4633qQ/VhU7Q_UmqgI/AAAAAAAADmI/ee7_NJXoTWs/s1600/Adi.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-KbxHy4633qQ/VhU7Q_UmqgI/AAAAAAAADmI/ee7_NJXoTWs/s1600/Adi.png" /></a>
+</td>
+<td valign="top">&nbsp;"Adi"</td>
+<td valign="top">&nbsp;Candy Mama #2.  Aggressive / passive.  Medium attack.
+<br />&nbsp;Favorite direction: Vertical (will go up-and-down first).</td>
+</tr>
+<tr>
+<td valign="top" align="center"><a href="http://1.bp.blogspot.com/-H_GNf6ByNew/VhU7bJJZh_I/AAAAAAAADmQ/rZ35mH3Tlvk/s1600/Suz.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-H_GNf6ByNew/VhU7bJJZh_I/AAAAAAAADmQ/rZ35mH3Tlvk/s1600/Suz.png" /></a>
+</td>
+<td valign="top">&nbsp;"Suz"</td>
+<td valign="top">&nbsp;Candy Mama #3.  Super passive.  Low attack range.
+<br />&nbsp;Favorite direction: Random (will go anywhere first).</td>
+</tr>
+</table>
+Note: if Candy Mama can manoeuvre either horizontal or vertical then choose favorite direction first.
+<br /><br />
+<u>Navigation</u>
+<br />
+During any non-game screen, tap current screen to progress to next screen; e.g. tap Title Screen to navigate to Main Menu screen.  Also, hit back button to navigate back to previous screen at any time.
+<br /><br />
+However, on iOS devices there is no back button!  Therefore, touch the left or right of the border trees;<br />this action will navigate back to previous screen.  See below, tap in either white rectangle to go back:
+<a href="http://3.bp.blogspot.com/-GiXlz3sRHiE/VhUvpUAtTFI/AAAAAAAADlU/Mdka8Nw_lB4/s1600/01-Start.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-GiXlz3sRHiE/VhUvpUAtTFI/AAAAAAAADlU/Mdka8Nw_lB4/s640/01-Start.jpg" width="98%" /></a>
+<br />
+During game play, tap in the middle of maze to pause game.  See below, tap in white rectangle to pause:
+<a href="http://4.bp.blogspot.com/-Qt-dZOPz56c/VhVNufELQnI/AAAAAAAADn0/xmUwHxV-XHc/s1600/02-Pause.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-Qt-dZOPz56c/VhVNufELQnI/AAAAAAAADn0/xmUwHxV-XHc/s640/02-Pause.jpg" width="98%" /></a>
+<br />
+<u>Options</u>
+<br />
+Most options in Candy Kid are self-explanatory, e.g. Music On / Off, Sound On / Off, Continues On / Off.
+<br />
+Listed below are some interesting options.  Tap "Game Options" from Main Menu to get to Options menu.
+<br /><br />
+<b>General Info</b>
+<br />
+Tap "Instructions".  Tap either "Kid", "Adi", "Suz" or "Pro" to select alternate color sprite (in rectangles):
+<a href="http://1.bp.blogspot.com/-irBtB30U-OY/VhU9m1dCTKI/AAAAAAAADmk/ukp3Qh6ejR8/s1600/04-AlternateEntity.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-irBtB30U-OY/VhU9m1dCTKI/AAAAAAAADmk/ukp3Qh6ejR8/s640/04-AlternateEntity.jpg" width="98%"  /></a>
+<br /><br />
+<b>General Game</b>
+<br />
+Tap "Avoid Trees" to alternate "Avoid Trees" that block and "Death Trees" that kill player on contact:
+<a href="http://4.bp.blogspot.com/-ZgtwY5APdZA/VhU_CjDyn-I/AAAAAAAADmw/I31mQlPmITo/s1600/05-DeathTrees.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-ZgtwY5APdZA/VhU_CjDyn-I/AAAAAAAADmw/I31mQlPmITo/s640/05-DeathTrees.jpg" width="98%" /></a>
+<br />
+Tap "Exits Public" to alternate "Exits Public" to wrap around tunnels and "Exits Closed" to close them:
+<a href="http://3.bp.blogspot.com/-yaZroaHC9J8/VhU_H2m6zfI/AAAAAAAADm4/YjD6lduQcu4/s1600/06-ExitsClosed.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-yaZroaHC9J8/VhU_H2m6zfI/AAAAAAAADm4/YjD6lduQcu4/s640/06-ExitsClosed.jpg" width="98%" /></a>
+<br /><br />
+<b>Gamer Option</b>
+<br />
+Gamer can have 4x speeds: Slower, Medium, Faster, Insane.  Gamer fast and enemy slow or vice versa!
+<br />
+Tap "Arrows: 4Way" for "one thumb" player navigation.  Otherwise use "UDLR" = Up, Down, Left, Right:
+<a href="http://4.bp.blogspot.com/-wNytK8X1KSM/VhVBboMyWbI/AAAAAAAADnE/SQleufPvzJg/s1600/07-Arrows4Way.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-wNytK8X1KSM/VhVBboMyWbI/AAAAAAAADnE/SQleufPvzJg/s640/07-Arrows4Way.jpg" width="98%" /></a>
+<br /><br />
+<b>Enemy Option</b>
+<br />
+Tap "Enemy Attack" to alternate "Attack" when the Candy Mamas kill you and "Docile" when they don't.
+<br />
+Tap "Enemy Resets" to alternate enemy "Resets" back to base when Kid dies and "Cont's" to continue.
+<a href="http://3.bp.blogspot.com/-munEl9OKCBg/VhVE1MyUzRI/AAAAAAAADnQ/BWRMeJRQE6I/s1600/08-EnemyOptions.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-munEl9OKCBg/VhVE1MyUzRI/AAAAAAAADnQ/BWRMeJRQE6I/s640/08-EnemyOptions.jpg" width="98%" /></a>
+<br />
+Enemy can have 4x speeds: Slower, Medium, Faster, Insane.  Enemy fast and gamer slow or vice versa!
+<br />
+Finally, cycle through "Adi", "Suz", "Pro" to enable Candy Mama to chase; "No" means they're disabled.
+<br /><br />
+<u>Tips n' Tricks</u>
+<br />
+Candy Kid is a tile-based game thus once direction is chosen then it is not possible to change mid-tile.  Therefore, when confronted by Candy Mama, wait 'til they choose their move direction and then move.
+<br /><br />
+Watch out for "Suz": she is super passive and usually evades Kid; you may collide with her more often.
+<br />
+Make good use of tunnels when enabled, especially for faster speeds.  Eat candy in the dead-ends last!
+<br /><br />
+<u>Secrets</u>
+<br />
+During game play, tap on "giant" white candy to get free man!  See below, white candy is in rectangle:
+<a href="http://4.bp.blogspot.com/-7lvrxzjB0XY/VhUxmtFy9jI/AAAAAAAADlk/FYiOYPlZtCU/s1600/03-SecretCandy.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-7lvrxzjB0XY/VhUxmtFy9jI/AAAAAAAADlk/FYiOYPlZtCU/s640/03-SecretCandy.jpg" width="98%" /></a>
+Note: "giant" white candy will only ever be found at Candy Kid or Candy Mama starting position (base).
+<br />
+Important: every fifth level there is 50-50 chance of "giant" white candy so be on lookout these levels!
+<br /><br />
+<u>Trial Game</u>
+<br />
+All the instructions above relate to the fully unlocked game.  However, if you would like to try before you buy then there is a free version of the game.  The following features are <b>not</b> available in the free version:
+<table width="98%" border="1">
+<tr>
+<td valign="top">&nbsp;Free man</td>
+<td valign="top">&nbsp;Disabled.  Normally you get free man every 20,000 pts.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Level Select</td>
+<td valign="top">&nbsp;Only small percentage of all levels are unlocked to play.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Instructions</td>
+<td valign="top">&nbsp;Disabled.  Not possible to select alternate color sprites.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Gamer Option</td>
+<td valign="top">&nbsp;Unlimited continues disabled.  Game over immediately.</td>
+</tr>
+<td valign="top">&nbsp;Gamer Option</td>
+<td valign="top">&nbsp;Num. lives feature is disabled.  Only ever have 3x lives.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Enemy Option</td>
+<td valign="top">&nbsp;Candy Mamas always attack!  Kid invincibility disabled.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Enemy Option</td>
+<td valign="top">&nbsp;"Adi", "Suz", "Pro" always enabled and chase all times.</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Secrets</td>
+<td valign="top">&nbsp;Disabled.  There is no "giant" white candy for free man.</td>
+</tr>
+</table>
+<br />
+Of course you can unlock game at any time, especially when you exit free version there is upsell screen:
+<a href="http://3.bp.blogspot.com/--CMkepstezE/VhVK1BRP9HI/AAAAAAAADng/IoDKzc-Oakc/s1600/09-Unlock.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/--CMkepstezE/VhVK1BRP9HI/AAAAAAAADng/IoDKzc-Oakc/s640/09-Unlock.jpg" width="98%" /></a>
+<br />
+Please show your support for Retro Games and buy Candy Kid today!  Now available on <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a>.
+</span>

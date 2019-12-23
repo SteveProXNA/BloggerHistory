@@ -1,0 +1,278 @@
+<span style="font-family:verdana;font-size:85%;">
+In the previous <a href="http://steveproxna.blogspot.co.uk/2015/05/candy-kid-video-game.html">post</a>, we introduced <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue02?gallerypage=17">Candy Kid</a>: a simple maze chase video game written by Grandstand Leisure from New Zealand in September 1984 using <a href="http://en.wikipedia.org/wiki/BASIC">BASIC</a> programming language on the Sega <a href="http://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a>.
+<br /><br />
+Recently, Candy Kid was re-written in <a href="http://en.wikipedia.org/wiki/XNA_(Microsoft)">XNA</a> using C#/.NET.  However, in order to keep the super cool 80s retro arcade video game look and feel, all original programmer art in Candy Kid was used for the sprites.
+<br /><br />
+Let's check it out!
+<a href="http://4.bp.blogspot.com/-PI0Z4izOPRI/VbIVoAmtXFI/AAAAAAAADP4/5ss-rijezx0/s1600/01-Title.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-PI0Z4izOPRI/VbIVoAmtXFI/AAAAAAAADP4/5ss-rijezx0/s640/01-Title.jpg" width="98%" /></a>
+Note: in order to follow the code along first ensure you have your PC setup for <a href="http://steveproxna.blogspot.co.uk/2013/07/sega-basic-programming.html">Sega BASIC programming</a>.
+<br />
+All code listed inspired from Sega Computer magazine <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue02?gallerypage=26">Sprites</a> tutorial, also published in September 1984.
+<br /><br />
+<u>Sprites</u>
+<br />
+Think of a sprite as piece of transparent film over your television screen.  Each individual sprite is made up of group of 64 dots (8 by 8 pixel block).  Each dot may be turned "on" (made visible) or "off" (not visible).
+<br /><br />
+To instruct the computer what 64 sprite dots look like, use <a href="https://en.wikipedia.org/wiki/Binary_number">binary</a> notation to define each pixel as either turned "on" (value=1) or "off" (value=0).  <a href="https://en.wikipedia.org/wiki/Hexadecimal">Hexadecimal</a> notation is then used to group 4x pixels at a time.
+<a href="http://3.bp.blogspot.com/-1fgBu816H7Y/VbC_mE0X3ZI/AAAAAAAADK4/8yY2WATImvI/s1600/Sprites.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-1fgBu816H7Y/VbC_mE0X3ZI/AAAAAAAADK4/8yY2WATImvI/s400/Sprites.jpg" width="98%" /></a>
+<br /><br />
+<u>Example</u>
+<br />
+As an example, here are 64 dots (8 by 8 pixel block) that define the original candy pattern in Candy Kid:
+<a href="http://2.bp.blogspot.com/-c7FF0ZOT-xc/VbIBlbwyv7I/AAAAAAAADOI/i3_M5pBthVA/s1600/Candy8x8.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-c7FF0ZOT-xc/VbIBlbwyv7I/AAAAAAAADOI/i3_M5pBthVA/s320/Candy8x8.jpg" width="98%" /></a>
+<br />
+Launch <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/239-meka">Meka</a> emulator.  Main menu | Load ROM | Sega BASIC Level 3 ROM.  Type in the following code:
+<pre class="csharp" name="code">
+NEW
+10 SCREEN 2,2:CLS
+20 PATTERN S#0,"C0C03C3C3C3C0303"
+30 SPRITE 1,(128,96),0,7
+40 GOTO 40
+RUN
+</pre>
+Press the "End" key to break.<br />Now, let's dissect the program:
+<br /><br />
+LINE 10 Switch to graphics screen and clear
+<br />
+LINE 20 Define 8x8 candy sprite in Pattern #0 (there can be 256 total patterns from 0-255)
+<br />
+LINE 30 Display sprite on-screen.  Priority: 1, (X,Y)=(128,96), Pattern: 0, Color: 7 (Cyan)
+<br />
+LINE 40 Loop forever to keep sprite on-screen
+<br /><br />
+<u>Magnification</u>
+<br />
+Now that sprite has been constructed, we are able to magnify it.  There are four magnifications (0-3):
+<table width="89%" border="1">
+<tr>
+<td valign="top">&nbsp;Mag 0&nbsp;</td>
+<td valign="top">&nbsp;Single 8x8 pixel sprite.  This is used by default when no magnification is set</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Mag 1</td>
+<td valign="top">&nbsp;Group sprite that uses four 8x8 pixel sprites treated as one 16x16 pixel sprite</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Mag 2</td>
+<td valign="top">&nbsp;Exactly the same as Mag 0 except the sprite is twice the size i.e. 16x16 sprite</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Mag 3</td>
+<td valign="top">&nbsp;Exactly the same as Mag 1 except the sprite is twice the size i.e. 32x32 sprite</td>
+</tr>
+</table>
+<br />
+<u>Candy Kid</u>
+<br />
+All sprites in Candy Kid use Mag 1.  Therefore, four patterns are used to generate each 16x16 pixel sprite.
+<a href="http://1.bp.blogspot.com/-4RV8ptWVJC8/VbD6fMj_u6I/AAAAAAAADLk/-Gmy3dvKfTI/s1600/CK1-2xImages.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-4RV8ptWVJC8/VbD6fMj_u6I/AAAAAAAADLk/-Gmy3dvKfTI/s400/CK1-2xImages.jpg" width="98%" /></a>
+<br /><br />
+Let's break down the four 8x8 pixel sprites to determine the patterns to be typed into the Sega SC-3000:
+<a href="http://3.bp.blogspot.com/-4xQUHvUb1Q0/VbID9gnwUjI/AAAAAAAADOU/BWdazOyUou4/s1600/CK1-4xImages.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-4xQUHvUb1Q0/VbID9gnwUjI/AAAAAAAADOU/BWdazOyUou4/s400/CK1-4xImages.jpg" width="98%" /></a>
+<br /><br />
+Launch <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/239-meka">Meka</a> emulator. Main menu | Load ROM | Sega BASIC Level 3 ROM. Type in the following code: 
+<pre class="csharp" name="code">
+NEW
+100 SCREEN 2,2:CLS
+110 MAG3
+120 REM CANDY KID FOREGROUND
+130 PATTERN S#0,"030F1F3F33616173"
+140 PATTERN S#1,"7F33381C8F53A050"
+150 PATTERN S#2,"C0F0F8FCCC8686CE"
+160 PATTERN S#3,"FECC1C38F1CA050A"
+120 REM CANDY KID BACKGROUND
+120 PATTERN S#4,"00000000000C0C00"
+130 PATTERN S#5,"000C070300804020"
+140 PATTERN S#6,"0000000000303000"
+150 PATTERN S#7,"0030E0C000010204"
+160 SPRITE 3,(128,96),0,2
+170 SPRITE 2,(128,96),4,11
+180 GOTO 180
+RUN
+</pre>
+Note: original source code used MAG1 because the screen resolution on the Sega SC-3000 was 256x192.
+<br />
+However, as Candy Kid is being re-written for higher screen resolution, e.g. 800x480, use MAG3 instead!
+<br /><br />
+After running the code (above), take screen shot i.e. press Print Screen button and save the BMP image.
+<br />
+Crop image to required dimensions i.e. 32x32 pixels using MS Paint.  Re-save.  Make image transparent...
+<br /><br />
+<u>Paint.NET</u>
+<br />
+<table width="100%" border="0">
+<tr>
+<td valign="top">
+<a href="http://1.bp.blogspot.com/-8ZBr-yfWVbo/VbEDm_jrUEI/AAAAAAAADMI/0SnGSyeEkoA/s1600/Paint.NET.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-8ZBr-yfWVbo/VbEDm_jrUEI/AAAAAAAADMI/0SnGSyeEkoA/s400/Paint.NET.jpg" /></a>
+</td>
+<td valign="top" align="left">
+<a href="http://www.dotpdn.com/files/paint.net.4.0.5.install.zip">Download</a>, install and launch Paint.NET.  Open the original 32x32 Candy Kid BMP image saved and processed above.
+<br />
+<br />
+Choose Magic Wand.  Click black image background.
+<br />
+Press delete.  This makes background transparent.
+<br />
+<br />
+Save new image as PNG file to include transparency.
+</td>
+</tr>
+</table>
+<br />
+Repeat process for the enemy sprite Candy Mama.  Different colours could be used for multiple enemies:
+<a href="http://2.bp.blogspot.com/-hqyShDmhXLU/VbEI9kg-6qI/AAAAAAAADMY/Vs_RnkXTiqE/s1600/CM1-2xImages.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-hqyShDmhXLU/VbEI9kg-6qI/AAAAAAAADMY/Vs_RnkXTiqE/s400/CM1-2xImages.jpg" width="98%" /></a>
+<a href="http://2.bp.blogspot.com/-SM67L5hnvso/VbIETKI8BbI/AAAAAAAADOk/hR1V8NCC1h4/s1600/CM1-4xImages.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-SM67L5hnvso/VbIETKI8BbI/AAAAAAAADOk/hR1V8NCC1h4/s400/CM1-4xImages.jpg" width="98%" /></a>
+<pre class="csharp" name="code">
+NEW
+100 SCREEN 2,2:CLS
+110 MAG3
+120 REM CANDY MAMA FOREGROUND
+130 PATTERN S#8,"03070F1F193070F9"
+140 PATTERN S#9,"FE9C0F0F0F3F7F73"
+150 PATTERN S#10,"C0E0F0F8980C0E9F"
+160 PATTERN S#11,"7F39F0F0F0FCFECE"
+120 REM CANDY MAMA BACKGROUND
+120 PATTERN S#12,"0000000000060600"
+130 PATTERN S#13,"0003101010000000"
+140 PATTERN S#14,"0000000000606000"
+150 PATTERN S#15,"00C0080808000000"
+160 SPRITE 1,(128,96),8,5
+170 SPRITE 0,(128,96),12,6
+180 GOTO 180
+RUN
+</pre>
+<u>Animation</u>
+<br />
+Duplicate sprites, tweak arms and/or legs and produce sprite sheets to be used for animation:
+<table width="90%" border="0">
+<tr>
+<td valign="top" width="50%">
+<a href="http://3.bp.blogspot.com/-vZWs5iX3tf0/VbEVIvKac9I/AAAAAAAADM8/PV4z9Jz5VkY/s1600/CK-SpriteSheet.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-vZWs5iX3tf0/VbEVIvKac9I/AAAAAAAADM8/PV4z9Jz5VkY/s400/CK-SpriteSheet.jpg" /></a>
+</td>
+<td valign="top">
+<a href="http://1.bp.blogspot.com/-HN4SqOZ28f8/VbEVtToyYNI/AAAAAAAADNE/0il301gFleg/s1600/CM-SpriteSheet.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-HN4SqOZ28f8/VbEVtToyYNI/AAAAAAAADNE/0il301gFleg/s400/CM-SpriteSheet.jpg" /></a>
+</td>
+</tr>
+</table>
+<br />
+<u>Summary</u>
+<br />
+That concludes how the programmer art was created for the original title on Sega <a href="http://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a> in BASIC and how the art has been re-used for an updated version; which has been re-written in XNA using C#/.NET.
+<br /><br />
+However, ultimate goal would be to re-write Candy Kid in <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C</a> / <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> assembler for the <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a>!
+<br /><br />
+The <a href="http://steveproxna.blogspot.co.uk/2014/11/z88dk-programming-and-sample.html">z88dk Programming Sample</a> demonstrates how to convert the original 16x16 pixel sprites to a format the Sega Master System (SMS) understands.  This includes the Palette, Tiles, Tilemap and the Sprite table.
+<br /><br />
+Create 16x16 source sprite (as above). Save source sprite as BMP (bitmap) file. Load image in MS Paint:
+<a href="http://1.bp.blogspot.com/-Xq3OVXBeP7o/VbEcfH9c8HI/AAAAAAAADNs/mB-FgO5fRF0/s1600/CKmsPaint1.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-Xq3OVXBeP7o/VbEcfH9c8HI/AAAAAAAADNs/mB-FgO5fRF0/s640/CKmsPaint1.jpg" width="98%" /></a>
+<br /><br />
+Note: sprite / tile data on the SMS must be max. 4bpp (bits per pixel). Save as type 16 Color Bitmap:
+<a href="http://1.bp.blogspot.com/-NT0bX-aqKW4/VbEclkk_G2I/AAAAAAAADN0/HMZOeKHlyNs/s1600/CKmsPaint2.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-NT0bX-aqKW4/VbEclkk_G2I/AAAAAAAADN0/HMZOeKHlyNs/s640/CKmsPaint2.jpg" width="98%" /></a>
+<br />
+<u>BMP2Tile</u>
+<br />
+Download and launch <a href="http://www.smspower.org/maxim/Software/BMP2Tile">BMP2Tile</a>.   Drag n' drop 16x16 pixel source sprite onto open "Source" tab.
+<br /><br />
+Choose "Tiles" tab.  Ensure that "Remove duplicates" and "Planar tile output" are both checked.
+<br />
+Set "Index of first tile" to 1.  It seems best practice to leave <i>empty</i> background tile at index 0.
+<a href="http://4.bp.blogspot.com/-AWIEZOixEuA/VbIMdzuwDQI/AAAAAAAADPE/UO0RpBB_MkY/s1600/01-Tiles.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-AWIEZOixEuA/VbIMdzuwDQI/AAAAAAAADPE/UO0RpBB_MkY/s640/01-Tiles.jpg" width="98%" /></a>
+<br /><br />
+Choose "Tilemap" tab.  Leave "Use sprite palette" and "In front of sprites" options unchecked.
+<a href="http://3.bp.blogspot.com/-UcZ3KhNyQF4/VG42AiSRmBI/AAAAAAAADHA/7b-ZBxdhslY/s1600/04-bmp2tile.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-UcZ3KhNyQF4/VG42AiSRmBI/AAAAAAAADHA/7b-ZBxdhslY/s640/04-bmp2tile.jpg" width="98%" /></a>
+<br /><br />
+Choose "Palette" tab.  Leave the "Output hex (SMS)" option checked for Sega Master System.
+<a href="http://2.bp.blogspot.com/-2S_QUhPAHfc/VG42S73YYcI/AAAAAAAADHI/XX2zCYe81h4/s1600/05-bmp2tile.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-2S_QUhPAHfc/VG42S73YYcI/AAAAAAAADHI/XX2zCYe81h4/s640/05-bmp2tile.jpg" width="98%" /></a>
+<br />
+Click Save button on "Tiles", "Tilemap", "Palette" tabs.  All data here is used in the game code.
+<br /><br />
+<u>Sample</u>
+<br />
+Finally, write small program similar to the Target Sprite program in <a href="http://steveproxna.blogspot.co.uk/2014/11/z88dk-programming-and-sample.html">z88dk Programming Sample</a> to test.
+<br />
+First, create new directory: C:\CandyKid. Next, add the following 3x files here: test.s, linkfile and test.c.
+<br /><br />
+<b>test.s</b>
+<pre class="csharp" name="code">
+.MEMORYMAP
+SLOTSIZE $8000
+DEFAULTSLOT 0
+SLOT 0 $0000
+SLOT 1 $8000
+.ENDME
+
+.ROMBANKMAP
+BANKSTOTAL 1
+BANKSIZE $8000
+BANKS 1
+.ENDRO
+
+.SDSCTAG 1.0, "Candy Kid", "Candy Kid sprite test", "StevePro Studios"
+
+.EMPTYFILL $C9                ;ret.
+.COMPUTESMSCHECKSUM           ;compute sms checksum for this rom.
+
+.BANK 0 SLOT 0
+.ORG 0
+
+.INCBIN "test.bin"
+</pre>
+<b>linkfile</b>
+<pre class="csharp" name="code">
+[objects]
+test.o
+</pre>
+Launch <a href="http://sourceforge.net/projects/emeraldeditor/files/crimsoneditor/crimson-editor-3.72-r286m">Crimson IDE</a>.  File | New file.  Save test.c.  Next, type in the following source code: test.c.
+<br /><br />
+<b>test.c</b>
+<pre class="csharp" name="code">
+#include &lt;sms.h&gt;
+
+unsigned char pal1[] = {0x00, 0x02, 0x08, 0x0A, 0x20, 0x22, 0x28, 0x2A, 0x3F, 0x03, 0x0C, 0x0F, 0x30, 0x33, 0x3C, 0x3F};
+unsigned char pal2[] = {0x00, 0x02, 0x08, 0x0A, 0x20, 0x22, 0x28, 0x2A, 0x3F, 0x03, 0x0C, 0x0F, 0x30, 0x33, 0x3C, 0x00};
+
+unsigned char all_tiles[] =
+{
+  // blank tile.
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 
+  // target sprite.
+  0x00, 0x03, 0x00, 0x03, 0x00, 0x0F, 0x00, 0x0F, 0x00, 0x1F, 0x00, 0x1F, 0x00, 0x3F, 0x00, 0x3F, 0x00, 0x33, 0x00, 0x33, 0x00, 0x61, 0x00, 0x6D, 0x00, 0x61, 0x00, 0x6D, 0x00, 0x73, 0x00, 0x73,
+  0x00, 0xC0, 0x00, 0xC0, 0x00, 0xF0, 0x00, 0xF0, 0x00, 0xF8, 0x00, 0xF8, 0x00, 0xFC, 0x00, 0xFC, 0x00, 0xCC, 0x00, 0xCC, 0x00, 0x86, 0x00, 0xB6, 0x00, 0x86, 0x00, 0xB6, 0x00, 0xCE, 0x00, 0xCE,
+  0x00, 0x7F, 0x00, 0x7F, 0x00, 0x33, 0x00, 0x3F, 0x00, 0x38, 0x00, 0x3F, 0x00, 0x1C, 0x00, 0x1F, 0x00, 0x8F, 0x00, 0x8F, 0x00, 0x53, 0x00, 0xD3, 0x00, 0xA0, 0x00, 0xE0, 0x00, 0x50, 0x00, 0x70,
+  0x00, 0xFE, 0x00, 0xFE, 0x00, 0xCC, 0x00, 0xFC, 0x00, 0x1C, 0x00, 0xFC, 0x00, 0x38, 0x00, 0xF8, 0x00, 0xF1, 0x00, 0xF1, 0x00, 0xCA, 0x00, 0xCB, 0x00, 0x05, 0x00, 0x07, 0x00, 0x0A, 0x00, 0x0E,
+};
+
+void setSprite(int x, int y)
+{
+  // priority, x, y, tile.
+  set_sprite(0, x+0, y+0, 1);
+  set_sprite(1, x+8, y+0, 2);
+  set_sprite(2, x+0, y+8, 3);
+  set_sprite(3, x+8, y+8, 4); 
+}
+
+void main()
+{
+  int x, y; 
+  set_vdp_reg(VDP_REG_FLAGS1, VDP_REG_FLAGS1_SCREEN);
+ 
+  // array, start, count, bpp.
+  load_tiles(all_tiles, 0, 5, 4);
+ 
+  // array, start, count.
+  load_palette(pal1,  0, 16);
+  load_palette(pal2, 16, 16);
+ 
+  x=120, y=88; 
+  for (;;)
+  {  
+    setSprite(x, y);
+  }
+}
+ 
+</pre>
+If you have C:\PerfomBuild.bat setup as per previous <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-and-programming-setup.html">post</a> then simply hit <b>Ctrl+1</b> hot key to run the test.
+<a href="http://3.bp.blogspot.com/-XL62GGjH-BU/VbISVy2bSAI/AAAAAAAADPs/mzZ-dx3BcUw/s1600/SegaMasterSystem.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-XL62GGjH-BU/VbISVy2bSAI/AAAAAAAADPs/mzZ-dx3BcUw/s640/SegaMasterSystem.jpg" width="98%" /></a>
+Outstanding: add remaining Candy Kid sprite graphics to program in order to complete SMS game code!
+</span>
