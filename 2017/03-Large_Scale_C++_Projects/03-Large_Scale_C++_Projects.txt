@@ -1,0 +1,288 @@
+<span style="font-family:verdana;font-size:85%;">
+C++ continues to be one of the preferred programming languages to develop professional applications and there is much information that documents C++ coding standards and how to write <a href="https://www.amazon.com/Effective-Specific-Improve-Programs-Designs/dp/0321334876">Effective C++</a>.
+<br /><br />
+However, it seems rare to find information that documents <b>how</b> to use the C++ language effectively;
+<br />
+That is: write C++ in such a way that minimizes cyclic, link and compile-time dependencies in C++.
+<br /><br />
+<u>Objective</u><br />
+The objective of this post is to gain insight into the design of large, high-quality C++ software systems:
+<br />
+Create highly maintainable + testable software that uses increasing number of classes and lines of code.
+<br /><br />
+<u>Reference</u><br />
+The majority of information here can be found in <a href="https://www.amazon.com/Large-Scale-Software-Design-John-Lakos/dp/0201633620">Large-Scale C++</a> Software Design book by John Lakos.
+<br /><br />
+Definitions<br />
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;Declaration</td>
+<td valign="top">&nbsp;Introduces a name into a program</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Definition</td>
+<td valign="top">&nbsp;Provides a unique description of an entity within a program</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Translation Unit</td>
+<td valign="top">&nbsp;Single implementation file that includes all header files</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Internal Linkage</td>
+<td valign="top">&nbsp;Name local to translation unit and cannot collide with identical name at link time</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;External Linkage</td>
+<td valign="top">&nbsp;In a multi-file program a name can interact with other translation units at link time</td>
+</tr>
+</table>
+<br />
+<u>Issues</u><br />
+Poorly written C++ is difficult to understand + maintain.  As programs get large the following issues occur:
+<br /><br />
+<u>Cyclic Dependencies</u><br />
+C++ components have tendency to get tangled up in each other which results in tightly physical coupling;
+<br />
+e.g. 2x components Rectangle and Window: Rectangle uses the Window and Window uses the Rectangle.
+<table width="99%" border="1">
+<tr>
+<td valign="top">
+<pre class="csharp" name="code">
+&nbsp;// rectangle.h
+&nbsp;#ifndef _INCLUDED_RECTANGLE
+&nbsp;#define _INCLUDED_RECTANGLE
+
+&nbsp;class Window;
+
+&nbsp;class Rectangle
+&nbsp;{
+&nbsp;public:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rectangle(const Window& w);
+&nbsp;};
+&nbsp;#endif//_INCLUDED_RECTANGLE
+</pre>
+</td>
+<td valign="top">
+<pre class="csharp" name="code">
+&nbsp;// window.h
+&nbsp;#ifndef _INCLUDED_WINDOW
+&nbsp;#define _INCLUDED_WINDOW
+
+&nbsp;class Rectangle;
+
+&nbsp;class Window
+&nbsp;{
+&nbsp;public:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Window(const Rectangle& r);
+&nbsp;};
+&nbsp;#endif//_INCLUDED_WINDOW
+</pre>
+</td>
+</tr>
+</table>
+Now, both objects in the system must know about each other and #include the other object's header file.
+<br />
+Therefore, it is now not possible to compile, link, test and use one component without the using other!
+<br /><br />
+<u>Excessive Link-Time</u><br />
+Cyclic dependencies make it necessary to link most dependent objects in order to test any of them at all.
+<br />
+Not only does this increase the executable size but can make the linking process unduly slow and painful!
+<br /><br />
+<u>Excessive Compile-Time</u><br />
+When developing C++ programs, changes to a single header file can sometimes cause many translation units to recompile.  Why? Because the unnecessary inclusion of one header file by another is a common source of excessive coupling in C++.
+<br /><br />
+Ignoring compile-time dependencies can cause translation units to unnecessarily include header files.
+<br />
+This results in excessive compile-time dependencies which can reduce compilation speeds to a crawl!
+<br /><br />
+<u>Poor Physical Design</u><br />
+This addresses design issues surrounding the physical entities of a system e.g. files, directories, libraries as well as organizational issues e.g. compile-time and link-time dependencies between physical entities.
+<br /><br />
+Good physical design implications often dictate the outcome of logical design decisions;
+<br />
+Therefore avoid logical design choices that would imply cyclic physical dependencies.
+<br /><br />
+<u>Testing Challenges</u><br />
+Complex, well-designed software systems are built from layered parts that should have been tested thoroughly in isolation, then within a sequence partial subsystems, and as a fully integrated product.
+<br /><br />
+Therefore, it must be possible to decompose the entire system into its single units of functionality.
+<br /><br />
+<u>Summary</u><br />
+Cyclic link-time dependencies among translation units can undermine understanding, testing, reusability.  Unnecessary or excessive compile-time dependencies increase compilation cost + destroy maintainability.
+<br /><br />
+Most C++ design books address only the <b>logical</b> design issues of project (classes, functions, inheritance).
+<br /> 
+However, quality of <b>physical</b> design often dictates improved outcome of many logical design decisions!
+<br /><br />
+<u>Techniques</u><br />
+Two important techniques are discussed to mitigate cyclic dependencies in C++:
+<table width="76%" border="1">
+<tr>
+<td valign="top">&nbsp;Levelization</td>
+<td valign="top">&nbsp;Techniques used to help reduce link-time dependencies</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Insulation</td>
+<td valign="top">&nbsp;Techniques used to minimize compile-time dependencies</td>
+</tr>
+</table>
+<br /><br />
+<b>Levelization</b><br />
+Levelization refers to the technique for reducing the link-time dependencies within a system.
+<br />
+Therefore, a system is levelizable when there are no cyclic dependencies, that is, <b>acyclic</b>.
+<br /><br />
+Link-time dependencies within a system establish the overall physical quality of a system;
+<br />
+e.g. understandability, maintainability, testability and reusability tied to a physical design.
+<br /><br />
+The following sections list techniques to help reduce link-time dependencies:
+<br /><br />
+<u>Escalation</u><br />
+Refer back to the original example of 2x mutually dependent objects: Rectangle and Window.
+<br />
+Move the cyclic functionality into a higher level component; a technique called escalation.
+<br /><br />
+If peer components are dependent then it may be possible to escalate interdependent functionality;
+<br />
+Each component becomes static members in a higher-level component that depends on the original.
+<table width="99%" border="1">
+<tr>
+<td valign="top">
+<pre class="csharp" name="code">
+&nbsp;// boxutil.h
+&nbsp;class Rectangle;
+&nbsp;class Window;
+ 
+&nbsp;class BoxUtil
+&nbsp;{
+&nbsp;public:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static Rectangle toRectangle(const Window& w);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static Window toWindow(const Rectangle& r);
+&nbsp;};
+</pre>
+</td>
+</tr>
+</table>
+<br />
+<u>Demotion</u><br />
+Move the common functionality to lower levels of the physical hierarchy; a technique called demotion.
+<br />
+The new lower-level component is shared upon each of which the original component(s) depends.
+<br /><br />
+<u>Opaque Pointers</u><br />
+In order to compile a function, the compiler needs to know the size and layout of the object it uses.
+<br />
+The compiler does this by #include the header file of the component containing the class definition.
+<br /><br />
+A function f uses a type T in size if compiling the body of f requires having first seen definition of T.
+<br />
+A function f uses a type T in name only if compiling f does not require having seen definition of T.
+<br /><br />
+A pointer is <b>opaque</b> if the type definition to which it points is not included in current translation unit.
+<br />
+This technique is sometimes referred to as the <i>Pointer to Implementation</i> idiom or the <b>Pimpl</b> idiom.
+<table width="99%" border="1">
+<tr>
+<td valign="top">
+<pre class="csharp" name="code">
+&nbsp;// handle.h
+&nbsp;class Foo;
+ 
+&nbsp;class Handle
+&nbsp;{
+&nbsp;public:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handle(Foo* foo) : p_opaque(foo) {}
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foo* get() const { return p_opaque; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void set(Foo* foo) { p_opaque = foo; }
+ 
+&nbsp;private:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foo* p_opaque;
+&nbsp;};
+</pre>
+</td>
+</tr>
+</table>
+<br />
+<u>Dumb Data</u><br />
+Any kind of information that an object holds but does not know how to interpret.
+<br />
+Such data must be used in the context of another object, at a higher level.
+<br /><br />
+E.g. rather than identifying objects by opaque pointer, we may use a short integer index instead.
+However, an indexed approach does sacrifice type safety when compared to opaque pointers.
+<br /><br />
+<u>Redundancy</u><br />
+This technique deliberately repeats code or data to avoid or remove unwanted physical dependencies.  
+<br />
+The additional coupling associated with some forms may outweigh the advantage gained from reuse.
+<br /><br />
+<u>Callbacks</u><br />
+A function supplied by a client to allow lower-level component to take advantage of higher-level context.
+Callbacks are useful in event-based programming to break dependencies between co-operating classes.
+<br /><br />
+However, when used inappropriately, callbacks can blur the responsibility of the lower-level objects.
+<br />
+This can result in unnecessary conceptual coupling that is difficult to understand, maintain + debug.
+<br /><br />
+<u>Factoring</u><br />
+Extracting pockets of cohesive functionality: move them where they can be independently tested and reused; General technique for reducing the burden imposed by cyclicly dependent classes. Factoring:
+<ul>
+<li>A system into smaller components: more flexible yet more complex pieces to work</li>
+<li>A concrete class into two classes containing higher and lower levels of functionality</li>
+<li>An abstract base class into 2x classes: pure interface and partial implementation</li>
+</ul>
+<br />
+<u>Escalating Encapsulation</u><br />
+A common misconception is that each component must encapsulate all implementation details.
+<br />
+Instead we can hide a number of useful low-level classes behind single component: <b>Wrapper</b>.
+<br />
+Note: <i>Wrapper is a component-based implementation of the Façade design pattern.</i>
+<br /><br />
+<u>Summary</u><br />
+By proactively engineering the system as a levelizable collection of components creates a hierarchy of modular abstractions that can be understood, tested, reused independently from the rest of the design.
+<br /><br />
+Techniques<br />
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;Escalation</td>
+<td valign="top">&nbsp;Move mutually dependent functionality higher in physical hierarchy</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Demotion</td>
+<td valign="top">&nbsp;Move mutually dependent functionality lower in physical hierarchy</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Opaque Pointers</td>
+<td valign="top">&nbsp;Having an object use another in name only [<b>Pimpl idiom</b>]</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Dumb Data</td>
+<td valign="top">&nbsp;Use data that indicates dependency on peer object in higher object context</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Redundancy</td>
+<td valign="top">&nbsp;Deliberately avoid reuse: repeat small amounts of code to avoid coupling</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Callbacks</td>
+<td valign="top">&nbsp;Client-supplied functions enable lower-level subsystems to perform tasks</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Factoring</td>
+<td valign="top">&nbsp;Move independent testable behaviour from implementation avoids coupling</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Escalating Encapsulation</td>
+<td valign="top">&nbsp;Implementation hidden from clients to higher level in physical hierarchy</td>
+</tr>
+</table>
+<br />
+<u>Conclusion</u><br />
+In conclusion, this post discussed Levelization techniques to help reduce link-time dependencies in Large Scale C++ Projects.  Next we will discuss Insulation techniques to help reduce compile-time dependencies.
+<br /><br />
+This will be the topic in the next <a href="http://steveproxna.blogspot.ie/2017/03/large-scale-cpp-projects-ii.html">post</a>.
+</span>

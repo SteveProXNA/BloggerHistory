@@ -1,0 +1,46 @@
+<span style="font-family:verdana;font-size:85%;">
+Last year, I conducted a simple <a href="http://steveproxna.blogspot.co.uk/2016/01/retrospective-vii.html">retrospective</a> for 2015. Therefore, here is a retrospective for 2016.
+<br /><br />
+<u>2016 Achievements</u>
+<br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>Complete first Sega Master System video game <a href="http://steveproxna.blogspot.co.uk/2016/03/3dcity-code-complete.html">3D City</a> using C/Z80 assembler</li>
+<li>Enter <a href="http://www.smspower.org/Homebrew/3DCity-SMS?sid=3e15f111bdc561cec5779b5bd3e9901b">3D City</a> into Sega Master System annual coding competition for this year</li>
+<li>Complete Retro Candy Kid blog topics such as <a href="http://steveproxna.blogspot.co.uk/2016/09/candy-kid-press-release.html">Press Release</a> and WiX <a href="https://github.com/SteveProXNA/CandyKidInstaller">Installer</a></li>
+<li>Integrate <a href="http://steveproxna.blogspot.co.uk/2016/11/unity3d-and-ipv6-networking.html">IPv6-only Networking</a> into Unity3D code base using the Lidgren API</li>
+<li>Document <a href="http://steveproxna.blogspot.co.uk/2016/06/svn-externals-application.html">SVN Externals</a> to scale out single game code library across clients</li>
+<li>Create repositories on <a href="https://github.com/SteveProXNA">GitHub</a> and publish source code from various projects</li>
+<li>Scale <a href="https://github.com/SteveProXNA/PushNotifications">Push Notifications</a> application across iOS / Android improved efficiency</li>
+<li>Transition existing C++ OpenGL <a href="http://nehe.gamedev.net">tutorial</a> studies to new <a href="https://vulkan-tutorial.com">Vulkan</a> graphics API</li>
+</ul>
+Note: <a href="http://retrogamingmagazine.com/2016/07/03/3d-city-rails-based-shooter-sega-master-system-work-progress">reviewed</a> game project in C / Z80 assembler for Sega Master System is an achievement!
+</td>
+</tr>
+</table>
+<br />
+<u>2017 Objectives</u>
+<br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>Complete another Sega Master System video game that can run on real hardware</li>
+<li>Integrate Git <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Submodules</a> similar to SVN Externals to scale out code across clients</li>
+<li>Evaluate monetization plugins for MonoGame / XNA game projects e.g. <a href="https://en.wikipedia.org/wiki/Microtransaction">Purchases</a></li>
+<li>Check out opportunity to incorporate <a href="https://en.wikipedia.org/wiki/Virtual_reality">Virtual Reality</a> in Unity3D game engine code</li>
+</ul>
+</td>
+</tr>
+</table>
+<br />
+2016, as every Virtual Reality evangelist will tell you, was the <a href="http://www.vrs.org.uk/news/2016-the-year-of-vr">year</a> of VR.  Game Engines such as Unity5 attempt to ease development transition to VR by adding <i>Virtual Reality Supported</i> checkbox to Settings.  However, repairing breakages from Unity4 to Unity5 game project upgrade is often challenging enough.
+<br /><br />
+<u>Homebrew</u><br />
+Outside commercial game development, homebrew projects continue to be very popular: SMS Power hosted its annual Sega Master System coding <a href="http://www.smspower.org/Competitions/Coding-2016">competition</a> and attracted more than two dozen entries.
+<br /><br />
+This provided great opportunity to complete first Sega Master System video game 3D City using <a href="https://en.wikipedia.org/wiki/Z88DK">z88dk</a>.  Unfortunately, the game runs only in <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/404-kega-fusion">emulator</a>.  R+D has begun to ensure games run on real hardware.
+<br /><br />
+<u>Summary</u><br />
+Another busy year coding from Z80 assembler to C/C++ to C#/.NET certainly does keep life interesting!
+</span>

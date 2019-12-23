@@ -1,0 +1,142 @@
+<span style="font-family:verdana;font-size:85%;">
+In 2013, we checked out Sega <a href="http://steveproxna.blogspot.co.uk/2013/06/sega-retro-gaming.html">Retro Gaming</a> to mark the 30 year anniversary [July 1983] launch of the Sega <a href="https://en.wikipedia.org/wiki/SG-1000">SG-1000</a> and <a href="https://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a>.  We also checked out the Sega <a href="https://en.wikipedia.org/wiki/Master_System">Master System</a> as these were the last ever 8-bit video game consoles manufactured by Sega built using the Z80 chip.
+<br /><br />
+Here, we installed an <a href="http://www.emutopia.com/index.php/downloads-emulators/category-items/3-downloads-emulators/298-sega-sg-1000-sc-3000">emulator</a> on a modern-day computer and downloaded <a href="https://en.wikipedia.org/wiki/ROM_image">ROMs</a> in order to play some classic Sega retro games.  Now we would like to play these game on real hardware via <a href="http://www.stoneagegamer.com/master-everdrive-deluxe.html">Master Everdrive</a>.
+<a href="https://4.bp.blogspot.com/-XN7IxgUwVh0/WK2uwyiVPlI/AAAAAAAAD60/aVsmVAFKlrI6_9G6t1EzgVObu6fxvSBGwCLcB/s1600/MasterEverdrive.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-XN7IxgUwVh0/WK2uwyiVPlI/AAAAAAAAD60/aVsmVAFKlrI6_9G6t1EzgVObu6fxvSBGwCLcB/s640/MasterEverdrive.jpg" width="98%" height="350" /></a>
+<br />
+Let’s check it out! 
+<br /><br />
+<u>Description</u><br />
+The <a href="http://www.retrocollect.com/News/sega-master-system-flash-card-master-everdrive-now-">Master Everdrive</a> is a multi-cart for the Sega Master System which loads ROMs in the console itself:  Store ROM files on SD card.  Plug SD card into Everdrive and load Everdrive into Master System cart slot.
+<br /><br />
+<u>Features</u><br />
+The Master Everdrive Printed Circuit Board (<a href="https://en.wikipedia.org/wiki/Printed_circuit_board">PCB</a>) is built by <a href="https://twitter.com/krikzz">@krikzz</a> and contains the following <a href="http://krikzz.com">features</a>:
+<ul>
+<li>FRAM for game saves (no battery required)</li>
+<li>Max supported ROM size is 8Mbit (1Mbyte)</li>
+<li>SMS and SG-1000 games are supported</li>
+<li>Save RAM data can be stored or loaded from the SD card</li>
+<li>Cartridge used on Game Gear via Master Gear Converter</li>
+<li>Codemasters and Sega mappers are supported</li>
+<li>SD/SDHC cards supported up to 32GB</li>
+<li>FAT16 and FAT32 support</li>
+</ul>
+Therefore, the Everdrive allows entire library of SG-1000 + Master System games on a single cartridge!  Note: valid binary files should have extension <b>*.sg</b> [SG-1000] <b>*.sc</b> [SC-3000] <b>*.sms</b> [Master System]
+<br /><br />
+<u>Requirements</u><br />
+Purchase the following equipment in order to play classic 8-bit Sega retro video games on real hardware:
+<ol>
+<li>Sega Master System</li>
+<li>Master Everdrive</li>
+<li>SD card [storage]</li>
+<li>USB SD card reader</li>
+<li>CRT TV [optional]</li>
+</ol>
+<br />
+1. <b>Sega Master System</b><br />
+<a href="https://4.bp.blogspot.com/-ndbLsrJp9Rw/UdRswSAN8rI/AAAAAAAACQ4/YNF0VLLTKWQ/s400/Sega-Master-System.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-ndbLsrJp9Rw/UdRswSAN8rI/AAAAAAAACQ4/YNF0VLLTKWQ/s400/Sega-Master-System.jpg" width="98%" /></a>
+<table width="98%" border="1">
+<tr>
+<td valign="top">&nbsp;Amazon</td>
+<td valign="top">&nbsp;<a href="https://www.amazon.com/Sega-Master-System-Video-Game-Console/dp/B000A7FEOU">Sega Master System 1</a>
+</tr>
+<tr>
+<td valign="top">&nbsp;The Rage</td>
+<td valign="top">&nbsp;<a href="https://therage.ie/pages/shop-sega">Shop Sega [incl. SMS]</a>
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;eBay</td>
+<td valign="top">&nbsp;<a href="http://www.ebay.co.uk/itm/SEGA-Master-System-Original-Games-Console-FREE-POST-TESTED-x3-games-Sonic-/152352582989?hash=item2378ebed4d%3Ag%3AbJ8AAOSw4GVYTcp~">SEGA Master System Original</a>
+</td>
+</tr>
+</table>
+<br />
+2. <b>Master Everdrive</b><br />
+<table width="98%" border="1">
+<tr>
+<td valign="top">&nbsp;Stone Age Gamer</td>
+<td valign="top">&nbsp;<a href="http://www.stoneagegamer.com/master-everdrive-deluxe.html">Master Everdrive (Deluxe Edition)</a>
+</tr>
+<tr>
+<td valign="top">&nbsp;Retro Towers</td>
+<td valign="top">&nbsp;<a href="http://www.retrotowers.co.uk/everdrives/master-everdrive-cartridge-shell">Master Everdrive (Cartridge Form) With Shell</a>
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;eBay</td>
+<td valign="top">&nbsp;<a href="http://www.ebay.co.uk/itm/Everdrive-Sega-Master-System-Carcasa-Nuevo-PRECINTADO-/121965791692">Everdrive Sega Master System + Carcasa</a>
+</td>
+</tr>
+</table>
+<br />
+3. <b>SD card</b><br />
+If / when you buy a Master Everdrive from <a href="http://www.stoneagegamer.com/master-everdrive-deluxe.html">Stone Age Gamer</a> there is an option to include <a href="http://www.maplin.co.uk/p/2gb-sd-memory-card-a38fx">2GB SD card</a>.
+<br /><br />
+4. <b>SD card reader</b><br />
+Some computers do not have an SD drive therefore is may be necessary to buy a <a href="http://www.maplin.ie/p/usb-30-card-reader-n29ee">USB SD card reader</a>.
+<br /><br />
+5. <b>CRT Television</b><br />
+Optional extra however a <a href="https://en.wikipedia.org/wiki/Technology_of_television#Display_technology">CRT Television</a> would be necessary to play Light Phaser games like <a href="http://www.get-your-rom.com/sms-sega-master-system-roms/rambo-iii-download">Rambo III</a>.
+<br /><br />
+<u>Instructions</u><br />
+Here are some You Tube videos on the Master Everdrive beginning with this cool <a href="https://www.youtube.com/watch?v=Af8Lm3sKNgM">Cart Review</a> "tutorial":
+<table width="97%" border="1">
+<tr>
+<td valign="top">&nbsp;You Tube</td>
+<td valign="top">&nbsp;<a href="https://www.youtube.com/watch?v=ot_G-gaYIT8">Fantastic Flashcarts</a>
+</tr>
+<tr>
+<td valign="top">&nbsp;You Tube</td>
+<td valign="top">&nbsp;<a href="https://www.youtube.com/watch?v=SoZJE4P5gAo">SMS Flashcart Demo</a>
+</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;You Tube</td>
+<td valign="top">&nbsp;<a href="https://www.youtube.com/watch?v=lw5NXK8rFTU">Master Everdrive Opening</a>
+</td>
+</tr>
+</table>
+<br />
+<u>Homebrew</u><br />
+Finally, we would like to play many of the SG-1000 + Master System Homebrew games available on real hardware via the Master Everdrive!  Checkout <a href="http://www.smspower.org">SMS Power</a> web site especially <a href="http://www.smspower.org/Homebrew">Homebrew</a> + <a href="http://www.smspower.org/Competitions">Competitions</a>.
+<br /><br />
+Choices to build your own 8-bit Sega Homebrew games generally result in 2x options: writing game code in pure Z80 assembly or writing game code in C and using <a href="https://en.wikipedia.org/wiki/Cross_compiler">cross compiler</a> to generate the binary output.
+References: <a href="http://steveproxna.blogspot.co.uk/2013/09/sega-console-programming.html">Sega Console Programming</a> or <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-and-programming-setup.html">z88dk Programming Setup</a> or <a href="http://steveproxna.blogspot.co.uk/2014/11/z88dk-programming-and-sample.html">z88dk Programming Sample</a>
+<br /><br />
+Either way, it is imperative there are enough clock cycles, i.e. at least 26 clock cycles,  between two Video RAM (<a href="https://en.wikipedia.org/wiki/Video_RAM_(dual-ported_DRAM)">VRAM</a>) writes when in the active phase.  Otherwise VRAM <a href="http://www.smspower.org/forums/15989-CodingCompetition2016SchlangeCVByPkK">corruption</a> will occur as graphics glitches!
+<a href="https://1.bp.blogspot.com/-jvNASH8OcGI/WLRSSkRGp_I/AAAAAAAAD7k/abZp8DLaMcQIbAPNIdvqaqTVJRGmJNTRQCLcB/s1600/Glitch.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-jvNASH8OcGI/WLRSSkRGp_I/AAAAAAAAD7k/abZp8DLaMcQIbAPNIdvqaqTVJRGmJNTRQCLcB/s640/Glitch.jpg" width="98%" height="400" /></a>
+<br /><br />
+<u>Emulation</u><br />
+Emulate graphics on real hardware to check for potential glitches in the Visual Display Processor (<a href="http://computer.wikia.com/wiki/Texas_Instruments_TMS9918">VDP</a>).  <a href="http://emulicious.net/downloads">Download</a> Emulicious emulator.  Setup Options | Emulation | Master System | Emulate VDP constraints.
+<a href="https://4.bp.blogspot.com/-DHriYmnfj8E/WLRciA7pZFI/AAAAAAAAD8I/dhbGzT0ijAkW0hzcYCPQYlr3uUL3CW8gACLcB/s1600/VDPconstaints.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-DHriYmnfj8E/WLRciA7pZFI/AAAAAAAAD8I/dhbGzT0ijAkW0hzcYCPQYlr3uUL3CW8gACLcB/s640/VDPconstaints.jpg" width="98%" height="471" /></a>
+<br /><br />
+<u>Example</u><br />
+Download and extract "<a href="http://www.smspower.org/maxim/uploads/HowToProgram/helloworld.zip">Hello World</a>".  Launch <a href="http://www.contexteditor.org/downloads">ConTEXT</a> editor, choose File menu, Open, "Hello World.asm"
+<a href="https://2.bp.blogspot.com/-NamCPHKA8pc/UnPjcrw77_I/AAAAAAAACg0/8EMZX0Gegbc/s1600/HelloWorld.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-NamCPHKA8pc/UnPjcrw77_I/AAAAAAAACg0/8EMZX0Gegbc/s1600/HelloWorld.jpg" width="98%" /></a>
+Follow <a href="http://steveproxna.blogspot.co.uk/2013/09/sega-console-programming.html">Sega Console Programming</a> to setup ConTEXT <b>F9</b>, <b>F10</b>, and <b>F11</b>, keys.  Now setup the <b>F12</b> key:
+<br /><br />
+<b>F12</b> - Emulicious
+<a href="https://4.bp.blogspot.com/--dw9GfJYfqc/WLRasD8zXGI/AAAAAAAAD8A/LJU7ICESuVA1wyIEmbMiy46dRXRD-TlbACLcB/s1600/F12.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/--dw9GfJYfqc/WLRasD8zXGI/AAAAAAAAD8A/LJU7ICESuVA1wyIEmbMiy46dRXRD-TlbACLcB/s640/F12.jpg" width="98%" /></a>
+Execute: <b>Emulicious.bat</b>
+<br />
+Parameters: <b>"%poutput.sms"</b>
+<br />
+Start in: <b>C:\PathTo\Emulicious-with-Java</b>
+<br /><br />
+Press <b>F9</b> to compile and link "Hello World.asm".  This generates the "<b>output.sms</b>" binary file. 
+<br />
+Press <b>F12</b> to run Hello World in Emulicious emulator [Emulate VDP constraints real hardware]
+<a href="https://1.bp.blogspot.com/-veb5Zw_xDrI/WLcQ09fEpZI/AAAAAAAAD8c/-WXn0IFqbM0jT4wozPDH8PhG6YB97S9sgCLcB/s1600/HelloWorldEmulicious.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-veb5Zw_xDrI/WLcQ09fEpZI/AAAAAAAAD8c/-WXn0IFqbM0jT4wozPDH8PhG6YB97S9sgCLcB/s640/HelloWorldEmulicious.jpg" width="98%" /></a>
+<br /><br />
+<u>Summary</u><br />
+To summarize, the Master Everdrive is a great way to play classic Sega retro games on real hardware.
+<br />
+It also makes it possible to play many of the <a href="http://www.smspower.org/Homebrew">Homebrew</a> games available on the Sega Master System.
+<br /><br />
+In 2014, we checked out <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-and-programming-setup.html">z88dk</a> as a way to write our own Homebrew game code in <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C language</a> as an alternative to pure Z80 assembly.  This is how <a href="http://steveproxna.blogspot.co.uk/2016/03/3dcity-code-complete.html">3D City</a> and other SMS homebrew games were built.  
+<br /><br />
+Unfortunately, it seems that the z88dk does not allow for enough clock cycles between multiple VRAM writes, which results in graphics glitches!  The <a href="https://github.com/sverx/devkitSMS">devkitSMS</a>, however, does not seem to have this issue <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>
+<br /><br />
+This will be the topic in the next post.
+</span>
