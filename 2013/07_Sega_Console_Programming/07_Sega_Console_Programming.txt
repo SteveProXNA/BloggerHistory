@@ -1,0 +1,200 @@
+<span style="font-family:verdana;font-size:85%;">
+In the previous <a href="http://steveproxna.blogspot.ie/2013/08/sega-assembly-programming.html">post</a>, we checked out Sega Assembly Programming to generate machine code routines that target Sega hardware; specifically Sega <a href="http://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a>: an 8-bit home computer based on the <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> chip.
+<br /><br />
+As an example, we wrote the main loop of a simple "Shoot 'em up" game that simply moves a target sprite around the screen based on user input; preferably the joystick.
+<br /><br />
+However, all assembly programming and machine code written thus far require a <a href="http://en.wikipedia.org/wiki/BASIC">BASIC</a> program driver; Cartridge-based video games built for 8-bit <a href="http://steveproxna.blogspot.ie/2013/06/sega-retro-gaming.html">Sega Retro Gaming</a> consoles were written in pure assembly!
+<br /><br />
+In this post, we will focus on the <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a> which was the last ever 8-bit video game console manufactured by Sega built using the Z80 chip.  Techniques here also apply to the <a href="http://en.wikipedia.org/wiki/SG-1000">SG-1000</a>, however.
+<a href="http://4.bp.blogspot.com/-ndbLsrJp9Rw/UdRswSAN8rI/AAAAAAAACQ4/YNF0VLLTKWQ/s400/Sega-Master-System.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-ndbLsrJp9Rw/UdRswSAN8rI/AAAAAAAACQ4/YNF0VLLTKWQ/s400/Sega-Master-System.jpg" width="98%" /></a>
+<br />
+<u>Setup</u>
+<br />
+Follow all instructions from <a href="http://www.smspower.org/maxim/HowToProgram/Lesson1">Maxim's World of Stuff</a>: this documents how to setup the dev environment.
+<br />
+<a href="http://www.smspower.org/maxim/HowToProgram/DownloadingStuff">Download</a> and <a href="http://www.smspower.org/maxim/HowToProgram/SettingItUp">configure</a> the following software:
+<br /><br />
+<b>Text Editor</b>
+<br />
+Download and install <a href="http://www.contexteditor.org/downloads">ConTEXT</a>.  Download the syntax highlighter <a href="http://www.smspower.org/maxim/uploads/HowToProgram/contextwlaz80highlighter.zip">file</a>.  Save to the <b>Highlighters</b> folder.
+<br /><br />
+<b>Assembler</b>
+<br />
+Recommended is the <a href="http://www.villehelin.com/wla.html">WLA DX</a> assembler.  Download the compiled <a href="http://www.smspower.org/maxim/uploads/HowToProgram/wlaz80win32.zip">binaries</a> and extract.
+<br />
+Remember where you extract the contents as unzipped Compile.bat file is used below.
+<br /><br />
+<b>Emulators</b>
+<br />
+If you've been following the <a href="http://steveproxna.blogspot.ie/2013/06/sega-retro-gaming.html">Sega Retro Gaming</a> series then you will have Fusion and Meka installed:
+<br />
+- <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/404-kega-fusion">Fusion</a>: popular emulator used to play Sega retro games.  Download <a href="http://www.emutopia.com/index.php?option=com_cobalt&task=files.download&no_html=1&id=3537&fid=20&fidx=2&rid=404&return=aHR0cDovL3d3dy5lbXV0b3BpYS5jb20vaW5kZXgucGhwL2Rvd25sb2Fkcy1lbXVsYXRvcnMvaXRlbS8yOTgtc2VnYS1zZy0xMDAwLXNjLTMwMDAvNDA0LWtlZ2EtZnVzaW9u">Fusion364.zip</a> and extract.
+<br />
+- <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/239-meka">Meka</a>: emulator with some excellent debugging features.  Download <a href="http://www.emutopia.com/index.php?option=com_cobalt&task=files.download&no_html=1&id=1912&fid=20&fidx=3&rid=239&return=aHR0cDovL3d3dy5lbXV0b3BpYS5jb20vaW5kZXgucGhwL2Rvd25sb2Fkcy1lbXVsYXRvcnMvaXRlbS8yOTgtc2VnYS1zZy0xMDAwLXNjLTMwMDAvMjM5LW1la2E%3D">mekaw073.zip</a> and extract.
+<br /><br />
+<b>Documentation</b>
+<br />
+Includes: Sega Master System documents (<a href="http://cgfm2.emuviews.com/sms.php">SMS docs</a>), Z80 User <a href="http://www.smspower.org/maxim/uploads/HowToProgram/z80cpu_um.zip">Manual</a> and WLA DX <a href="http://www.villehelin.com/wla.txt">Manual</a>.
+<br /><br />
+<u>Hello World</u>
+<br />
+Download and extract the obligatory "<a href="http://www.smspower.org/maxim/uploads/HowToProgram/helloworld.zip">Hello World</a>":
+<br />
+Launch ConTEXT, that is, double click ConTEXT.exe.
+<a href="http://2.bp.blogspot.com/-xNNKjcTRyGk/UnPjUZi5utI/AAAAAAAACgs/d6Vt747D0BI/s1600/ConTEXT.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-xNNKjcTRyGk/UnPjUZi5utI/AAAAAAAACgs/d6Vt747D0BI/s1600/ConTEXT.jpg" width="98%" /></a>
+Setup ConTEXT to compile, link and run assembler (.asm) files:
+<br />
+Options menu, Environment Options, Execute Keys, click "Add".
+<br /><br />
+<b>F9</b> - Compile
+<a href="http://2.bp.blogspot.com/-ZJXMF_cNlfo/UnPYnes-hWI/AAAAAAAACgA/34f6IyHUE8Q/s1600/F9.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-ZJXMF_cNlfo/UnPYnes-hWI/AAAAAAAACgA/34f6IyHUE8Q/s1600/F9.jpg" width="98%" /></a>
+Execute: <b>C:\PathToCompile.bat</b>
+<br />
+Start in: <b>%p</b>
+&nbsp;&nbsp;&nbsp;&nbsp;
+Parameters: <b>%n</b>
+<br />
+Check "Capture console output" box
+<br />
+Check "Scroll console to the last line"
+<br />
+Compile output parser rule: <b>*:%n:%l: *</b>
+<br /><br />
+<b>F10</b> - Fusion
+<a href="http://1.bp.blogspot.com/-gVNWbrl83UM/UnPbEIJhSpI/AAAAAAAACgM/KVMX-Dp9J9s/s1600/F10.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-gVNWbrl83UM/UnPbEIJhSpI/AAAAAAAACgM/KVMX-Dp9J9s/s1600/F10.jpg" width="98%" /></a>
+Execute: <b>Fusion.exe</b>
+<br />
+Parameters: <b>"%poutput.sms"</b>
+<br />
+Start in: <b>C:\PathTo\Fusion364</b>
+<br /><br />
+<b>F11</b> - Meka
+<a href="http://1.bp.blogspot.com/-qDK35SBGNZA/UnPbORnmdFI/AAAAAAAACgU/BIGktHnZhNU/s1600/F11.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-qDK35SBGNZA/UnPbORnmdFI/AAAAAAAACgU/BIGktHnZhNU/s1600/F11.jpg" width="98%" /></a>
+Execute: <b>mekaw.exe</b>
+<br />
+Parameters: <b>"%poutput.sms"</b>
+<br />
+Start in: <b>C:\PathTo\mekaw073</b>
+<br /><br />
+<u>ConTEXT</u>
+<br />
+In ConTEXT, choose File menu, Open, "<b>Hello World.asm</b>":
+<a href="http://2.bp.blogspot.com/-NamCPHKA8pc/UnPjcrw77_I/AAAAAAAACg0/8EMZX0Gegbc/s1600/HelloWorld.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-NamCPHKA8pc/UnPjcrw77_I/AAAAAAAACg0/8EMZX0Gegbc/s1600/HelloWorld.jpg" width="98%" /></a>
+<br />
+Press <b>F9</b> to compile and link "Hello World.asm".
+<br />
+This generates the "<b>output.sms</b>" binary file.
+<br /><br />
+Press <b>F10</b> to run Hello World in the Fusion emulator:
+<a href="http://4.bp.blogspot.com/-xD2X6mFdVfU/UnPlWS1UBLI/AAAAAAAAChA/L1ydlYCGwVY/s1600/HelloWorldFusion.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-xD2X6mFdVfU/UnPlWS1UBLI/AAAAAAAAChA/L1ydlYCGwVY/s1600/HelloWorldFusion.jpg" width="98%" /></a>
+<br /><br />
+Press <b>F11</b> to run Hello World in the Meka emulator:
+<br />
+Note: type "C" in the <a href="http://steveproxna.blogspot.ie/2013/07/sega-machine-code-programming.html">debugger</a> to continue program.
+<a href="http://3.bp.blogspot.com/-HdUy59AjCzw/UnPperwY5dI/AAAAAAAAChM/3m8sgh0oSv0/s1600/HelloWorldMeka.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-HdUy59AjCzw/UnPperwY5dI/AAAAAAAAChM/3m8sgh0oSv0/s1600/HelloWorldMeka.jpg" width="98%" /></a>
+<br /><br />
+<b>Disassembler</b>
+<br />
+Recommended is the <a href="http://www.smspower.org/Development/SMSExamine">SMS Examine</a> disassembler.  Download <a href="http://www.smspower.org/uploads/Development/smsexamine1_2a.zip">smsexamine1_2a.zip</a> and extract.
+<br />
+Note: output is recompilable by WLA DX; thus perfect to reverse engineer binary output files.
+<br /><br />
+Disassemble the compiled binary file <b>output.sms</b> that was generated from above.
+<br />
+Create directory "HelloWorld".  Copy: Opcodes.dat, output.sms, smsexamine.exe:
+<a href="http://1.bp.blogspot.com/-T5ziYTZmIF4/UnUc1aQOeAI/AAAAAAAAChk/meIanKbAmkA/s1600/HelloWorldFolder.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-T5ziYTZmIF4/UnUc1aQOeAI/AAAAAAAAChk/meIanKbAmkA/s1600/HelloWorldFolder.jpg" width="98%" /></a>
+Start, Run, cmd.  cd C:\PathTo\HelloWorld.  Type: <b>smsexamine.exe output.sms</b>
+<br />
+This action will generate <b>output.sms.asm</b> and any corresponding data files.
+<a href="http://2.bp.blogspot.com/-WPWgbp84bkM/UnUeBP19GRI/AAAAAAAACh4/r5TfVWJ5tdM/s1600/HelloWorldCMD.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-WPWgbp84bkM/UnUeBP19GRI/AAAAAAAACh4/r5TfVWJ5tdM/s1600/HelloWorldCMD.jpg" width="98%" /></a>
+Note: output.sms.asm file here is the same as the HelloWorld.asm file above.
+<br /><br />
+<u>Retro Games</u>
+<br />
+Armed with this knowledge, we are now able to disassemble the same <a href="http://steveproxna.blogspot.ie/2013/06/sega-retro-gaming.html">retro games</a> we played earlier!
+<br />
+Not only that but we are able to re-assemble the disassembled output and debug through the code:
+<br /><br />
+For example, let's debug through Monaco GP.  Download <a href="http://www.get-your-rom.com/download/sg1k/monaco-gp-rom/japanrev2">Monaco GP (Japan) (Rev 2).zip</a> and extract.
+<br />
+Create directory "MonacoGP".  Copy: "Monaco GP (Japan) (Rev 2).sg", Opcodes.dat, smsexamine.exe.
+<a href="http://2.bp.blogspot.com/-pZCqwgn9iq8/UnUhgLRkn5I/AAAAAAAACiE/3Z3cK__7DE4/s1600/MonacoGPfolder.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-pZCqwgn9iq8/UnUhgLRkn5I/AAAAAAAACiE/3Z3cK__7DE4/s1600/MonacoGPfolder.jpg" width="98%" /></a>
+Start, Run, cmd.  cd C:\PathTo\MonacoGP.  Type: smsexamine.exe "Monaco GP (Japan) (Rev 2).sg"
+<br />
+This action will generate "<b>Monaco GP (Japan) (Rev 2).sg.asm</b>" and any corresponding data files.
+<a href="http://1.bp.blogspot.com/-T_Mjz0R5dU8/UnUhyie5hLI/AAAAAAAACiM/F3ZYQ7B2Vwk/s1600/MonacoGPcmd.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-T_Mjz0R5dU8/UnUhyie5hLI/AAAAAAAACiM/F3ZYQ7B2Vwk/s1600/MonacoGPcmd.jpg" width="98%" /></a>
+<br /><br />
+Launch ConTEXT.  Choose File menu, Open, "<b>Monaco GP (Japan) (Rev 2).sg.asm</b>":
+<a href="http://4.bp.blogspot.com/-frqQZEd6hiU/UnUkZgLwcpI/AAAAAAAACiY/jP9bj86rmi8/s1600/MonacoGP.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-frqQZEd6hiU/UnUkZgLwcpI/AAAAAAAACiY/jP9bj86rmi8/s1600/MonacoGP.jpg" width="98%" /></a>
+Press <b>F9</b> to compile and link "Monaco GP (Japan) (Rev 2).sg.asm".
+<br />
+This generates the "<b>output.sms</b>" binary file.
+<br /><br />
+Press <b>F10</b> to run Monaco GP in the Fusion emulator:
+<a href="http://1.bp.blogspot.com/-zkveQcQDfs4/UnUnJGYDwWI/AAAAAAAACis/SB65hPyt_sM/s1600/MonacoGPfusion.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-zkveQcQDfs4/UnUnJGYDwWI/AAAAAAAACis/SB65hPyt_sM/s1600/MonacoGPfusion.jpg"  width="98%" /></a>
+<br /><br />
+Press <b>F11</b> to run Monaco GP in the Meka emulator:
+<a href="http://1.bp.blogspot.com/-Xf6ndfViOWs/UnUm9P-IEfI/AAAAAAAACik/WXSEAPTyWCg/s1600/MonacoGPmeka.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-Xf6ndfViOWs/UnUm9P-IEfI/AAAAAAAACik/WXSEAPTyWCg/s1600/MonacoGPmeka.jpg" width="98%" /></a>
+<br /><br />
+Note: in Meka we are able to <a href="http://steveproxna.blogspot.ie/2013/07/sega-machine-code-programming.html">debug</a> through the Monaco GP source assembly code:
+<a href="http://3.bp.blogspot.com/-6VlsOeGDvdo/UnUs_2dOkbI/AAAAAAAACjM/a4sh9LqyVkA/s1600/MonacoGPmekaDebug.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-6VlsOeGDvdo/UnUs_2dOkbI/AAAAAAAACjM/a4sh9LqyVkA/s1600/MonacoGPmekaDebug.jpg" width="98%" /></a>
+<br /><br />
+Compare machine code in the debugger with the raw binary output file: "Monaco GP (Japan) (Rev 2).sg"
+<a href="http://4.bp.blogspot.com/-0sSoH2a-t70/UnaanSDOpfI/AAAAAAAACjk/cMgSmbsrvDc/s1600/MonacoGPbin.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-0sSoH2a-t70/UnaanSDOpfI/AAAAAAAACjk/cMgSmbsrvDc/s1600/MonacoGPbin.jpg" width="98%" /></a>
+<br /><br />
+<u>Classic Games</u>
+<br />
+Repeat the process above to disassemble more classic 8-bit Sega retro games: 
+<br />
+<table width="100%">
+<tr>
+<td valign="top"><b>Year</b>
+</br>1983</br>1984</br>1986</br>1987</br>1987</br>1987</br>1989
+</td>
+<td valign="top"><b>Game</b>
+</br><a href="http://www.get-your-rom.com/download/sg1k/congo-bongo-rom/japaneurope">Congo Bongo</a>
+</br><a href="http://www.get-your-rom.com/download/sg1k/flicky-rom/japan">Flicky</a>
+</br><a href="http://www.get-your-rom.com/download/sg1k/castle-the-rom/japan">The Castle</a>
+</br><a href="http://www.get-your-rom.com/download/sms/after-burner-rom/ue">After Burner</a>
+</br><a href="http://www.get-your-rom.com/download/sms/shinobi-rom/ue">Shinobi</a>
+</br><a href="http://www.get-your-rom.com/download/sms/wonder-boy-rom/bue">Wonderboy</a>
+</br><a href="http://www.get-your-rom.com/download/sms/golden-axe-rom/ue">Golden Axe</a>
+</td>
+<td valign="top"><b>Size</b>
+</br>24 KB</br>32 KB</br>32 KB</br>512 KB</br>256 KB</br>128 KB</br>512 KB
+</td>
+<td valign="top"><b>Console</b>
+</br>SG-1000 / SC-3000</br>SG-1000 / SC-3000</br>SG-1000 / SC-3000
+</br>Sega Master System</br>Sega Master System</br>Sega Master System</br>Sega Master System
+</td>
+</tr>
+</table>
+<br />
+<u>Homebrew Games</u>
+<br />
+<a href="http://en.wikipedia.org/wiki/Homebrew_(video_games)">Homebrew</a> games include any video game built for a games console by an independent game developer under no official company contract; although some consoles are harder to program for than others.
+<br /><br />
+Note: <a href="http://en.wikipedia.org/wiki/Homebrew_(video_games)#Sega_Mega_Drive.2FGenesis_and_Master_System">Sega Master System</a> benefits from homebrew development because there is no physical lockout.
+<br /><br />
+Therefore, after reverse engineering Sega retro game code (as above) and learning the  intricacies of the hardware, it becomes easier for Indies to build their own versions of classic retro games like <a href="http://forum.arcadecontrols.com/index.php?topic=134445.0">Monaco GP</a>.
+<br /><br />
+<u>Summary</u>
+<br />
+This <a href="http://steveproxna.blogspot.ie/2013/06/sega-retro-gaming.html">Sega Retro Gaming</a> series has explored programming options for retro games on Sega platforms:
+<table width="100%">
+<tr>
+<td valign="top">
+<ul>
+<li><a href="http://steveproxna.blogspot.ie/2013/07/sega-basic-programming.html">Sega BASIC Programming</a></li>
+<li><a href="http://steveproxna.blogspot.ie/2013/07/sega-machine-code-programming.html">Sega Machine Code Programming</a></li>
+<li><a href="http://steveproxna.blogspot.ie/2013/08/sega-assembly-programming.html">Sega Assembly Programming</a></li>
+<li><a href="http://steveproxna.blogspot.ie/2013/09/sega-console-programming.html">Sega Console Programming</a></li>
+</ul>
+</td></tr>
+</table>
+Concluding with Sega Console Programming and Homebrew games, we see that it is feasible to build independent video games on classic 8-bit hardware and produce custom cartridge-based video games.
+<br /><br />
+In fact, many <a href="http://www.revival-studios.com">Indies</a> are reviving this classic video game art-form and managing to make money in this niche market:  Check out <a href="http://www.revival-studios.com/?page=147">Astro Dodge</a> (2012): first game released for the SG-1000 in almost 30 years.
+<br /><br />
+Goal: build retro game in Z80 assembler to target the Sega <a href="http://en.wikipedia.org/wiki/SG-1000">SG-1000</a>, <a href="http://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a>, or the <a href="http://en.wikipedia.org/wiki/Master_System">Master System</a>!
+</span>

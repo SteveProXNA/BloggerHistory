@@ -1,0 +1,72 @@
+<span style="font-family:verdana;font-size:85%;">
+Last year, I conducted a simple 
+<a href="http://steveproxna.blogspot.com/2012/01/retrospective-iii.html">retrospective</a> for 2011.  Therefore, here is a retrospective for 2012.
+<br /><br />
+<u>2012 Achievements</u>
+<br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>
+Promote <a href="http://steveproxna.blogspot.com/search/label/Quality">quality</a> in software engineering using agile techniques
+</li>
+<li>
+Integrate <a href="http://steveproxna.blogspot.com/2012/07/xna-and-data-driven-design.html">data driven design</a> into XNA game development
+</li>
+<li>
+Locate the <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue16?gallerypage=6/7">code listing</a> for the first game I ever published
+</li>
+<li>
+Attend <a href="http://zen.coderdojo.com/dojo/114">Coder Dojo</a> and mentor children in programming
+</li>
+<li>
+Complete first <a href="http://en.wikipedia.org/wiki/Hackathon">Hackathon</a> experience at <a href="http://www.bigfishgames.com/company/life-at-big-fish-games.html">Big Fish Games</a>
+</li>
+<li>
+Expand game development through <a href="http://walkerboystudio.com/html/unity_training___free__.html">Unity 3D</a> tutorials
+</li>
+<li>
+Purchase <a href="http://ijoshsmith.com/ios-for-dotnet-devs">iOS Programming for .NET Developers</a> book
+</li>
+</ul>
+Note: locating the code listing for the first game I ever published is an achievement!
+</td>
+</tr>
+</table>
+<br />
+<u>2013 Objectives</u>
+<br />
+<table width="100%">
+<tr><td valign="top">
+<ul>
+<li>
+Apply XNA game development experience to alternatives such as MonoGame / Unity 3D
+</li>
+<li>
+Explore existing games SDK integration, such as Steamworks, or produce my own
+</li>
+<li>
+Improve DirectX knowledge, specifically DX11, for Windows 8 Metro applications
+</li>
+<li>
+Target alternative game development platforms directly such as iOS / Android
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<br />
+In 2012, as in previous years, there has been much speculation over the future of XNA; Microsoft has not announced any further development since the news: <a href="http://www.mobiletechworld.com/2011/09/19/no-xna-support-for-metro-applications-in-windows-8/">No XNA support</a> for Metro applications in Windows 8.
+<br /><br />
+However, many people believe that XNA may not be <a href="http://www.wpcentral.com/xna-dead-long-live-xna">dead</a> because of the MonoGame open source project:
+<br />
+<i>
+<a href="http://monogame.codeplex.com">MonoGame</a> is an open source implementation of the Microsoft XNA 4 Framework.  The goal is to allow XNA developers port their games to Windows 8 Metro as well as iOS, Android, Mac OS X and Linux; PlayStation Mobile development is currently in progress.
+</i>
+<br /><br />
+Also, as an alternative to XNA that is gaining momentum is the <a href="http://en.wikipedia.org/wiki/Unity_(game_engine)">Unity 3D</a> game engine: many developers leveraging their C# game development experience to target PC, Mac and Linux with the potential of iOS, Android, Xbox 360 and PS3.
+<br /><br />
+There have also been an increasing number of Indie gaming distribution channels external to <a href="http://en.wikipedia.org/wiki/Xbox_Live_Indie_Games">XBLIG</a>, such as <a href="http://en.wikipedia.org/wiki/Big_Fish_Games">Big Fish Games</a>, <a href="http://en.wikipedia.org/wiki/Desura">Desura</a>, <a href="http://www.indiecity.com">Indie City</a> and <a href="http://en.wikipedia.org/wiki/Steam_(software)">Steam</a>.  While some of these platforms do host games written in XNA to target PC, the increased revenue generated from marketplaces such as the <a href="http://en.wikipedia.org/wiki/App_Store_(iOS)">App Store</a> and <a href="http://en.wikipedia.org/wiki/Google_Play">Google Play</a> have prompted many developers to target iOS / Android directly.
+<br /><br />
+Therefore, the options available to independent game developers continue to grow and the outlook positive despite any future announcements of <a href="http://en.wikipedia.org/wiki/Microsoft_XNA">XNA</a>, <a href="http://en.wikipedia.org/wiki/Xbox_Live_Indie_Games">XBLIG</a>, and the Microsoft Indie gaming scene.
+</span>

@@ -1,0 +1,74 @@
+<span style="font-family:verdana;font-size:85%;">
+So, it is official: XNA is <a href="http://www.develop-online.net/news/43146/Microsoft-confirms-XNA-is-over">dead</a>.  In late January 2013, an <a href="http://ventspace.wordpress.com/2013/01/30/directxxna-phase-out-continues">email</a> was sent to DirectX/XNA MVPs which explained that Microsoft would no longer be maintaining the XNA toolset.
+<br /><br />
+While this news was disappointing to many independent game developers, the announcement was hardly a shock: there had been no update to the XNA framework since late 2011 and many developers at Microsoft were <a href="http://blogs.msdn.com/b/shawnhar/archive/2011/12/13/from-games-to-telephones.aspx">moving</a> from XNA to other teams.
+<br /><br />
+Also, earlier in 2011, the announcement: <a href="http://www.mobiletechworld.com/2011/09/19/no-xna-support-for-metro-applications-in-windows-8">No XNA Support</a> for Metro applications in Windows 8 marked the "beginning of the end" for many developers, as the future of the XNA framework became uncertain.
+<br /><br />
+Microsoft’s shift to Metro applications in Windows 8, and the underlying application architecture WinRT, has <a href="http://ovum.com/2011/10/13/microsoft-developers-face-uncertainty-following-winrt-revelations">challenged</a> many developers to re-think their future coding on Microsoft platforms.
+<br /><br />
+For example: is it worthwhile learning <a href="http://en.wikipedia.org/wiki/C%2B%2B/CX">C++/CX</a> (C++ Extensions), the development language for <a href="http://en.wikipedia.org/wiki/Windows_Runtime">WinRT</a>?  Who is to say there won’t be an announcement in the future: C++/CX is "no longer being supported"?
+<br /><br />
+Fortunately, the future for XNA-based game developers appears to be anything but uncertain.<br />The options available to replace XNA are growing and target platforms beyond Microsoft.
+<br /><br />
+<a href="http://amapplease.blogspot.ie/2013/02/the-fate-of-xna-now-what.html">Here</a> is a solid list of alternatives to XNA, which include:
+<br />
+<table width="100%">
+<tr>
+<td valign="top">
+<ul>
+<li>
+<a href="http://monogame.codeplex.com">MonoGame</a>
+</li>
+<li>
+<a href="http://en.wikipedia.org/wiki/Unity_(game_engine)">Unity 3D</a>
+</li>
+</ul>
+<td valign="top">
+<ul>
+<li>
+<a href="http://www.synapsegaming.com/products/sunburn/engine">Sunburn</a>
+</li>
+<li>
+<a href="http://paradox3d.net">Paradox</a>
+</li>
+</ul>
+</td>
+<td valign="top">
+<ul>
+<li>
+<a href="http://waveengine.net">Wave Engine</a>
+</li>
+<li>
+<a href="http://deltaengine.net">Delta Engine</a>
+</li>
+</ul>
+</td>
+<td valign="top">
+<ul>
+<li>
+<a href="http://axiom3d.net/wiki/index.php/Main_Page">Axiom</a>
+</li>
+<li>
+<a href="http://anxframework.codeplex.com">ANX</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<br />
+<u>Community</u>
+<br />
+At the time of this writing, <a href="http://monogame.codeplex.com">MonoGame</a> seems the most natural replacement for XNA, essentially because it is an open source implementation of the Microsoft XNA 4 Framework; MonoGame has a strong following already and inherits the existing XNA community base.
+<br /><br />
+As noted by XNA MVP <a href="http://www.dealspwn.com/xbox-live-indie-mvp-128694">George Clingerman</a>, one of the most important things was the community: XNA attracted a strong and vibrant development community excited and passionate about game development.
+<br /><br />
+Quote: "It's surprising that a game development framework could do that, but it did. It changed lives."
+<br />
+Consequently, check out <a href="https://twitter.com/search?q=%23becauseofxna&src=typd">#becauseofxna</a> – XNA may soon be dead but clearly not forgotten!
+<br /><br /><u>Conclusion</u>
+<br />
+In conclusion, this is also a great opportunity to extend this <a href="http://steveproxna.blogspot.ie/2009_08_01_archive.html">blog</a> from merely XNA game development to game development in general: developing XNA-based topics such as MonoGame to additional languages, platforms and technologies – whatever else may encompass Indie/Pro game development in the future.
+<br /><br />
+One final goal, as always: write more game code, write lots more game code <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>
+</span>

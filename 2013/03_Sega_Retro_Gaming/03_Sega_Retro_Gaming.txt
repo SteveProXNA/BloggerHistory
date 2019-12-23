@@ -1,0 +1,180 @@
+<span style="font-family:verdana;font-size:85%;">
+<a href="http://en.wikipedia.org/wiki/Retrogaming">Retro Gaming</a> is the hobby of playing and collecting older personal computer, console, and arcade video games.  These games are either played on the original hardware or on modern hardware via <a href="http://en.wikipedia.org/wiki/Emulation">emulation</a>.
+<br /><br />
+The most popular retro games were produced from 1980 to 1990 and include video games consoles such as the Atari 2600, the Nintendo Entertainment System and the Sega Master System, as well as personal computer games for the Commodore 64, the ZX Spectrum, and the Amstrad, just to name a few.  
+<br /><br />
+In this blog we will concentrate on retro gaming for Sega platforms: the reason will become clear shortly.
+<br /><br />
+<a href="https://en.wikipedia.org/wiki/Sega">Sega</a> is a multinational video game software and an arcade software and hardware development company headquartered in Japan.  Sega previously developed and manufactured its own brand of home video game consoles from 1983 to 2001.
+<br /><br />
+<u>SG-1000</u>
+<a href="http://2.bp.blogspot.com/-vmB9CR2aO5M/UdRxcY9VK7I/AAAAAAAACRk/hkN-P7Oc5ws/s480/SG-1000.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-vmB9CR2aO5M/UdRxcY9VK7I/AAAAAAAACRk/hkN-P7Oc5ws/s480/SG-1000.jpg" width="95%" /></a>
+Sega launched its first entry into the home video game industry with the <a href="http://en.wikipedia.org/wiki/SG-1000">SG-1000</a>.  The SG-1000 is a cartridge-based video game console released to the Japanese market in July 1983.  The only known release outside of Japan for the original SG-1000 was in New Zealand – hey, that’s where I’m from!
+<br /><br />
+<u>SC-3000</u>
+<a href="http://3.bp.blogspot.com/-J6UHpZn6mAE/UdRrqcgs6TI/AAAAAAAACQc/nka23fq43d8/s600/SC-3000.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-J6UHpZn6mAE/UdRrqcgs6TI/AAAAAAAACQc/nka23fq43d8/s600/SC-3000.jpg" width="95%" /></a>
+The <a href="http://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a> is the computer equivalent of the SG-1000.  Often known as the "Sega Computer", it is the first and only computer designed and manufactured by Sega.  Also released in July 1983, the SC-3000 is an 8-bit home computer based on the <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> chip and is almost identical to the SG-1000 but with built-in keyboard and support for hardware expansions.
+<br /><br />
+<i>SC-3000 specifications</i>
+<a href="http://4.bp.blogspot.com/-DCP4CQ2uAQ8/UdRo9zq95TI/AAAAAAAACP0/bsQIHmoL9gI/s584/SC3000specs.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-DCP4CQ2uAQ8/UdRo9zq95TI/AAAAAAAACP0/bsQIHmoL9gI/s584/SC3000specs.jpg" width="95%" /></a>
+Note: cartridge-based video games available for the SG-1000 were also compatible with the SC-3000.
+<br /><br />
+Marketed in New Zealand, Australia, Finland, France, Italy, Spain and South Africa as a home computer for beginners, users were able to create their own programs and write their own games using the <a href="http://en.wikipedia.org/wiki/BASIC">BASIC</a> programming language, as well as in <a href="http://en.wikipedia.org/wiki/Machine_code">machine code</a>.
+<br /><br />
+The SC-3000 gained its biggest success outside of Japan in New Zealand – hey, that’s where I’m from!  Therefore, by 1984, many "<a href="http://en.wikipedia.org/wiki/Kiwi_(people)">kiwis</a>", including myself, acquired their <a href="http://www.squidoo.com/my-first-computer-was-a-sega-sc-3000">first</a> home computer: the SC-3000.
+<br /><br />
+New Zealand also had its own Sega computer <a href="http://www.smspower.org/Scans/SegaComputer-Magazine">magazine</a> to support the growing community, publish game code and to teach BASIC and machine code programming.  Many of these resources are still available and can be found <a href="http://www.sc-3000.com">here</a> at the Sega SC-3000 Survivors web site.
+<br /><br />
+<u>Sega Master System</u>
+<a href="http://4.bp.blogspot.com/-ndbLsrJp9Rw/UdRswSAN8rI/AAAAAAAACQ4/YNF0VLLTKWQ/s400/Sega-Master-System.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-ndbLsrJp9Rw/UdRswSAN8rI/AAAAAAAACQ4/YNF0VLLTKWQ/s400/Sega-Master-System.jpg" width="96%" /></a>
+In July 1984, Sega released an updated version of the SG-1000 called the <a href="http://en.wikipedia.org/wiki/SG-1000#SG-1000_II">SG-1000 II</a>.  By 1986, the successor to the SG-1000 II, the <a href="http://en.wikipedia.org/wiki/SG-1000#Sega_Mark_III">Sega Mark III</a>, was redesigned to become the <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a>.  These were the last ever 8-bit video game consoles manufactured by Sega built using the Z80 chip.
+<br /><br />
+Later, in 1988, Sega manufactured the 16-bit <a href="http://segaretro.org/Sega_Mega_Drive">Mega Drive</a> console before progressing to 32-bit consoles such as the <a href="http://en.wikipedia.org/wiki/Sega_Genesis">Genesis</a>, the <a href="http://en.wikipedia.org/wiki/Sega_Saturn">Saturn</a> and the <a href="http://en.wikipedia.org/wiki/Dreamcast">Dreamcast</a>.
+<br /><br />
+<u>Anniversary</u>
+<br />
+July 2013 will mark the 30 year anniversary launch of the Sega SG-1000 and the SC-3000.
+<br />
+Therefore, what better way to celebrate than to play some classic Sega retro games!
+<br /><br />
+In order to play Sega retro games on a modern-day computer, you will need an <a href="http://en.wikipedia.org/wiki/Emulator">emulator</a> installed and the game files themselves, or <a href="http://en.wikipedia.org/wiki/ROM_image">ROMs</a> (ROM images) as they're called.
+<br /><br />
+<u>Emulation</u>
+<br />
+An emulator is a software program that duplicates, or emulates, the functions of another computer system, in our case the SG-1000, the SC-3000 or the Sega Master System.
+<br /><br />
+There are many <a href="http://www.emutopia.com/index.php/downloads-emulators/category-items/3-downloads-emulators/298-sega-sg-1000-sc-3000">emulators</a> available to play Sega retro games but <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/404-kega-fusion">KEGA Fusion</a> is one of the best:
+<table width="100%">
+<tr>
+<td valign="top">
+<ul>
+<li>
+Download <a href="http://www.emutopia.com/index.php?option=com_cobalt&task=files.download&no_html=1&id=3537&fid=20&fidx=2&rid=404&return=aHR0cDovL3d3dy5lbXV0b3BpYS5jb20vaW5kZXgucGhwL2Rvd25sb2Fkcy1lbXVsYXRvcnMvaXRlbS8yOTgtc2VnYS1zZy0xMDAwLXNjLTMwMDAvNDA0LWtlZ2EtZnVzaW9u">Fusion364.zip</a> and extract
+</li>
+<li>Double click on Fusion.exe to launch</li>
+</ul>
+</td></tr>
+</table>
+<u>Controller</u>
+<br />
+If you have a joystick connected to your computer, e.g. wireless Xbox 360 controller;
+<br />
+<a href="http://www.youtube.com/watch?v=7aE7fUA4u6c">Configure</a> the controller for best game play experience:
+<table>
+<tr>
+<td valign="top">
+<a href="http://1.bp.blogspot.com/-Ez5FJlgbyvM/UdRgPbMDZlI/AAAAAAAACPE/DtCrQqA7m-A/s545/Controller.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-Ez5FJlgbyvM/UdRgPbMDZlI/AAAAAAAACPE/DtCrQqA7m-A/s545/Controller.jpg" /></a>
+</td>
+<td valign="top">
+<ul>
+<li>Activate controller</li>
+<li>Launch Fusion.exe</li>
+<li>Options menu</li>
+<li>Set Config...</li>
+<li>Select Controllers tab</li>
+<li>Lower section </li>
+<li>Master System /</li>
+<li>GameGear Controllers</li>
+<li>Choose Port 1</li>
+<li>Control Pad</li>
+<li>Use: Controller (Xbox)</li>
+<li>Click Define button</li>
+<li>Set directions</li>
+<li>Set button inputs</li>
+<li>Click Apply</li>
+<li>Click OK</li>
+<li>Close Fusion.exe</li>
+<li>Re-launch Fusion</li>
+</ul>
+</td>
+</tr>
+</table>
+Use the wireless Xbox controller for best game play experience!
+<br />
+Note: press ESC to alternate windowed / full-screen mode.
+<br /><br />
+<u>Retro Games</u>
+<br />
+Finally, download the games!.  <a href="http://www.get-your-rom.com/roms/sg1k-sega-sg-1000">Here</a> is a great website that hosts many classic 8-bit Sega retro games.
+<br />
+For example, let’s play Monaco GP:
+<table width="100%">
+<tr>
+<td valign="top">
+<ul>
+<li>Download <a href="http://www.get-your-rom.com/download/sg1k/monaco-gp-rom/japanrev2">Monaco GP (Japan) (Rev 2).zip</a> and extract</li>
+<li>Double click Monaco GP (Japan) (Rev 2).sg to launch</li>
+<li>Set Monaco GP ROM to open with Fusion.exe by default</li>
+</ul>
+</td></tr>
+</table>
+<u>Classic Games</u>
+<br />
+Repeat the process above to play more classic 8-bit Sega retro games:
+<br />
+<table width="100%">
+<tr>
+<td valign="top"><b>Year</b>
+</br>1983</br>1984</br>1986</br>1987</br>1987</br>1987</br>1989
+</td>
+<td valign="top"><b>Game</b>
+</br><a href="http://www.get-your-rom.com/download/sg1k/congo-bongo-rom/japaneurope">Congo Bongo</a>
+</br><a href="http://www.get-your-rom.com/download/sg1k/flicky-rom/japan">Flicky</a>
+</br><a href="http://www.get-your-rom.com/download/sg1k/castle-the-rom/japan">The Castle</a>
+</br><a href="http://www.get-your-rom.com/download/sms/after-burner-rom/ue">After Burner</a>
+</br><a href="http://www.get-your-rom.com/download/sms/shinobi-rom/ue">Shinobi</a>
+</br><a href="http://www.get-your-rom.com/download/sms/wonder-boy-rom/bue">Wonderboy</a>
+</br><a href="http://www.get-your-rom.com/download/sms/golden-axe-rom/ue">Golden Axe</a>
+</td>
+<td valign="top"><b>Size</b>
+</br>24 KB</br>32 KB</br>32 KB</br>512 KB</br>256 KB</br>128 KB</br>512 KB
+</td>
+<td valign="top"><b>Console</b>
+</br>SG-1000 / SC-3000</br>SG-1000 / SC-3000</br>SG-1000 / SC-3000
+</br>Sega Master System</br>Sega Master System</br>Sega Master System</br>Sega Master System
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr>
+<td valign="top" width="40%">
+<a href="http://4.bp.blogspot.com/-Zx2lCWsqf8E/UdaWYNjECQI/AAAAAAAACTo/H6ik6fBeKzI/s282/MonacoGP.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-Zx2lCWsqf8E/UdaWYNjECQI/AAAAAAAACTo/H6ik6fBeKzI/s282/MonacoGP.jpg" /></a>
+</td>
+<td valign="top" width="40%">
+<a href="http://2.bp.blogspot.com/-RU0Rbl3ZzDQ/UdWyfzJ1M4I/AAAAAAAACS0/_Jwrav9vjtk/s282/CongoBongo.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-RU0Rbl3ZzDQ/UdWyfzJ1M4I/AAAAAAAACS0/_Jwrav9vjtk/s282/CongoBongo.jpg" /></a>
+</td>
+</tr>
+<tr>
+<td valign="top" width="40%">
+<a href="http://1.bp.blogspot.com/-wWtIs0dYDWM/UdWzd9OfdpI/AAAAAAAACTA/0klR9C2wQXg/s282/Flicky.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-wWtIs0dYDWM/UdWzd9OfdpI/AAAAAAAACTA/0klR9C2wQXg/s282/Flicky.jpg" /></a>
+</td>
+<td valign="top" width="40%">
+<a href="http://1.bp.blogspot.com/-avhlo4nxFK0/UdWziWIFVKI/AAAAAAAACTI/f-XEI6iU-uQ/s282/AfterBurner.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-avhlo4nxFK0/UdWziWIFVKI/AAAAAAAACTI/f-XEI6iU-uQ/s282/AfterBurner.jpg" /></a>
+</td>
+</tr>
+<td valign="top" width="40%">
+<a href="http://3.bp.blogspot.com/-UGd602zJmQY/UdW0PiDyieI/AAAAAAAACTQ/Vh_sfuFlycQ/s282/Shinobi.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-UGd602zJmQY/UdW0PiDyieI/AAAAAAAACTQ/Vh_sfuFlycQ/s282/Shinobi.jpg" /></a>
+</td>
+<td valign="top" width="40%">
+<a href="http://3.bp.blogspot.com/-CQCj05-gR84/UdW0SihpSKI/AAAAAAAACTY/92_u9DqlH5s/s282/Wonderboy.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-CQCj05-gR84/UdW0SihpSKI/AAAAAAAACTY/92_u9DqlH5s/s282/Wonderboy.jpg" /></a>
+</td>
+</tr>
+</table>
+<u>Summary</u>
+<br />
+The 1980s were a great era for 8-bit retro gaming and Sega built some classic, cartridge-based video games.  As a result, inspiration grew from playing these retro games and, for the budding computer programmer, attention quickly turned to writing their own!
+<br /><br />
+Programming options for retro games on Sega platforms include:
+<table width="100%">
+<tr>
+<td valign="top">
+<ul>
+<li><a href="http://steveproxna.blogspot.ie/2013/07/sega-basic-programming.html">Sega BASIC Programming</a></li>
+<li><a href="http://steveproxna.blogspot.ie/2013/07/sega-machine-code-programming.html">Sega Machine Code Programming</a></li>
+<li><a href="http://steveproxna.blogspot.ie/2013/08/sega-assembly-programming.html">Sega Assembly Programming</a></li>
+<li><a href="http://steveproxna.blogspot.ie/2013/09/sega-console-programming.html">Sega Console Programming</a></li>
+</ul>
+</td></tr>
+</table>
+Consequently, many users began writing games initially on the Sega SC-3000 home computer using the BASIC programming language for its simplicity and ease-of-use.   This will be the topic of the next <a href="http://steveproxna.blogspot.ie/2013/07/sega-basic-programming.html">post</a>.
+</span>

@@ -1,0 +1,238 @@
+<span style="font-family:verdana;font-size:85%;">
+In the previous <a href="http://steveproxna.blogspot.ie/2013/07/sega-basic-programming.html">post</a>, we checked out Sega BASIC Programming and wrote some <a href="http://en.wikipedia.org/wiki/BASIC">BASIC</a> code on a modern-day computer using the Sega emulator <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/239-meka">Meka</a> and a copy of the <a href="http://www.romnation.net/srv/roms/39583/segamastersystem/Sega-BASIC-Level-3-V1-SC-3000-b1.html">Sega BASIC Level 3</a> ROM. 
+<br /><br />
+As an example, we wrote the main loop of a simple "Shoot 'em up" game that simply moves a target sprite around the screen based on user input; preferably the joystick.
+<br /><br />
+However, games written in BASIC suffer from the disadvantage that they are too slow for applications such as sprite movement; these may be <i>sped</i> up by increasing the step but precision of control is lost. 
+<br /><br />
+This can be resolved by using <a href="http://en.wikipedia.org/wiki/Machine_code">machine code</a> routines for parts of the program where BASIC is too slow.
+<br />
+Goal: apply machine code routines to target Sega hardware directly for speed, efficiency and power.
+<br /><br />
+<u>Setup</u>
+<br />
+Follow all instructions from previous <a href="http://steveproxna.blogspot.ie/2013/07/sega-basic-programming.html">post</a> to get setup with Sega programming before continuing.
+<br /><br />
+Launch Sega BASIC Level 3 ROM, that is, double click Sega BASIC Level 3 V1 (SC-3000) [b1].sc.
+<br />
+Activate keyboard to begin typing: Inputs menu, Sega Keyboard.  Next, open the Memory Editor:
+<table width="100%">
+<tr>
+<td valign="top">
+<ul>
+<li>Tools menu</li>
+<li>Memory Editor</li>
+<li>Click RAM button</li>
+<li>Type <b>F000</b></li>
+</ul>
+</td></tr>
+</table>
+<a href="http://2.bp.blogspot.com/--yatT_dYXRU/Umva6useeII/AAAAAAAACfI/GIEkrt_B_qg/s1600/MemoryEditorI.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/--yatT_dYXRU/Umva6useeII/AAAAAAAACfI/GIEkrt_B_qg/s1600/MemoryEditorI.jpg" width="98%" /></a>
+Note: all machine code written during this post will commence at 16-bit memory address: <b>&HF000</b>.
+<br /><br />
+<u>Tutorial</u>
+<br />
+Type in the following BASIC code:
+<pre class="csharp" name="code">
+10 POKE &HF000, &HC9
+RUN
+</pre>
+Inspect the 16-bit memory address &HF000; the hexadecimal &HC9 will now be stored in RAM there.
+<a href="http://2.bp.blogspot.com/-qfLQ1fUXy3A/UmvbKGyZn7I/AAAAAAAACfQ/8WAqVTEnlBw/s1600/MemoryEditorII.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-qfLQ1fUXy3A/UmvbKGyZn7I/AAAAAAAACfQ/8WAqVTEnlBw/s1600/MemoryEditorII.jpg" width="98%" /></a>
+Next, add the following line of code:
+<pre class="csharp" name="code">
+20 PRINT PEEK(&HF000)
+RUN
+</pre>
+The value 201 will be printed, which is the corresponding decimal value of &HC9, of course.
+<br /><br />
+Finally, change line <b>20</b> of code to the following:
+<pre class="csharp" name="code">
+20 CALL &HF000
+RUN
+</pre>
+On the surface, nothing appears to happen!  Therefore, let's delve into fundamentals of machine code:
+<br /><br />
+<u>Fundamentals</u>
+<br />
+Machine code is a set of instructions executed directly by the computer Central Processing Unit (<a href="http://en.wikipedia.org/wiki/Central_processing_unit">CPU</a>).  Each instruction performs a specific operation on a unit of data contained in CPU <a href="https://en.wikipedia.org/wiki/Processor_register">register</a>, or memory.
+<br /><br />
+In this post, we target the Sega <a href="http://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a> hardware: an 8-bit home computer based on the <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> chip.
+<br /><br />
+Typically, machine code instructions are stored in memory and invoked from a BASIC driver program.  Once invoked, machine code instructions are then executed one by one, similar to BASIC commands. 
+<br /><br />
+However, unlike BASIC, machine code will not automatically stop when it reaches the end of program.  Machine code must execute the <b>RET</b> instruction to return to BASIC; very similar to RETURN in BASIC.
+<br /><br />
+<u>Opcodes</u>
+<br />
+Each machine code instruction has a unique numerical code called an operation code, or an <a href="https://en.wikipedia.org/wiki/Opcode">Opcode</a>.
+<br />
+In the example above, the opcode for the <b>RET</b> instruction is 201 or &HC9 in hexadecimal.
+<br /><br />
+<u>Mnemonics</u>
+<br />
+For completeness, <b>RET</b> is the called the <a href="http://en.wikipedia.org/wiki/Assembly_language#Opcode_mnemonics_and_extended_mnemonics">Mnemonic</a>; that is, the symbolic name for the instruction.
+<br /><br />
+<u>Dissection</u>
+<br />
+Therefore, let's dissect the short code sample from above:
+<pre class="csharp" name="code">
+10 POKE &HF000, &HC9
+20 CALL &HF000
+RUN
+</pre>
+<table width="100%">
+<tr>
+<td valign="top">
+<ul>
+<li>Store opcode &HC9 into memory address &HF000</li>
+<li>Invoke machine code routine at origin &HF000</li>
+<li>Execute machine code instructions (<i>only one</i>)</li>
+<li>Execute RET instruction: i.e. return to BASIC</li>
+</ul>
+</td></tr>
+</table>
+<u>Documentation</u>
+<br />
+Check out <a href="http://map.grauw.nl/resources/z80instr.php">here</a> for the Z80 instruction set.  Check out <a href="http://www.z80.info/z80oplist.txt">here</a> for full (undocumented) Z80 Opcode list.  
+<br />
+Many more tutorials can be found in magazine scans from Sega Survivors <a href="http://www.sc-3000.com/index.php/Table/SEGA-Computer-NZL">web site</a> and <a href="http://www.smspower.org/Scans/SegaComputer-Magazine">SMS Power</a>.
+<br /><br />
+Books: the authoritative <a href="http://www.z80.info/zip/zaks_book.pdf">Programming the Z80</a> by Rodney Zaks and <a href="ftp://ftp.worldofspectrum.org/pub/sinclair/books/MasteringMachineCodeOnYourZXSpectrum.pdf">Mastering Machine Code</a> (Z80).
+<br /><br />
+<u>Debugging</u>
+<br />
+Before progressing with thorough machine code example, let's setup our environment for debugging:
+Make the change to the mekaw.cfg file: find <b>debug_mode = 0</b> and replace with <b>debug_mode = 1</b>.
+<br /><br />
+Launch Sega BASIC Level 3 ROM as before; there should now be additional <b>DEBUG</b> menu available.
+Choose: Debug menu, Enabled.  Meka will break at the memory address at current code execution.
+<a href="http://2.bp.blogspot.com/-FZJvuiJRp5Y/Ugj73EBeE7I/AAAAAAAACbk/ILwYN_7NGAA/s1600/DebuggerI.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-FZJvuiJRp5Y/Ugj73EBeE7I/AAAAAAAACbk/ILwYN_7NGAA/s320/DebuggerI.jpg" width="98%" /></a>
+Type "B F000" to set breakpoint at &HF000
+<a href="http://3.bp.blogspot.com/-7YE3mT3PkfM/Ugj7-nbF65I/AAAAAAAACbs/tBpztfz8dQo/s1600/DebuggerII.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-7YE3mT3PkfM/Ugj7-nbF65I/AAAAAAAACbs/tBpztfz8dQo/s320/DebuggerII.jpg" width="98%" /></a>
+Type "C" to continue
+<a href="http://4.bp.blogspot.com/-UQStPJHTIjI/Ugj8FkHfogI/AAAAAAAACb0/RJo-dTHB4B8/s1600/DebuggerIII.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-UQStPJHTIjI/Ugj8FkHfogI/AAAAAAAACb0/RJo-dTHB4B8/s320/DebuggerIII.jpg" width="98%" /></a>
+Type RUN as before
+<a href="http://2.bp.blogspot.com/-88y39ZMdTdU/Ugj8LLmUd7I/AAAAAAAACb8/_wHIs2tNwOA/s1600/DebuggerIV.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-88y39ZMdTdU/Ugj8LLmUd7I/AAAAAAAACb8/_wHIs2tNwOA/s320/DebuggerIV.jpg" width="98%" /></a>
+Program now invokes CALL &HF000 as before but this time breaks at breakpoint set above.
+<br />
+Hit the Enter key to step through the machine code: executes <b>RET</b> which returns to BASIC.
+<br /><br />
+Note: for full list of Debugger commands choose: Help menu, Debugger.
+<br />
+Also, enter Up / Down arrow keys to scroll through command history.
+<br /><br />
+<u>Example</u>
+<br />
+As an example, let's write the main loop of a simple "Shoot 'em up" style game, similar to the previous <a href="http://steveproxna.blogspot.ie/2013/07/sega-basic-programming.html">post</a>, that simply moves a target sprite around the screen based on user input; preferably the joystick. 
+<br /><br />
+However, write the main loop in machine code for increased speed + performance, rather than BASIC.
+<br /><br />
+<u>Sample</u>
+<br />
+The following code sample is reminiscent of the <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue04?gallerypage=21">tutorial</a> Joystick Operation using Machine Code Routine.
+Follow the tutorial closely to better understand what machine code instructions are required and why.
+<br /><br />
+Type in the following program.  Important: ensure you save state before RUN: Main menu, Save State.
+<pre class="csharp" name="code">
+10 REM SEGA MACHINE CODE PROGRAMMING
+20 GOSUB 300:GOSUB 400
+40 SZ=16:MAG1
+60 MR=256-SZ:MD=192-SZ
+70 TX=MR/2:TY=MD/2
+80 SCREEN 2,2:CLS
+90 COLOR,1,(0,0)-(255,191),1
+100 REM MAIN LOOP
+110 SPRITE 0,(TX,TY),0,9
+120 CALL &HF000
+130 STOP
+300 RESTORE 350
+310 FOR S=0 TO 3:READ S$:PATTERN S#S,S$:NEXT S
+320 RETURN
+350 DATA 000039202100012A, 2A01002120390000
+360 DATA 00009C0484008054, 54800084049C0000
+400 RESTORE 450
+410 FOR X=&HF000 TO &HF036
+420 READ A$:A=VAL(“&H”+A$):POKE X,A
+430 NEXT X
+440 RETURN
+450 DATA 3E,9B,D3,DF,DB,DC,FE,FF,28,FA,FE,F7,20,10,21,01
+460 DATA 3B,CD,32,2C,DB,BE,3C,CD,44,2C,D3,BE,18,0E,21,01
+470 DATA 3B,CD,32,2C,DB,BE,3D,CD,44,2C,D3,BE,01,00,03,0B
+480 DATA 3E,00,B8,20,FA,18,CD
+RUN
+</pre>
+The graphics screen clears black and positions a red target sprite.  Use the joystick to move target sprite.
+<br />
+Note: de-activate the keyboard to ensure the joystick takes precedence: Inputs menu, Sega 
+Keyboard.
+<br /><br />
+In this example, moving joystick right moves target sprite right; moving any other direction moves left.
+<br />
+Important: if joystick not configured then try these keys: "<b>J</b>" = left, "<b>M</b>" = right, "<b>7</b>" = up, "<b>U</b>" = down.
+<a href="http://1.bp.blogspot.com/-FGs6pazXwTs/UfopdQMN1gI/AAAAAAAACas/DGM72irK-bE/s1600/SegaBasicProgam.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-FGs6pazXwTs/UfopdQMN1gI/AAAAAAAACas/DGM72irK-bE/s320/SegaBasicProgam.jpg" width="98%" /></a>
+Note: the machine code here actually does not <b>RET</b> to BASIC; press the "Scroll lock" key to soft reset.
+<br /><br />
+As you can see, the machine code version of the program is much smoother than its BASIC counterpart.  In fact, machine code is so fast that a delay is required: without it, the sprite would simply flash across!
+<br /><br />
+Experiment with different delay speeds at runtime by manipulating memory directly:
+<br />
+Note: original time delay is 0300 but is stored in memory as 00 03 (<a href="http://en.wikipedia.org/wiki/Endianness#Little-endian">Little-endian</a>).
+<table width="100%">
+<tr>
+<td valign="top">
+<ul>
+<li>Tools menu</li>
+<li>Memory Editor</li>
+<li>Click RAM button</li>
+<li>Type <b>F02E</b></li>
+<li>Enter "02" (<i>faster</i>)</li>
+<li>Enter "04" (<i>slower</i>)</li>
+</ul>
+</td></tr>
+</table>
+<a href="http://3.bp.blogspot.com/-VaSrCWcwNCM/Umvb19T4zLI/AAAAAAAACfY/RvJVI8T3aMM/s1600/DelayUpdate.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-VaSrCWcwNCM/Umvb19T4zLI/AAAAAAAACfY/RvJVI8T3aMM/s1600/DelayUpdate.jpg" width="98%" /></a>
+For completeness, here is the disassembled machine code from the <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue04?gallerypage=21">tutorial</a> in its entirety:
+<pre class="csharp" name="code">
+--------------------------------------------------
+Z80    DISASSEMBLER     LISTING
+Line   Addr Opcodes     Label   Instruction
+--------------------------------------------------
+0000   0000             .ORG    0F000H
+0001   F000 3E 9B       START:  LD A,09BH
+0002   F002 D3 DF               OUT (0DFH),A
+0003   F004 DB DC       CHECK:  IN A,(0DCH)
+0004   F006 FE FF               CP 0FFH  ; any movement?
+0005   F008 28 FA               JR Z,CHECK
+0006   F00A FE F7       RIGHT:  CP 0F7H  ; move right?
+0007   F00C 20 10               JR NZ,OTHER
+0008   F00E 21 01 3B            LD HL,03B01H
+0009   F011 CD 32 2C            CALL 02C32H 
+0010   F014 DB BE               IN A,(0BEH)
+0011   F016 3C                  INC A
+0012   F017 CD 44 2C            CALL 02C44H
+0013   F01A D3 BE               OUT (0BEH),A
+0014   F01C 18 0E               JR DELAY
+0015   F01E 21 01 3B    OTHER:  LD HL,03B01H
+0016   F021 CD 32 2C            CALL 02C32H
+0017   F024 DB BE               IN A,(0BEH)
+0018   F026 3D                  DEC A
+0019   F027 CD 44 2C            CALL 02C44H
+0020   F02A D3 BE               OUT (0BEH),A
+0021   F02C 01 00 03    DELAY:  LD BC,0300H
+0022   F02F 0B          LOOP:   DEC BC
+0023   F030 3E 00               LD A,00H
+0024   F032 B8                  CP B
+0025   F033 20 FA               JR NZ,LOOP
+0026   F035 18 CD               JR CHECK
+</pre>
+Important: machine code programs will crash if there are errors; they are not as forgiving as BASIC.  Therefore, ensure you save state before you RUN machine code programs: Main menu, Save State. 
+<br /><br />
+<u>Summary</u>
+<br />
+In this post, machine code was introduced to target Sega hardware for increased speed + performance.
+<br /><br />
+However, a machine code program suffers from the disadvantage that it is tedious and cumbersome to manually translate each mnemonic to the corresponding opcode plus calculate all jump relative offsets.
+<br /><br />
+This can be resolved by using <a href="http://en.wikipedia.org/wiki/Assembly_language">assembly language</a> and an <a href="http://en.wikipedia.org/wiki/Assembler_(computing)#Assembler">assembler</a> to generate machine code routines.  This will be the topic in the next <a href="http://steveproxna.blogspot.ie/2013/08/sega-assembly-programming.html">post</a>.
+</span>
