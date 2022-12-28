@@ -20,7 +20,10 @@ Download <a href="http://www.emutopia.com/index.php?option=com_cobalt&task=files
 </td>
 </tr>
 </table>
-Note: check Debugger: Enable Z80 debugger for better developer experience.
+IMPORTANT<br>
+If you receive the error <i>The program can't start becuase MSVCR71.dll is missing from your computer</i> then copy MSVCR71.dll file from C:\Windows\Microsoft.NET\Framework\v1.1.4322 to C:\Windows\SysWOW64.
+<br /><br />
+Note: select Debug menu | Check Enabled to enable the Z80 debugger for better developer experience.
 <br /><br />
 <u>Configuration</u>
 <br />
