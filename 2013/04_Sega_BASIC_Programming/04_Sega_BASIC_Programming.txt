@@ -66,7 +66,7 @@ Next, download the Sega BASIC Level 3 ROM:
 </ul>
 </td></tr>
 </table>
-<a href="http://2.bp.blogspot.com/-nZJVkD80sn4/UeWO4TquyeI/AAAAAAAACT4/Jl5ieaHmsw4/s1600/SegaBASIC.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-nZJVkD80sn4/UeWO4TquyeI/AAAAAAAACT4/Jl5ieaHmsw4/s320/SegaBASIC.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4g_1etD-xx5IQx7Zz86d_Ew9lEvFPIqFzTPu0rfhfrYR6XvCQvqKrtoVEbjWDwfJaBG6vC9eK1sRdNvJd85qdhf9jQG0GKxiln5VHWjuRi2pY-ygKbJfEpHvtAwCENh4FZFLDb8JDE1o/s1600/SegaBASIC.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4g_1etD-xx5IQx7Zz86d_Ew9lEvFPIqFzTPu0rfhfrYR6XvCQvqKrtoVEbjWDwfJaBG6vC9eK1sRdNvJd85qdhf9jQG0GKxiln5VHWjuRi2pY-ygKbJfEpHvtAwCENh4FZFLDb8JDE1o/s320/SegaBASIC.jpg" width="98%" /></a>
 26620 Bytes free – are you serious?!?
 <br /><br />
 <u>Setup</u>
@@ -196,7 +196,7 @@ Configure the controller for best game play experience:
 </td>
 </tr>
 </table>
-<a href="http://4.bp.blogspot.com/-B9MvsRd0QD8/UeWTrnyDq-I/AAAAAAAACUI/aobbo1XUJOw/s1600/Joystick.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-B9MvsRd0QD8/UeWTrnyDq-I/AAAAAAAACUI/aobbo1XUJOw/s320/Joystick.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_tjKM63i1qoj1Y7mqmCsG91g2m388pd7yArZ4_GDvUGHKeKpYvfxIWEMe4AsgnVuxBZ86Q9BZneyPRwUbaPnNmCdvSIKBeAVtx3BYftHRxzlpGkJ8ZUhgOLtgYiiN_4VuTUHNmIQG-V8/s1600/Joystick.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_tjKM63i1qoj1Y7mqmCsG91g2m388pd7yArZ4_GDvUGHKeKpYvfxIWEMe4AsgnVuxBZ86Q9BZneyPRwUbaPnNmCdvSIKBeAVtx3BYftHRxzlpGkJ8ZUhgOLtgYiiN_4VuTUHNmIQG-V8/s320/Joystick.jpg" width="98%" /></a>
 Type in the following BASIC program to confirm the controller is configured correctly:
 <pre class="csharp" name="code">
 NEW
@@ -249,7 +249,7 @@ Type in the following program exactly as is:
 RUN
 </pre>
 The graphics screen clears black and positions a red target sprite.  Use the controller, or arrow keys, to move the target sprite left, right, up and down.  Press the left fire button or space bar to end program.
-<a href="http://1.bp.blogspot.com/-FGs6pazXwTs/UfopdQMN1gI/AAAAAAAACas/DGM72irK-bE/s1600/SegaBasicProgam.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-FGs6pazXwTs/UfopdQMN1gI/AAAAAAAACas/DGM72irK-bE/s320/SegaBasicProgam.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5Lb3O0vD5OeD1XvETMuQtJcivB1TDPZRunn4irQ13x6PMDrdTCBIZI3lxY_cyRiW1J8aItFbfZ_hijzJNu9N88rygmBar26C_skGbkxaFIM76UutT_k9zgygal5VEDlt5S5WC30Eg07Q/s1600/SegaBasicProgam.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5Lb3O0vD5OeD1XvETMuQtJcivB1TDPZRunn4irQ13x6PMDrdTCBIZI3lxY_cyRiW1J8aItFbfZ_hijzJNu9N88rygmBar26C_skGbkxaFIM76UutT_k9zgygal5VEDlt5S5WC30Eg07Q/s320/SegaBasicProgam.jpg" width="98%" /></a>
 As you can see, the current per-pixel sprite movement is smooth but extremely slow!
 <br />
 Therefore, increase the movement step; change line <b>30</b> of the code to the following:
@@ -275,7 +275,7 @@ Also, the movement step can be changed dynamically at runtime by manipulating me
 </ul>
 </td></tr>
 </table>
-<a href="http://2.bp.blogspot.com/-ivQUTfTFXV8/UmvZexMLOnI/AAAAAAAACe8/dnK0HgcfAqc/s1600/Memory.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-ivQUTfTFXV8/UmvZexMLOnI/AAAAAAAACe8/dnK0HgcfAqc/s1600/Memory.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHXZMTDvg4xYNjPohv_3IYTVgMIBTvD4I86M-OCRKnNCneT9EjOkZD0x1cNY9oaNXb1bkORRzwlE1f_GJnnlyGOLbjEjhjVFxnEzXIO6Mz2ICcZY65cBQ-LraP75yU5CbdKV9_mZfcJvY/s1600/Memory.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHXZMTDvg4xYNjPohv_3IYTVgMIBTvD4I86M-OCRKnNCneT9EjOkZD0x1cNY9oaNXb1bkORRzwlE1f_GJnnlyGOLbjEjhjVFxnEzXIO6Mz2ICcZY65cBQ-LraP75yU5CbdKV9_mZfcJvY/s1600/Memory.jpg" width="98%" /></a>
 Note: &HEFF0 is the 16-bit memory address where ST will be manipulated.
 <br />
 Next, add the following lines of code to the original program:

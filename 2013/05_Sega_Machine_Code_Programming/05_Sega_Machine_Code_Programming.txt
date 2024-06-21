@@ -27,7 +27,7 @@ Activate keyboard to begin typing: Inputs menu, Sega Keyboard.  Next, open the M
 </ul>
 </td></tr>
 </table>
-<a href="http://2.bp.blogspot.com/--yatT_dYXRU/Umva6useeII/AAAAAAAACfI/GIEkrt_B_qg/s1600/MemoryEditorI.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/--yatT_dYXRU/Umva6useeII/AAAAAAAACfI/GIEkrt_B_qg/s1600/MemoryEditorI.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0t6xdB8S6e8Zf1OdqTIgujNTuQKoHbXz-5iQDZJggNtYW7N_7mVUWd6aI5KelwgtM4F6Tmt6KRQEhLyaJH6JC5ZocKbVLgEAQQ80mISmxbvMJwAK7CfbzO1IlVAEDstP4y3X-T7jm1gw/s1600/MemoryEditorI.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0t6xdB8S6e8Zf1OdqTIgujNTuQKoHbXz-5iQDZJggNtYW7N_7mVUWd6aI5KelwgtM4F6Tmt6KRQEhLyaJH6JC5ZocKbVLgEAQQ80mISmxbvMJwAK7CfbzO1IlVAEDstP4y3X-T7jm1gw/s1600/MemoryEditorI.jpg" width="98%" /></a>
 Note: all machine code written during this post will commence at 16-bit memory address: <b>&HF000</b>.
 <br /><br />
 <u>Tutorial</u>
@@ -38,7 +38,7 @@ Type in the following BASIC code:
 RUN
 </pre>
 Inspect the 16-bit memory address &HF000; the hexadecimal &HC9 will now be stored in RAM there.
-<a href="http://2.bp.blogspot.com/-qfLQ1fUXy3A/UmvbKGyZn7I/AAAAAAAACfQ/8WAqVTEnlBw/s1600/MemoryEditorII.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-qfLQ1fUXy3A/UmvbKGyZn7I/AAAAAAAACfQ/8WAqVTEnlBw/s1600/MemoryEditorII.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPry2Sd7P7flSNOaa_15iK0Io8mBw2EZHmCvy4ztphrntQhBd6t11W-QxkmrORJU7JAsHGOhPIf5Fj_4GbLSvVRvDOrEwQvkPnPzEaVOXA20WOFNost_ve22gfTBfBBDVBR3S-3QbmuJU/s1600/MemoryEditorII.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPry2Sd7P7flSNOaa_15iK0Io8mBw2EZHmCvy4ztphrntQhBd6t11W-QxkmrORJU7JAsHGOhPIf5Fj_4GbLSvVRvDOrEwQvkPnPzEaVOXA20WOFNost_ve22gfTBfBBDVBR3S-3QbmuJU/s1600/MemoryEditorII.jpg" width="98%" /></a>
 Next, add the following line of code:
 <pre class="csharp" name="code">
 20 PRINT PEEK(&HF000)
@@ -107,13 +107,13 @@ Make the change to the mekaw.cfg file: find <b>debug_mode = 0</b> and replace wi
 <br /><br />
 Launch Sega BASIC Level 3 ROM as before; there should now be additional <b>DEBUG</b> menu available.
 Choose: Debug menu, Enabled.  Meka will break at the memory address at current code execution.
-<a href="http://2.bp.blogspot.com/-FZJvuiJRp5Y/Ugj73EBeE7I/AAAAAAAACbk/ILwYN_7NGAA/s1600/DebuggerI.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-FZJvuiJRp5Y/Ugj73EBeE7I/AAAAAAAACbk/ILwYN_7NGAA/s320/DebuggerI.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI8yaX-NA29rI_NiXjrMK8CKtkguh2aDnXDjJ3d3bDXCied4mVwdnm-OooBNN-0Ecc79PXSnmsPytq_hjLNey48t56c7JXskmF26dZxz517Q4Wu81VvE_hXRxjW8A4gzehuB53H_dBeQ0/s1600/DebuggerI.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI8yaX-NA29rI_NiXjrMK8CKtkguh2aDnXDjJ3d3bDXCied4mVwdnm-OooBNN-0Ecc79PXSnmsPytq_hjLNey48t56c7JXskmF26dZxz517Q4Wu81VvE_hXRxjW8A4gzehuB53H_dBeQ0/s320/DebuggerI.jpg" width="98%" /></a>
 Type "B F000" to set breakpoint at &HF000
-<a href="http://3.bp.blogspot.com/-7YE3mT3PkfM/Ugj7-nbF65I/AAAAAAAACbs/tBpztfz8dQo/s1600/DebuggerII.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-7YE3mT3PkfM/Ugj7-nbF65I/AAAAAAAACbs/tBpztfz8dQo/s320/DebuggerII.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjawZJE23roVYOhgWQvP3KKkjUScKcBtnJA0Ocv6tBCl3b82RMSIZre_wNnkJw0BhJtvbW2JKc9JaQlCNL3Lee8E577iclL-b1d8Dx2n2V7gIBF35Qw_Fi9PaEMtWYzP6luYOxUWJYsO3M/s1600/DebuggerII.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjawZJE23roVYOhgWQvP3KKkjUScKcBtnJA0Ocv6tBCl3b82RMSIZre_wNnkJw0BhJtvbW2JKc9JaQlCNL3Lee8E577iclL-b1d8Dx2n2V7gIBF35Qw_Fi9PaEMtWYzP6luYOxUWJYsO3M/s320/DebuggerII.jpg" width="98%" /></a>
 Type "C" to continue
-<a href="http://4.bp.blogspot.com/-UQStPJHTIjI/Ugj8FkHfogI/AAAAAAAACb0/RJo-dTHB4B8/s1600/DebuggerIII.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-UQStPJHTIjI/Ugj8FkHfogI/AAAAAAAACb0/RJo-dTHB4B8/s320/DebuggerIII.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7EJmnq-1YdkGOFY2ZI3S9-T6aDoLlkNYeAqhIzOdfaPzB1m7SDH0p5n1Oa12l-G7i6HRPEF5Ohpm5ttLdJho7Ci93_dQowthg6kmikS8Z86Ym6v6jyj06YCweQt460AhCv6fhg4cxgvw/s1600/DebuggerIII.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7EJmnq-1YdkGOFY2ZI3S9-T6aDoLlkNYeAqhIzOdfaPzB1m7SDH0p5n1Oa12l-G7i6HRPEF5Ohpm5ttLdJho7Ci93_dQowthg6kmikS8Z86Ym6v6jyj06YCweQt460AhCv6fhg4cxgvw/s320/DebuggerIII.jpg" width="98%" /></a>
 Type RUN as before
-<a href="http://2.bp.blogspot.com/-88y39ZMdTdU/Ugj8LLmUd7I/AAAAAAAACb8/_wHIs2tNwOA/s1600/DebuggerIV.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-88y39ZMdTdU/Ugj8LLmUd7I/AAAAAAAACb8/_wHIs2tNwOA/s320/DebuggerIV.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhz5F09l9JJEH8F-kjqhx-uahngXLSjec-EV4XYTg-GQYBA4ot4XV2oa0_bQLIChRz6olJrpu3CM-E6vL51vl86g9e9t3mMbZAgaLVS5ey1jvMNU9conb9zklNJ_4bWOna-nbsePgmyq4/s1600/DebuggerIV.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhz5F09l9JJEH8F-kjqhx-uahngXLSjec-EV4XYTg-GQYBA4ot4XV2oa0_bQLIChRz6olJrpu3CM-E6vL51vl86g9e9t3mMbZAgaLVS5ey1jvMNU9conb9zklNJ_4bWOna-nbsePgmyq4/s320/DebuggerIV.jpg" width="98%" /></a>
 Program now invokes CALL &HF000 as before but this time breaks at breakpoint set above.
 <br />
 Hit the Enter key to step through the machine code: executes <b>RET</b> which returns to BASIC.
@@ -170,7 +170,7 @@ Keyboard.
 In this example, moving joystick right moves target sprite right; moving any other direction moves left.
 <br />
 Important: if joystick not configured then try these keys: "<b>J</b>" = left, "<b>M</b>" = right, "<b>7</b>" = up, "<b>U</b>" = down.
-<a href="http://1.bp.blogspot.com/-FGs6pazXwTs/UfopdQMN1gI/AAAAAAAACas/DGM72irK-bE/s1600/SegaBasicProgam.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-FGs6pazXwTs/UfopdQMN1gI/AAAAAAAACas/DGM72irK-bE/s320/SegaBasicProgam.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5Lb3O0vD5OeD1XvETMuQtJcivB1TDPZRunn4irQ13x6PMDrdTCBIZI3lxY_cyRiW1J8aItFbfZ_hijzJNu9N88rygmBar26C_skGbkxaFIM76UutT_k9zgygal5VEDlt5S5WC30Eg07Q/s1600/SegaBasicProgam.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5Lb3O0vD5OeD1XvETMuQtJcivB1TDPZRunn4irQ13x6PMDrdTCBIZI3lxY_cyRiW1J8aItFbfZ_hijzJNu9N88rygmBar26C_skGbkxaFIM76UutT_k9zgygal5VEDlt5S5WC30Eg07Q/s320/SegaBasicProgam.jpg" width="98%" /></a>
 Note: the machine code here actually does not <b>RET</b> to BASIC; press the "Scroll lock" key to soft reset.
 <br /><br />
 As you can see, the machine code version of the program is much smoother than its BASIC counterpart.  In fact, machine code is so fast that a delay is required: without it, the sprite would simply flash across!
@@ -191,7 +191,7 @@ Note: original time delay is 0300 but is stored in memory as 00 03 (<a href="htt
 </ul>
 </td></tr>
 </table>
-<a href="http://3.bp.blogspot.com/-VaSrCWcwNCM/Umvb19T4zLI/AAAAAAAACfY/RvJVI8T3aMM/s1600/DelayUpdate.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-VaSrCWcwNCM/Umvb19T4zLI/AAAAAAAACfY/RvJVI8T3aMM/s1600/DelayUpdate.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyGqdG-BWcomVWyhioXJbS8XC9tuITQAMHJX1z3mr-dQcw3FJ7vLyal-3YGdzTg24hZcknqXKSeFY51SZQPMCcbTRrip6xTx-HD6YP0ImuHn8K-kXi518AQ1xugccjGNR7weZqgAXXQ2w/s1600/DelayUpdate.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyGqdG-BWcomVWyhioXJbS8XC9tuITQAMHJX1z3mr-dQcw3FJ7vLyal-3YGdzTg24hZcknqXKSeFY51SZQPMCcbTRrip6xTx-HD6YP0ImuHn8K-kXi518AQ1xugccjGNR7weZqgAXXQ2w/s1600/DelayUpdate.jpg" width="98%" /></a>
 For completeness, here is the disassembled machine code from the <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue04?gallerypage=21">tutorial</a> in its entirety:
 <pre class="csharp" name="code">
 --------------------------------------------------

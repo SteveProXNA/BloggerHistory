@@ -1,7 +1,7 @@
-<span style="font-family:verdana;font-size:85%;">  
+<span style="font-family:verdana;font-size:85%;">   
 <a href="https://en.wikipedia.org/wiki/Kubernetes">Kubernetes</a> is an open source container orchestration system for automating application deployment, scaling and management.  Maintained by the Cloud Native Computing Foundation, Kubernetes works with a range of container tools and runs applications deployed in containers in a cluster often with images built using <a href="https://steveproxna.blogspot.com/2021/08/docker-cheat-sheet.html">Docker</a>.
 <br />
-<a href="https://1.bp.blogspot.com/-ZXeJTM4CjkA/YVIh6qriF8I/AAAAAAAAHco/Jr7_2tXARisKKV-wFuE9N9xIaecewo9xwCLcBGAsYHQ/s480/kubernetes.png"><img alt="" border="0" width="98%" src="https://1.bp.blogspot.com/-ZXeJTM4CjkA/YVIh6qriF8I/AAAAAAAAHco/Jr7_2tXARisKKV-wFuE9N9xIaecewo9xwCLcBGAsYHQ/s600/kubernetes.png"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJkAHQB4eVkzU-Q5ZLRFRrRvSorbPflV5IMrOmuybfLIZi1cLjTNYOovXHWEG2eAyO9McIgFndjseYgKjukGtYw1HbKs8Vahwpt6WyTZNgX_ofFm9rAsGVYSECdPAoHHbUnTCspXxzO80/s480/kubernetes.png"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJkAHQB4eVkzU-Q5ZLRFRrRvSorbPflV5IMrOmuybfLIZi1cLjTNYOovXHWEG2eAyO9McIgFndjseYgKjukGtYw1HbKs8Vahwpt6WyTZNgX_ofFm9rAsGVYSECdPAoHHbUnTCspXxzO80/s600/kubernetes.png"/></a>
 <br />
 Let's check <a href="https://kubernetes.io">K8s</a> out!  
 <br /><br />
@@ -27,7 +27,7 @@ Here are some commonly used <a href="https://kubernetes.io/docs/tasks/tools">too
 <td valign="top">&nbsp;Used to create and manage and secure larger Kubernetes clusters</td>
 </tr>
 </table>
-<br>
+<br />
 <u>Installation</u><br />
 Install Kubernetes with Docker Desktop on <a href="https://docs.docker.com/docker-for-windows/install">Windows</a> and <a href="https://docs.docker.com/docker-for-mac/install">Mac OS/X</a>.  Install Kubernetes on <a href="https://phoenixnap.com/kb/install-kubernetes-on-ubuntu">Linux</a> accordingly.
 <br /><br />
@@ -54,7 +54,7 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-
 minikube version
 minikube start
 </pre>
-<a href="https://1.bp.blogspot.com/-ZwTq-wMESmE/YPWzQ_Q7y_I/AAAAAAAAHHo/cMAXOAUCg6Mzz3cgdn6bB7yfS67CL-7vACLcBGAsYHQ/s816/MiniKube.png"><img alt="" border="0" width="98%" src="https://1.bp.blogspot.com/-ZwTq-wMESmE/YPWzQ_Q7y_I/AAAAAAAAHHo/cMAXOAUCg6Mzz3cgdn6bB7yfS67CL-7vACLcBGAsYHQ/s600/MiniKube.png"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkq-kJIHlY9NqQsBS77Lk3t7BMeDld8efyiYH6DHHCO46Ch-iPghubbWzC_gxCB1OIMBryNXF46zR8qIyTrWAsqJ7Xpp-W2ri-vZ-7iRvd_UYe-U1tMvLnnXFAJYuqnznSVefmkWXGkC0/s816/MiniKube.png"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkq-kJIHlY9NqQsBS77Lk3t7BMeDld8efyiYH6DHHCO46Ch-iPghubbWzC_gxCB1OIMBryNXF46zR8qIyTrWAsqJ7Xpp-W2ri-vZ-7iRvd_UYe-U1tMvLnnXFAJYuqnznSVefmkWXGkC0/s600/MiniKube.png"/></a>
 <br />
 <br />
 <b>KinD</b><br />
@@ -105,7 +105,7 @@ kubeadm version
 <u>Dashboard</u><br />
 Once Kubernetes cluster is setup there are various options to view all resources.  Minikube: simply the launch terminal | <b>minikube dashboard</b>.  Alternatively, install VS Code Kubernetes <a href="https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools">extension</a> and view all resources.  
 <br />
-<a href="https://1.bp.blogspot.com/-SRvrjA6F41U/YV4KNAL4tsI/AAAAAAAAHgM/ZQtB8uDYIbUzMR_rVtHccQJeuoGrwzSxQCLcBGAsYHQ/s1162/Dashboard.png"><img alt="" border="0" width="98%" src="https://1.bp.blogspot.com/-SRvrjA6F41U/YV4KNAL4tsI/AAAAAAAAHgM/ZQtB8uDYIbUzMR_rVtHccQJeuoGrwzSxQCLcBGAsYHQ/s600/Dashboard.png"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4iP8pJ_4HV6k9KNbrRjRo_hybJMzBnazVqTsa5wWr2a76c9FbIcLkRVs02u6dXdPRkqCSs83sho16BySereqVqT6kthzh9-XJNHx9thubS2tHL9h4Wiw2iHpFr1MzTSSI8rcwyVXSRVs/s1162/Dashboard.png"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4iP8pJ_4HV6k9KNbrRjRo_hybJMzBnazVqTsa5wWr2a76c9FbIcLkRVs02u6dXdPRkqCSs83sho16BySereqVqT6kthzh9-XJNHx9thubS2tHL9h4Wiw2iHpFr1MzTSSI8rcwyVXSRVs/s600/Dashboard.png"/></a>
 <br />
 <br />
 KinD dashboard is more involved.  Enter these commands to configure KinD dashboard to run in the browser.
@@ -133,17 +133,17 @@ If you receive following <i>error: listen tcp 127.0.0.1:8001: bind: address alre
 <table border="1" width="99%">
 <tr>
 <td>
-&nbsp;netstat -tulnap | grep 5000<br />
+&nbsp;netstat -tulnap | grep 8001<br />
 &nbsp;sudo apt install net-tools<br />
-&nbsp;sudo fuser -k 5000/tcp<br />
-&nbsp;netstat -tulnap | grep 5000<br />
+&nbsp;sudo fuser -k 8001/tcp<br />
+&nbsp;netstat -tulnap | grep 8001<br />
 </td>
 </tr>
 </table>
 <br /><br />
 <a href="https://k9scli.io">k9s</a> is the Kubernetes CLI to manage clusters.  <a href="https://github.com/derailed/k9s/releases/download/v0.24.15/k9s_Linux_x86_64.tar.gz">Download</a> the latest binary and extract into <b>/usr/local/bin</b>.  You may need to manually create the <b>~/.k9s</b> folder otherwise you may receive the error <i>Permission denied</i>.
 <br />
-<a href="https://1.bp.blogspot.com/-mInwoIpHwKM/YV3-6GivDVI/AAAAAAAAHgE/t719Gm7sURQi2GV3KmFP3MAzCMMN3sNdgCLcBGAsYHQ/s1240/k9s.png"><img alt="" border="0" width="98%" src="https://1.bp.blogspot.com/-mInwoIpHwKM/YV3-6GivDVI/AAAAAAAAHgE/t719Gm7sURQi2GV3KmFP3MAzCMMN3sNdgCLcBGAsYHQ/s600/k9s.png"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiswihI31xNlJdVh1V20t-jYvTLIftrt4nDJA1FKGv2VpYY35xBMPMcMTWWba5hcniPjtuCw3eMeqPf7elb_07aLJgnbC4L9ez9IoDASPXs239zKvclAJAXRY26q7gogfJ9BIO1SGUpEIs/s1240/k9s.png"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiswihI31xNlJdVh1V20t-jYvTLIftrt4nDJA1FKGv2VpYY35xBMPMcMTWWba5hcniPjtuCw3eMeqPf7elb_07aLJgnbC4L9ez9IoDASPXs239zKvclAJAXRY26q7gogfJ9BIO1SGUpEIs/s600/k9s.png"/></a>
 <br />
 <br />
 <b>kubectl</b><br />
@@ -189,6 +189,10 @@ The Kubernetes cluster configuration file lives at <b>~/.kube/config</b>.  Obtai
 <td valign="top">&nbsp;kubectl config use-context <i>my-cluster-name</i></td>
 <td valign="top">&nbsp;Set default context to <i>my-cluster-name</i></td>
 </tr>
+<tr>
+<td valign="top">&nbsp;kubectl config set-context --current --namespace=<i>my-ns</i></td>
+<td valign="top">&nbsp;Set default context namespace to <i>my-ns</i></td>
+</tr>
 </table>
 <br />
 <br />
@@ -217,23 +221,27 @@ Here is some basic terminology when working with containerized applications runn
 <td valign="top">&nbsp;Workloads are placed in Containers on Pods to be run on Nodes</td>
 </tr>
 <tr>
+<td valign="top">&nbsp;<a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset">Replicaset</a></td>
+<td valign="top">&nbsp;Maintains stable set of replica pods available running any time</td>
+</tr>
+<tr>
 <td valign="top">&nbsp;<a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment">Deployment</a></td>
 <td valign="top">&nbsp;Provides a declarative way to update all Pods and ReplicaSets</td>
 </tr>
 <tr>
 <td valign="top">&nbsp;<a href="https://kubernetes.io/docs/concepts/services-networking/service">Service</a></td>
-<td valign="top">&nbsp;Absract way to expose an application running on a set of Pods</td>
+<td valign="top">&nbsp;Abstract way to expose an application running on set of Pods</td>
 </tr>
 </table>
 <br />
 <br />
 <u>Planes</u><br />
-<a href="https://konghq.com/learning-center/cloud-connectivity/control-plane-vs-data-plane">Networking</a> back in the day would have rules + policies about how to route network packets.  These policies would make up the network <b>control plane</b>.  The control plane is concerted with establishing network policy.  Meanwhile, the <b>data plane</b> is everything else in the network architecture that enforces all network policies.
+<a href="https://konghq.com/learning-center/cloud-connectivity/control-plane-vs-data-plane">Networking</a> back in the day would have rules + policies about how to route network packets.  These policies would make up the network <b>control plane</b>.  The control plane is concerned with establishing network policy.  Meanwhile, the <b>data plane</b> is everything else in the network architecture that enforces all network policies.
 <br /><br />
 <b>Control Plane</b><br />
 In Kubernetes, the control plane is the set of components that "make global decisions about the cluster" e.g. scheduling as well as detecting and responding to cluster events e.g. auto scaling pods due to traffic spikes.
 <br /> 
-<a href="https://1.bp.blogspot.com/-Nj96lyk2CtU/YVmyNENVqUI/AAAAAAAAHeY/1PNKas0BCvUz4__kXew4Bg7YDaocivc0QCLcBGAsYHQ/s1059/PlaneControl.png"><img alt="" border="0" width="98%" src="https://1.bp.blogspot.com/-Nj96lyk2CtU/YVmyNENVqUI/AAAAAAAAHeY/1PNKas0BCvUz4__kXew4Bg7YDaocivc0QCLcBGAsYHQ/s600/PlaneControl.png"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiymQuIfNB3v33E68hZV5pcaG6hZ9niqBflZdkFioCU74kIlj5kAOMad8gG82UUb3whvOGSNCiRM1xl9PTMVYTdN-sa6gWw5iRilURb-egoL7k0r2173Sohyphenhyphen0Q3tbEV9f_LBCFz8aRoPfA/s1059/PlaneControl.png"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiymQuIfNB3v33E68hZV5pcaG6hZ9niqBflZdkFioCU74kIlj5kAOMad8gG82UUb3whvOGSNCiRM1xl9PTMVYTdN-sa6gWw5iRilURb-egoL7k0r2173Sohyphenhyphen0Q3tbEV9f_LBCFz8aRoPfA/s600/PlaneControl.png"/></a>
 <br />
 Listed are control plane <a href="https://kubernetes.io/docs/concepts/overview/components">components</a> that run on the master node to keep the cluster in the "<a href="https://yannalbou.medium.com/kubernetes-desired-state-4c5c4e873743">desired state</a>":
 <br />
@@ -259,7 +267,7 @@ Listed are control plane <a href="https://kubernetes.io/docs/concepts/overview/c
 <b>Data Plane</b><br />
 In Kubernetes, the data plane is the set of worker nodes with their pods and containers that enforce all the global decisions made about the cluster from the master node e.g. auto scaling pods due to traffic spikes.
 <br />
-<a href="https://1.bp.blogspot.com/-a3aLU6IFuuQ/YVmyl-XVpqI/AAAAAAAAHeg/bXgnCIaLHO0KKwx0WmJ7ZGa4QLkFBETAgCLcBGAsYHQ/s1059/PlaneData.png"><img alt="" border="0" width="98%" src="https://1.bp.blogspot.com/-a3aLU6IFuuQ/YVmyl-XVpqI/AAAAAAAAHeg/bXgnCIaLHO0KKwx0WmJ7ZGa4QLkFBETAgCLcBGAsYHQ/s600/PlaneData.png"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq3Yl5DnL2yIhl41kXazBMQYR9MEG_CqxjS8kFZ3MorbyHib7_KYKzbD4OE8aYgi61wiZMKPMo6xNqv8O5ONldXmIv4yQU9GARPlzGEYJCHPgDUEcZug-bNIQxjvS0WgZqFmgkjB6nyls/s1059/PlaneData.png"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq3Yl5DnL2yIhl41kXazBMQYR9MEG_CqxjS8kFZ3MorbyHib7_KYKzbD4OE8aYgi61wiZMKPMo6xNqv8O5ONldXmIv4yQU9GARPlzGEYJCHPgDUEcZug-bNIQxjvS0WgZqFmgkjB6nyls/s600/PlaneData.png"/></a>
 <br />
 Listed are data plane <a href="https://kubernetes.io/docs/concepts/overview/components">components</a> that run on each worker node  maintaining pods and runtime environment:
 <br />
@@ -397,7 +405,7 @@ Hello MiniKube <a href="https://github.com/SteveProXNA/CloudTesting/tree/main/Ku
 <br />
 &nbsp;kubectl exec hello-node-7567d9fdc9-mblh7 -- ls /
 <br />
-&nbsp;kubectl exec --it hello-node-7567d9fdc9-mblh7 -- /bin/sh
+&nbsp;kubectl exec -it hello-node-7567d9fdc9-mblh7 -- /bin/sh
 <br />
 &nbsp;kubectl exec --stdin --tty hello-node-7567d9fdc9-mblh7 -- /bin/sh
 <br />
@@ -455,7 +463,7 @@ Code an <a href="https://github.com/SteveProXNA/CloudTesting/tree/main/Kubernete
 </td>
 </tr>
 </table>
-<br />  
+<br />
 Test main.go:  Launch Terminal | <b>curl http://localhost:8081/test</b>.  Next, create Dockerfile to build image:
 <br />
 <ol>
@@ -496,20 +504,7 @@ Test main.go:  Launch Terminal | <b>curl http://localhost:8081/test</b>.  Next, 
 <br />
 In VS Code | Right click Dockerfile | Build Image...  Choose name to tag image.  Once complete Image will be listed in Docker extension Images list.  Expand image built | Run.  Refresh Docker extension Containers list.
 <br /><br />
-Test Dockerfile:  Launch Terminal | <b>curl http://localhost:8081/test</b>.  Lastly, deploy Web API to the cluster.  Ensure that Minikube is installed.  Launch Terminal | <i>minikube start</i>.  Ensure images will be deployed locally:
-<br />
-<table border="1" width="99%">
-<tr>
-<td>
-<pre class="csharp" name="code">
-&nbsp;minikube docker-env
-&nbsp;eval $(minikube -p minikube docker-env)
-</pre>
-</td>
-</tr>
-</table>
-<br />
-Build the image as above but this time in the local Minikube cluster <i>docker build -t stevepro/testwebapi:1.0 .</i>  Enter the following YAML as image deployment to local Minikube cluster and expose the endpoint as service:
+Test Dockerfile:  Launch Terminal | <b>curl http://localhost:8081/test</b>.  Lastly, deploy Web API to the cluster.  Enter the following YAML as image deployment to local installed cluster and expose the endpoint as service:
 <br />
 <table border="1" width="99%">
 <tr>
@@ -579,26 +574,102 @@ Build the image as above but this time in the local Minikube cluster <i>docker b
 IMPORTANT: Kubernetes Templates is a handy VS Code <a href="https://marketplace.visualstudio.com/items?itemName=lunuan.kubernetes-templates">extension</a> that helps <a href="https://itnext.io/how-to-create-kubernetes-yaml-files-abb8426eeb45">create</a> Kubernetes YAML files!
 <br />
 <br />
+<b>Minikube</b><br />
+Ensure that Minikube is installed.  Launch Terminal | <i>minikube start</i>.  Ensure images will be deployed locally:
+<br />
+<table border="1" width="99%">
+<tr>
+<td>
+&nbsp;minikube start<br />
+&nbsp;minikube docker-env<br />
+&nbsp;eval $(minikube -p minikube docker-env)<br />
+</td>
+</tr>
+</table>
+<br />
+Build the image as above but this time in the local Minikube cluster <i>docker build -t stevepro/testwebapi:1.0 .</i>
+<br />
 Apply the deployment and service YAML using the kubectl.  Verify objects created from <i>minikube dashboard</i>.
 <br />
 <table border="1" width="99%">
 <tr>
 <td>
-&nbsp;kubectl apply -f Kubernetes.yaml
+&nbsp;docker build -t stevepro/testwebapi:1.0 .<br />
+&nbsp;kubectl apply -f Kubernetes.yaml<br />
 </td>
 </tr>
 </table>
 <br />
-Test Kubernetes:  Launch Terminal | <i>minikube service testwebapi-service --url</i>.  Obtain the IP address + port.  Use Minikube cluster socket to test | <b>curl http://192.168.49.2:30799/test</b>.  Before finishing, clean up:
+Test Kubernetes:  Launch Terminal.  Execute <i>minikube service testwebapi-service --url</i> to obtain the cluster IP address + port.  Build Minikube cluster socket and test the API | <b>curl http://192.168.49.2:30799/test</b>.
 <br />
 <table border="1" width="99%">
 <tr>
 <td>
-&nbsp;kubectl delete -f Kubernetes.yaml
+&nbsp;minikube service testwebapi-service --url<br />
+&nbsp;curl http://192.168.49.2:30799/test<br />
 </td>
 </tr>
 </table>
-<br /><br />
+<br />
+Finally, clean up and delete deployment + service YAML after testing complete and destroy Minikube cluster.
+<br />
+<table border="1" width="99%">
+<tr>
+<td>
+&nbsp;kubectl delete -f Kubernetes.yaml<br />
+&nbsp;minikube stop<br />
+</td>
+</tr>
+</table>  
+<br />
+<br />
+<b>KinD</b><br />
+Code an <a href="https://github.com/SteveProXNA/CloudTesting/tree/main/KubernetesCheatSheet/02-Example">example</a> from above as full end-to-end Web API demo on local host, in Docker and on Kubernetes.  Ensure that KinD is installed. Launch Terminal | <i>kind create cluster</i>.  Ensure images will be deployed locally:
+<br />
+<table border="1" width="99%">
+<tr>
+<td>
+&nbsp;kind create cluster<br />
+</td>
+</tr>
+</table>
+<br />
+Build the image as above but this time in the local KinD cluster as <i>docker build -t stevepro/testwebapi:2.0</i>.  Load the newly built local image into KinD cluster.  Apply the deployment and service YAML using the kubectl.
+<br />
+<table border="1" width="99%">
+<tr>
+<td>
+&nbsp;docker build -t stevepro/testwebapi:2.0 .<br />
+&nbsp;kind load docker-image stevepro/testwebapi:2.0<br />
+&nbsp;kubectl apply -f Kubernetes.yaml<br />
+</td>
+</tr>
+</table>
+<br />
+Test Kubernetes: Launch Terminal.  Execute <i>kubectl get nodes -o wide</i> to obtain cluster INTERNAL-IP.  Execute <i>kubectl get services</i> to obtain cluster port.  Build socket and test | <b>curl http://172.18.0.2:31196/test</b>.
+<br />
+<table border="1" width="99%">
+<tr>
+<td>
+&nbsp;kubectl get nodes -o wide<br />
+&nbsp;kubectl get services<br />
+&nbsp;curl http://172.18.0.2:31196/test<br />
+</td>
+</tr>
+</table>
+<br />
+Finally, clean up and delete deployment + service YAML after testing complete and destroy the KinD cluster.
+<br />
+<table border="1" width="99%">
+<tr>
+<td>
+&nbsp;kubectl delete -f Kubernetes.yaml<br />
+&nbsp;kind delete cluster<br />
+</td>
+</tr>
+</table>
+<br />
+<br />
 <u>Source Code</u><br />
 Finally, navigate the Kubernetes <a href="https://github.com/kubernetes/kubernetes">source code</a> to familiarize yourself with the <a href="https://www.youtube.com/watch?v=yqB_le-N6EE">code base</a> and debug step thru the source code especially if you would like to participate in any one of the Special Interest Groups [<a href="https://kubernetes.io/docs/contribute/participate">SIGs</a>]. 
 <br /><br />
@@ -624,12 +695,12 @@ git clone the Kubernetes <a href="https://github.com/kubernetes/kubernetes">sour
 </td>
 </tr>
 </table>
-<a href="https://1.bp.blogspot.com/-FoNpiURTt_g/YWiCZtfMXvI/AAAAAAAAHjo/JY5f7QNuCI8sdWljxho4sxip-LlREEdwwCLcBGAsYHQ/s1856/K8sSourceCode.png"><img alt="" border="0" width="98%" src="https://1.bp.blogspot.com/-FoNpiURTt_g/YWiCZtfMXvI/AAAAAAAAHjo/JY5f7QNuCI8sdWljxho4sxip-LlREEdwwCLcBGAsYHQ/s600/K8sSourceCode.png"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsI2mBAqG8KLXw3ERYWIssPMVN_uZ-wjRvOABjSbiCgVwK7CDo1NsCq5ZFJ5pZIzaBfugeD1_lPHAhEzVOCUDqChd3BMXASyLfNT31PwUr-Xi8K59H-8RRpIgndjsdxYu5zfxvZhsgwmc/s1856/K8sSourceCode.png"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsI2mBAqG8KLXw3ERYWIssPMVN_uZ-wjRvOABjSbiCgVwK7CDo1NsCq5ZFJ5pZIzaBfugeD1_lPHAhEzVOCUDqChd3BMXASyLfNT31PwUr-Xi8K59H-8RRpIgndjsdxYu5zfxvZhsgwmc/s600/K8sSourceCode.png"/></a>
 <br /><br />
 <u>Summary</u><br />
 To summarize, Kubernetes has greatly simplified cloud native infrastructure for developers and provides a scalable framework for application deployment.  However, just like any new tool or technology, Kubernetes brings with it new <a href="https://www.vmware.com/resources/security/three-common-kubernetes-security-mistakes-and-how-to-avoid-them.html">security</a> challenges especially due to the ephemeral nature of containerized applications.
 <br /><br />
 Consequently, the Container Network Interface [<a href="https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#cni">CNI</a>] initiative was created to define a standardized common interface between container execution and Kubernetes networking layer to address these security concerns.
 <br /><br />
-Thus Kubernetes plugins like <a href="https://www.tigera.io/project-calico">Calico</a> has become the most popular CNI for cluster networking thru definition and enforcement of network policies.  Calico prescribes to which pods can send and receive traffic securely throughout the cluster which becomes critical esp. if Kubernetes adoption continues to grow in the future!
+Thus Kubernetes plugins like <a href="https://cilium.io">Cilium</a> has become the most popular CNI for cluster networking thru definition and enforcement of network policies.  Cilium prescribes to which pods can send and receive traffic securely throughout the cluster which becomes critical esp. if Kubernetes adoption continues to grow in the future!
 </span>

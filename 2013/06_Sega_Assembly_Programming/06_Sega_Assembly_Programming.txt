@@ -25,7 +25,7 @@ Activate keyboard to begin typing: Inputs menu, Sega Keyboard.  Next, open the M
 </ul>
 </td></tr>
 </table>
-<a href="http://2.bp.blogspot.com/--yatT_dYXRU/Umva6useeII/AAAAAAAACfI/GIEkrt_B_qg/s1600/MemoryEditorI.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/--yatT_dYXRU/Umva6useeII/AAAAAAAACfI/GIEkrt_B_qg/s1600/MemoryEditorI.jpg" width="98%" /></a>Note: all machine code generated during this post will commence at 16-bit memory address: <b>&HF000</b>.
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0t6xdB8S6e8Zf1OdqTIgujNTuQKoHbXz-5iQDZJggNtYW7N_7mVUWd6aI5KelwgtM4F6Tmt6KRQEhLyaJH6JC5ZocKbVLgEAQQ80mISmxbvMJwAK7CfbzO1IlVAEDstP4y3X-T7jm1gw/s1600/MemoryEditorI.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0t6xdB8S6e8Zf1OdqTIgujNTuQKoHbXz-5iQDZJggNtYW7N_7mVUWd6aI5KelwgtM4F6Tmt6KRQEhLyaJH6JC5ZocKbVLgEAQQ80mISmxbvMJwAK7CfbzO1IlVAEDstP4y3X-T7jm1gw/s1600/MemoryEditorI.jpg" width="98%" /></a>Note: all machine code generated during this post will commence at 16-bit memory address: <b>&HF000</b>.
 <br /><br />
 <u>Tutorial</u>
 <br />
@@ -67,9 +67,9 @@ Download <a href="http://mh-nexus.de/downloads/HxDSetupEN.zip">HxD Hex Editor</a
 </td></tr>
 </table>
 Launch Z80 Simulator, that is, double click z80simulatoride.exe.
-<a href="http://4.bp.blogspot.com/-ECFScKFg-o8/UmeZ_s-ISKI/AAAAAAAACc0/pTNQWpCqFGM/s1600/01-Z80.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-ECFScKFg-o8/UmeZ_s-ISKI/AAAAAAAACc0/pTNQWpCqFGM/s1600/01-Z80.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1ZmkcZGdSpSszOY6phQZW4vteIzj04ay5woImprePCDYxus4UkIUkg5R52e1vSMHqMgSCWNmAUo2hA23nZUyWnECSm5gZHQUq-Q9n8D75hPummtv6Cysn7aH-yI58HzZppuup3viiZSE/s1600/01-Z80.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1ZmkcZGdSpSszOY6phQZW4vteIzj04ay5woImprePCDYxus4UkIUkg5R52e1vSMHqMgSCWNmAUo2hA23nZUyWnECSm5gZHQUq-Q9n8D75hPummtv6Cysn7aH-yI58HzZppuup3viiZSE/s1600/01-Z80.jpg" width="98%" /></a>
 Open the Assembler: Tools menu, Assembler.
-<a href="http://3.bp.blogspot.com/-yZzWsuCJIgE/UmebTK0o7fI/AAAAAAAACc8/vGRHJcRtdTg/s1600/02-Z80.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-yZzWsuCJIgE/UmebTK0o7fI/AAAAAAAACc8/vGRHJcRtdTg/s1600/02-Z80.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvnzpFO56pWTNdplEv-DeoQ1HkttPOzjS_7ypTr08zVGRl4MZCng_uUWoC5Hn8hQCQq7DF0nvknL5cEU7-tEC0KXb9VB-eITacQIs2KNCA0yFza1ywOAr_nN27YdwwfwmV6sYXImRO1os/s1600/02-Z80.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvnzpFO56pWTNdplEv-DeoQ1HkttPOzjS_7ypTr08zVGRl4MZCng_uUWoC5Hn8hQCQq7DF0nvknL5cEU7-tEC0KXb9VB-eITacQIs2KNCA0yFza1ywOAr_nN27YdwwfwmV6sYXImRO1os/s1600/02-Z80.jpg" width="98%" /></a>
 Create a new assembly file: File menu, New.
 <br />
 Type in the following assembly language:
@@ -78,7 +78,7 @@ Type in the following assembly language:
         RET
 </pre>
 Save the assembly file: File menu, Save As, Hello.asm.
-<a href="http://3.bp.blogspot.com/-DwuISuiS5hs/UmebvEJGM8I/AAAAAAAACdE/BWJa_CEPGJs/s1600/03-Z80.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-DwuISuiS5hs/UmebvEJGM8I/AAAAAAAACdE/BWJa_CEPGJs/s1600/03-Z80.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5FZoaQe3HoyZSijilnulvpNuQYMhhpXy6apj-mSRsu7GHTsdO1sXgdKgiPTOh22-ir0cDvE-CmWtyz9f03pCSX2SIDeEjZfSM6y8T34pnL57BYYGh2FdEZwdGKhpuFcaWjo-YyD6PhO4/s1600/03-Z80.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5FZoaQe3HoyZSijilnulvpNuQYMhhpXy6apj-mSRsu7GHTsdO1sXgdKgiPTOh22-ir0cDvE-CmWtyz9f03pCSX2SIDeEjZfSM6y8T34pnL57BYYGh2FdEZwdGKhpuFcaWjo-YyD6PhO4/s1600/03-Z80.jpg" width="98%" /></a>
 Generate the machine code: Tools menu, Assemble (F7).
 <br /><br />
 This action will generate 3x new files: Hello.hex, Hello.lst and Hello.obj;
@@ -86,11 +86,11 @@ This action will generate 3x new files: Hello.hex, Hello.lst and Hello.obj;
 Note: the file that contains the raw binary data is stored in <b>Hello.obj</b>.
 <br /><br />
 Launch the Hex Editor, that is, double click HxD.exe.
-<a href="http://3.bp.blogspot.com/-Ptw1qXj6InA/UmedhE6TA_I/AAAAAAAACdM/0phHdAZx168/s1600/01-HxD.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-Ptw1qXj6InA/UmedhE6TA_I/AAAAAAAACdM/0phHdAZx168/s1600/01-HxD.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirlMZBZ58wWAL0u2CX4L-oT0CkZjwYOOTs4EMZ5iYX-Dl1DbkyCENVaAdIF5mvD4nxgp6QNagtquB4o9sixRdpGKz6wYJUbl9zxn6KjDqhRIHmhDWO46mTQG6tjfZIXIv0VZaiVn6ju5M/s1600/01-HxD.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirlMZBZ58wWAL0u2CX4L-oT0CkZjwYOOTs4EMZ5iYX-Dl1DbkyCENVaAdIF5mvD4nxgp6QNagtquB4o9sixRdpGKz6wYJUbl9zxn6KjDqhRIHmhDWO46mTQG6tjfZIXIv0VZaiVn6ju5M/s1600/01-HxD.jpg" width="98%" /></a>
 Open the binary file: File menu, Open, Hello.obj.
 <br />
 Goto &HF000: Search menu, Goto, Offset: F000.
-<a href="http://2.bp.blogspot.com/-vT6T16da3Tg/Umedpc1QOXI/AAAAAAAACdU/B8vjlkoKe5k/s1600/02-HxD.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-vT6T16da3Tg/Umedpc1QOXI/AAAAAAAACdU/B8vjlkoKe5k/s1600/02-HxD.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvIyINfx9x-dg9HerI0niMTb5_2w1rfx3utSRwV-v67qm630iJ5MvY_8vpQPOnyjlw4qINLO6inpWXiIaNG9-q_f-8tgwdjvZukd3NEwL8cdcKKFQIxKBrIIQYhUU0EQ8ntkibDOn8qj8/s1600/02-HxD.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvIyINfx9x-dg9HerI0niMTb5_2w1rfx3utSRwV-v67qm630iJ5MvY_8vpQPOnyjlw4qINLO6inpWXiIaNG9-q_f-8tgwdjvZukd3NEwL8cdcKKFQIxKBrIIQYhUU0EQ8ntkibDOn8qj8/s1600/02-HxD.jpg" width="98%" /></a>
 Inspect the 16-bit memory address at F000; the hexadecimal &HC9 is stored there. 
 <br />
 In the example, &HC9 in hexadecimal is the opcode for the <b>RET</b> instruction above.
@@ -102,7 +102,7 @@ Select all machine code generated in Hello.obj, that is, from Block F000-F000 an
 In the Hex Editor, open the save file: File menu, Open, <i>Sega BASIC Level 3 V1 (SC-3000) [b1].S00</i>.
 <br />
 Goto &H706D: Search menu, Goto, Offset: 706D.  Paste (Ctrl-V) machine code there, that is &HC9.
-<a href="http://3.bp.blogspot.com/-hodn5DfFKZI/UmedugKS9XI/AAAAAAAACdc/UuMAEXkPkJU/s1600/03-HxD.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-hodn5DfFKZI/UmedugKS9XI/AAAAAAAACdc/UuMAEXkPkJU/s1600/03-HxD.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJJDuRMiu8ugLHSVUCtl1I9Y9HJtw7RgdNv00H0I6jduCKp7fc9N9AFum_3muSmNHDGY0D8UEZqq7uA0oMBfnxene1BuWJRQNBCWemJesZBTWj9GZLO2UJhdLQMUznxM_WlDgxYQBIjOM/s1600/03-HxD.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJJDuRMiu8ugLHSVUCtl1I9Y9HJtw7RgdNv00H0I6jduCKp7fc9N9AFum_3muSmNHDGY0D8UEZqq7uA0oMBfnxene1BuWJRQNBCWemJesZBTWj9GZLO2UJhdLQMUznxM_WlDgxYQBIjOM/s1600/03-HxD.jpg" width="98%" /></a>
 <br /><br />
 Launch Sega BASIC Level 3 ROM, that is, double click Sega BASIC Level 3 V1 (SC-3000) [b1].sc.  
 <br />
@@ -120,7 +120,7 @@ Activate keyboard to begin typing: Inputs menu, Sega Keyboard. Next, open the Me
 </ul>
 </td></tr>
 </table>
-<a href="http://2.bp.blogspot.com/-qfLQ1fUXy3A/UmvbKGyZn7I/AAAAAAAACfQ/8WAqVTEnlBw/s1600/MemoryEditorII.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-qfLQ1fUXy3A/UmvbKGyZn7I/AAAAAAAACfQ/8WAqVTEnlBw/s1600/MemoryEditorII.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPry2Sd7P7flSNOaa_15iK0Io8mBw2EZHmCvy4ztphrntQhBd6t11W-QxkmrORJU7JAsHGOhPIf5Fj_4GbLSvVRvDOrEwQvkPnPzEaVOXA20WOFNost_ve22gfTBfBBDVBR3S-3QbmuJU/s1600/MemoryEditorII.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPry2Sd7P7flSNOaa_15iK0Io8mBw2EZHmCvy4ztphrntQhBd6t11W-QxkmrORJU7JAsHGOhPIf5Fj_4GbLSvVRvDOrEwQvkPnPzEaVOXA20WOFNost_ve22gfTBfBBDVBR3S-3QbmuJU/s1600/MemoryEditorII.jpg" width="98%" /></a>
 Inspect the 16-bit memory address &HF000; the hexadecimal &HC9 will now be stored in RAM there. 
 <br /><br />
 Finally, type RUN again.  On the surface, nothing appears to happen!
@@ -223,7 +223,7 @@ LOOP:   DEC BC
         JR CHECK
 </pre>
 Save the assembly file: File menu, Save As, Code.asm.
-<a href="http://2.bp.blogspot.com/-M8Dqou0PnlM/UmqAPJYC_5I/AAAAAAAACd0/rty-WmyxStE/s1600/04-Z80.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-M8Dqou0PnlM/UmqAPJYC_5I/AAAAAAAACd0/rty-WmyxStE/s1600/04-Z80.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii4Zv88uDb6TCEnBW7uECwcHMOGVAK65oaVnOoWMisjE-XX9v4EHsKi1MWARxr7d4No34KbQ-lercyRmM4J12QsUUqFXtBFKqCqg-01nwugQj3sfYy3VfnjstKD2xWFXjO6ys05ls_r3I/s1600/04-Z80.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii4Zv88uDb6TCEnBW7uECwcHMOGVAK65oaVnOoWMisjE-XX9v4EHsKi1MWARxr7d4No34KbQ-lercyRmM4J12QsUUqFXtBFKqCqg-01nwugQj3sfYy3VfnjstKD2xWFXjO6ys05ls_r3I/s1600/04-Z80.jpg" width="98%" /></a>
 Generate the machine code: Tools menu, Assemble (F7).
 <br /><br />
 This action will generate 3x new files: Code.hex, Code.lst and Code.obj;
@@ -231,11 +231,11 @@ This action will generate 3x new files: Code.hex, Code.lst and Code.obj;
 Note: the file that contains the raw binary data is stored in <b>Code.obj</b>.
 <br /><br />
 Launch the Hex Editor, that is, double click HxD.exe.
-<a href="http://3.bp.blogspot.com/-Ptw1qXj6InA/UmedhE6TA_I/AAAAAAAACdM/0phHdAZx168/s1600/01-HxD.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-Ptw1qXj6InA/UmedhE6TA_I/AAAAAAAACdM/0phHdAZx168/s1600/01-HxD.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirlMZBZ58wWAL0u2CX4L-oT0CkZjwYOOTs4EMZ5iYX-Dl1DbkyCENVaAdIF5mvD4nxgp6QNagtquB4o9sixRdpGKz6wYJUbl9zxn6KjDqhRIHmhDWO46mTQG6tjfZIXIv0VZaiVn6ju5M/s1600/01-HxD.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirlMZBZ58wWAL0u2CX4L-oT0CkZjwYOOTs4EMZ5iYX-Dl1DbkyCENVaAdIF5mvD4nxgp6QNagtquB4o9sixRdpGKz6wYJUbl9zxn6KjDqhRIHmhDWO46mTQG6tjfZIXIv0VZaiVn6ju5M/s1600/01-HxD.jpg" width="98%" /></a>
 Open the binary file: File menu, Open, Code.obj.
 <br />
 Goto &HF000: Search menu, Goto, Offset: F000.
-<a href="http://3.bp.blogspot.com/-93r6X5faTwA/UmqAtlAOdnI/AAAAAAAACd8/yA4y7JQDLAk/s1600/04-HxD.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-93r6X5faTwA/UmqAtlAOdnI/AAAAAAAACd8/yA4y7JQDLAk/s1600/04-HxD.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRR1R9lNKD5fZ8USReFBB0K8d5XtklsMBVRgAXTCdlSUFuoHPvn_IsTGzIfgr_UyzjUXRphqgUVTAUkRImNq4hBDqmwHdEAaqBKXTtusVYhTUtfHruzwPOCzKwAm9KC2E4hxHhBrTSr1E/s1600/04-HxD.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRR1R9lNKD5fZ8USReFBB0K8d5XtklsMBVRgAXTCdlSUFuoHPvn_IsTGzIfgr_UyzjUXRphqgUVTAUkRImNq4hBDqmwHdEAaqBKXTtusVYhTUtfHruzwPOCzKwAm9KC2E4hxHhBrTSr1E/s1600/04-HxD.jpg" width="98%" /></a>
 Next, copy machine code generated from the assembly above to be consumed in BASIC program:
 <br />
 Select all machine code generated in Code.obj, that is, from Block F000-F071 and copy (Ctrl-C).
@@ -243,7 +243,7 @@ Select all machine code generated in Code.obj, that is, from Block F000-F071 and
 In the Hex Editor, open the save file: File menu, Open, <i>Sega BASIC Level 3 V1 (SC-3000) [b1].S00</i>.
 <br />
 Goto &H706D: Search menu, Goto, Offset: 706D.  Paste (Ctrl-V) all copied machine code there.
-<a href="http://4.bp.blogspot.com/-qc0Y5Wg6hPI/UmqBWQlIzuI/AAAAAAAACeE/vYpBfQ3Hxdo/s1600/05-HxD.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-qc0Y5Wg6hPI/UmqBWQlIzuI/AAAAAAAACeE/vYpBfQ3Hxdo/s1600/05-HxD.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq9glOg9fmiYH01NaktaX_udVGySKm6o6o3dddR2Wc6UTLPs4tsW-ZWb_Vp8BzAczQ-n3TiBUhWFVca2g6EQT0DIuy4sIOFR5A1i6f4UKfwGAqiXUk77uQLTG2hRxxNDQ1GecqbLMo8ow/s1600/05-HxD.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq9glOg9fmiYH01NaktaX_udVGySKm6o6o3dddR2Wc6UTLPs4tsW-ZWb_Vp8BzAczQ-n3TiBUhWFVca2g6EQT0DIuy4sIOFR5A1i6f4UKfwGAqiXUk77uQLTG2hRxxNDQ1GecqbLMo8ow/s1600/05-HxD.jpg" width="98%" /></a>
 <br /><br />
 Launch Sega BASIC Level 3 ROM, that is, double click Sega BASIC Level 3 V1 (SC-3000) [b1].sc.  
 <br />
@@ -263,7 +263,7 @@ Activate keyboard to begin typing: Inputs menu, Sega Keyboard. Next, open the Me
 </ul>
 </td></tr>
 </table>
-<a href="http://2.bp.blogspot.com/--mJAYBCJw-k/UmqFlr0FneI/AAAAAAAACeY/7BbAgd_lcjk/s1600/MemoryEditor.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/--mJAYBCJw-k/UmqFlr0FneI/AAAAAAAACeY/7BbAgd_lcjk/s1600/MemoryEditor.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgV7YCdNzK-rYQAajMJGObraGstpZ8vHkwspQiFKAlfyj-X8jN0sbm_sNhANxhaSFqoBFri7tvcI56_7J6lFDEASwVOOTmC1KI6ywUKnIGV8trQhTZLUvnbnd2aLd8jW4FCLej3661g7Ak/s1600/MemoryEditor.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgV7YCdNzK-rYQAajMJGObraGstpZ8vHkwspQiFKAlfyj-X8jN0sbm_sNhANxhaSFqoBFri7tvcI56_7J6lFDEASwVOOTmC1KI6ywUKnIGV8trQhTZLUvnbnd2aLd8jW4FCLej3661g7Ak/s1600/MemoryEditor.jpg" width="98%" /></a>
 Inspect the 16-bit memory address &HF000; all machine code copied will be now stored in RAM there. 
 <br />
 Finally, type RUN again.
@@ -276,7 +276,7 @@ Keyboard.
 In this example, moving joystick left, right, up, or down moves sprite in that direction.  Press fire to quit.
 <br />
 Important: if joystick not configured then try these keys: "<b>J</b>" = left, "<b>M</b>" = right, "<b>7</b>" = up, "<b>U</b>" = down.
-<a href="http://1.bp.blogspot.com/-FGs6pazXwTs/UfopdQMN1gI/AAAAAAAACas/DGM72irK-bE/s1600/SegaBasicProgam.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-FGs6pazXwTs/UfopdQMN1gI/AAAAAAAACas/DGM72irK-bE/s320/SegaBasicProgam.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5Lb3O0vD5OeD1XvETMuQtJcivB1TDPZRunn4irQ13x6PMDrdTCBIZI3lxY_cyRiW1J8aItFbfZ_hijzJNu9N88rygmBar26C_skGbkxaFIM76UutT_k9zgygal5VEDlt5S5WC30Eg07Q/s1600/SegaBasicProgam.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5Lb3O0vD5OeD1XvETMuQtJcivB1TDPZRunn4irQ13x6PMDrdTCBIZI3lxY_cyRiW1J8aItFbfZ_hijzJNu9N88rygmBar26C_skGbkxaFIM76UutT_k9zgygal5VEDlt5S5WC30Eg07Q/s320/SegaBasicProgam.jpg" width="98%" /></a>
 Experiment with different delay speeds at runtime by manipulating memory directly:
 <br />
 Note: original time delay is 0300 but is stored in memory as 00 03 (<a href="http://en.wikipedia.org/wiki/Endianness#Little-endian">Little-endian</a>).
@@ -293,7 +293,7 @@ Note: original time delay is 0300 but is stored in memory as 00 03 (<a href="htt
 </ul>
 </td></tr>
 </table>
-<a href="http://2.bp.blogspot.com/-CgLxTwn7j_8/UmvX3vgbRVI/AAAAAAAACeo/91Z9EifVPDE/s1600/DelayUpdate.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-CgLxTwn7j_8/UmvX3vgbRVI/AAAAAAAACeo/91Z9EifVPDE/s1600/DelayUpdate.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjE3vZaDBc2j8by6WjByE6lXkfMNvNd9WppLpHQ9rkY0cfYHDjjLXGQufLshVjov_TvDk-Uj836jF9q1xx3Ghn008FLdoKq6B-F-IXfQnMd5xgp8gTPWDt_htvP4Wa3dY-FdHHJelR5zVk/s1600/DelayUpdate.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjE3vZaDBc2j8by6WjByE6lXkfMNvNd9WppLpHQ9rkY0cfYHDjjLXGQufLshVjov_TvDk-Uj836jF9q1xx3Ghn008FLdoKq6B-F-IXfQnMd5xgp8gTPWDt_htvP4Wa3dY-FdHHJelR5zVk/s1600/DelayUpdate.jpg" width="98%" /></a>
 For completeness, here is the disassembled machine code from the <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue08?gallerypage=8">tutorial</a> in its entirety:
 <pre class="csharp" name="code">
 --------------------------------------------------

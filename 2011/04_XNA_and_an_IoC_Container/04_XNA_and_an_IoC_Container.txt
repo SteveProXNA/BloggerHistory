@@ -10,7 +10,7 @@ public static class IoCContainer
 {
  private static IKernel kernel;
 
- public static T Resolve<T>()
+ public static T Resolve&lt;T&gt;()
  {
   if (null == kernel)
   {
@@ -20,7 +20,7 @@ public static class IoCContainer
    kernel = new StandardKernel(modules);
   }
 
-  return kernel.Get<T>();
+  return kernel.Get&lt;T&gt;();
  }
 
  public static void Release()

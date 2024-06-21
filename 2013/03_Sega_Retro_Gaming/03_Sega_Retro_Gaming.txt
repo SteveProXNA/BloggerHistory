@@ -8,15 +8,15 @@ In this blog we will concentrate on retro gaming for Sega platforms: the reason 
 <a href="https://en.wikipedia.org/wiki/Sega">Sega</a> is a multinational video game software and an arcade software and hardware development company headquartered in Japan.  Sega previously developed and manufactured its own brand of home video game consoles from 1983 to 2001.
 <br /><br />
 <u>SG-1000</u>
-<a href="http://2.bp.blogspot.com/-vmB9CR2aO5M/UdRxcY9VK7I/AAAAAAAACRk/hkN-P7Oc5ws/s480/SG-1000.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-vmB9CR2aO5M/UdRxcY9VK7I/AAAAAAAACRk/hkN-P7Oc5ws/s480/SG-1000.jpg" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG0UjBNZaQjS6a9u2435DaM8aNBAIIEEIxu684odAbbAsx08FYPEIJi69sMkG7LW30w9ingjiCU_suZ3A1uw-ukk6CcwBrO-J4mqWbfQYoMqfMx8LFCC6KXFwXz0_JAyHbjmQeWjbpjVc/s480/SG-1000.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG0UjBNZaQjS6a9u2435DaM8aNBAIIEEIxu684odAbbAsx08FYPEIJi69sMkG7LW30w9ingjiCU_suZ3A1uw-ukk6CcwBrO-J4mqWbfQYoMqfMx8LFCC6KXFwXz0_JAyHbjmQeWjbpjVc/s480/SG-1000.jpg" width="95%" /></a>
 Sega launched its first entry into the home video game industry with the <a href="http://en.wikipedia.org/wiki/SG-1000">SG-1000</a>.  The SG-1000 is a cartridge-based video game console released to the Japanese market in July 1983.  The only known release outside of Japan for the original SG-1000 was in New Zealand – hey, that’s where I’m from!
 <br /><br />
 <u>SC-3000</u>
-<a href="http://3.bp.blogspot.com/-J6UHpZn6mAE/UdRrqcgs6TI/AAAAAAAACQc/nka23fq43d8/s600/SC-3000.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-J6UHpZn6mAE/UdRrqcgs6TI/AAAAAAAACQc/nka23fq43d8/s600/SC-3000.jpg" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAH8x9avgwApYdkg-NUKe7v_U30bOYf7_8TjeutiiOenPrr4TtQWOerClE-oDZfSXIfEwYPOqLRXBilbHyW9xU7zexvh2aPvlwjVpMiSKujKZreRQsj_lUlw9vl6B9dQDQyIeLooOTJiQ/s600/SC-3000.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAH8x9avgwApYdkg-NUKe7v_U30bOYf7_8TjeutiiOenPrr4TtQWOerClE-oDZfSXIfEwYPOqLRXBilbHyW9xU7zexvh2aPvlwjVpMiSKujKZreRQsj_lUlw9vl6B9dQDQyIeLooOTJiQ/s600/SC-3000.jpg" width="95%" /></a>
 The <a href="http://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a> is the computer equivalent of the SG-1000.  Often known as the "Sega Computer", it is the first and only computer designed and manufactured by Sega.  Also released in July 1983, the SC-3000 is an 8-bit home computer based on the <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> chip and is almost identical to the SG-1000 but with built-in keyboard and support for hardware expansions.
 <br /><br />
 <i>SC-3000 specifications</i>
-<a href="http://4.bp.blogspot.com/-DCP4CQ2uAQ8/UdRo9zq95TI/AAAAAAAACP0/bsQIHmoL9gI/s584/SC3000specs.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-DCP4CQ2uAQ8/UdRo9zq95TI/AAAAAAAACP0/bsQIHmoL9gI/s584/SC3000specs.jpg" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1sxaEf1tT4XUT8hEk59O82ZIUEz5aq1fYSD_4YrZeCjqGpvGX93QeD8Mo7-fX49VNySDXWYhMeITUvUIP_N6oeXSIJaKWtkENMNNsBSlhKekXf58YRBrmQBmTnbJXMl8HfYoqV2j7dDk/s584/SC3000specs.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1sxaEf1tT4XUT8hEk59O82ZIUEz5aq1fYSD_4YrZeCjqGpvGX93QeD8Mo7-fX49VNySDXWYhMeITUvUIP_N6oeXSIJaKWtkENMNNsBSlhKekXf58YRBrmQBmTnbJXMl8HfYoqV2j7dDk/s584/SC3000specs.jpg" width="95%" /></a>
 Note: cartridge-based video games available for the SG-1000 were also compatible with the SC-3000.
 <br /><br />
 Marketed in New Zealand, Australia, Finland, France, Italy, Spain and South Africa as a home computer for beginners, users were able to create their own programs and write their own games using the <a href="http://en.wikipedia.org/wiki/BASIC">BASIC</a> programming language, as well as in <a href="http://en.wikipedia.org/wiki/Machine_code">machine code</a>.
@@ -26,7 +26,7 @@ The SC-3000 gained its biggest success outside of Japan in New Zealand – hey, th
 New Zealand also had its own Sega computer <a href="http://www.smspower.org/Scans/SegaComputer-Magazine">magazine</a> to support the growing community, publish game code and to teach BASIC and machine code programming.  Many of these resources are still available and can be found <a href="http://www.sc-3000.com">here</a> at the Sega SC-3000 Survivors web site.
 <br /><br />
 <u>Sega Master System</u>
-<a href="http://4.bp.blogspot.com/-ndbLsrJp9Rw/UdRswSAN8rI/AAAAAAAACQ4/YNF0VLLTKWQ/s400/Sega-Master-System.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-ndbLsrJp9Rw/UdRswSAN8rI/AAAAAAAACQ4/YNF0VLLTKWQ/s400/Sega-Master-System.jpg" width="96%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUhhQGzIwquLU4oDTo-rBh06xLCL7kKaDVuKa5MznQC5mCggc2a7_HtwUZ14Bxy1pUp1fXndK3zz0C3tGkPp1DxhkzBFX9TuE3xsDdnufraTBq-K2pYNTRaOGzJ8kMvWm93EAVyG17tW0/s400/Sega-Master-System.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUhhQGzIwquLU4oDTo-rBh06xLCL7kKaDVuKa5MznQC5mCggc2a7_HtwUZ14Bxy1pUp1fXndK3zz0C3tGkPp1DxhkzBFX9TuE3xsDdnufraTBq-K2pYNTRaOGzJ8kMvWm93EAVyG17tW0/s400/Sega-Master-System.jpg" width="96%" /></a>
 In July 1984, Sega released an updated version of the SG-1000 called the <a href="http://en.wikipedia.org/wiki/SG-1000#SG-1000_II">SG-1000 II</a>.  By 1986, the successor to the SG-1000 II, the <a href="http://en.wikipedia.org/wiki/SG-1000#Sega_Mark_III">Sega Mark III</a>, was redesigned to become the <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a>.  These were the last ever 8-bit video game consoles manufactured by Sega built using the Z80 chip.
 <br /><br />
 Later, in 1988, Sega manufactured the 16-bit <a href="http://segaretro.org/Sega_Mega_Drive">Mega Drive</a> console before progressing to 32-bit consoles such as the <a href="http://en.wikipedia.org/wiki/Sega_Genesis">Genesis</a>, the <a href="http://en.wikipedia.org/wiki/Sega_Saturn">Saturn</a> and the <a href="http://en.wikipedia.org/wiki/Dreamcast">Dreamcast</a>.
@@ -63,7 +63,7 @@ If you have a joystick connected to your computer, e.g. wireless Xbox 360 contro
 <table>
 <tr>
 <td valign="top">
-<a href="http://1.bp.blogspot.com/-Ez5FJlgbyvM/UdRgPbMDZlI/AAAAAAAACPE/DtCrQqA7m-A/s545/Controller.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-Ez5FJlgbyvM/UdRgPbMDZlI/AAAAAAAACPE/DtCrQqA7m-A/s545/Controller.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgejOXeV809xSy0EJr0Vt6aa6NE6MOWxAgYc8Ip_-nn1auTU7ZtXBdLboV7HbfwXYoTzmVATsZcXeOl5B5saIglqdKbq409kKAAJRWKC1cIHvY0jYNi5zof_51u8Zz4DC-m2w1tUFMuqi0/s545/Controller.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgejOXeV809xSy0EJr0Vt6aa6NE6MOWxAgYc8Ip_-nn1auTU7ZtXBdLboV7HbfwXYoTzmVATsZcXeOl5B5saIglqdKbq409kKAAJRWKC1cIHvY0jYNi5zof_51u8Zz4DC-m2w1tUFMuqi0/s545/Controller.jpg" /></a>
 </td>
 <td valign="top">
 <ul>
@@ -138,25 +138,25 @@ Repeat the process above to play more classic 8-bit Sega retro games:
 <table width="100%">
 <tr>
 <td valign="top" width="40%">
-<a href="http://4.bp.blogspot.com/-Zx2lCWsqf8E/UdaWYNjECQI/AAAAAAAACTo/H6ik6fBeKzI/s282/MonacoGP.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-Zx2lCWsqf8E/UdaWYNjECQI/AAAAAAAACTo/H6ik6fBeKzI/s282/MonacoGP.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio-fFec2FAuLAY9autHnFCWOxnlmShU5zBN-BLygMb3DHMC-u62d9gLDWdK36_2QmwgZXjr_XdTti8yMqlfO0Y03sXXUo1VlI-FJvI9yrrUncRslfEXsW8lce1sUZDX3m_StWg9J_llwY/s282/MonacoGP.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio-fFec2FAuLAY9autHnFCWOxnlmShU5zBN-BLygMb3DHMC-u62d9gLDWdK36_2QmwgZXjr_XdTti8yMqlfO0Y03sXXUo1VlI-FJvI9yrrUncRslfEXsW8lce1sUZDX3m_StWg9J_llwY/s282/MonacoGP.jpg" /></a>
 </td>
 <td valign="top" width="40%">
-<a href="http://2.bp.blogspot.com/-RU0Rbl3ZzDQ/UdWyfzJ1M4I/AAAAAAAACS0/_Jwrav9vjtk/s282/CongoBongo.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-RU0Rbl3ZzDQ/UdWyfzJ1M4I/AAAAAAAACS0/_Jwrav9vjtk/s282/CongoBongo.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_t8gecc4tlpi6e5ZZzJ1Gw2LUDp3cxmY2dMLOE8FszefzdcWwjyr5wUB3Jacv4-t84hb62aYUN-_O8eLCTgx7Jg6VQmAsyq095mRcg9ji5yCFBDz9z0QuVxV3443E9wTE2j3_-ffL4sU/s282/CongoBongo.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_t8gecc4tlpi6e5ZZzJ1Gw2LUDp3cxmY2dMLOE8FszefzdcWwjyr5wUB3Jacv4-t84hb62aYUN-_O8eLCTgx7Jg6VQmAsyq095mRcg9ji5yCFBDz9z0QuVxV3443E9wTE2j3_-ffL4sU/s282/CongoBongo.jpg" /></a>
 </td>
 </tr>
 <tr>
 <td valign="top" width="40%">
-<a href="http://1.bp.blogspot.com/-wWtIs0dYDWM/UdWzd9OfdpI/AAAAAAAACTA/0klR9C2wQXg/s282/Flicky.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-wWtIs0dYDWM/UdWzd9OfdpI/AAAAAAAACTA/0klR9C2wQXg/s282/Flicky.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgX5ZP83r6tzkMX_3GBtRvTziN_iR9cIkmzuqiLV1NucZFyPOm3amWObOfUDOS9PIrr7g_jH1HU-uv-h-sRUyOrH1KwCDJRnwpoKU9CPy0ZgoXnL2StQWvZadJy9wAip-YmRIoVu2G2_Ck/s282/Flicky.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgX5ZP83r6tzkMX_3GBtRvTziN_iR9cIkmzuqiLV1NucZFyPOm3amWObOfUDOS9PIrr7g_jH1HU-uv-h-sRUyOrH1KwCDJRnwpoKU9CPy0ZgoXnL2StQWvZadJy9wAip-YmRIoVu2G2_Ck/s282/Flicky.jpg" /></a>
 </td>
 <td valign="top" width="40%">
-<a href="http://1.bp.blogspot.com/-avhlo4nxFK0/UdWziWIFVKI/AAAAAAAACTI/f-XEI6iU-uQ/s282/AfterBurner.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-avhlo4nxFK0/UdWziWIFVKI/AAAAAAAACTI/f-XEI6iU-uQ/s282/AfterBurner.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiE3pjqTbPqG8dxjGPPg2Ii_dMN07xAxHy0y1Ss0His7zuzDebCr5x_cNN1xTdHxMpOxPVYOYkyuQt339R0W9SJNEVsZuzYZrJNi1xa6ulLNr2Tx0EJUfAxOHRXdYtc5rKr3xfoTftjt-U/s282/AfterBurner.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiE3pjqTbPqG8dxjGPPg2Ii_dMN07xAxHy0y1Ss0His7zuzDebCr5x_cNN1xTdHxMpOxPVYOYkyuQt339R0W9SJNEVsZuzYZrJNi1xa6ulLNr2Tx0EJUfAxOHRXdYtc5rKr3xfoTftjt-U/s282/AfterBurner.jpg" /></a>
 </td>
 </tr>
 <td valign="top" width="40%">
-<a href="http://3.bp.blogspot.com/-UGd602zJmQY/UdW0PiDyieI/AAAAAAAACTQ/Vh_sfuFlycQ/s282/Shinobi.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-UGd602zJmQY/UdW0PiDyieI/AAAAAAAACTQ/Vh_sfuFlycQ/s282/Shinobi.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi933soUZ8XXNRZVxY7l7768c7sptJ8hcSwIJPExv1u5teUUtQ7J9IlmVWqcWqX0VXhOOn6JAjGGU3gJvfJNFMc_IgVlppss8y1MUOaBf5QRF-xsfGQsdKX_tTBiI9iiTKF6PHHSrWSwYo/s282/Shinobi.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi933soUZ8XXNRZVxY7l7768c7sptJ8hcSwIJPExv1u5teUUtQ7J9IlmVWqcWqX0VXhOOn6JAjGGU3gJvfJNFMc_IgVlppss8y1MUOaBf5QRF-xsfGQsdKX_tTBiI9iiTKF6PHHSrWSwYo/s282/Shinobi.jpg" /></a>
 </td>
 <td valign="top" width="40%">
-<a href="http://3.bp.blogspot.com/-CQCj05-gR84/UdW0SihpSKI/AAAAAAAACTY/92_u9DqlH5s/s282/Wonderboy.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-CQCj05-gR84/UdW0SihpSKI/AAAAAAAACTY/92_u9DqlH5s/s282/Wonderboy.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoOsxvE3MebTK_HHndm47fQZgv_oQpeFKCdhB8DIdX8esV4hEXYDmGoT2Koa-5UFOYfliODdxhUYqwu4QIWAU6vEoT-yEvNsjbyI7TTyUxCcNSAdSxWrf86mfADMMh7CziC3sLseM8Dbw/s282/Wonderboy.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoOsxvE3MebTK_HHndm47fQZgv_oQpeFKCdhB8DIdX8esV4hEXYDmGoT2Koa-5UFOYfliODdxhUYqwu4QIWAU6vEoT-yEvNsjbyI7TTyUxCcNSAdSxWrf86mfADMMh7CziC3sLseM8Dbw/s282/Wonderboy.jpg" /></a>
 </td>
 </tr>
 </table>

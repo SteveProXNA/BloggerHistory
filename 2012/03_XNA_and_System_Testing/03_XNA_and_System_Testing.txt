@@ -55,8 +55,8 @@ public interface IDataManager
 <br />
 The following code sample builds a simulation to integrate an unlimited number of snakes into a maze using data driven design and validates each snake through system tests.
 <table width="100%"><tr><td valign="top">
-<a href="http://4.bp.blogspot.com/-oqQcKo06Jh8/UEByk8vip5I/AAAAAAAABuE/Ar9TRb4DpVY/s1600/Snake.jpg" imageanchor="1" style="clear:left; float:left;margin-right:1em; margin-bottom:1em">
-<img border="0" height="211" width="400" src="http://4.bp.blogspot.com/-oqQcKo06Jh8/UEByk8vip5I/AAAAAAAABuE/Ar9TRb4DpVY/s400/Snake.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkat-_S6uNJLd0qvMIElvvhQ7A0fqwp5M7_IHMYO3zgcXo0z265U6VHqMaW9eY6m0OTz9kHkN1804d2TDLo-WGvBxcMde7Kr90c_kOn1Gla_5mGFREqKlsx0ktOkYHopTsn7zjwEO55N0/s1600/Snake.jpg" imageanchor="1" style="clear:left; float:left;margin-right:1em; margin-bottom:1em">
+<img border="0" height="211" width="400" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkat-_S6uNJLd0qvMIElvvhQ7A0fqwp5M7_IHMYO3zgcXo0z265U6VHqMaW9eY6m0OTz9kHkN1804d2TDLo-WGvBxcMde7Kr90c_kOn1Gla_5mGFREqKlsx0ktOkYHopTsn7zjwEO55N0/s400/Snake.jpg" /></a>
 </td></tr></table>
 First, define a simple text file that will store all 3x possible maze sizes: Small, Medium, and Large.
 <br />
