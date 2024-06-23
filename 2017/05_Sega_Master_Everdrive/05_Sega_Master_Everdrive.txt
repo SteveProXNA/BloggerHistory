@@ -2,12 +2,12 @@
 In 2013, we checked out Sega <a href="http://steveproxna.blogspot.co.uk/2013/06/sega-retro-gaming.html">Retro Gaming</a> to mark the 30 year anniversary [July 1983] launch of the Sega <a href="https://en.wikipedia.org/wiki/SG-1000">SG-1000</a> and <a href="https://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a>.  We also checked out the Sega <a href="https://en.wikipedia.org/wiki/Master_System">Master System</a> as these were the last ever 8-bit video game consoles manufactured by Sega built using the Z80 chip.
 <br /><br />
 Here, we installed an <a href="http://www.emutopia.com/index.php/downloads-emulators/category-items/3-downloads-emulators/298-sega-sg-1000-sc-3000">emulator</a> on a modern-day computer and downloaded <a href="https://en.wikipedia.org/wiki/ROM_image">ROMs</a> in order to play some classic Sega retro games.  Now we would like to play these game on real hardware via <a href="http://www.stoneagegamer.com/master-everdrive-deluxe.html">Master Everdrive</a>.
-<a href="https://4.bp.blogspot.com/-XN7IxgUwVh0/WK2uwyiVPlI/AAAAAAAAD60/aVsmVAFKlrI6_9G6t1EzgVObu6fxvSBGwCLcB/s1600/MasterEverdrive.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-XN7IxgUwVh0/WK2uwyiVPlI/AAAAAAAAD60/aVsmVAFKlrI6_9G6t1EzgVObu6fxvSBGwCLcB/s640/MasterEverdrive.jpg" width="98%" height="350" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjC11fUQLLpVzBuTMw2JSv9kDq3JH818E9Jihzw7RdaKU_JKWVRsTHjmxWkZ7e241BoAO1uI5-ixfZ9EZ-Ep9FKxLluPEvkOcrJil2E1S_XMzX1GggRWFi5EOtNL44O8s8p3gK3kHJHC9Q/s1600/MasterEverdrive.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjC11fUQLLpVzBuTMw2JSv9kDq3JH818E9Jihzw7RdaKU_JKWVRsTHjmxWkZ7e241BoAO1uI5-ixfZ9EZ-Ep9FKxLluPEvkOcrJil2E1S_XMzX1GggRWFi5EOtNL44O8s8p3gK3kHJHC9Q/s640/MasterEverdrive.jpg" width="98%" height="350" /></a>
 <br />
 Let’s check it out! 
 <br /><br />
 <u>Description</u><br />
-The <a href="http://www.retrocollect.com/News/sega-master-system-flash-card-master-everdrive-now-">Master Everdrive</a> is a multi-cart for the Sega Master System which loads ROMs in the console itself:  Store ROM files on SD card.  Plug SD card into Everdrive and load Everdrive into Master System cart slot.
+The <a href="http://www.retrocollect.com/News/sega-master-system-flash-card-master-everdrive-now-available.html">Master Everdrive</a> is a multi-cart for the Sega Master System which loads ROMs in the console itself:  Store ROM files on SD card.  Plug SD card into Everdrive and load Everdrive into Master System cart slot.
 <br /><br />
 <u>Features</u><br />
 The Master Everdrive Printed Circuit Board (<a href="https://en.wikipedia.org/wiki/Printed_circuit_board">PCB</a>) is built by <a href="https://twitter.com/krikzz">@krikzz</a> and contains the following <a href="http://krikzz.com">features</a>:
@@ -34,7 +34,7 @@ Purchase the following equipment in order to play classic 8-bit Sega retro video
 </ol>
 <br />
 1. <b>Sega Master System</b><br />
-<a href="https://4.bp.blogspot.com/-ndbLsrJp9Rw/UdRswSAN8rI/AAAAAAAACQ4/YNF0VLLTKWQ/s400/Sega-Master-System.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-ndbLsrJp9Rw/UdRswSAN8rI/AAAAAAAACQ4/YNF0VLLTKWQ/s400/Sega-Master-System.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUhhQGzIwquLU4oDTo-rBh06xLCL7kKaDVuKa5MznQC5mCggc2a7_HtwUZ14Bxy1pUp1fXndK3zz0C3tGkPp1DxhkzBFX9TuE3xsDdnufraTBq-K2pYNTRaOGzJ8kMvWm93EAVyG17tW0/s400/Sega-Master-System.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUhhQGzIwquLU4oDTo-rBh06xLCL7kKaDVuKa5MznQC5mCggc2a7_HtwUZ14Bxy1pUp1fXndK3zz0C3tGkPp1DxhkzBFX9TuE3xsDdnufraTBq-K2pYNTRaOGzJ8kMvWm93EAVyG17tW0/s400/Sega-Master-System.jpg" width="98%" /></a>
 <table width="98%" border="1">
 <tr>
 <td valign="top">&nbsp;Amazon</td>
@@ -102,22 +102,22 @@ Here are some You Tube videos on the Master Everdrive beginning with this cool <
 Finally, we would like to play many of the SG-1000 + Master System Homebrew games available on real hardware via the Master Everdrive!  Checkout <a href="http://www.smspower.org">SMS Power</a> web site especially <a href="http://www.smspower.org/Homebrew">Homebrew</a> + <a href="http://www.smspower.org/Competitions">Competitions</a>.
 <br /><br />
 Choices to build your own 8-bit Sega Homebrew games generally result in 2x options: writing game code in pure Z80 assembly or writing game code in C and using <a href="https://en.wikipedia.org/wiki/Cross_compiler">cross compiler</a> to generate the binary output.
-References: <a href="http://steveproxna.blogspot.co.uk/2013/09/sega-console-programming.html">Sega Console Programming</a> or <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-and-programming-setup.html">z88dk Programming Setup</a> or <a href="http://steveproxna.blogspot.co.uk/2014/11/z88dk-programming-and-sample.html">z88dk Programming Sample</a>
+References: <a href="http://steveproxna.blogspot.co.uk/2013/09/sega-console-programming.html">Sega Console Programming</a> or <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-programming-setup.html">z88dk Programming Setup</a> or <a href="http://steveproxna.blogspot.co.uk/2014/11/z88dk-programming-sample.html">z88dk Programming Sample</a>
 <br /><br />
 Either way, it is imperative there are enough clock cycles, i.e. at least 26 clock cycles,  between two Video RAM (<a href="https://en.wikipedia.org/wiki/Video_RAM_(dual-ported_DRAM)">VRAM</a>) writes when in the active phase.  Otherwise VRAM <a href="http://www.smspower.org/forums/15989-CodingCompetition2016SchlangeCVByPkK">corruption</a> will occur as graphics glitches!
-<a href="https://1.bp.blogspot.com/-jvNASH8OcGI/WLRSSkRGp_I/AAAAAAAAD7k/abZp8DLaMcQIbAPNIdvqaqTVJRGmJNTRQCLcB/s1600/Glitch.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-jvNASH8OcGI/WLRSSkRGp_I/AAAAAAAAD7k/abZp8DLaMcQIbAPNIdvqaqTVJRGmJNTRQCLcB/s640/Glitch.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLgkA9wzABq5obWCmCMe15HmgxlLoMmuGzFwZsQJMEIFYpF3ljDY_-5_wfRT8Pgx1n8M-QK9YYO_4NTiHFTleJkygVsRD6o3FudhWN51rYDOxmKAVX4Aw7RUcQAb1Uc6TUSn3BS-wPPDw/s1600/Glitch.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLgkA9wzABq5obWCmCMe15HmgxlLoMmuGzFwZsQJMEIFYpF3ljDY_-5_wfRT8Pgx1n8M-QK9YYO_4NTiHFTleJkygVsRD6o3FudhWN51rYDOxmKAVX4Aw7RUcQAb1Uc6TUSn3BS-wPPDw/s640/Glitch.jpg" width="98%" height="400" /></a>
 <br /><br />
 <u>Emulation</u><br />
 Emulate graphics on real hardware to check for potential glitches in the Visual Display Processor (<a href="http://computer.wikia.com/wiki/Texas_Instruments_TMS9918">VDP</a>).  <a href="http://emulicious.net/downloads">Download</a> Emulicious emulator.  Setup Options | Emulation | Master System | Emulate VDP constraints.
-<a href="https://4.bp.blogspot.com/-DHriYmnfj8E/WLRciA7pZFI/AAAAAAAAD8I/dhbGzT0ijAkW0hzcYCPQYlr3uUL3CW8gACLcB/s1600/VDPconstaints.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-DHriYmnfj8E/WLRciA7pZFI/AAAAAAAAD8I/dhbGzT0ijAkW0hzcYCPQYlr3uUL3CW8gACLcB/s640/VDPconstaints.jpg" width="98%" height="471" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgeP2mmJf5rnqXRfxtt4KOM8dGuzSLKa5d2namcLPPAiqr1BXR1KGNSJBBPZF7PsOVmjgkFBa8DRq4uwMRutv78JRWIhry8IDwJqxLWRMAcG_lxD51OWblqJod_f1_a7f-D3a2lIx1YzM/s1600/VDPconstaints.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgeP2mmJf5rnqXRfxtt4KOM8dGuzSLKa5d2namcLPPAiqr1BXR1KGNSJBBPZF7PsOVmjgkFBa8DRq4uwMRutv78JRWIhry8IDwJqxLWRMAcG_lxD51OWblqJod_f1_a7f-D3a2lIx1YzM/s640/VDPconstaints.jpg" width="98%" height="471" /></a>
 <br /><br />
 <u>Example</u><br />
 Download and extract "<a href="http://www.smspower.org/maxim/uploads/HowToProgram/helloworld.zip">Hello World</a>".  Launch <a href="http://www.contexteditor.org/downloads">ConTEXT</a> editor, choose File menu, Open, "Hello World.asm"
-<a href="https://2.bp.blogspot.com/-NamCPHKA8pc/UnPjcrw77_I/AAAAAAAACg0/8EMZX0Gegbc/s1600/HelloWorld.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-NamCPHKA8pc/UnPjcrw77_I/AAAAAAAACg0/8EMZX0Gegbc/s1600/HelloWorld.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgH9hyXmHOJNxa6oL-b43Oa-jKiUk5nxvM5LdPa6TcpTDqbfxC6sCAbfbsRpXbL8IL9BxJxpdHryS2PnUXJZyxThccsok9S1pivyQCC9EKCqbjHKr1xKl5_MAWyIYiAXr1QtDS3QzaHhXA/s1600/HelloWorld.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgH9hyXmHOJNxa6oL-b43Oa-jKiUk5nxvM5LdPa6TcpTDqbfxC6sCAbfbsRpXbL8IL9BxJxpdHryS2PnUXJZyxThccsok9S1pivyQCC9EKCqbjHKr1xKl5_MAWyIYiAXr1QtDS3QzaHhXA/s1600/HelloWorld.jpg" width="98%" /></a>
 Follow <a href="http://steveproxna.blogspot.co.uk/2013/09/sega-console-programming.html">Sega Console Programming</a> to setup ConTEXT <b>F9</b>, <b>F10</b>, and <b>F11</b>, keys.  Now setup the <b>F12</b> key:
 <br /><br />
 <b>F12</b> - Emulicious
-<a href="https://4.bp.blogspot.com/--dw9GfJYfqc/WLRasD8zXGI/AAAAAAAAD8A/LJU7ICESuVA1wyIEmbMiy46dRXRD-TlbACLcB/s1600/F12.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/--dw9GfJYfqc/WLRasD8zXGI/AAAAAAAAD8A/LJU7ICESuVA1wyIEmbMiy46dRXRD-TlbACLcB/s640/F12.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7AanF9oBprwpxYvnVaUL4mkteSv7TUCKZOc6y3jGz2gsOFKurdkYqwj0K0OeK1mJnanF6mDFJbV5GE0xOjvL1mvRZDrO8FNXn8AJLqmcGobU-OpC4PmyD0UqQ67OhVzI4ficnxGFgJbg/s1600/F12.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7AanF9oBprwpxYvnVaUL4mkteSv7TUCKZOc6y3jGz2gsOFKurdkYqwj0K0OeK1mJnanF6mDFJbV5GE0xOjvL1mvRZDrO8FNXn8AJLqmcGobU-OpC4PmyD0UqQ67OhVzI4ficnxGFgJbg/s640/F12.jpg" width="98%" /></a>
 Execute: <b>Emulicious.bat</b>
 <br />
 Parameters: <b>"%poutput.sms"</b>
@@ -127,14 +127,14 @@ Start in: <b>C:\PathTo\Emulicious-with-Java</b>
 Press <b>F9</b> to compile and link "Hello World.asm".  This generates the "<b>output.sms</b>" binary file. 
 <br />
 Press <b>F12</b> to run Hello World in Emulicious emulator [Emulate VDP constraints real hardware]
-<a href="https://1.bp.blogspot.com/-veb5Zw_xDrI/WLcQ09fEpZI/AAAAAAAAD8c/-WXn0IFqbM0jT4wozPDH8PhG6YB97S9sgCLcB/s1600/HelloWorldEmulicious.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-veb5Zw_xDrI/WLcQ09fEpZI/AAAAAAAAD8c/-WXn0IFqbM0jT4wozPDH8PhG6YB97S9sgCLcB/s640/HelloWorldEmulicious.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiH7WHqzsWE35DcxHlC3DlQDPp2-1Q-SuJVkyuKJVSXLEoDG9lLXMqS_ml0hSnfxHIkSTE-_qIHWlTh6GDgk37-3ITxAvyYd9ZybTVmNH9nlDThyLKKjjJO98VJK7F-zwA2JJCfJsd3yRI/s1600/HelloWorldEmulicious.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiH7WHqzsWE35DcxHlC3DlQDPp2-1Q-SuJVkyuKJVSXLEoDG9lLXMqS_ml0hSnfxHIkSTE-_qIHWlTh6GDgk37-3ITxAvyYd9ZybTVmNH9nlDThyLKKjjJO98VJK7F-zwA2JJCfJsd3yRI/s640/HelloWorldEmulicious.jpg" width="98%" /></a>
 <br /><br />
 <u>Summary</u><br />
 To summarize, the Master Everdrive is a great way to play classic Sega retro games on real hardware.
 <br />
 It also makes it possible to play many of the <a href="http://www.smspower.org/Homebrew">Homebrew</a> games available on the Sega Master System.
 <br /><br />
-In 2014, we checked out <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-and-programming-setup.html">z88dk</a> as a way to write our own Homebrew game code in <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C language</a> as an alternative to pure Z80 assembly.  This is how <a href="http://steveproxna.blogspot.co.uk/2016/03/3dcity-code-complete.html">3D City</a> and other SMS homebrew games were built.  
+In 2014, we checked out <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-programming-setup.html">z88dk</a> as a way to write our own Homebrew game code in <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C language</a> as an alternative to pure Z80 assembly.  This is how <a href="http://steveproxna.blogspot.co.uk/2016/03/3dcity-code-complete.html">3D City</a> and other SMS homebrew games were built.  
 <br /><br />
 Unfortunately, it seems that the z88dk does not allow for enough clock cycles between multiple VRAM writes, which results in graphics glitches!  The <a href="https://github.com/sverx/devkitSMS">devkitSMS</a>, however, does not seem to have this issue <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>
 <br /><br />

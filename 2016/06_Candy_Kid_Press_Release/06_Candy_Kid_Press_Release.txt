@@ -1,6 +1,6 @@
 <span style="font-family:verdana;font-size:85%;">
 A <a href="https://en.wikipedia.org/wiki/Press_release">Press Release</a> is an official statement issued to give information on particular matters e.g. Video Games!  Here is the official Press Release for <a href="http://steveproxna.blogspot.co.uk/2015/05/candy-kid-video-game.html">Retro Candy Kid</a> and its full implementation with the assistance from <a href="https://twitter.com/PhilipGHarris">@PhilipGHarris</a> [writer, developer, designer] using <a href="http://mailchimp.com">MailChimp</a> to distribute the Press Release accordingly.
-<a href="https://1.bp.blogspot.com/-JvC8bYfpgc4/V9p2gtpUBQI/AAAAAAAAD40/NY-FEz_OgeEuaAhbiQdakSmEAD7RSJYTQCLcB/s1600/MailChimp.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-JvC8bYfpgc4/V9p2gtpUBQI/AAAAAAAAD40/NY-FEz_OgeEuaAhbiQdakSmEAD7RSJYTQCLcB/s640/MailChimp.jpg" width="99%" height="100" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHnTBoL9cuEvNjE-FjkF5T597zaEoWTq2r1oohUPCrTqhdbD7BwbKsWoNWTqIX17dsP-oWj1YrZ2WSwz2HOBkf3TA0EblV2d9rVCqWodcwmuGdBgKFbjkrHQ36y8N7tdvoCg6BG4PJDPI/s1600/MailChimp.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHnTBoL9cuEvNjE-FjkF5T597zaEoWTq2r1oohUPCrTqhdbD7BwbKsWoNWTqIX17dsP-oWj1YrZ2WSwz2HOBkf3TA0EblV2d9rVCqWodcwmuGdBgKFbjkrHQ36y8N7tdvoCg6BG4PJDPI/s640/MailChimp.jpg" width="99%" height="100" /></a>
 <br /><br />
 Let's check it out! 
 <br /><br />
@@ -36,7 +36,7 @@ Therefore, let's use MailChimp to complete Press Release for Retro Candy Kid.  A
 Generate iOS promo codes:  Log in iTunes <a href="https://itunesconnect.apple.com">Connect</a>.  Select My Apps | Candy Kid | Features | Promo Codes.
 <br />
 Enter a number of Promo Codes required for Press Release (e.g. max 100) | Click Generate Codes button.
-<a href="https://4.bp.blogspot.com/-_u1HBADPi6Y/V8fiMqSv9PI/AAAAAAAAD3A/SWhs-6AqFFYSwXoJgxm3bTu1e4i6kZHogCLcB/s1600/PromoCodes.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-_u1HBADPi6Y/V8fiMqSv9PI/AAAAAAAAD3A/SWhs-6AqFFYSwXoJgxm3bTu1e4i6kZHogCLcB/s640/PromoCodes.jpg" width="98%" height="350" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwlsZAwWC25quTWRkK7xmp1U543E582RQebrvB6ha1Ram8Q3XEhwb42uSlwC5wRgP_NxuX88cJPfnLpiO6xSTUhO8tEUChO4ZCppWype9XsddAtkZd2h_zMgGHCTPj3Oxyj8LH79YJ0eQ/s1600/PromoCodes.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwlsZAwWC25quTWRkK7xmp1U543E582RQebrvB6ha1Ram8Q3XEhwb42uSlwC5wRgP_NxuX88cJPfnLpiO6xSTUhO8tEUChO4ZCppWype9XsddAtkZd2h_zMgGHCTPj3Oxyj8LH79YJ0eQ/s640/PromoCodes.jpg" width="98%" height="350" /></a>
 Check "I have read and agree to the terms presented above".  Generate Codes and download as a txt file.
 <br /><br />
 <u>Lists</u><br />
@@ -236,7 +236,7 @@ MailChimp | Templates | Click "Edit" dropdown to right of Template saved | Creat
 </table>
 <br />
 Note: leave all checkboxes unchecked <i>except</i> the Personalize the "To" field.  Set *|FNAME|* for recipient.
-<a href="https://3.bp.blogspot.com/-ejpPXcIJzbI/V8flw_keU4I/AAAAAAAAD3M/i3n0aTHKVe4fVevNGkZYvmGy0mZABsRnACLcB/s1600/Campaign.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-ejpPXcIJzbI/V8flw_keU4I/AAAAAAAAD3M/i3n0aTHKVe4fVevNGkZYvmGy0mZABsRnACLcB/s640/Campaign.jpg" width="98%" height="450" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwqGbGOnlvxwsdU2Mo-FIKvrGc4mXiR3U_i-IXBXiQ5Rg9ZM9jmVp-kt3dypTsTqihnoN3io_njrXfV0oppyhUcwhHlK9s0mggry3fnneDoW0A-2x34SN3pAF-Kj5hFkl23LY5QiIx6Zk/s1600/Campaign.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwqGbGOnlvxwsdU2Mo-FIKvrGc4mXiR3U_i-IXBXiQ5Rg9ZM9jmVp-kt3dypTsTqihnoN3io_njrXfV0oppyhUcwhHlK9s0mggry3fnneDoW0A-2x34SN3pAF-Kj5hFkl23LY5QiIx6Zk/s640/Campaign.jpg" width="98%" height="450" /></a>
 Next Template | Next Confirm | Review summary all correct.  Finally, Prepare for launch and Send Now!
 <br />
 Note re-send: MailChimp | Campaigns | Click "View Report" dropdown to right of Campaign | Replicate.

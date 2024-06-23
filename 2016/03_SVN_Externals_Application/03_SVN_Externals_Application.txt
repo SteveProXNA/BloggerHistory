@@ -1,6 +1,6 @@
 <span style="font-family:verdana;font-size:85%;">
 In 2015, <a href="https://steveproxna.blogspot.co.uk/2015/05/candy-kid-video-game.html">Candy Kid</a> was written in <a href="https://en.wikipedia.org/wiki/Microsoft_XNA">XNA</a> as a simple maze chase video game.  The majority of game code was written in an external library and scaled out across multiple game clients including <a href="https://steveproxna.blogspot.co.uk/2015/08/candy-kid-android-port.html">Android</a> and <a href="https://steveproxna.blogspot.co.uk/2015/09/candy-kid-ios-port.html">iOS</a>.
-<a href="https://1.bp.blogspot.com/-MLwSHVHT0Yg/V1COh-kfh8I/AAAAAAAADyQ/SAFlw2WwnHYH-Qr47DteD-jep76tj1GKQCLcB/s1600/BoxArtBigFeature.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-MLwSHVHT0Yg/V1COh-kfh8I/AAAAAAAADyQ/SAFlw2WwnHYH-Qr47DteD-jep76tj1GKQCLcB/s640/BoxArtBigFeature.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGA0BrCkd3TOlKqbRwzD_8AFqwWV3DURKnTzglvGzPsb6t99RDeJpv8ET2z3R5LwLJ6zPfb1reUjZbaymMZ96kfvrkhyGROh8ZF254ru7VsCI4VbjZ5Sz2wRbm_Y7TrNJDx37YOltGwhE/s1600/BoxArtBigFeature.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGA0BrCkd3TOlKqbRwzD_8AFqwWV3DURKnTzglvGzPsb6t99RDeJpv8ET2z3R5LwLJ6zPfb1reUjZbaymMZ96kfvrkhyGROh8ZF254ru7VsCI4VbjZ5Sz2wRbm_Y7TrNJDx37YOltGwhE/s640/BoxArtBigFeature.png" width="98%" /></a>
 In order to avoid problems with <a href="https://en.wikipedia.org/wiki/Copy_and_paste_programming">Copy + paste</a> programming to multiple clients, <a href="http://jmfeurprier.com/2009/12/10/simple-introduction-to-svn-externals">SVN Externals</a> was used.
 <br />
 Let's check it out!
@@ -25,7 +25,7 @@ $DEMO = /svn/Demo              ; Mac OS/X
 </pre>
 <u>Example</u><br />
 As an example, let's scale the <a href="https://steveproxna.blogspot.co.uk/2012/08/xna-and-system-testing.html">XNA and System Testing</a> snake simulation to demonstrate <a href="https://svnexternalsapp.codeplex.com">SVN Externals</a>.
-<a href="https://3.bp.blogspot.com/-IK3ggxiOZPc/V1CPKOyAWsI/AAAAAAAADyU/bZnNkb-crQ0t-ZkaGkGQzxMNDlQoMbuPACLcB/s1600/WP7.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-IK3ggxiOZPc/V1CPKOyAWsI/AAAAAAAADyU/bZnNkb-crQ0t-ZkaGkGQzxMNDlQoMbuPACLcB/s640/WP7.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XSnR5tFkVHKJck_AqFd8TEGgbRe4MNmEqbZQtkOZCShOERFWt8_HxUi1nkI2vs0pGETX_b28rHLY1NDVh6ZZQ8q1O0NkOwhv-10C2y-K5K3TraLUKVTVCNlnv95RhOHQyU9ozktvOBk/s1600/WP7.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XSnR5tFkVHKJck_AqFd8TEGgbRe4MNmEqbZQtkOZCShOERFWt8_HxUi1nkI2vs0pGETX_b28rHLY1NDVh6ZZQ8q1O0NkOwhv-10C2y-K5K3TraLUKVTVCNlnv95RhOHQyU9ozktvOBk/s640/WP7.jpg" width="98%" /></a>
 Create top level <b>Demo</b> node in Subversion SVN.  Add 1x sub-node for XNA library and 4x sub-nodes for each client: WP7, Windows, Android, iOS.  Ensure all sub-nodes have <i>branches</i>, <i>tags</i> and <i>trunk</i> folders:
 <table width="100%" border="1">
 <tr>
@@ -139,7 +139,7 @@ Use <a href="https://justinram.wordpress.com/2009/06/04/howto-add-svnexternals-i
 In Windows Explorer, navigate to $DEMO\WP7\trunk\$FOLDER where $FOLDER is the parent folder that hosts Windows Phone Game 4.0 project.  This is where SVN Externals will link common XNA library code.
 <br /><br />
 Right click $FOLDER | Tortoise SVN | Properties | New... | Externals.  In popup window click New button:
-<a href="https://2.bp.blogspot.com/-FwQIG4piK3s/V1CPc3W86CI/AAAAAAAADyc/bas9cwpo8ssZC8SMLsGSFTeVVdqe5wzOQCLcB/s1600/SVNex01.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-FwQIG4piK3s/V1CPc3W86CI/AAAAAAAADyc/bas9cwpo8ssZC8SMLsGSFTeVVdqe5wzOQCLcB/s640/SVNex01.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP-Hq0zhA-sbzh5CHXyviSFn919UeQUomAy_DjB4HdCCnFKO0lOMtnOiqR_W8lTw4rcvvVmRrXaZt0OHzHfSGWTPQyecJZyZGmlM6-DjND_ytHF2njpR7lR5TEeAAwCLGjp3r-8kOLUWM/s1600/SVNex01.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP-Hq0zhA-sbzh5CHXyviSFn919UeQUomAy_DjB4HdCCnFKO0lOMtnOiqR_W8lTw4rcvvVmRrXaZt0OHzHfSGWTPQyecJZyZGmlM6-DjND_ytHF2njpR7lR5TEeAAwCLGjp3r-8kOLUWM/s640/SVNex01.jpg" width="98%" /></a>
 <table width="98%" border="1">
 <tr>
 <td valign="top">&nbsp;Local path:</td>
@@ -195,10 +195,10 @@ Repeat this process for the remaining projects: Windows Game client [PC] + Andro
 <br /><br />
 <u><a href="http://stackoverflow.com/questions/19640836/jenkins-wont-download-svnexternals-directory">Jenkins</a></u><br />
 Don't forget to <b>uncheck</b> "Ignore externals" under Subversion modules on all the automated client builds!
-<a href="https://2.bp.blogspot.com/-7LdWSV13ryQ/V1CPzL1BMZI/AAAAAAAADyk/oIipAEzA4TElnMMzpjsK1Bs4JwDQo34IQCLcB/s1600/Jenkins.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-7LdWSV13ryQ/V1CPzL1BMZI/AAAAAAAADyk/oIipAEzA4TElnMMzpjsK1Bs4JwDQo34IQCLcB/s640/Jenkins.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibaddpezqOcLrVWU3RpbZ9wKBvBsH-GBnJ93cn4UilsCAyUSAz-VThn0PDuFQdQCnL4F2rziZK0FRQf-3o7XYuP7l723CwIFT7N2nBsOjVuG2O9jAoXCrZOqD32yPhoCtqQZaRo-DABPc/s1600/Jenkins.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibaddpezqOcLrVWU3RpbZ9wKBvBsH-GBnJ93cn4UilsCAyUSAz-VThn0PDuFQdQCnL4F2rziZK0FRQf-3o7XYuP7l723CwIFT7N2nBsOjVuG2O9jAoXCrZOqD32yPhoCtqQZaRo-DABPc/s640/Jenkins.jpg" width="98%" /></a>
 <br /><br />
 <u>Summary</u><br />
 To summarize, <a href="http://svnbook.red-bean.com/en/1.5/svn.advanced.externals.html">SVN Externals</a> has proved effective to scale common game code linked to multiple clients.  However, all code here is in <i>trunk</i>; larger scale development requires release <i>tags</i> and feature <i>branches</i>.
 <br /><br />
-This will be topic in the next <a href="#">post</a>.
+This will be topic in the next <a href="https://steveproxna.blogspot.co.uk/2016/07/svn-externals-application-ii.html">post</a>.
 </span>

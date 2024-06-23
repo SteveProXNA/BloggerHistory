@@ -13,7 +13,7 @@ Create highly maintainable + testable software that uses increasing number of cl
 <u>Reference</u><br />
 The majority of information here can be found in <a href="https://www.amazon.com/Large-Scale-Software-Design-John-Lakos/dp/0201633620">Large-Scale C++</a> Software Design book by John Lakos.
 <br /><br />
-Definitions<br />
+Definitions<br />a
 <table width="99%" border="1">
 <tr>
 <td valign="top">&nbsp;Declaration</td>

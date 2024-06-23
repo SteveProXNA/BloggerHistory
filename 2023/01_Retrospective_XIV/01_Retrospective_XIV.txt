@@ -1,54 +1,74 @@
 <span style="font-family:verdana;font-size:85%;"> 
-Last year, I conducted a simple retrospective for 2020. Therefore, here is a retrospective for 2021.
+Last year, I conducted a simple retrospective for 2021. Therefore, here is a retrospective for 2022.
 <br /><br />
-<u>2021 Achievements</u><br />
+<u>2022 Achievements</u><br />
 <table width="100%">
 <tr>
 <td valign="top">
 <ul>
-<li><a href="https://steveproxna.blogspot.com/2021/02/z80-programming-setup.html">Setup</a> Z80 Assembly Programming cross platform for Windows, MacOS/X and Linux</li>
-<li>Configure VS Code Emulicious Debugger plugin for <a href="https://steveproxna.blogspot.com/2021/03/z80-programming-sample.html">Z80</a> source code stepin + hacks</li>
-<li>Enter Van Halen <a href="https://www.smspower.org/Homebrew/VanHalenDemo-SMS">demo</a> for SMS Power! 2021 competition built in pure Z80 Assembly</li>
-<li>Build <a href="https://steveproxna.itch.io/vintage-van-halen">Van Halen</a> quiz using C/SGDK for the Sega MegaDrive similar to C/devkitSMS</li>
-<li>Upgrade <a href="https://www.smspower.org/Homebrew/SimpsonsTrivia-SMS">Simpsons Trivia</a> for Sega Master System include more characters and SFX</li>
-<li><a href="https://steveproxna.itch.io/simpsons-trivia">Port</a> Simpsons Trivia to the Sega MegaDrive using similar <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> development processes</li>
-<li>Compile Docker <a href="https://steveproxna.blogspot.com/2021/08/docker-cheat-sheet.html">cheat</a> sheet for cluster containerization in Cloud Native technology</li>
-<li>Compile Kuberenetes <a href="https://steveproxna.blogspot.com/2021/09/kubernetes-cheat-sheet.html">cheat</a> sheet for Cloud Native technology cluster orchestration</li>
+<li>
+Upgrade devkitSMS <a href="http://steveproxna.blogspot.com/2022/06/devkitsms-programming-setup-ii.html">setup</a> to SDCC 4.x support Windows and Linux projects cross platform
+</li>
+<li>
+Re-write devkitSMS <a href="http://steveproxna.blogspot.com/2022/07/devkitsms-programming-sample-v.html">samples</a> SDCC 4.x compatiblility in graphics, PCM sampling + banking
+</li>
+<li>
+Enter <a href="https://www.youtube.com/watch?v=tUQXrisirD0">Skazka 1.0</a> game in SMS Power! 2022 <a href="https://www.smspower.org/Homebrew/Skazka-SMS">competition</a> converted as Sega SC-3000 code
+</li>
+<li>
+Collaborate with <a href="https://www.smspower.org/forums/member7411">Kagesan</a> at SMS POwer! adding graphics to all screens <a href="https://www.youtube.com/watch?v=61KrZ4gJW7k">Skazka 2.0</a> update
+</li>
+<li>
+Port <a href="https://steveproxna.itch.io/skazka">Skazka 2.0</a> to the Sega MegaDrive/Genesis using very similar C development process
+</li>
+<li>
+Complete <a href="http://steveproxna.blogspot.com/2022/08/linux-setup-cheat-sheet-iii.html">Linux</a> setup on real dedicated Ubuntu Linux workstation / Windows PC dual boot
+</li>
+<li>
+Compile <a href="http://steveproxna.blogspot.com/2022/09/golang-cheat-sheet.html">Golang</a> cheat sheet developing scalable + concurrent cloud computing application
+</li>
+<li>
+Extends <a href="http://steveproxna.blogspot.com/2022/11/golang-cheat-sheet-ii.html">Golang</a> cheat sheet integrating Go, C, Cgo, and Assembly language code samples
+</li>
 </ul>
-Note: port low level homebrew games built from C/devkitSMS to C/SGDK is an achievement! 
+Note: extending Golang development environment to target Go, C, Cgo, and Assembly is an achievement!
 </td>
 </tr>
 </table>
 <br />
-<u>2022 Objectives</u><br />
+<u>2023 Objectives</u><br />
 <table width="100%">
 <tr>
 <td valign="top">
 <ul>
-<li>Configure VS Code Emulicious Debugger <a href="https://marketplace.visualstudio.com/items?itemName=emulicious.emulicious-debugger">plugin</a> for C/devkitSMS source code step thru</li>
-<li>Transition homebrew programming skills in C to professional work for example in <a href="https://dave.cheney.net/tag/cgo">CGo</a></li>
-<li>Expand low level cross platform skills to Linux kernel e.g. <a href="https://www.infoq.com/presentations/facebook-google-bpf-linux-kernel">eBPF</a> networking + security</li>
-<li>Extend <a href="https://www.packtpub.com/product/cloud-native-programming-with-golang/9781787125988">Golang</a> into Docker / Kubernetes experience as Cloud Native technology work</li>
+<li>
+Explore more Sega Master System and Sega MegaDrive sound, graphics and scrolling capabilities
+</li>
+<li>
+Document porting Sega Master System to Sega MegaDrive / Genesis processes for future project
+</li>
+<li>
+Collaborate more over <a href="https://github.com/projectcalico/calico">open source</a> projects and communities potentially in professional capactiy
+</li>
+<li>
+Apply Golang C, Cgo, Assembly integration for low level Window and Linux applications like <a href="https://ebpf.io">eBPF</a>
+</li>
 </ul>
 </table>
 <br />
-<u>Cloud</u>
-<a href="https://blogger.googleusercontent.com/img/a/AVvXsEiCj481fVWFMoyO-kJkFBrGdOjK9cBzwTv4jHVtJbYgpy4KzOh0Hidn576NTY2osFPoCGxU96leIaS1c23MdpIZxqxK4fJspudZa3g_zU9tQa_v31dotCWdBjC7t9VafujVUPF0zsQJpkNyMNfetqOz5ETqmxE6so8hqD7qpYMbINxw7uzi4Td9rsDP=s364"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/a/AVvXsEiCj481fVWFMoyO-kJkFBrGdOjK9cBzwTv4jHVtJbYgpy4KzOh0Hidn576NTY2osFPoCGxU96leIaS1c23MdpIZxqxK4fJspudZa3g_zU9tQa_v31dotCWdBjC7t9VafujVUPF0zsQJpkNyMNfetqOz5ETqmxE6so8hqD7qpYMbINxw7uzi4Td9rsDP=s600"/></a>
-<a href="https://www.investopedia.com/terms/c/cloud-computing.asp">Cloud Computing</a> is the on-demand delivery of infrastructure [hardware / servers], storage + databases via the Internet frequently delivered by cloud-based platforms: Amazon <a href="https://en.wikipedia.org/wiki/Amazon_Web_Services">AWS</a> / Google <a href="https://en.wikipedia.org/wiki/Google_Cloud_Platform">GCP</a> / Microsoft <a href="https://en.wikipedia.org/wiki/Microsoft_Azure">Azure</a>.
-<br /><br />
-<a href="https://kubernetes.io/blog/2019/05/17/kubernetes-cloud-native-and-the-future-of-software">Cloud Native</a> is architecture for assembling these cloud-based components optimized for cloud environment; Not about servers but the services.  Enterprises modernize their infrastructure and process by choosing cloud technologies e.g. <a href="https://en.wikipedia.org/wiki/Docker_(software)">Docker</a> for containerization, <a href="https://en.wikipedia.org/wiki/Kubernetes">Kuberenetes</a> for orchestration, that best fit their specific needs.
-<br /><br />
-<u>Golang</u>
-<a href="https://blogger.googleusercontent.com/img/a/AVvXsEjIjhX6Qo239XaOcVZe2QF0huqCXqMlGXdl6rQGlANVVHiqh5Hwyt0OTIgsxGplgcIXFbioRUNkKkyMP9lMFsHEF6M-rWzEtdOHGwDUYC7NVWXTAnZFUBa5682nD5pWw7TSdUfHmmoJ8o5ZSaiRtU_yvJeT6IhR3sNsvcYcmIUUaD6xACtlpM4F57u0=s750"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/a/AVvXsEjIjhX6Qo239XaOcVZe2QF0huqCXqMlGXdl6rQGlANVVHiqh5Hwyt0OTIgsxGplgcIXFbioRUNkKkyMP9lMFsHEF6M-rWzEtdOHGwDUYC7NVWXTAnZFUBa5682nD5pWw7TSdUfHmmoJ8o5ZSaiRtU_yvJeT6IhR3sNsvcYcmIUUaD6xACtlpM4F57u0=s600"/></a>
-<a href="https://en.wikipedia.org/wiki/Go_(programming_language)">Golang</a> [Go] is statically typed programming language syntactically similar to <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> but with memory safety and garbage collection.  Go was developed at Google to help solve the problem of concurrent messaging between distributed systems in the cloud using <a href="https://en.wikipedia.org/wiki/Communicating_sequential_processes">CSP</a> style concurrency.  Subsequently, Go is asynchronous by default.
-<br /><br />
-Therefore, all three major public cloud providers <a href="https://en.wikipedia.org/wiki/Amazon_Web_Services">AWS</a>, <a href="https://en.wikipedia.org/wiki/Google_Cloud_Platform">GCP</a>, <a href="https://en.wikipedia.org/wiki/Microsoft_Azure">Azure</a> support Go and have SDKs that interface with their systems in Go.  Thus <a href="https://www.quora.com/Is-Golang-the-future-of-cloud">Go</a> may become the standard way of distributed computing into the future.
-<br /><br />
-<u>Cgo</u><br />
-<a href="https://go.dev/blog/cgo">CGo</a> is a technology which allows Go programs to interoperate with <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> libraries.  For example distributed cloud computing packages that consume <b><a href="https://github.com/SpiderLabs/ModSecurity">ModSecurity</a></b> C/C++ library for Web Applicaton Firewall (WAF) detection.
-<br /><br />
-Another example <b><a href="https://ebpf.io">eBPF</a></b>: a revolutionary technology that can run sandboxed <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> programs safely and efficiently extending the capabilities of the Linux kernel, without requiring changes to kernel source code or load kernel modules, consumed from Go packages providing high-performance networking in cloud native environments. 
-<br /><br />
-<u>Summary</u><br />
-Writing low level <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> code to target 8-bit Sega <a href="https://en.wikipedia.org/wiki/Master_System">Master System</a>  hardware and now the 16-bit Sega <a href="https://en.wikipedia.org/wiki/Sega_Genesis">Mega Drive</a> it has proved to be very valuable experience for CGo applications which could assist in Go + Cloud Computing.  The next challenge is port projects exclusively on Windows and include Linux system builds cross platform <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>  
+<u>Collaboration</u>
+<br />
+In <a href="http://steveproxna.blogspot.com/2021/01">2021</a>, I was fortunate enough to collaborate with members of the SMS Power! community on an Indie game <a href="https://www.smspower.org/Homebrew/Markanoiiid-SMS">project</a>.  In 2022, I was fortunate enough again to collaborate with members of SC-3000 Survivors <a href="https://www.facebook.com/photo/?fbid=3051652211766546&set=gm.4887403341348676">Facebook</a> group and port <a href="https://drive.google.com/drive/folders/1JS2SqZBaAG6Bu-Bq8-jhoeugWDc_v7sS?fbclid=IwAR27N1vdfYquAObT_MobZyQd5lCMsZNxe_h_EkinXuathZsyJ1OAkpiQwxQ">Skazka</a> as a Slavic RGP Adventure game to the Sega Master System.
+<br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcNUjrca2vaLkoI54krf2wmPnq_M20bLwLGoHG02UJekvxYzNG-i_LbdvC_JoH6xdowHwn-nz9y0AcoTv9zz0cZorL5UV8rKOWM5q2K9Vh6Ui-Vf8nxPFECNnalviBH5iNRZtX78pS1QE0viDea4VqB6ikVNkfYj-i6GPIR9bYpWKXdFivdC5oDgkv/s514/SkazkaSMS.png"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcNUjrca2vaLkoI54krf2wmPnq_M20bLwLGoHG02UJekvxYzNG-i_LbdvC_JoH6xdowHwn-nz9y0AcoTv9zz0cZorL5UV8rKOWM5q2K9Vh6Ui-Vf8nxPFECNnalviBH5iNRZtX78pS1QE0viDea4VqB6ikVNkfYj-i6GPIR9bYpWKXdFivdC5oDgkv/s600/SkazkaSMS.png"/></a>
+<br>
+Later on in 2022, I was fortunate to collaborate with <a href="https://www.smspower.org/forums/member7411">Kagesan</a> at SMS POwer! in order to add graphics to all screens in <a href="http://steveproxna.blogspot.com/2022/08/skazka-code-complete.html">Skazka</a>.  Finally, Skazka was ported to Sega Mega Drive with help of the MegaDrive community.
+<br />
+<br />
+<u>Future</u>
+<br />
+Ultimate goal would be to apply skills learned from C/ASM Sega Master System programming and some Sega MegaDrive to real world professional development.  Of course, this is very niche and non-profitable!
+<br />
+<br />
+However, low level systems application programming like <a href="https://ebpf.io">eBPF</a>, in Linux, is perhaps one of the very few development experiences available in modern day professional Software Engineering that it's similar in stature!  Therefore, I believe this is something definitely worth investigating more in the coming year <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>
 </span>

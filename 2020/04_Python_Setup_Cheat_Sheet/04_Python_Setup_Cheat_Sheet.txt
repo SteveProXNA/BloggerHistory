@@ -3,7 +3,7 @@
 <br /><br />
 Python is commonly used in artificial intelligence and machine learning projects with the help of libraries like <a href="https://en.wikipedia.org/wiki/TensorFlow">TensorFlow</a>, <a href="https://en.wikipedia.org/wiki/Keras">Keras</a>, <a href="https://en.wikipedia.org/wiki/PyTorch">Pytorch</a> and <a href="https://en.wikipedia.org/wiki/Scikit-learn">Scikit</a>-learn.  There is also open source Python distribution <a href="https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)">Anaconda</a> used for data science and machine learning applications that aims to simplify package management and deployment.
 <br />
-<a href="https://3.bp.blogspot.com/-zsz7aH9QG5Y/XwcjVZwhYOI/AAAAAAAAGUk/eLx9ksWmn1kgzgF3hAsBd7TTOJ0kHhUlQCLcBGAsYHQ/s1600/Python-Image.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-zsz7aH9QG5Y/XwcjVZwhYOI/AAAAAAAAGUk/eLx9ksWmn1kgzgF3hAsBd7TTOJ0kHhUlQCLcBGAsYHQ/s640/Python-Image.jpg" width="98%" height="200" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKSURRGGQyS_XGMNAL_G6ySE3e3UVbTOR9waDdME6nQEkDSW37YICXgYx_ZroBvGLs-mzXSV35jhEX9mZuNMmBXfxSxxo-7ZjxDHXP6X0xmPkrMQFUqrIP8WuH-X6nyK7t3DAez5mVpBE/s1600/Python-Image.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKSURRGGQyS_XGMNAL_G6ySE3e3UVbTOR9waDdME6nQEkDSW37YICXgYx_ZroBvGLs-mzXSV35jhEX9mZuNMmBXfxSxxo-7ZjxDHXP6X0xmPkrMQFUqrIP8WuH-X6nyK7t3DAez5mVpBE/s640/Python-Image.jpg" width="98%" height="200" /></a>
 <br />
 Let's check it out!
 <br />
@@ -136,7 +136,7 @@ Verify which Anaconda version is installed using <i>conda --version</i> command 
 <br /><br />
 Launch PyCharm.  Click "Configure" cog drop down | Settings.  Set the base interpreter to match the Python location for Anaconda.  Click cog | Show All | Click "+" | Virtualenv Environment.  Enter the following details:
 <br />
-<a href="https://4.bp.blogspot.com/-b7QB0JiKw3E/XwwvycZpY9I/AAAAAAAAGVc/imDRPBHbD5IvOpfAx5w-mSeLN6Mn8Z7EgCLcBGAsYHQ/s1600/PythonInterpreter.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-b7QB0JiKw3E/XwwvycZpY9I/AAAAAAAAGVc/imDRPBHbD5IvOpfAx5w-mSeLN6Mn8Z7EgCLcBGAsYHQ/s640/PythonInterpreter.png" width="98%" height="250" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1ZrldDFaK5oVVm97W_IPu_JbBIOHfkx-Yp5pX2X-G7aOmMztOnxJbXbNPWCtdKzGa-LhSmzRyUiOS6YSlBWFXc2ld1olqr8uzoIa-1JRo2wdXiyAQ1p0YW9EeRMTXs0ty1kbhoDfxWy4/s1600/PythonInterpreter.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1ZrldDFaK5oVVm97W_IPu_JbBIOHfkx-Yp5pX2X-G7aOmMztOnxJbXbNPWCtdKzGa-LhSmzRyUiOS6YSlBWFXc2ld1olqr8uzoIa-1JRo2wdXiyAQ1p0YW9EeRMTXs0ty1kbhoDfxWy4/s640/PythonInterpreter.png" width="98%" height="250" /></a>
 <br />
 <table width="99%" border="1">
 <tr>
@@ -197,7 +197,7 @@ On Linux <a href="https://stackoverflow.com/questions/48685449/intellij-navigate
 <u>Hello PyCharm</u><br />
 Launch PyCharm.  Create New Project | "<a href="https://github.com/SteveProXNA/PythonSetup/tree/master/HelloPyCharm">HelloPyCharm</a>".  Enter the following details as Anaconda interpreter:
 <br />
-<a href="https://1.bp.blogspot.com/-KfbkcmeHrCM/XwxP9OfU5fI/AAAAAAAAGVo/lxsYe6YcQMwekPCFDy3I_EiK8UvjcQp8wCLcBGAsYHQ/s1600/HelloPyCharm.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-KfbkcmeHrCM/XwxP9OfU5fI/AAAAAAAAGVo/lxsYe6YcQMwekPCFDy3I_EiK8UvjcQp8wCLcBGAsYHQ/s640/HelloPyCharm.png" width="98%" height="275" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhu27TIy-aOoQgmhCuZy46dmvww19E0i-gzC7PGfH1DHFe77cE-wi-i2v5oeNvzY08UjmRPs_dh_5wL3z3NOHM9ksMEsL4EezBsvatBFJDtjYmxfBxEFPlpy3aYSUPFo3gApnGlFc_yFb0/s1600/HelloPyCharm.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhu27TIy-aOoQgmhCuZy46dmvww19E0i-gzC7PGfH1DHFe77cE-wi-i2v5oeNvzY08UjmRPs_dh_5wL3z3NOHM9ksMEsL4EezBsvatBFJDtjYmxfBxEFPlpy3aYSUPFo3gApnGlFc_yFb0/s640/HelloPyCharm.png" width="98%" height="275" /></a>
 <br />
 PyCharm uses <a href="https://docs.python-guide.org/dev/virtualenvs">virtualenv</a> tool to create an isolated Python environment.  Virtualenv creates <b>venv</b> folder in the current directory with Python executable files and a copy of pip to install other modules and packages.
 <br />
@@ -207,12 +207,12 @@ Create simple "<a href="https://github.com/SteveProXNA/PythonSetup/blob/master/H
 <b>Module Not Found</b><br />
 Update script | Import module not currently installed e.g. <i>import numpy</i>.  Run script: ModuleNotFoundError
 <br />
-<a href="https://2.bp.blogspot.com/-47NAwDHvNHg/XwxYDoRuBLI/AAAAAAAAGV0/MesjsCUi-5Q1UKC2rczDZLAIfuboPycIACLcBGAsYHQ/s1600/ModuleNotFound.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-47NAwDHvNHg/XwxYDoRuBLI/AAAAAAAAGV0/MesjsCUi-5Q1UKC2rczDZLAIfuboPycIACLcBGAsYHQ/s640/ModuleNotFound.png" width="98%" height="200" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIZ30a1SASuee0cETWJ0MRk-mw7MY22o9cUG1ODintTv8JQ4ikDMDwQc_oR34t0CvPTh3ZWS8J1VePhefR8-XgJ95dQy_2Kc6wbi48l_vxWkJTkQKGhLy98uJxqluQaK5wSuAo1zS1HXA/s1600/ModuleNotFound.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIZ30a1SASuee0cETWJ0MRk-mw7MY22o9cUG1ODintTv8JQ4ikDMDwQc_oR34t0CvPTh3ZWS8J1VePhefR8-XgJ95dQy_2Kc6wbi48l_vxWkJTkQKGhLy98uJxqluQaK5wSuAo1zS1HXA/s640/ModuleNotFound.png" width="98%" height="200" /></a>
 <br />
 <br />
 Launch PyCharm terminal.  Enter <i>python -m pip install numpy</i> to install module.  Re-run script with success.
 <br />
-<a href="https://1.bp.blogspot.com/-W7yie3NEPBw/XwxY3_XQJII/AAAAAAAAGV8/u44wM87UqKcdJ3VuARlfExN_rhHF71YfgCLcBGAsYHQ/s1600/PipInstallModule.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-W7yie3NEPBw/XwxY3_XQJII/AAAAAAAAGV8/u44wM87UqKcdJ3VuARlfExN_rhHF71YfgCLcBGAsYHQ/s640/PipInstallModule.png" width="98%" height="225" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm9rhmMNekhNP_4EnkW6EU5QK9CQq2Jm3EQaDWCtDDhqh1u31Mf0zOspm0iags67-NmxBPV5rVP98zFxF7NAeu6gYsspV4JO01ZfI0LsIQ5Yxo-R5XvKxmBRfipTQLs3VEBHXDzZCb18Q/s1600/PipInstallModule.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm9rhmMNekhNP_4EnkW6EU5QK9CQq2Jm3EQaDWCtDDhqh1u31Mf0zOspm0iags67-NmxBPV5rVP98zFxF7NAeu6gYsspV4JO01ZfI0LsIQ5Yxo-R5XvKxmBRfipTQLs3VEBHXDzZCb18Q/s640/PipInstallModule.png" width="98%" height="225" /></a>
 <br />
 <br />
 Alternatively, execute <i><a href="https://pip.pypa.io/en/stable/reference/pip_freeze">pip freeze</a></i> to dump all required modules for project into <i>requirements.txt</i> and install:
@@ -233,7 +233,7 @@ Launch PyCharm.  Create New Project | "<a href="https://github.com/SteveProXNA/P
 <br /><br />
 Create sub folders <b>src</b> and <b>tests</b> beneath "MyPackage".  Create <i>requirements.txt</i> file + <i>setup.py</i> beneath "MyPackage" also.  Finally, create <i>module.py</i> and <i>__init__.py</i> under <b>src</b> and <i>test_module.py</i> under <b>tests</b>.
 <br />
-<a href="https://2.bp.blogspot.com/-Iwg0rLMkhRo/XxBffNK619I/AAAAAAAAGW4/zZgi-WiCQ9o8ZepsdAkI6blYw4GgjI3ugCLcBGAsYHQ/s1600/PackagePyCharm.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-Iwg0rLMkhRo/XxBffNK619I/AAAAAAAAGW4/zZgi-WiCQ9o8ZepsdAkI6blYw4GgjI3ugCLcBGAsYHQ/s640/PackagePyCharm.png" width="98%" height="275" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJlzFFw6WqREMhceIr3DIYyxkWcKNBOfWqiwbED8UVYVJIq6YZN5276w3sgKglniP_DujajYOd-OsDECbKZrGjTN7_UR-3Wwv507swvTHaWol6BH9Aif3rXsKChmOd2Pe9cob-laDBk74/s1600/PackagePyCharm.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJlzFFw6WqREMhceIr3DIYyxkWcKNBOfWqiwbED8UVYVJIq6YZN5276w3sgKglniP_DujajYOd-OsDECbKZrGjTN7_UR-3Wwv507swvTHaWol6BH9Aif3rXsKChmOd2Pe9cob-laDBk74/s640/PackagePyCharm.png" width="98%" height="275" /></a>
 <br />
 <table width="99%" border="1">
 <tr>
@@ -267,7 +267,7 @@ Create sub folders <b>src</b> and <b>tests</b> beneath "MyPackage".  Create <i>r
 <br />
 Right click inside <i>test_module.py</i> | Debug 'Unittests for test_module.py'.  Alternatively, Terminal command:
 <br />
-<a href="https://1.bp.blogspot.com/-XOoINMGrjZY/XxBpRpGxpCI/AAAAAAAAGXE/Ijku1Y1Ijd8IXqxywsYzuSkR0T-ROgPyQCLcBGAsYHQ/s1600/PyCharmUnittests.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-XOoINMGrjZY/XxBpRpGxpCI/AAAAAAAAGXE/Ijku1Y1Ijd8IXqxywsYzuSkR0T-ROgPyQCLcBGAsYHQ/s640/PyCharmUnittests.png" width="98%" height="275" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDOPiaV8LUaWC-aJWdJP1oLl0kabwSnMKKsRJUUOiYdL9KiV_T_6hNVLXlDIFh4rEdnUrcU758d8RqZ6NoLl9PGhFpDh0WPiIg9I3S5K0JBTF641SBLgnjNkiFaIFP3SBRzjAnfOt6RYM/s1600/PyCharmUnittests.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDOPiaV8LUaWC-aJWdJP1oLl0kabwSnMKKsRJUUOiYdL9KiV_T_6hNVLXlDIFh4rEdnUrcU758d8RqZ6NoLl9PGhFpDh0WPiIg9I3S5K0JBTF641SBLgnjNkiFaIFP3SBRzjAnfOt6RYM/s640/PyCharmUnittests.png" width="98%" height="275" /></a>
 <br />
 <i>python -m unittest discover MyPackage</i>
 <br /><br />
@@ -307,13 +307,13 @@ If the Terminal reveals Run 0 tests then ensure package has <i>__init__.py</i> s
 </td>
 </tr>
 </table>
-<a href="https://1.bp.blogspot.com/-kBGm4X5LbCs/XxBvbXf4WtI/AAAAAAAAGXQ/QsGK9Ud9A2AdJugexaklRwtyOtFzTbylACLcBGAsYHQ/s1600/PyCharmPackage.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-kBGm4X5LbCs/XxBvbXf4WtI/AAAAAAAAGXQ/QsGK9Ud9A2AdJugexaklRwtyOtFzTbylACLcBGAsYHQ/s640/PyCharmPackage.png" width="98%" height="250" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoet5WR0JGUPOmcJFvh6g0vqo32ci7TtbFnAL_2VG6H0aQ4Ql4e7Alo3b8QuRHrWRN3yFb6xtrPdV5s8_MJDtuLPQtw3l2GMINq6II2ITQER7cLc5ds2cwVUHSSQmQLIA8nngYlcxFg4U/s1600/PyCharmPackage.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoet5WR0JGUPOmcJFvh6g0vqo32ci7TtbFnAL_2VG6H0aQ4Ql4e7Alo3b8QuRHrWRN3yFb6xtrPdV5s8_MJDtuLPQtw3l2GMINq6II2ITQER7cLc5ds2cwVUHSSQmQLIA8nngYlcxFg4U/s640/PyCharmPackage.png" width="98%" height="250" /></a>
 <br />
 <i>pip install MyPackage/.</i>
 <br /><br />
 Finally, we could also replicate the unit test code directly on the <a href="https://codewith.mu/en/tutorials/1.0/repl">REPL</a>.  Select Terminal tab.  Enter commands:
 <br />
-<a href="https://2.bp.blogspot.com/-EdWxhh6W9lE/XxHKd1WcwRI/AAAAAAAAGYA/agOx-5H4NCAaKZAenkqAW8QhaxdNMBrjgCLcBGAsYHQ/s1600/PyCharmREPL.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-EdWxhh6W9lE/XxHKd1WcwRI/AAAAAAAAGYA/agOx-5H4NCAaKZAenkqAW8QhaxdNMBrjgCLcBGAsYHQ/s640/PyCharmREPL.png" width="98%" height="230" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOurt7oyAijJQnuAzChR3cgGvnKHJtKEI9w2huYE3SCYcV3IJs_K1IaCChHu2JoUVh7TO8aB9fMYmpFa9bdFXYK7VmSHM47-oloCpIRL3eUi2Cdwdzi9EWjge3RcFgvQ17YUzlRcRsVbE/s1600/PyCharmREPL.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOurt7oyAijJQnuAzChR3cgGvnKHJtKEI9w2huYE3SCYcV3IJs_K1IaCChHu2JoUVh7TO8aB9fMYmpFa9bdFXYK7VmSHM47-oloCpIRL3eUi2Cdwdzi9EWjge3RcFgvQ17YUzlRcRsVbE/s640/PyCharmREPL.png" width="98%" height="230" /></a>
 <br />
 <pre class="csharp" name="code">
 &nbsp;python

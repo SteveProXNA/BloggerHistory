@@ -2,7 +2,7 @@
 In the previous <a href="https://steveproxna.blogspot.ie/2015/08/candy-kid-android-port.html">post</a>, we introduced Candy Kid: a simple maze chase video game re-written in XNA 4.0.
 <br />
 We outlined the tasks to port Candy Kid to <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a> platform using <a href="https://www.gamasutra.com/view/feature/192209/from_xna_to_monogame.php?print=1">MonoGame</a>.  Now we will focus on <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a>.
-<a href="https://4.bp.blogspot.com/-3di0Oxi9fMY/VcHj28p2JUI/AAAAAAAADkU/5GN8_BoVdxw/s1600/MonoGameLogo.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-3di0Oxi9fMY/VcHj28p2JUI/AAAAAAAADkU/5GN8_BoVdxw/s640/MonoGameLogo.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvVufWeSzd1BC2-KSmEf8rO4fUsEsHpSpIs-nU-I5VsH2vU6g-d-NEtdnKoHz-BshFnLZYaRltBDHmyefKS7L8d2tSU5uOtt3rDTJ1XlTtq5nYGU11tF7R2wpuLVuOQ6dEQycSZ2i8_Qg/s1600/MonoGameLogo.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvVufWeSzd1BC2-KSmEf8rO4fUsEsHpSpIs-nU-I5VsH2vU6g-d-NEtdnKoHz-BshFnLZYaRltBDHmyefKS7L8d2tSU5uOtt3rDTJ1XlTtq5nYGU11tF7R2wpuLVuOQ6dEQycSZ2i8_Qg/s640/MonoGameLogo.png" width="98%" /></a>
 <br /><br />
 Let's check it out! 
 <br /><br />
@@ -20,7 +20,7 @@ Launch Xamarin Studio | Click Login.  Enter your email + password and click the 
 From here you will be prompted to create a Xamarin account: enter name, email address and password.  Check "Start 30-day Xamarin trial immediately".  Click Accept.  Log in to Xamarin Studio to activate a/c.
 <br /><br />
 Choose File menu | New | Solution.  Expand Other | Miscellaneous | MonoGame iPhone/iPad Application.
-<a href="https://3.bp.blogspot.com/-EtnsWdR5rwA/VcHgAWuOWMI/AAAAAAAADjY/GIsRlT0XUGk/s1600/Application.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-EtnsWdR5rwA/VcHgAWuOWMI/AAAAAAAADjY/GIsRlT0XUGk/s640/Application.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjDBsS-L8YxRMGMo_Dzkx4h_SeiQAZFgRw1_EAHrCZQDPUWYbrgrfOqJ7a4cjWvLSqki68FBjTrzJFUn73zxKC9kLtWdErGck8mOo7CcGPPXHTEEWsb3MwcwCi0ehM1Nk8Ute8VmggqrE/s1600/Application.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjDBsS-L8YxRMGMo_Dzkx4h_SeiQAZFgRw1_EAHrCZQDPUWYbrgrfOqJ7a4cjWvLSqki68FBjTrzJFUn73zxKC9kLtWdErGck8mOo7CcGPPXHTEEWsb3MwcwCi0ehM1Nk8Ute8VmggqrE/s640/Application.png" width="98%" /></a>
 <br />
 Project Name: CandyKid.iOS.  Choose project Location.  Click Create button.  Update changes to Main.cs
 <pre class="csharp" name="code">
@@ -58,12 +58,12 @@ Before writing any new code or porting any existing, ensure the following tasks 
 Build solution.  Error: <i>Entitlements.plist template 'Entitlements.plist' not found</i>
 <br />
 Right click CandyKid.iOS project | Options | Build | iOS Bundle Signing.  Remove "Entitlements.plist"
-<a href="https://1.bp.blogspot.com/-c8pcS5egIMg/VcHVleSvYuI/AAAAAAAADh4/KuYverQuI1c/s1600/Entitlements.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-c8pcS5egIMg/VcHVleSvYuI/AAAAAAAADh4/KuYverQuI1c/s640/Entitlements.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXf3FboEAOZOxfrVLt0oYl8oyti-ZIS_z_ifCMODA0ajgaAK74ptuoj1OEJb0c3X7SeKuW2ahg1kaYFtdVsmOwBGoKTfHXmA6Jh5ePzo9arQZ6k1wUMDa_AB-_HM9DXw3V1nIE9JkHKgc/s1600/Entitlements.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXf3FboEAOZOxfrVLt0oYl8oyti-ZIS_z_ifCMODA0ajgaAK74ptuoj1OEJb0c3X7SeKuW2ahg1kaYFtdVsmOwBGoKTfHXmA6Jh5ePzo9arQZ6k1wUMDa_AB-_HM9DXw3V1nIE9JkHKgc/s640/Entitlements.png" width="98%" /></a>
 <br />
 Build solution.  Error: <i>The minimum deployment for Unified application is 5.1.1, current target is '4.2'</i>
 <br />
 Right click CandyKid.iOS project | Options | Build | iOS Application.  Change Deployment Target to 5.2.
-<a href="https://2.bp.blogspot.com/-fgAd5I8b9K0/VcHV_aSyv9I/AAAAAAAADiA/Iog2NUtD1vY/s1600/DeploymentTarget.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-fgAd5I8b9K0/VcHV_aSyv9I/AAAAAAAADiA/Iog2NUtD1vY/s640/DeploymentTarget.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVzJgCylb18wGQM43fNIqYdwAGDHA5-0_oJzc0czdI_lgxHGN_Iz6PiyZcj04cQFJTPNL756z6sr_woccDo7YJLZJ3mDYlKkgI0YQHoMPVOMBA2WOworo1DQuUTsWKAOfwvm84YBzFU28/s1600/DeploymentTarget.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVzJgCylb18wGQM43fNIqYdwAGDHA5-0_oJzc0czdI_lgxHGN_Iz6PiyZcj04cQFJTPNL756z6sr_woccDo7YJLZJ3mDYlKkgI0YQHoMPVOMBA2WOworo1DQuUTsWKAOfwvm84YBzFU28/s640/DeploymentTarget.png" width="98%" /></a>
 <br />
 Rebuild solution fine.  Attach iOS device.  Click Play button.  The default template code should deploy ok.
 <br /><br />
@@ -71,7 +71,7 @@ Rebuild solution fine.  Attach iOS device.  Click Play button.  The default temp
 Candy Kid references the following libraries: <a href="https://ninject.org">Ninject</a> for <a href="https://steveproxna.blogspot.co.uk/2011/03/xna-and-ioc-container.html">IoC Container</a> and Xml.Linq for Serialization. 
 <br />
 Right click References | Edit References...  "All" tab | Scroll to bottom.  Check "System.Xml.Linq".  OK.
-<a href="https://1.bp.blogspot.com/-p2NaCJcIQpw/VcHVSN6Y8LI/AAAAAAAADhw/2s1PRq-uboo/s1600/SystemXmlLinq.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-p2NaCJcIQpw/VcHVSN6Y8LI/AAAAAAAADhw/2s1PRq-uboo/s640/SystemXmlLinq.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5oH9ubPmt3jXZyvpZ2vYSiIf2GsHOBFz79YVeG_UYox9Urza2J11M3IJTluiFbV0ZSvd-tbtUTY1GJ2fwqwXz_ynqmiioiPfFo__xz4HxsZvj_qMR6gBmRWnnBetqvjJ7aoSPGOroDBY/s1600/SystemXmlLinq.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5oH9ubPmt3jXZyvpZ2vYSiIf2GsHOBFz79YVeG_UYox9Urza2J11M3IJTluiFbV0ZSvd-tbtUTY1GJ2fwqwXz_ynqmiioiPfFo__xz4HxsZvj_qMR6gBmRWnnBetqvjJ7aoSPGOroDBY/s640/SystemXmlLinq.png" width="98%" /></a>
 <br /><br />
 <b>Packages</b><br />
 Right click Packages folder.  Right click "MonoGame.Framework.iOS" node.  Choose Update as necessary.
@@ -83,7 +83,7 @@ However, if you would like to target <a href="https://en.wikipedia.org/wiki/IOS_
 Right click Packages folder | Add Packages...  Enter "Portable Ninject" into Search bar on top right.
 <br />
 Select "Ninject for Portable Class Libraries" | Add Package.  Portable Ninject reference also added.
-<a href="https://2.bp.blogspot.com/-rvsMgGTcLgM/VcHUQRWs66I/AAAAAAAADhg/iJO6wxTPnXY/s1600/NinjectPackage.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-rvsMgGTcLgM/VcHUQRWs66I/AAAAAAAADhg/iJO6wxTPnXY/s640/NinjectPackage.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxQTK-ouRzmlLyVG866vbwhJ5rGfWJiEpzrG-6DEiTPqAlKDvWp_LVLkgx-elhRkC2ToJBk29785ZT1V5oERH7YkM6vpTcVriZDoaWq84MAoZac1w8WkdXcseYMDkyHZNo6jkx6eU50Zw/s1600/NinjectPackage.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxQTK-ouRzmlLyVG866vbwhJ5rGfWJiEpzrG-6DEiTPqAlKDvWp_LVLkgx-elhRkC2ToJBk29785ZT1V5oERH7YkM6vpTcVriZDoaWq84MAoZac1w8WkdXcseYMDkyHZNo6jkx6eU50Zw/s640/NinjectPackage.png" width="98%" /></a>
 <br /><br />
 <b>Project Properties</b><br />
 Right click CandyKid.iOS project. Choose Options.  Ensure the following options are set on sub tabs:
@@ -146,7 +146,7 @@ Right click "Content" folder | Add New Folder. Candy Kid uses the 4x following s
 Contains flat TXT + XML data files to be consumed by the game. Do not need to be built as XNB files! 
 <br />
 Right click each data file | Properties | Build action: Content | Copy to output directory: Copy if newer
-<a href="https://3.bp.blogspot.com/-GYzLJL3XbNc/VcHZ8MxRgzI/AAAAAAAADi4/nQi9BbGoEbE/s1600/BuildProperties01.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-GYzLJL3XbNc/VcHZ8MxRgzI/AAAAAAAADi4/nQi9BbGoEbE/s640/BuildProperties01.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_UyKzVl0vGUtjiLt5VRMDj6nVaNGT062PC96I_5fQmKJZYGwT0Zy4ieJD53A_rby7Pd_uJ0DxTxUfWR9Mwgdoj0_62Czlbe5ty87x6yikZ7cUiJFu73hg7o5OzAwRffbRNq78A1yUdLs/s1600/BuildProperties01.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_UyKzVl0vGUtjiLt5VRMDj6nVaNGT062PC96I_5fQmKJZYGwT0Zy4ieJD53A_rby7Pd_uJ0DxTxUfWR9Mwgdoj0_62Czlbe5ty87x6yikZ7cUiJFu73hg7o5OzAwRffbRNq78A1yUdLs/s640/BuildProperties01.png" width="98%" /></a>
 <br />
 <i>Fonts</i>
 <br />
@@ -163,7 +163,7 @@ Right click sound effect | Properties | Build action: Content | Copy to output d
 Song source MP3 files can usually be used as original format; should not need be rebuilt for Mac OS/X.
 <br />
 Right click song file | Properties | Build action: BundleResource | Copy to output directory: Do not copy
-<a href="https://4.bp.blogspot.com/-DO3vxnGxeIw/VcHbsTrLxJI/AAAAAAAADjM/PVLCqtMw4wg/s1600/BuildProperties02.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-DO3vxnGxeIw/VcHbsTrLxJI/AAAAAAAADjM/PVLCqtMw4wg/s640/BuildProperties02.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjY6vvgihQWhmT6KAyjC4dMyd2IlFkazfPNSjVOsBGn8JFo1UnW0HPVbHF-X9GSK3VaJOeh5WqoYmt77aN5FaGsycqLpS-wNE1gnbKkR1fS-ebyi7iUAdsXjRpxcLKrD2SxFvWDDGFc96E/s1600/BuildProperties02.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjY6vvgihQWhmT6KAyjC4dMyd2IlFkazfPNSjVOsBGn8JFo1UnW0HPVbHF-X9GSK3VaJOeh5WqoYmt77aN5FaGsycqLpS-wNE1gnbKkR1fS-ebyi7iUAdsXjRpxcLKrD2SxFvWDDGFc96E/s640/BuildProperties02.png" width="98%" /></a>
 <br />
 Note: there may be issues MP3 songs on low-end devices: MediaPlayer API may cause game to crash!
 <br />
@@ -312,12 +312,12 @@ Click Play button.  iOS device launches game as "Evaluation Software".  Build wi
 Alternative: right click CandyKid.iOS project | Archive for Publishing.  Click Sign and Distribute button.
 <br />
 Select iOS Distribution Channel as "AdHoc" | Next.  Select Signing Identity and Provisioning Profile.
-<a href="https://1.bp.blogspot.com/-aocAyMRgsKc/Vf7_58LxDeI/AAAAAAAADlE/z61j-UH-sHc/s1600/Publish01.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-aocAyMRgsKc/Vf7_58LxDeI/AAAAAAAADlE/z61j-UH-sHc/s640/Publish01.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLyZLrMma4TwK1qFi5-yHJ73NvdqQT1M5p8hJDt444l3CD96CPQAp2veDKqQBQ3bOkIjbmuEizMDfAbupeADntNk_9BX5YLjV5Ya6XGOnnP7Zs4gfQcTQ8lcmjpULAd-jJ06rtwa-8K48/s1600/Publish01.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLyZLrMma4TwK1qFi5-yHJ73NvdqQT1M5p8hJDt444l3CD96CPQAp2veDKqQBQ3bOkIjbmuEizMDfAbupeADntNk_9BX5YLjV5Ya6XGOnnP7Zs4gfQcTQ8lcmjpULAd-jJ06rtwa-8K48/s640/Publish01.png" width="98%" /></a>
 <br />
 Choose Next to Publish as Ad Hoc.  Click Publish button.  Choose Location | Save.  Now reveal in Finder.
 <br />
 Double click IPA binary file.  iTunes launches ok.  Select device | Apps | Candy Kid.  Click Install | Apply.
-<a href="https://2.bp.blogspot.com/-HN0nizRdKC8/VcHTTaJryfI/AAAAAAAADhQ/qmlDu8McwkI/s1600/Publish02.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-HN0nizRdKC8/VcHTTaJryfI/AAAAAAAADhQ/qmlDu8McwkI/s640/Publish02.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlb56BHJaqbT2X-NfYRzfUYHmSESLrT-bmHnHj82OP-DAYw5LRhv_eA9rcnzPcDj8MXJ-AypZXltCJnWu4Vy273MoPpEGq0r4ttcQsOoXa5ubGkN1YLbxqy5sFme2EwV6RljSQfbeIVXQ/s1600/Publish02.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlb56BHJaqbT2X-NfYRzfUYHmSESLrT-bmHnHj82OP-DAYw5LRhv_eA9rcnzPcDj8MXJ-AypZXltCJnWu4Vy273MoPpEGq0r4ttcQsOoXa5ubGkN1YLbxqy5sFme2EwV6RljSQfbeIVXQ/s640/Publish02.png" width="98%" /></a>
 <br />
 <u>Summary</u><br />
 That concludes the Candy Kid port to iOS platform.  Outstanding: Candy Kid published on <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a> / <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a>!

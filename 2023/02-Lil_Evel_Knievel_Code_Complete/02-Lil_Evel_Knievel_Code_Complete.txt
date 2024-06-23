@@ -250,7 +250,11 @@ YouTube videos showcasing all SMS Power! 2023 coding competition entries includi
 <tr>
 <td valign="top">&nbsp;<a href="https://www.youtube.com/watch?v=5EGPAYH31Gk&t=120s">Présentation SMS Power Competition</a></td>
 <td valign="top">&nbsp;Révo SEGA 8-bit</td>
-</tr>  
+</tr>
+<tr>
+<td valign="top">&nbsp;<a href="https://www.youtube.com/watch?v=o0a6wv_Nz24">Master System Game Lil Evel Knievel</a></td>
+<td valign="top">&nbsp;Genesis 8:14</td>
+</tr>
 </table>
 <br>
 <u>Summary</u><br />

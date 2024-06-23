@@ -1,74 +1,262 @@
 <span style="font-family:verdana;font-size:85%;">
-<a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue02?gallerypage=17">Candy Kid</a> is a simple maze chase video game originally programmed by Grandstand Leisure from New Zealand in September 1984.  The game was written in <a href="http://en.wikipedia.org/wiki/BASIC">BASIC</a> programming language on Sega <a href="http://en.wikipedia.org/wiki/SG-1000#SC-3000">SC-3000</a>.  
+<a href="http://steveproxna.blogspot.co.uk/2015_05_01_archive.html">Candy Kid</a> is a simple maze chase video game written in <a href="https://en.wikipedia.org/wiki/Microsoft_XNA">XNA</a> using C#/.NET.  All development was done on Windows therefore it made sense to build a PC version of the game to be published available for <a href="https://www.amazon.com/StevePro-Studios-Retro-Candy-Download/dp/B018WIUDZ8/qid=1449745287">sale</a>.
 <br /><br />
-Inspired from previous posts on <a href="http://steveproxna.blogspot.co.uk/2013/06/sega-retro-gaming.html">Sega Retro Gaming</a> and <a href="http://steveproxna.blogspot.co.uk/2013/07/sega-basic-programming.html">Sega BASIC programming</a>, Candy Kid was re-written in <a href="http://en.wikipedia.org/wiki/XNA_(Microsoft)">XNA</a>.  However, the goal is to keep the super cool 80s retro arcade video game look and feel!
-<table width="100%">
+In order to build all binary files plus game content into a single deployable package, the Windows Installer XML [<a href="https://en.wikipedia.org/wiki/WiX">WiX</a>] toolset was used.  WiX is free software that builds <a href="https://en.wikipedia.org/wiki/Windows_Installer">Windows Installer</a> packages from XML code. 
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbM_qjrBXnt9proUcz62rve7aW77YBwizflImS-3WEJKdO0MYaWBrVkKkV9pdOpK1PCvyQgHBoTfMpmxz9Fs5qfg8eJ6C413_NSE4phd1y8yvkMIkKrVRSbtirxMxpoxXR5UbMHvwax-8/s1600/WiX.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbM_qjrBXnt9proUcz62rve7aW77YBwizflImS-3WEJKdO0MYaWBrVkKkV9pdOpK1PCvyQgHBoTfMpmxz9Fs5qfg8eJ6C413_NSE4phd1y8yvkMIkKrVRSbtirxMxpoxXR5UbMHvwax-8/s640/WiX.jpg" width="98%" height="100" /></a>
+<br /><br />
+Let's check it out!
+<br /><br />
+<u>Pre Requisites</u><br />
+First, obtain Candy Kid release build complete with game executable, managed assemblies and content:
+<table width="99%" border="1">
 <tr>
-<td valign="top" width="40%">
-<a href="http://4.bp.blogspot.com/-RdYJZS5KmZg/VWxKUvgWhhI/AAAAAAAADIs/JzfT07c4yyg/s1600/01-Title.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-RdYJZS5KmZg/VWxKUvgWhhI/AAAAAAAADIs/JzfT07c4yyg/s320/01-Title.jpg" width="100%" /></a>
-</td>
-<td valign="top" width="40%">
-<a href="http://3.bp.blogspot.com/-LC_Bc3iAjew/VZLrovrwE2I/AAAAAAAADKk/IGWpP5C3tK8/s1600/02-Instruct.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-LC_Bc3iAjew/VZLrovrwE2I/AAAAAAAADKk/IGWpP5C3tK8/s320/02-Instruct.jpg" width="100%"/></a>
-</td>
+<td valign="top">&nbsp;<b>Folder</b>
+<td valign="top">&nbsp;Content</td>
+<td valign="top">&nbsp;All game content</td>
 </tr>
 <tr>
-<td valign="top" width="40%">
-<a href="http://3.bp.blogspot.com/-lMINu7iEqVY/VWxMzZSDuaI/AAAAAAAADJs/aMHatdEaWrE/s1600/Credits.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-lMINu7iEqVY/VWxMzZSDuaI/AAAAAAAADJs/aMHatdEaWrE/s320/Credits.jpg" width="100%" /></a>
+<td valign="top">&nbsp;<b>File</b>
+<td valign="top">&nbsp;log4net.dll
 </td>
-<td valign="top" width="40%">
-<a href="http://3.bp.blogspot.com/-3sGxCtSjz_0/VWxM2Mva_2I/AAAAAAAADJ0/j2aM2ozZHO0/s1600/History.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-3sGxCtSjz_0/VWxM2Mva_2I/AAAAAAAADJ0/j2aM2ozZHO0/s320/History.jpg" width="100%" /></a>
+<td valign="top">&nbsp;log4net logging</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>File</b>
+<td valign="top">&nbsp;Ninject.dll
 </td>
+<td valign="top">&nbsp;IoC Container</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>File</b>
+<td valign="top">&nbsp;WindowsGame.exe.config
+</td>
+<td valign="top">&nbsp;Game configuration</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;<b>File</b>
+<td valign="top">&nbsp;WindowsGame.exe
+</td>
+<td valign="top">&nbsp;Game executable</td>
+</tr>
+</table>
+Next, download WiX Installer <a href="https://wix.codeplex.com">here</a>.  Note: post is based heavily on the <a href="https://xnainstaller.codeplex.com">XNA Installer</a> published by <a href="http://blog.nuclex-games.com/2009/04/wix-xna-installer-3-0">Cygon</a>!
+<br /><br />
+<u>Implementation</u><br />
+Launch Visual Studio.  File | New Project... | Windows Installer XML | Setup Project | <a href="https://github.com/SteveProXNA/CandyKidInstaller">CandyKidInstaller</a>.  Uncheck <i>Create directory for solution</i>.  Delete Product.wxs and copy the following folders as per Cygon:
+<table width="98%" border="1">
+<tr>
+<td valign="top" width="30%">&nbsp;<b>Folder</b></td>
+<td valign="top">&nbsp;<b>Description</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Content</td>
+<td valign="top">&nbsp;Candy Kid release build (as above)</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Documents</td>
+<td valign="top">&nbsp;Includes <b>license.rtf</b> document only</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;References</td>
+<td valign="top">&nbsp;Includes the 2x Nuclex.Setup DLLs</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Resources</td>
+<td valign="top">&nbsp;Includes all bmp, ico, and png files</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;Source</td>
+<td valign="top">&nbsp;Installer (<i>wxs</i>) + Include (<i>wxi</i>) files</td>
+</tr>
+</table>
+Note: <i>C:\Program Files (x86)\SharpDevelop\5.1\data\resources\InstallerBitmaps</i> required in Resources.
+<br /><br />
+<u>Actions</u><br />
+Right click project name | Properties | Output name: <b>RetroCandyKid</b>.  Next, action these following tasks:
+Note: anytime you need a GUID choose Tools menu | Create GUID | 2. DEFINE_GUID | New GUID | Copy
+<ul>
+<li>Add the Program Menu</li>
+<li>Add Desktop Shortcut</li>
+<li>Add the Program Files</li>
+<li>Harvest content folder</li>
+</ul>
+<br />
+<i>Program Menu</i><br />
+Add this change to <b>Files.wxs</b>.  This blob of XML is responsible to set Program Menu entry once installed.
+Important: make note of the Component Id as this will be used in <i>Setup.wxs</i> for Feature ComponentRef.
+<pre class="csharp" name="code">
+&lt;Directory Id='ProgramMenuFolder' Name='Programs'&gt;
+&lt;Directory Id='MyGameProgramMenuFolder' Name='Retro Candy Kid'&gt;
+        &lt;Component Id="StartMenuEntriesComponent" Guid="{GUID}" DiskId="1"&gt;
+                &lt;RemoveFolder Id='MyGameProgramMenuFolder' On='uninstall' /&gt;
+                &lt;RegistryValue
+                        Root='HKCU'
+                        Key='SOFTWARE\SteveProStudios\RetroCandyKid'
+                        Name="ProgramMenuFolder"
+                        Type='string'
+                        Value='Installed'
+                        KeyPath='yes' /&gt;
+        &lt;/Component&gt;
+&lt;/Directory&gt;
+&lt;/Directory&gt;
+</pre>
+<br />
+<i>Desktop Shortcut</i><br />
+Add this change to <b>Files.wxs</b>.  This blob of XML is responsible to set the Desktop shortcut once installed.
+Important: make note of the Component Id as this will be used in <i>Setup.wxs</i> for Feature ComponentRef.
+<pre class="csharp" name="code">
+&lt;Directory Id="DesktopFolder" Name="Desktop"&gt;
+        &lt;Component Id="ApplicationShortcutDesktop" Guid="{GUID}"&gt;
+                &lt;Shortcut
+                        Id="ApplicationDesktopShortcut"
+                        Name="Retro Candy Kid"
+                        WorkingDirectory="INSTALLDIR"
+                        Icon="ProductIcon.ico"
+                        Target="[INSTALLDIR]WindowsGame.exe" /&gt;
+                &lt;RemoveFolder Id="DesktopFolder" On="uninstall" /&gt;
+                &lt;RegistryValue
+                        Root="HKCU"
+                        Key='SOFTWARE\SteveProStudios\RetroCandyKid'
+                        Name="DesktopFolder"
+                        Type="integer"
+                        Value="1"
+                        KeyPath="yes" /&gt;
+        &lt;/Component&gt;
+&lt;/Directory&gt;
+</pre>
+<br />
+<i>Program Files</i><br />
+Add this change to <b>Files.wxs</b>.  This blob of XML is responsible to install the executable and all assemblies.
+Important: make note of the Component Id as this will be used in <i>Setup.wxs</i> for Feature ComponentRef.
+<pre class="csharp" name="code">
+&lt;Directory Id="ProgramFilesFolder" Name="PFiles"&gt;
+&lt;Directory Id="INSTALLDIR" Name="RetroCandyKid"&gt;
+&lt;Component Id="MyComponent" Guid="{GUID}" DiskId="1"&gt;
+
+&lt;File Id="WindowsGameExe" Name="WindowsGame.exe.config"
+          Source="$(sys.SOURCEFILEDIR)/../Content/WindowsGame.exe.config" /&gt;
+&lt;File Id="log4netdll" Name="log4net.dll"
+          Source="$(sys.SOURCEFILEDIR)/../Content/log4net.dll" /&gt;
+&lt;File Id="NinjectDll" Name="Ninject.dll"
+          Source="$(sys.SOURCEFILEDIR)/../Content/Ninject.dll" /&gt;
+
+&lt;File Id="GameExecutable" Name="WindowsGame.exe" KeyPath="yes"
+          Source="$(sys.SOURCEFILEDIR)/../Content/WindowsGame.exe"&gt;
+         &lt;Shortcut
+                Id="MyGameShortcut"
+                Name="Retro Candy Kid shortcut"
+                Directory="MyGameProgramMenuFolder"
+                Advertise="yes"
+                WorkingDirectory="INSTALLDIR"
+                Icon="ProductIcon.ico" /&gt;   
+&lt;/File&gt;
+&lt;/Component&gt;
+&lt;/Directory&gt;
+&lt;/Directory&gt;
+</pre>
+<br />
+<i>Harvest Content</i><br />
+In order to <a href="http://stackoverflow.com/questions/26550763/wix-how-to-copy-a-directory-to-install-folder">copy</a> the Content directory to the install folder, use the Wix "<a href="http://wixtoolset.org/documentation/manual/v3/overview/heat.html">Heat</a>" application to harvest the directory.  The Wix Harvest Tool (Heat) generates the required fragment into its own Installer (<i>wxs</i>) file.
+<br /><br />
+First, ensure that Wix Toolset is included in Environment PATH.  Control Panel | Advanced system settings.  Environment Variables | Path | Edit | Add install directory: <i>C:\Program Files (x86)\WiX Toolset v3.10\bin</i>
+<br /><br />
+Next, launch Command Prompt and harvest content from Game executable level beneath Content folder:
+<i>heat dir . -o MyHarvestedStuff.wxs -scom -frag -srd -sreg -gg -cg MyComponentGroupId -dr INSTALLDIR</i>
+<br /><br />
+Find and replace in <i>wxs</i> file <b>Source="SourceDir\</b> to <b>Source="$(sys.SOURCEFILEDIR)\..\Content\</b>
+<br />
+Finally, remove all top entries with Directory="INSTALLDIR".  Make note of the ComponentGroupRef Id.
+<br />
+<br /><br />
+<b>Setup.wxs</b><br />
+Main entry point: update Product XML blob and complete the Feature list as per the components (above).
+Ensure you have ProductIcon value set as <a href="http://stackoverflow.com/questions/2884453/icon-for-shortcut">Icon</a> for shortcut and <a href="https://support.firegiant.com/entries/54621776-Set-the-icon-displayed-in-Add-Remove-Programs">Icon</a> displayed in Add/Remove programs!
+<pre class="csharp" name="code">
+&lt;Product Id="{GUID}"
+         Name="Retro Candy Kid"
+         Language="1033"
+         Version="1.0.0"
+         Manufacturer="StevePro Studios"
+         UpgradeCode="{GUID}"&gt;
+
+&lt;Property Id="ALLUSERS" Value="1" /&gt;
+&lt;Property Id='ARPPRODUCTICON' Value='ProductIcon' /&gt;
+
+&lt;Feature Id="MyFeature" Title="Required Files" Level="1"&gt;
+        &lt;ComponentRef Id="StartMenuEntriesComponent" /&gt;
+        &lt;ComponentRef Id="ApplicationShortcutDesktop" /&gt;
+        &lt;ComponentRef Id="MyComponent" /&gt;
+        &lt;ComponentGroupRef Id="MyComponentGroupId" /&gt;
+&lt;/Feature&gt;
+
+&lt;!-- Includes the user interface definition defined in another file --&gt;
+&lt;UIRef Id="UserInterface"/&gt;
+&lt;Icon Id="ProductIcon" SourceFile="$(sys.SOURCEFILEDIR)/../Resources/Game.ico" /&gt;
+&lt;Icon Id="ProductIcon.ico" SourceFile="$(sys.SOURCEFILEDIR)/../Resources/Game.ico" /&gt;
+&lt;/Product&gt;
+</pre>
+<br />
+<b>UserInterface.wxs</b><br />
+Update the relative location for "Default dialog resources for the setup" bitmap files e.g. banner and info:
+<table width="99%" border="1">
+<tr>
+<td valign="top">&nbsp;<b>Binary</b></td>
+<td valign="top">&nbsp;<b>Source</b></td>
+</tr>
+<tr>
+<td valign="top">&nbsp;dialog.bmp</td>
+<td valign="top">&nbsp;$(sys.SOURCEFILEDIR)/../Resources/InstallerBitmaps/default-dialog.bmp</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;banner.bmp</td>
+<td valign="top">&nbsp;$(sys.SOURCEFILEDIR)/../Resources/InstallerBitmaps/default-banner.bmp</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;info.bmp</td>
+<td valign="top">&nbsp;$(sys.SOURCEFILEDIR)/../Resources/InstallerBitmaps/info.bmp</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;up.bmp</td>
+<td valign="top">&nbsp;$(sys.SOURCEFILEDIR)/../Resources/InstallerBitmaps/up.bmp</td>
+</tr>
+<tr>
+<td valign="top">&nbsp;new.bmp</td>
+<td valign="top">&nbsp;$(sys.SOURCEFILEDIR)/../Resources/InstallerBitmaps/new.bmp</td>
 </tr>
 </table>
 <br />
-The game is now more a Pacman clone and also has the following features / options to vary game play:
-<table width="100%">
-<tr>
-<td valign="top">
-<ul>
-<li>100 levels initially (if I can design) to 250??</li>
-<li>Open or closed exits for different game play</li>
-<li>Avoid trees that block or Death trees that kill</li>
-<li>3x Candy Mamas "ghosts" more than original</li>
-</ul>
-</td>
-<td valign="top">
-<ul>
-<li>God mode for invincibility to pass all levels</li>
-<li>4x speeds: Slower, Medium, Faster, Insane</li>
-<li>Option for 1x, 2x, or 3x ghosts chase player</li>
-<li>Unlimited continues, increased lives choices</li>
-</ul>
-</td>
-</tr>
-</table>
-<table width="100%">
-<tr>
-<td valign="top" width="40%">
-<a href="http://4.bp.blogspot.com/-ZdQpAY_xU8k/VWxLcdY7RRI/AAAAAAAADI8/W--Loqx7Y-E/s1600/03-Play.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-ZdQpAY_xU8k/VWxLcdY7RRI/AAAAAAAADI8/W--Loqx7Y-E/s320/03-Play.jpg" width="100%" /></a>
-</td>
-<td valign="top" width="40%">
-<a href="http://2.bp.blogspot.com/-RuaAxpGThrM/VWxLl54PQWI/AAAAAAAADJE/4pDpz62HztA/s1600/04-Play.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-RuaAxpGThrM/VWxLl54PQWI/AAAAAAAADJE/4pDpz62HztA/s320/04-Play.jpg" width="100%" /></a>
-</td>
-</tr>
-<tr>
-<td valign="top" width="40%">
-<a href="http://1.bp.blogspot.com/-lwx0rlNOK_8/VWxL0Sl7HDI/AAAAAAAADJM/akZysPUu0Lc/s1600/05-Play.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-lwx0rlNOK_8/VWxL0Sl7HDI/AAAAAAAADJM/akZysPUu0Lc/s320/05-Play.jpg" width="100%" /></a>
-</td>
-<td valign="top" width="40%">
-<a href="http://2.bp.blogspot.com/-FWnBm75PGsY/VWxL6tVDXrI/AAAAAAAADJU/ijKFyHImPVw/s1600/06-Play.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-FWnBm75PGsY/VWxL6tVDXrI/AAAAAAAADJU/ijKFyHImPVw/s320/06-Play.jpg" width="100%" /></a>
-</td>
-</tr>
-<tr>
-<td valign="top" width="40%">
-<a href="http://3.bp.blogspot.com/-07821LsVINk/VWxMbpRfSxI/AAAAAAAADJc/RIogbn4ywS0/s1600/07-Dead.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-07821LsVINk/VWxMbpRfSxI/AAAAAAAADJc/RIogbn4ywS0/s320/07-Dead.jpg" width="100%" /></a>
-</td>
-<td valign="top" width="40%">
-<a href="http://4.bp.blogspot.com/-vmaiwv7yahI/VWxMe3U_9_I/AAAAAAAADJk/2ge40GzHV6o/s1600/08-Over.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-vmaiwv7yahI/VWxMe3U_9_I/AAAAAAAADJk/2ge40GzHV6o/s320/08-Over.jpg" width="100%" /></a>
-</td>
-</tr>
-</table>
-Next step is to port game to mobile devices available for <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a> App Store and <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a> Google Play store.
+<u>Build</u><br />
+Finally, build WiX Installer from within Visual Studio to generate the MSI package <b>RetroCandyKid.MSI</b>.
 <br />
-Ultimate goal would be to re-write Candy Kid in <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C</a> / <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> assembler to target the <a href="http://en.wikipedia.org/wiki/Master_System">Sega Master System</a>!
+Download source code <b><a href="https://github.com/SteveProXNA/CandyKidInstaller">here</a></b>.
+<br /><br />
+<u>Summary</u><br />
+Double click to <b>RetroCandyKid.MSI</b> to install.  Ensure there is a Program Menu entry + Desktop shortcut!
+<table width="100%">
+<tr>
+<td valign="top" width="40%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJvTyCETFDO3jN5uFXUiVtUpBggn95HvCe1vrpOZVT3lcetNIEiuEWwfKQvScrIun_IyhxNGzMnSGe0Z_E04yeA_uEGM4BolMSPx1UHEo9bIl8ADaJSU7sDuIn0dtYfuV5kaN1vZi3CT0/s1600/Install01.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJvTyCETFDO3jN5uFXUiVtUpBggn95HvCe1vrpOZVT3lcetNIEiuEWwfKQvScrIun_IyhxNGzMnSGe0Z_E04yeA_uEGM4BolMSPx1UHEo9bIl8ADaJSU7sDuIn0dtYfuV5kaN1vZi3CT0/s640/Install01.jpg" width="100%" /></a>
+</td>
+<td valign="top" width="40%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFoTzHiD5BQRK0K5lqfag1qq0hMtP9zWgcjOHaS4CkOfCzblG0OMTzarGd15uCQeZpnUF_DjHeGRsNWcS08mVCJx-JjoJuFZxIiL2X2238v5LcfoN8o4ancMgOXQ4ph2w1CGnieOWcwqs/s1600/Install02.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFoTzHiD5BQRK0K5lqfag1qq0hMtP9zWgcjOHaS4CkOfCzblG0OMTzarGd15uCQeZpnUF_DjHeGRsNWcS08mVCJx-JjoJuFZxIiL2X2238v5LcfoN8o4ancMgOXQ4ph2w1CGnieOWcwqs/s640/Install02.jpg" width="100%" /></a>
+</td>
+</tr>
+<tr>
+<td valign="top" width="40%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEid_TfAlJYpxdE8d6XMLaz82wMRYy2hLtlhPNAu0VktFrM2Y70QpleOfqsjJhaiGv-2lmrTrTBteVcmVcWESVj8N4UPpD4x9qNx4sOeamfo3_Onjqn3JfXLdgp-6iR-0QKJvZjb0K2OhaI/s1600/Install03.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEid_TfAlJYpxdE8d6XMLaz82wMRYy2hLtlhPNAu0VktFrM2Y70QpleOfqsjJhaiGv-2lmrTrTBteVcmVcWESVj8N4UPpD4x9qNx4sOeamfo3_Onjqn3JfXLdgp-6iR-0QKJvZjb0K2OhaI/s640/Install03.jpg" width="100%" /></a>
+</td>
+<td valign="top" width="40%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPGepy8YOVCivPgEFcF3EQ4JoWmq8XdJy9yks2HWuELnYTZrVv6hO8FIlB-ob3AK_Ho8f0f6D0niE-xiDMrd-yzSgT2-GTrPlzTWkCrcJjGT8PV0YOmpaGxvIc3mTZEYkCIKdvs14uCec/s1600/Install04.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPGepy8YOVCivPgEFcF3EQ4JoWmq8XdJy9yks2HWuELnYTZrVv6hO8FIlB-ob3AK_Ho8f0f6D0niE-xiDMrd-yzSgT2-GTrPlzTWkCrcJjGT8PV0YOmpaGxvIc3mTZEYkCIKdvs14uCec/s640/Install04.jpg" width="100%" /></a>
+</td>
+</tr>
+<tr>
+<td valign="top" width="40%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-AbILEHSsZ-xqyl0uvH601GTgcrEHg_AL4tAyPvks9uBg-c-_1QKAsBfJarUxxhy2i1r2AKhtpFInZkL4vhaibgEia5eIpl5QoqSsQfNzqAo1tmZ9cVSOs5ery319Z6zMCYA2qIAkTQU/s1600/Install05.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-AbILEHSsZ-xqyl0uvH601GTgcrEHg_AL4tAyPvks9uBg-c-_1QKAsBfJarUxxhy2i1r2AKhtpFInZkL4vhaibgEia5eIpl5QoqSsQfNzqAo1tmZ9cVSOs5ery319Z6zMCYA2qIAkTQU/s640/Install05.jpg" width="100%" /></a>
+</td>
+<td valign="top" width="40%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMWlCGfq_gT9-EDqZyGZffch1e-fpEFEbMrbGR1m7lmHMkysBap6Mdn7CfzlE7NGmV6Wpe8Nr4z52HQvJG75wcY3BOj871MJWGFuvhPN780pHZFw43ymzg9RTLMmN_h5Ga5YOw3BZPudg/s1600/Install06.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMWlCGfq_gT9-EDqZyGZffch1e-fpEFEbMrbGR1m7lmHMkysBap6Mdn7CfzlE7NGmV6Wpe8Nr4z52HQvJG75wcY3BOj871MJWGFuvhPN780pHZFw43ymzg9RTLMmN_h5Ga5YOw3BZPudg/s640/Install06.jpg" width="100%" /></a>
+</td>
+</tr>
+</table>
+Retro Candy Kid is also in Programs and Features and could be uninstalled; not that you would want to <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>
 </span>

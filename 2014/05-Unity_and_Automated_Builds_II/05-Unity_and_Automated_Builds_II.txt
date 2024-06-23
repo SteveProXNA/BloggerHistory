@@ -6,7 +6,7 @@ Here we built and packaged game code to streamline the deployment process to mul
 While this approach works well, it is somewhat inflexible: whatever source code that is checked-in, it is built verbatim.  That is, it is not possible to configure Jenkins build jobs to target different environments.
 <br /><br />
 Also, during development, we may like to produce Test builds internally plus build and distribute Beta builds externally using <a href="https://www.testflightapp.com/dashboard">TestFlight</a>.  All of which can be done by extending the Automated Build process.
-<a href="http://1.bp.blogspot.com/-wqAvnBT-lTc/VAYBD7gOgWI/AAAAAAAADAU/qjHTeCF9QNo/s1600/TestFlight.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-wqAvnBT-lTc/VAYBD7gOgWI/AAAAAAAADAU/qjHTeCF9QNo/s640/TestFlight.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiE0Bg9nPqs6OvMdcnN-kdz-PiwbgCRAo074sWYeKrTzuBv_OkRnQKIsyeEzGu9r9MVJN9kseCAnDanLY4UnCz9ObVKMwHqvw2u_yi6ftOnR113tWk71lsJzMPU3wpL_xTJTjjeTSJko-M/s1600/TestFlight.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiE0Bg9nPqs6OvMdcnN-kdz-PiwbgCRAo074sWYeKrTzuBv_OkRnQKIsyeEzGu9r9MVJN9kseCAnDanLY4UnCz9ObVKMwHqvw2u_yi6ftOnR113tWk71lsJzMPU3wpL_xTJTjjeTSJko-M/s640/TestFlight.jpg" width="98%"></a>
 <br /><br />
 Let’s check it out!
 <br /><br />
@@ -261,7 +261,7 @@ Note: ensure Optimization Api Compatibility Level is updated to accommodate Enum
 Navigate to File menu | Build Settings | Platform | Switch Platform | Other Settings
 <br />
 Change Optimization Api Compatibility Level from <b>.NET 2.0 Subset</b> to <b>.NET 2.0</b>.
-<a href="http://4.bp.blogspot.com/-R9Q_ovtl3bc/VA7-fPoSZZI/AAAAAAAADBA/g0x5kEXYbRg/s1600/Unity3D.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-R9Q_ovtl3bc/VA7-fPoSZZI/AAAAAAAADBA/g0x5kEXYbRg/s640/Unity3D.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjY2DLsCdinPYCZhoQ2I27bXso7BW0gI9XmCQOR9TtC0TQgndeCLfDKm7kPEEChfCh16zv5PJy0pBXxEG0ZX-vIGgBj1KcGrp2GTAVU5Vdh003DiWNvI73O0i2VqMXTCKbeCrgmjL514TI/s1600/Unity3D.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjY2DLsCdinPYCZhoQ2I27bXso7BW0gI9XmCQOR9TtC0TQgndeCLfDKm7kPEEChfCh16zv5PJy0pBXxEG0ZX-vIGgBj1KcGrp2GTAVU5Vdh003DiWNvI73O0i2VqMXTCKbeCrgmjL514TI/s640/Unity3D.jpg" width="98%"></a>
 <br /><br />
 <u>Build Job</u>
 <br />
@@ -275,17 +275,17 @@ Make one small change to the existing AngryBotsIOS build job: pass arguments to 
 </table>
 <br />
 Click Save button | Click Build Now.  Deploy Angry Bots to iOS device as per previous <a href="http://steveproxna.blogspot.co.uk/2014/07/unity3d-and-automated-builds.html">instructions</a>.
-<a href="http://2.bp.blogspot.com/-C_OZjVZ-QHg/VA3u7UzEnPI/AAAAAAAADAs/NfZ4iK_ilNs/s1600/11-AngryBotsIOS.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-C_OZjVZ-QHg/VA3u7UzEnPI/AAAAAAAADAs/NfZ4iK_ilNs/s640/11-AngryBotsIOS.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiho-Neg9C7VF_R0mVK7YhrQhU5GIvUK-TJ584iMal4OOeIYl5n4y-zaPAkvFP0aj3YspScFeKgMvOVkSaQ1TEtpKoW95RvpQVbZ0OnbioIrRpBy6uz1U7vr02P0XGK8w97pFRsPdqeX_M/s1600/11-AngryBotsIOS.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiho-Neg9C7VF_R0mVK7YhrQhU5GIvUK-TJ584iMal4OOeIYl5n4y-zaPAkvFP0aj3YspScFeKgMvOVkSaQ1TEtpKoW95RvpQVbZ0OnbioIrRpBy6uz1U7vr02P0XGK8w97pFRsPdqeX_M/s640/11-AngryBotsIOS.jpg" width="98%"></a>
 <br />
 Congratulations! Angry Bots should be installed as before but now target Beta build environment.
-<a href="http://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s1600/05-iOS.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s640/05-iOS.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSwPJzRv1n5uRzh5Rc-i556GEG0TnY98rGcOgGCS7F4zekp_hlWRoktIQF2GG04wHz_AC-MYt-99DG2x5vwS-S55uVMemlLqj4ttAUCHQL98erDXov_ib24vCxObi1nruY8tcjsttGCYA/s1600/05-iOS.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSwPJzRv1n5uRzh5Rc-i556GEG0TnY98rGcOgGCS7F4zekp_hlWRoktIQF2GG04wHz_AC-MYt-99DG2x5vwS-S55uVMemlLqj4ttAUCHQL98erDXov_ib24vCxObi1nruY8tcjsttGCYA/s640/05-iOS.jpg" width="98%"></a>
 <br /><br />
 <u>TestFlight</u>
 <br />
 <a href="https://developer.apple.com/app-store/testflight">TestFlight</a> Beta Testing makes it easy to invite users to test pre-release versions of iOS apps before they are released to the App Store.  Up to 1,000 beta testers can be invited using just their email addresses.
 <br /><br />
 <a href="http://changhoward.blogspot.co.uk/2012/02/ios-developer-how-to-use-testflight-to.html">Here</a> is a good tutorial on how to setup TestFlight and how to use TestFlight to distribute the beta app:
-<a href="http://2.bp.blogspot.com/-gTrl7PUXgYw/VBh_-wkS9VI/AAAAAAAADCU/X8xMwf51j_8/s1600/30-TestFlight.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-gTrl7PUXgYw/VBh_-wkS9VI/AAAAAAAADCU/X8xMwf51j_8/s640/30-TestFlight.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8s9kRO-7iOGYnn15WiMQc8JOe7XEUhRfJrg1kQn_fGd5U8OR5z9HGdM4w7m-M3PIZAUYe_-zmCr276NyjZhfCcWmulbK_WyB445AlpwQm4U5NcNElostHi4lV54QqXCppFXNXmJXfHHs/s1600/30-TestFlight.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8s9kRO-7iOGYnn15WiMQc8JOe7XEUhRfJrg1kQn_fGd5U8OR5z9HGdM4w7m-M3PIZAUYe_-zmCr276NyjZhfCcWmulbK_WyB445AlpwQm4U5NcNElostHi4lV54QqXCppFXNXmJXfHHs/s640/30-TestFlight.jpg" width="98%"></a>
 <br />
 1.&nbsp;Create an account on <a href="https://www.testflightapp.com/dashboard">TestFlight</a> with "Developer" option checked.<br />
 2.&nbsp;Log in to the TestFlight web site and "Add a team" for your app.<br />
@@ -320,7 +320,7 @@ In TestFlight, click People tab | click "+" icon next to "Distribution Lists" to
 <u>Apple</u>
 <br />
 Add same device information to the <a href="https://developer.apple.com">Apple</a> portal and include in Distribution provisioning profile.
-<a href="http://4.bp.blogspot.com/-0jBh7g_7PI0/VBiAPDwTL8I/AAAAAAAADCc/nVOv-k4Hu2c/s1600/32-Apple.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-0jBh7g_7PI0/VBiAPDwTL8I/AAAAAAAADCc/nVOv-k4Hu2c/s640/32-Apple.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZbZ_VnvcawBOV8X2kgI8PpOzDXyZJetZVvaOj_c-hICjqaOqaqjuV7j2cDhddlaHmVAU9KMLwzCcJalVSPI45zW2z-5FI9GMaYiOk4YaPFkp76C7BLDbyk9q8KOdJfBFdHBewTCk-d8Y/s1600/32-Apple.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZbZ_VnvcawBOV8X2kgI8PpOzDXyZJetZVvaOj_c-hICjqaOqaqjuV7j2cDhddlaHmVAU9KMLwzCcJalVSPI45zW2z-5FI9GMaYiOk4YaPFkp76C7BLDbyk9q8KOdJfBFdHBewTCk-d8Y/s640/32-Apple.jpg" width="98%"></a>
 <br />
 Navigate to Apple portal | iOS Apps | Log In | Certificates, Identifiers & Profiles | Devices.
 <br />
@@ -362,7 +362,7 @@ Finally, update Jenkins automation: install the TestFlight plugin and add new ni
 Main dashboard | Click Manage Jenkins | Click Manage Plugins | Click "Available" tab. 
 <br />
 Ensure the following plugin is installed: Testflight plugin (upload to <a href="https://www.testflightapp.com/dashboard">testflightapp.com</a>)
-<a href="http://4.bp.blogspot.com/-WKY5-VZoGAw/VA9BPTVXOQI/AAAAAAAADBM/WlFFTZihTIg/s1600/01-TestFlightPlugin.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-WKY5-VZoGAw/VA9BPTVXOQI/AAAAAAAADBM/WlFFTZihTIg/s640/01-TestFlightPlugin.jpg" width="98%"></a> 
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAWC_ltW6qs6JUoT8PF-6Py6WeoCa6CxzLDVjZoQmBOV-CrYoLWjKmO9JpmIAxEzLefNYSk-RNpzgXN-9jXNfWiIzXwE2VX_hyphenhyphenBHjVduh8-ZxPQh-mijdIrSNCm35qewA2uRunVuzjtiE/s1600/01-TestFlightPlugin.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAWC_ltW6qs6JUoT8PF-6Py6WeoCa6CxzLDVjZoQmBOV-CrYoLWjKmO9JpmIAxEzLefNYSk-RNpzgXN-9jXNfWiIzXwE2VX_hyphenhyphenBHjVduh8-ZxPQh-mijdIrSNCm35qewA2uRunVuzjtiE/s640/01-TestFlightPlugin.jpg" width="98%"></a> 
 <br />
 <i>Restart Plugins</i>
 <br />
@@ -373,7 +373,7 @@ Manually start daemon: sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci
 <i>Configure System</i>
 <br />
 Main dashboard | Click Manage Jenkins | Click Configure System. Enter the following: 
-<a href="http://2.bp.blogspot.com/-zwJzKVCieSM/VA9CahXyViI/AAAAAAAADBU/DM9-t61ltAM/s1600/02-TestFlightConfigure.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-zwJzKVCieSM/VA9CahXyViI/AAAAAAAADBU/DM9-t61ltAM/s640/02-TestFlightConfigure.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJh4ToWnB8a07jXYgrxbNBPZ7Dw8KdwSpIbq72Ui-djPCh68OF6rs9VahhDACxgmfRB7qs5-XpN-kAPpSah4DwzgRtw5FeQgf6UprzWhMQeDSFFu3Jr6NPGCw0U6813retf4ewu_hvr8k/s1600/02-TestFlightConfigure.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJh4ToWnB8a07jXYgrxbNBPZ7Dw8KdwSpIbq72Ui-djPCh68OF6rs9VahhDACxgmfRB7qs5-XpN-kAPpSah4DwzgRtw5FeQgf6UprzWhMQeDSFFu3Jr6NPGCw0U6813retf4ewu_hvr8k/s640/02-TestFlightConfigure.jpg" width="98%"></a>
 Test Flight | Test Flight Tokens
 <br />
 <table width="80%" border="1">
@@ -390,7 +390,7 @@ Test Flight | Test Flight Tokens
 Main dashboard | Click New Item | Enter Item name: AngryBotsIOSTestFlight.
 <br />
 Click radio button next to "Copy existing Item". Enter "AngryBotsIOS".
-<a href="http://2.bp.blogspot.com/-PpXsxhznayE/VBh3ZYikUGI/AAAAAAAADBw/5IfOTbW3iFs/s1600/40-AngryBotsIOSTestFlight.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-PpXsxhznayE/VBh3ZYikUGI/AAAAAAAADBw/5IfOTbW3iFs/s640/40-AngryBotsIOSTestFlight.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmZH45pQ39zcxr_zXFC52SKeAEMeA8pfvutg1SlKx7lBju14Y9N7YnYmEMa6iGpp8fEpGcEtEXRJhoAFqjEOv_k887lgOeD1JSN2q7r6QbXQyf_-q7BDXSBB5BM0s3zSBoyFkVv-jUm3Y/s1600/40-AngryBotsIOSTestFlight.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmZH45pQ39zcxr_zXFC52SKeAEMeA8pfvutg1SlKx7lBju14Y9N7YnYmEMa6iGpp8fEpGcEtEXRJhoAFqjEOv_k887lgOeD1JSN2q7r6QbXQyf_-q7BDXSBB5BM0s3zSBoyFkVv-jUm3Y/s640/40-AngryBotsIOSTestFlight.jpg" width="98%"></a>
 Build Triggers
 <br>
 For example, build every night at 8pm Sunday-Thursday, ready for next working day.
@@ -446,7 +446,7 @@ echo "Copying $filename to /mnt/builds now COMPLETE..."
 echo Finished
 </pre>
 Post build Actions | Upload to TestFlight
-<a href="http://1.bp.blogspot.com/-VMOWp8zLLm0/VBh57tmhXLI/AAAAAAAADCE/Eq2QF5srJbQ/s1600/42-AngryBotsIOSTestFlight.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-VMOWp8zLLm0/VBh57tmhXLI/AAAAAAAADCE/Eq2QF5srJbQ/s640/42-AngryBotsIOSTestFlight.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjN6PIZkt2BFxA6RF-hUP-Z3TNl-4DiN1V_HTCJ07peM5E2skmiSrXgAL5F_RZ9kHWsHs9aQPzOgNFnMC8FTVlSyPAQ91lEg971pdj1Yg4X0efleICtjhJId_70yor2ErYxpCn6a7paX9E/s1600/42-AngryBotsIOSTestFlight.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjN6PIZkt2BFxA6RF-hUP-Z3TNl-4DiN1V_HTCJ07peM5E2skmiSrXgAL5F_RZ9kHWsHs9aQPzOgNFnMC8FTVlSyPAQ91lEg971pdj1Yg4X0efleICtjhJId_70yor2ErYxpCn6a7paX9E/s640/42-AngryBotsIOSTestFlight.jpg" width="98%"></a>
 <table width="80%" border="1">
 <tr><td valign="top" width="50%">&nbsp;Token Pair</td>
 <td valign="top">&nbsp;AngryBotsIOSTestFlight</td></tr>

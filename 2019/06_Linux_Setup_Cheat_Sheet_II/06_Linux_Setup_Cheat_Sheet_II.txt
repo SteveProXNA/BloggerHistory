@@ -1,7 +1,7 @@
 <span style="font-family:verdana;font-size:85%;">
 
 In the previous <a href="http://steveproxna.blogspot.com/2019/09/linux-setup-cheat-sheet.html">post</a>, we discussed various options to set up Ubuntu Linux.  Now let's install some software.
-<a href="https://3.bp.blogspot.com/-tOvmPTWg5LA/XUfplik_HaI/AAAAAAAAFlo/twAFdZ83mtAOkqpWHdvSfPRlKZNc4E7OACLcBGAs/s1600/Linux.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-tOvmPTWg5LA/XUfplik_HaI/AAAAAAAAFlo/twAFdZ83mtAOkqpWHdvSfPRlKZNc4E7OACLcBGAs/s640/Linux.jpg" width="98%" height="225" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_cHb1-NUVlsOmNBJYuXktchyphenhyphen-FVsX01TJQMNLS_hWhvHARnyU3bDNY6iUA76FV5FQ3X_G11TqwHXvSlQ8yJCsocESn1Mt4fcAZ_4NSjiAtED1iQErCheAnpn7yQLMAYLh5wgTkKdFtXQ/s1600/Linux.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_cHb1-NUVlsOmNBJYuXktchyphenhyphen-FVsX01TJQMNLS_hWhvHARnyU3bDNY6iUA76FV5FQ3X_G11TqwHXvSlQ8yJCsocESn1Mt4fcAZ_4NSjiAtED1iQErCheAnpn7yQLMAYLh5wgTkKdFtXQ/s640/Linux.jpg" width="98%" height="225" /></a>
 <br />
 Let's check it out!
 <br /><br />
@@ -175,7 +175,7 @@ sudo apt-get install geany geany-plugins-common
 <br />
 
 <b>Code Blocks</b><br />
-<a href="https://www.dummies.com/programming/cpp/how-to-install-c-codeblocks-in-ubuntu-linux">Code Blocks</a> seems to be popular IDE for Sega Genesis development>  Install directly from <a href="https://wiki.ubuntu.com/SoftwareCenter">Ubuntu</a> Software.
+<a href="https://www.dummies.com/programming/cpp/how-to-install-c-codeblocks-in-ubuntu-linux">Code Blocks</a> seems to be popular IDE for Sega Genesis development.  Install directly from <a href="https://wiki.ubuntu.com/SoftwareCenter">Ubuntu</a> Software.
 <br /><br />
 
 <br />

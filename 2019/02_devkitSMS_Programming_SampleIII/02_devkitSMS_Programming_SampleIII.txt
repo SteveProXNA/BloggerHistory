@@ -2,7 +2,7 @@
 In <a href="http://steveproxna.blogspot.com/2017/11/devkitsms-programming-sample.html">2017</a>, we checked out <a href="https://github.com/sverx/devkitSMS">devkitsms</a> to setup productive development environment to build 8-bit retro video games for the Sega Master System.  In <a href="http://steveproxna.blogspot.com/2018/03/devkitsms-programming-sample-ii.html">2018</a>, we streamlined this build process to develop <a href="http://www.smspower.org/Homebrew/SimpsonsTrivia-SMS">Simpsons Trivia</a>.
 <br /><br />
 However, as projects became larger they seemed longer to build.  Plus it didn't seem possible to debug step through <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> source code.  Look for opportunities to improve the process further as we build <a href="http://www.smspower.org/Homebrew/PlatformExplorer-SMS">Platform Explorer</a>!
-<a href="https://3.bp.blogspot.com/-t4P2AWjzxkg/XKtrSak7jJI/AAAAAAAAFW4/2e56wqHdELU0DuHp39UIKDrKVpyxG1GbwCLcBGAs/s1600/Title.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-t4P2AWjzxkg/XKtrSak7jJI/AAAAAAAAFW4/2e56wqHdELU0DuHp39UIKDrKVpyxG1GbwCLcBGAs/s640/Title.png" width="95%" height="525" data-original-width="642" data-original-height="527" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7V8uUkqfvLVOOcdmEPBiru3ETZEi27IG8h9G8dukLglo6cbmTLvlrBlE7-aLMRbtPKHfBq6VCEhXG_y5UlRQyYJTR0lt_ER9SZ2W_XLRyTzbO4Iob_YiHbLluyIHArGUZ1keVMua4MmA/s1600/Title.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7V8uUkqfvLVOOcdmEPBiru3ETZEi27IG8h9G8dukLglo6cbmTLvlrBlE7-aLMRbtPKHfBq6VCEhXG_y5UlRQyYJTR0lt_ER9SZ2W_XLRyTzbO4Iob_YiHbLluyIHArGUZ1keVMua4MmA/s640/Title.png" width="95%" height="525" data-original-width="642" data-original-height="527" /></a>
 Let's check it out! 
 <br /><br />
 <u>Game</u>
@@ -34,7 +34,7 @@ Previous work on SMS graphics progressed from MS Paint to <a href="https://www.g
 Now, we would like to save multiple individual image files, for example, for sprite animations and share the color palette such that it can be used across all relevant tiles.  Therefore, here is how to <a href="http://gimpforums.com/thread-how-do-i-save-an-index-image-s-color-map">import</a> the palette:
 <br /><br />
 Launch Gimp | Open an image you would like the palette shared.  Image | Mode | Indexed to generate the 16 color palette (4bpp).  Windows | Dockable dialogs | Palettes.  Right click list and enter the following info:
-<a href="https://2.bp.blogspot.com/-x9y9ADCW3LE/XL9caF382CI/AAAAAAAAFZQ/gaZyruMDx_4n2-TOXo8mZnHOW_ZbFLbGgCLcBGAs/s1600/ImportPalette.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-x9y9ADCW3LE/XL9caF382CI/AAAAAAAAFZQ/gaZyruMDx_4n2-TOXo8mZnHOW_ZbFLbGgCLcBGAs/s640/ImportPalette.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhtCDl0VdUohmAMgGeAS-86ieEpjTb3oFvhPsftsQnb5p7e-gUqLpGEcASzQhexyeNHIxxIw1NRJ2X63Cf6aV6E2KE6Y9TT-qO-PHRetnBo-cg9h4rivHeiQSvCxLtNd9b45jfiMvJCE8/s1600/ImportPalette.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhtCDl0VdUohmAMgGeAS-86ieEpjTb3oFvhPsftsQnb5p7e-gUqLpGEcASzQhexyeNHIxxIw1NRJ2X63Cf6aV6E2KE6Y9TT-qO-PHRetnBo-cg9h4rivHeiQSvCxLtNd9b45jfiMvJCE8/s640/ImportPalette.png" width="98%" /></a>
 <br />
 Now there will new custom 4bpp 16-color palette at %USERPROFILE%\.gimp-2.8\palettes.  Finally, extend previous process after Image | Mode | Indexed choose Colors | Map | Set Colormap... Palette: Platformer.
 <br /><br />
@@ -52,7 +52,7 @@ bmp2tile.exe raw\back_tiles.bmp -savepalette "back_tiles (palette).bin" -fullpal
 In 2017, we were inspired by this <a href="http://www.smspower.org/forums/15228-DevkitSMSDevelopYourHomebrewInC?start=250">suggestion</a> to use Visual Studio as an IDE to better navigate files in larger projects and help automate the development build system.  Now it is time to upgrade from VS2008 to 2015.
 <br /><br />
 The motivation here assumes a point where it is difficult / impossible to use Visual Studio 2008 on Windows PC.  Plus Visual Studio 2015 has a cool feature to easily Toggle Header / Code files for increased productivity.
-<a href="https://2.bp.blogspot.com/-wNE1msIrcfw/XMASINdQWrI/AAAAAAAAFZg/owrbk06aMWc5zBJC104sUpfU_IqlcjGVQCLcBGAs/s1600/VS2015.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-wNE1msIrcfw/XMASINdQWrI/AAAAAAAAFZg/owrbk06aMWc5zBJC104sUpfU_IqlcjGVQCLcBGAs/s640/VS2015.png" width="98%" height="445" data-original-width="1034" data-original-height="719" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAEmCfR2uqbiqO5R0dcedL7lUe5c0iY2KxGYOH_5TH94mqzoRqJ-IN9U823NXEYOK3Zmt4HRDg_pg5QCbrHLHUcrJCWvne5uT6FktZPDmdxCFA0qrpjeKi1IABSykeIp54KZdkEMKEydY/s1600/VS2015.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAEmCfR2uqbiqO5R0dcedL7lUe5c0iY2KxGYOH_5TH94mqzoRqJ-IN9U823NXEYOK3Zmt4HRDg_pg5QCbrHLHUcrJCWvne5uT6FktZPDmdxCFA0qrpjeKi1IABSykeIp54KZdkEMKEydY/s640/VS2015.png" width="98%" height="445" data-original-width="1034" data-original-height="719" /></a>
 Replicate all instructions <a href="http://steveproxna.blogspot.com/2017/09/devkitsms-programming-setup.html">here</a>: Setup External Tools to integrate the build process directly from within Visual Studio and connect "Run Batch File" command to Ctrl+1 hot key and automatically build and execute code! 
 <br /><br />
 <u>Formatting</u>
@@ -61,10 +61,10 @@ Formatting is important because formatted code makes it easier to read, understa
 <table width="100%">
 <tr>
 <td valign="top" width="40%">
-<a href="https://3.bp.blogspot.com/-q42rbyq1Dng/XL6407aStOI/AAAAAAAAFYY/gT-Ij9eWJ1YIOxJFFElU0yFqnzB2k8tHACLcBGAs/s1600/top.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-q42rbyq1Dng/XL6407aStOI/AAAAAAAAFYY/gT-Ij9eWJ1YIOxJFFElU0yFqnzB2k8tHACLcBGAs/s640/top.png" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzGdqjDZUEfl_yme7lAoRTnEuddri8s0jktpJWoMY4scpIjXdZ104a6rjv-Wb6HjyZKUuIp2lG16Qzox0nQo7vkltkHY7VUZyt4zWd9vTm0Zsk_B6TDSpIxPEo94KPhBEBhF7x8w8VrX8/s1600/top.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzGdqjDZUEfl_yme7lAoRTnEuddri8s0jktpJWoMY4scpIjXdZ104a6rjv-Wb6HjyZKUuIp2lG16Qzox0nQo7vkltkHY7VUZyt4zWd9vTm0Zsk_B6TDSpIxPEo94KPhBEBhF7x8w8VrX8/s640/top.png" width="95%" /></a>
 </td>
 <td valign="top" width="40%">
-<a href="https://2.bp.blogspot.com/-76-IsOZd6tw/XL648WdfsCI/AAAAAAAAFYc/2rPrh6d1gc47KaZnhqhQgGMBnO1FwaF9wCLcBGAs/s1600/bot.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-76-IsOZd6tw/XL648WdfsCI/AAAAAAAAFYc/2rPrh6d1gc47KaZnhqhQgGMBnO1FwaF9wCLcBGAs/s640/bot.png" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjN0ZmKEMDgUrlWYA1IHuVA4K53tc7oGEU0vbtKw8VXzCqNNXgds0ooJlQD_B7mZT0Ccu94F4ibXEQDOyyfg6pEmwkKZu66Njx7nzHmw8wZ63w1_JBW12Wvill1-I_TQFcRM36MtlrJXK4/s1600/bot.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjN0ZmKEMDgUrlWYA1IHuVA4K53tc7oGEU0vbtKw8VXzCqNNXgds0ooJlQD_B7mZT0Ccu94F4ibXEQDOyyfg6pEmwkKZu66Njx7nzHmw8wZ63w1_JBW12Wvill1-I_TQFcRM36MtlrJXK4/s640/bot.png" width="95%" /></a>
 </td>
 </tr>
 </table>
@@ -72,7 +72,7 @@ Formatting is important because formatted code makes it easier to read, understa
 <u>Setup</u>
 <br />
 Create folder C:\PlatformExplorerSMS. Create the following sub-folders: asm, crt0, dev, gfx, lib, psg, tmp.  Note: tmp sub-folder contains dummy PSGlib.h and SMSlib.h header files used for debugging - more soon.
-<a href="https://4.bp.blogspot.com/-QmpPb0E7YuI/XMBHf-Zyg0I/AAAAAAAAFZw/DE78cmCYrxY9ly-zI_tHFe1bfrrQCARVwCLcBGAs/s1600/Setup.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-QmpPb0E7YuI/XMBHf-Zyg0I/AAAAAAAAFZw/DE78cmCYrxY9ly-zI_tHFe1bfrrQCARVwCLcBGAs/s640/Setup.png" width="98%" height="513" data-original-width="1031" data-original-height="827" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji2_05edTswGH2Uql-Q8ExP4gA9dnC4a8j3BBsJAT6vrOX5_p4M1csr1_Dg4tqslUlJFkhyphenhyphenR329GC7WsSB9yA2RiFxIpbRrEayLxoY4YcAskU8-cX1GdOhs2cJzQn45ZKCp7YfJF5l_Ig/s1600/Setup.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji2_05edTswGH2Uql-Q8ExP4gA9dnC4a8j3BBsJAT6vrOX5_p4M1csr1_Dg4tqslUlJFkhyphenhyphenR329GC7WsSB9yA2RiFxIpbRrEayLxoY4YcAskU8-cX1GdOhs2cJzQn45ZKCp7YfJF5l_Ig/s640/Setup.png" width="98%" height="513" data-original-width="1031" data-original-height="827" /></a>
 IMPORTANT: more information on which files reside in sub-folders and why can be found at <a href="http://steveproxna.blogspot.com/2017/11/devkitsms-programming-sample.html">here</a> and <a href="http://steveproxna.blogspot.com/2018/03/devkitsms-programming-sample-ii.html">here</a>.
 <br /><br />
 <u>Separation</u>
@@ -342,7 +342,7 @@ In 2018, <a href="http://www.smspower.org/Homebrew/DuckslayerAdventures-SMS">Duc
 </pre>
 </td>
 <td valign="top" width="60%">
-<a href="https://4.bp.blogspot.com/-KR1qFV6kMLs/XL8oMGZ6Y2I/AAAAAAAAFZE/wB00siBfJBkplLILCJnR1Us78Wq8H2I0ACLcBGAs/s1600/Level0101.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-KR1qFV6kMLs/XL8oMGZ6Y2I/AAAAAAAAFZE/wB00siBfJBkplLILCJnR1Us78Wq8H2I0ACLcBGAs/s640/Level0101.png" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSsWXUz0QPOJdOiLVGWsNnIFtuR6dLvnXRc25KJcaqGI65hyHfhLeSajm_r1tCDw8JMCwkvp2KU1_w8LlRnrI7s3gIfwcJJ6_JnUpPv_irGdy42rJ8YfjmEJLctYIFq6pN6HIxdR3Qg0I/s1600/Level0101.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSsWXUz0QPOJdOiLVGWsNnIFtuR6dLvnXRc25KJcaqGI65hyHfhLeSajm_r1tCDw8JMCwkvp2KU1_w8LlRnrI7s3gIfwcJJ6_JnUpPv_irGdy42rJ8YfjmEJLctYIFq6pN6HIxdR3Qg0I/s640/Level0101.png" width="95%" /></a>
 </td>
 </tr>
 </table>

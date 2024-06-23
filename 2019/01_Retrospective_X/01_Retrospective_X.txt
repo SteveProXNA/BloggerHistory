@@ -7,7 +7,7 @@ Last year, I conducted a simple retrospective for 2017. Therefore, here is a ret
 <td valign="top">
 <ul>
 <li>Complete ten year <a href="http://steveproxna.blogspot.com">blog</a> on agile software application to game development</li>
-<li>Streamline Sega Master System retro game development using <a href="http://steveproxna.blogspot.com/2018/03/devkitsms-programming-sample-ii.html">devkitSMS</a></li>
+<li>Streamline Sega Master System retro game development using <a href="http://steveproAxna.blogspot.com/2018/03/devkitsms-programming-sample-ii.html">devkitSMS</a></li>
 <li>Enter <a href="http://www.smspower.org/Homebrew/SimpsonsTrivia-SMS">Simpsons Trivia</a> into Sega Master System annual coding competition</li>
 <li>Port Simpsons Trivia to <a href="http://steveproxna.blogspot.com/2018/07/simpsons-trivia-xna-port.html">XNA</a> then to <a href="http://steveproxna.blogspot.com/2018/08/simpsons-trivia-windows-port.html">PC</a>, <a href="http://steveproxna.blogspot.com/2018/09/simpsons-trivia-android-port.html">Andriod</a> and <a href="http://steveproxna.blogspot.com/2018/11/simpsons-trivia-ios-port.html">iOS</a> using MonoGame</li>
 <li>Experiment additional platforms using MonoGame e.g. Mac, WP8 and UWP</li>

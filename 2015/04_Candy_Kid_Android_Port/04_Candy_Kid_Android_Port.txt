@@ -7,7 +7,7 @@ The game targets <a href="https://en.wikipedia.org/wiki/Windows_Phone_7">WP7</a>
 <table width="97%" border="1"><tr><td valign="top">&nbsp;<b>Machine</b>&nbsp;</td><td valign="top">&nbsp;<b>Platform</b>&nbsp;</td><td valign="top">&nbsp;<b>IDE</b>&nbsp;</td><td valign="top">&nbsp;<b>Framework</b>&nbsp;</td><td valign="top">&nbsp;<b>Language</b>&nbsp;</td></tr><tr><td valign="top">&nbsp;Windows PC</td><td valign="top">&nbsp;WP7</td><td valign="top">&nbsp;Visual Studio 2010</td><td valign="top">&nbsp;XNA 4.0</td><td valign="top">&nbsp;C#/.NET</td></tr><tr><td valign="top">&nbsp;Windows PC</td><td valign="top">&nbsp;Android</td><td valign="top">&nbsp;Visual Studio 2012</td><td valign="top">&nbsp;MonoGame</td><td valign="top">&nbsp;C#/.NET</td></tr><tr><td valign="top">&nbsp;Mac OS/X</td><td valign="top">&nbsp;iOS</td><td valign="top">&nbsp;Xamarin Studio</td><td valign="top">&nbsp;MonoGame</td><td valign="top">&nbsp;C#/.NET</td></tr></table>
 <br />
 This post outlines the main tasks to port Candy Kid to Android platform; the next post will focus on iOS.
-<a href="http://4.bp.blogspot.com/-3di0Oxi9fMY/VcHj28p2JUI/AAAAAAAADkU/5GN8_BoVdxw/s1600/MonoGameLogo.png" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-3di0Oxi9fMY/VcHj28p2JUI/AAAAAAAADkU/5GN8_BoVdxw/s640/MonoGameLogo.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvVufWeSzd1BC2-KSmEf8rO4fUsEsHpSpIs-nU-I5VsH2vU6g-d-NEtdnKoHz-BshFnLZYaRltBDHmyefKS7L8d2tSU5uOtt3rDTJ1XlTtq5nYGU11tF7R2wpuLVuOQ6dEQycSZ2i8_Qg/s1600/MonoGameLogo.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvVufWeSzd1BC2-KSmEf8rO4fUsEsHpSpIs-nU-I5VsH2vU6g-d-NEtdnKoHz-BshFnLZYaRltBDHmyefKS7L8d2tSU5uOtt3rDTJ1XlTtq5nYGU11tF7R2wpuLVuOQ6dEQycSZ2i8_Qg/s640/MonoGameLogo.png" width="98%" /></a>
 <br /><br />
 Let's check it out! 
 <br /><br />
@@ -28,7 +28,7 @@ From here you will be prompted to create a Xamarin account: enter name, email ad
 Launch Visual Studio 2012.  File | New | Project.  Expand Templates | Visual C# | MonoGame.
 <br />
 Choose MonoGame Android Project.  Name: CandyKid.Android.  Choose project Location.  OK.
-<a href="http://2.bp.blogspot.com/-N117WzBHtrg/VcHhc9QMg_I/AAAAAAAADjk/ydji_bTObNc/s1600/01-MonoGameProject.png" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-N117WzBHtrg/VcHhc9QMg_I/AAAAAAAADjk/ydji_bTObNc/s640/01-MonoGameProject.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1go9nD0Igjm2ArrwE9nO7etEMxNXMEModhCSbcZq1kPEyf1NI_UQXjHZE5_Tzwx55iOqxjVKRMgSdCQwA7g3jhjTnmOs_cdPDNEw_0zBzReGNAJaoHH9pKSUf4_1LEzUrgdR659aABJg/s1600/01-MonoGameProject.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1go9nD0Igjm2ArrwE9nO7etEMxNXMEModhCSbcZq1kPEyf1NI_UQXjHZE5_Tzwx55iOqxjVKRMgSdCQwA7g3jhjTnmOs_cdPDNEw_0zBzReGNAJaoHH9pKSUf4_1LEzUrgdR659aABJg/s640/01-MonoGameProject.png" width="98%" /></a>
 <br />
 Build solution.  Error: <i>Your app is too large to be developed with Xamarin Android Starter edition.</i>
 <br />
@@ -50,7 +50,7 @@ Note: MonoGame Android Project should automatically add reference to System.Xml.
 In Visual Studio 2012, right click CandyKid.Android project References | Manage NuGet Packages
 <br />
 Enter "Portable Ninject" into Search bar top right | Select "Ninject for Portable Class Libraries"
-<a href="http://4.bp.blogspot.com/-pBaUy5--mfE/VcHiDWotePI/AAAAAAAADj0/2wAQYIGK-EU/s1600/02-PortableNinject.png" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-pBaUy5--mfE/VcHiDWotePI/AAAAAAAADj0/2wAQYIGK-EU/s640/02-PortableNinject.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFP8r7-cn9EKDwLjeDG63OykGYN5ujgcH9JUvw6ktwE7Y4VQhhCHZQ2p58mO0GlTusoYJg2Togtnzrx2mqO7zzZcbsi4F9XjVzXZv7L8tnH799f8lRWqp1sKemZ5P4c1H1CHpHP9R87_I/s1600/02-PortableNinject.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFP8r7-cn9EKDwLjeDG63OykGYN5ujgcH9JUvw6ktwE7Y4VQhhCHZQ2p58mO0GlTusoYJg2Togtnzrx2mqO7zzZcbsi4F9XjVzXZv7L8tnH799f8lRWqp1sKemZ5P4c1H1CHpHP9R87_I/s640/02-PortableNinject.png" width="98%" /></a>
 <br />
 Click Install button
 <br /><br />
@@ -58,7 +58,7 @@ Click Install button
 Right click CandyKid.Android project.  Choose Properties.  Ensure the following options are set on tabs:
 <br /><br />
 <i>Application</i>
-<a href="http://2.bp.blogspot.com/-Q2JBZmrNaA0/VcHiVqJpLAI/AAAAAAAADj8/o3EtT_1KrRo/s1600/03-ApplicationTab.png" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-Q2JBZmrNaA0/VcHiVqJpLAI/AAAAAAAADj8/o3EtT_1KrRo/s640/03-ApplicationTab.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghBPsDC6QodcJSboJo6FkNdzQFYBG7ZMS9_M6q7h1RifSYUuqT2CnafnuF9POJgt4vIVze3RE8pU_5QBTvs7sKZXUJMUYgF2WmrjwcChaWehnlS8v3aSVrGfLULJKukewQEbpW8aFtod4/s1600/03-ApplicationTab.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghBPsDC6QodcJSboJo6FkNdzQFYBG7ZMS9_M6q7h1RifSYUuqT2CnafnuF9POJgt4vIVze3RE8pU_5QBTvs7sKZXUJMUYgF2WmrjwcChaWehnlS8v3aSVrGfLULJKukewQEbpW8aFtod4/s640/03-ApplicationTab.png" width="98%" /></a>
 <table width="97%" border="1">
 <tr><td valign="top">&nbsp;Assembly Name</td><td valign="top">&nbsp;WindowsGame</td></tr>
 <tr><td valign="top">&nbsp;Default namespace</td><td valign="top">&nbsp;WindowsGame</td></tr>
@@ -68,7 +68,7 @@ Right click CandyKid.Android project.  Choose Properties.  Ensure the following 
 </table>
 <br />
 <i>Android Manifest</i>
-<a href="http://1.bp.blogspot.com/-MOOf5zEQpoA/VcHjEy4xJVI/AAAAAAAADkM/k9gMZI0LGHw/s1600/04-AndroidManifest.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-MOOf5zEQpoA/VcHjEy4xJVI/AAAAAAAADkM/k9gMZI0LGHw/s640/04-AndroidManifest.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEm1GringuI4-Z9N-vmMBCqI5L_pUz3eZ869u9SrezkfBZ9eWhnTVoPipZchVHLp89tFErnH-Dqlhteqx9JqMFqZdZOiQX98kA7yJYbhCWUczI_sSdEhjAf-U9shMKDlKRf3FG-geKUHo/s1600/04-AndroidManifest.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEm1GringuI4-Z9N-vmMBCqI5L_pUz3eZ869u9SrezkfBZ9eWhnTVoPipZchVHLp89tFErnH-Dqlhteqx9JqMFqZdZOiQX98kA7yJYbhCWUczI_sSdEhjAf-U9shMKDlKRf3FG-geKUHo/s640/04-AndroidManifest.png" width="98%" /></a>
 <table width="97%" border="1">
 <tr><td valign="top">&nbsp;Application name</td><td valign="top">&nbsp;Candy Kid</td></tr>
 <tr><td valign="top">&nbsp;Package name</td><td valign="top">&nbsp;<i>Enter bundle identifier</i></td></tr>
@@ -97,12 +97,12 @@ Note: if you are using Xamarin Studio to build and deploy then make subtle Proje
 Right click Project | Options | Build section | General | Set Target framework: Android 4.2 (Jelly Bean).
 <br />
 At the time of this writing, Android 4.2 (Jelly Bean) is the lowest API version that will build and deploy.
-<a href="http://4.bp.blogspot.com/-VNRa9YaDolM/VjuRQqY_IYI/AAAAAAAADoU/jvyi8yCtHDE/s1600/BuildGeneral.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-VNRa9YaDolM/VjuRQqY_IYI/AAAAAAAADoU/jvyi8yCtHDE/s640/BuildGeneral.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgduVfQlcQjs-Liweo70jQyEyxQF4USlWAlfu5SlrTN2PWPPHyioanH05o-XH2TU97vzN1lDbvbysq3F70nGsDC0OnvVJ1w9AIOxz6FjE_ZaDfKw-aCZmiy2u4YctJezrwu2pHqpM4ajzQ/s1600/BuildGeneral.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgduVfQlcQjs-Liweo70jQyEyxQF4USlWAlfu5SlrTN2PWPPHyioanH05o-XH2TU97vzN1lDbvbysq3F70nGsDC0OnvVJ1w9AIOxz6FjE_ZaDfKw-aCZmiy2u4YctJezrwu2pHqpM4ajzQ/s640/BuildGeneral.jpg" width="98%" /></a>
 <br />
 Also, right click Project | Options | Build section | Android Application.  Set the following Android versions:
 <br />
 Minimum: Android 2.3 (API level 10) and also Target: Automatic - use target framework version (API 17)
-<a href="http://2.bp.blogspot.com/-ZG3DNqjOeYE/VjuRy8g9DZI/AAAAAAAADoc/Dj1W2-7H9ns/s1600/AndroidApplication.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-ZG3DNqjOeYE/VjuRy8g9DZI/AAAAAAAADoc/Dj1W2-7H9ns/s640/AndroidApplication.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYCLZpDKyPtoeyd-PhkC89kwCKvG6mQDnbVSUJnGB_a7DDMgX2wFQVFxpFIAlonn6MrJ3ypAb8kuFoOS1feRfLw9E-O6-ozrmHat6jKVHz8N87eUwaPwF9KSwwu5bbYw_9KK-f-HMkC6Y/s1600/AndroidApplication.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYCLZpDKyPtoeyd-PhkC89kwCKvG6mQDnbVSUJnGB_a7DDMgX2wFQVFxpFIAlonn6MrJ3ypAb8kuFoOS1feRfLw9E-O6-ozrmHat6jKVHz8N87eUwaPwF9KSwwu5bbYw_9KK-f-HMkC6Y/s640/AndroidApplication.jpg" width="98%" /></a>
 <br /><br />
 <b>Code</b><br />
 Import all C#/.NET code from original XNA 4.0 project.  When game exits, ensure this code is added:
@@ -181,7 +181,7 @@ Right click "Assets" folder | Add New Folder | "Content".  Candy Kid uses the 4x
 Contains flat TXT + XML data files to be consumed by the game.  Do not need to be built as XNB files!
 <br />
 Right click data file | Properties | Build Action: AndroidAsset | Copy to Output Directory: Do not copy
-<a href="http://3.bp.blogspot.com/-YEFXyICP5RI/VcHhjyQtu3I/AAAAAAAADjs/JUGcKZX1-RA/s1600/07-BuildProperties.png" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-YEFXyICP5RI/VcHhjyQtu3I/AAAAAAAADjs/JUGcKZX1-RA/s640/07-BuildProperties.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRoEyS2i00L9e99AyqArIoL_4kBLLDGLwOVB-9oWDx4po0rE1N_rN9wVdTA-wk077kEGNKZ4kGgFDD6n_ppmGDTJrPIVBhc4a9XTAyYvmNVJlI9Y64uoMDPTl8efG2FwM1rnCDMgzUkuI/s1600/07-BuildProperties.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRoEyS2i00L9e99AyqArIoL_4kBLLDGLwOVB-9oWDx4po0rE1N_rN9wVdTA-wk077kEGNKZ4kGgFDD6n_ppmGDTJrPIVBhc4a9XTAyYvmNVJlI9Y64uoMDPTl8efG2FwM1rnCDMgzUkuI/s640/07-BuildProperties.png" width="98%" /></a>
 <br />
 <i>Fonts</i><br />
 Copy output from content pipeline XNB file built from spritefont file in the original XNA game project.
@@ -235,12 +235,12 @@ Click Play button.  Android device launches game as "Evaluation Software".  Buil
 Alternative: right click CandyKid.Android project | Archive for Publishing.  Click Sign + Distribute button.
 <br />
 Select Android Distribution Channel as "AdHoc" | Next.  Create a New Key or Import an Existing Key.
-<a href="http://2.bp.blogspot.com/-N6cRz8KeONI/VnhT-TA2n-I/AAAAAAAADq4/bQXfM3iKgZA/s1600/Publish01.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-N6cRz8KeONI/VnhT-TA2n-I/AAAAAAAADq4/bQXfM3iKgZA/s640/Publish01.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt4DuyQ_iNAi3zDptS-OqEcAEW5puOlVPADCf23YZpXMNfoL4PKbdsai1l85ZJ2CTqdrPVEesDDJ93iFMlRgqBbh3Mp5Hl4EgEzP4TXd3Ec_CCqJy-w84ZpJmotV1yq3RaxZttUGBya8E/s1600/Publish01.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt4DuyQ_iNAi3zDptS-OqEcAEW5puOlVPADCf23YZpXMNfoL4PKbdsai1l85ZJ2CTqdrPVEesDDJ93iFMlRgqBbh3Mp5Hl4EgEzP4TXd3Ec_CCqJy-w84ZpJmotV1yq3RaxZttUGBya8E/s640/Publish01.jpg" width="98%" /></a>
 <br />
 Choose Next to Publish as Ad Hoc.  Click Publish button.  Choose Location | Save.  Enter the key password.
 <br />
 Launch terminal window.  Navigate to the saved folder. Type "adb install Package-Signed.apk" to install.
-<a href="http://1.bp.blogspot.com/-vlwzeFPBkMY/VofiZUbSW4I/AAAAAAAADr4/njikE3gTBC0/s1600/Publish02.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-vlwzeFPBkMY/VofiZUbSW4I/AAAAAAAADr4/njikE3gTBC0/s640/Publish02.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlJkIaf5IZGooKLaSHEkp9aSH7wSkNA60FGB_5ymXBsFpd4MOmCamkQGPbT9_ZYVS9I9nAYt1oRRCYnMWe2fxFAyCZPqpdtmK1O5AKfxCK7amvLilKWK-Ig48e0_5eJgTq_oZZziTvIg0/s1600/Publish02.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlJkIaf5IZGooKLaSHEkp9aSH7wSkNA60FGB_5ymXBsFpd4MOmCamkQGPbT9_ZYVS9I9nAYt1oRRCYnMWe2fxFAyCZPqpdtmK1O5AKfxCK7amvLilKWK-Ig48e0_5eJgTq_oZZziTvIg0/s640/Publish02.png" width="98%" /></a>
 <br /><br />
 <u>Summary</u><br />
 That concludes the Candy Kid port to <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a> platform.  The next <a href="http://steveproxna.blogspot.co.uk/2015/09/candy-kid-ios-port.html">post</a> will focus on Candy Kid port to <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a>.

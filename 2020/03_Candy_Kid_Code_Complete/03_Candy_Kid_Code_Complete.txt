@@ -5,7 +5,7 @@ In 2015, <a href="http://steveproxna.blogspot.com/2015/05/candy-kid-video-game.h
 <br /><br />
 Inspired from previous posts on <a href="http://steveproxna.blogspot.com/2013/09/sega-console-programming.html">Sega Console</a> Programming and devkitSMS Programming <a href="http://steveproxna.blogspot.com/2017/09/devkitsms-programming-setup.html">Setup</a> + <a href="http://steveproxna.blogspot.com/2017/11/devkitsms-programming-sample.html">Sample</a>, <b><a href="https://www.smspower.org/Homebrew/CandyKid-SMS">Candy Kid</a></b> is my fifth 8-bit video game written in <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C</a> / <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> assembler to target Sega Master System (SMS).
 <br />
-<a href="https://3.bp.blogspot.com/-zT9aLBPp0Wk/Xpi6uVGyT1I/AAAAAAAAGH8/9LcVK5jl8aY-ltvqiMaA5n3jI9VZA6vYgCLcBGAsYHQ/s1600/01.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-zT9aLBPp0Wk/Xpi6uVGyT1I/AAAAAAAAGH8/9LcVK5jl8aY-ltvqiMaA5n3jI9VZA6vYgCLcBGAsYHQ/s640/01.png" width="98%" height="526" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNs-2WOI3Y5g4uH_ZYDKWKwE74cxrD2GxSOBm_t4mSF6Y43CQXlgj61SX7KLtBk3u5xxDAuzDMcnRHhqTe8FGZNoIY0B-yZe7xBFdsuVHpHYFi2M5JMidGhA4Xzhevs_65G-VoyMC3CWg/s1600/01.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNs-2WOI3Y5g4uH_ZYDKWKwE74cxrD2GxSOBm_t4mSF6Y43CQXlgj61SX7KLtBk3u5xxDAuzDMcnRHhqTe8FGZNoIY0B-yZe7xBFdsuVHpHYFi2M5JMidGhA4Xzhevs_65G-VoyMC3CWg/s640/01.png" width="98%" height="526" /></a>
 <br />
 Let's check it out!
 <br /><br />
@@ -19,34 +19,34 @@ devkitSMS Programming Setup <a href="http://steveproxna.blogspot.com/2017/09/dev
 <table width="100%">
 <tr>
 <td valign="top" width="40%">
-<a href="https://4.bp.blogspot.com/-IbDyu9oXk4Y/Xpi9uckwXcI/AAAAAAAAGII/LVp-fW5YdWMuyJGLmYUBQpFr_YlEBozsQCLcBGAsYHQ/s1600/05.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-IbDyu9oXk4Y/Xpi9uckwXcI/AAAAAAAAGII/LVp-fW5YdWMuyJGLmYUBQpFr_YlEBozsQCLcBGAsYHQ/s640/05.png" width="95%"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgm6joWzGgwvKbDkeJzEOrMMA4Jv8aVhyphenhyphen_RXc91D9rjNxX7QiE2Ed7xCIgkYFxPKvvs7zbGfXLwLS927tqdDuvyxfPGR5LWL70klxLVnxf-_lhpglYkkihlNkzvHgGVFupzDc_4mTVpoO4/s1600/05.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgm6joWzGgwvKbDkeJzEOrMMA4Jv8aVhyphenhyphen_RXc91D9rjNxX7QiE2Ed7xCIgkYFxPKvvs7zbGfXLwLS927tqdDuvyxfPGR5LWL70klxLVnxf-_lhpglYkkihlNkzvHgGVFupzDc_4mTVpoO4/s640/05.png" width="95%"/></a>
 </td>
 <td valign="top" width="40%">
-<a href="https://1.bp.blogspot.com/-9-BnNusAyWE/Xpi-UOimdbI/AAAAAAAAGIQ/IEbp6XEDtz0LQKVlxpgAObDk6YqCQsdpACLcBGAsYHQ/s1600/06.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-9-BnNusAyWE/Xpi-UOimdbI/AAAAAAAAGIQ/IEbp6XEDtz0LQKVlxpgAObDk6YqCQsdpACLcBGAsYHQ/s640/06.png" width="95%"/></a>
-</td>
-</tr>
-<tr>
-<td valign="top" width="40%">
-<a href="https://2.bp.blogspot.com/-lh-Dbw8UPyI/Xpi_JIBXj_I/AAAAAAAAGI0/H2X-GNWCr2gBrX57DHaQTaDejrzhbXQzACLcBGAsYHQ/s1600/07.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-lh-Dbw8UPyI/Xpi_JIBXj_I/AAAAAAAAGI0/H2X-GNWCr2gBrX57DHaQTaDejrzhbXQzACLcBGAsYHQ/s640/07.png" width="95%"/></a>
-</td>
-<td valign="top" width="40%">
-<a href="https://2.bp.blogspot.com/-2yftrdVuQn4/Xpi---tUjeI/AAAAAAAAGIs/YMA7SRQaQeQoauAy13U8eHM_Uzp87dVwQCLcBGAsYHQ/s1600/08.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-2yftrdVuQn4/Xpi---tUjeI/AAAAAAAAGIs/YMA7SRQaQeQoauAy13U8eHM_Uzp87dVwQCLcBGAsYHQ/s640/08.png" width="95%"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBA5D2Ph-62sogESc4gERppuE4KK81r1uCoM6J8tF4-SGjYca10QrryhAJlaYME6Jsdw8IBC3NdoySX1osWamXSJy1NQNekKjx94EiyPyVDYg80eHSt8hxDdz6lcAQ0u3roej1qpZ6z0o/s1600/06.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBA5D2Ph-62sogESc4gERppuE4KK81r1uCoM6J8tF4-SGjYca10QrryhAJlaYME6Jsdw8IBC3NdoySX1osWamXSJy1NQNekKjx94EiyPyVDYg80eHSt8hxDdz6lcAQ0u3roej1qpZ6z0o/s640/06.png" width="95%"/></a>
 </td>
 </tr>
 <tr>
 <td valign="top" width="40%">
-<a href="https://4.bp.blogspot.com/-_6VJZNOEjFk/Xpi-2lMrBGI/AAAAAAAAGIk/DZ0ioTMha0kmkNzGL_qkaqqYkXd03SmdgCLcBGAsYHQ/s1600/15.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-_6VJZNOEjFk/Xpi-2lMrBGI/AAAAAAAAGIk/DZ0ioTMha0kmkNzGL_qkaqqYkXd03SmdgCLcBGAsYHQ/s640/15.png" width="95%"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQskKO_6SPF_LMHYH34NgDS-wvM9RD8b3QvzeaT86oAa8m2vPEGPICXevfdydafojhj51iWFGFctHGvxTm3ytzEXTIlo4_uAEzdKFewToyAb6BSpYeZthL_Ts-ysoSlU8BF2SwQZj8l3A/s1600/07.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQskKO_6SPF_LMHYH34NgDS-wvM9RD8b3QvzeaT86oAa8m2vPEGPICXevfdydafojhj51iWFGFctHGvxTm3ytzEXTIlo4_uAEzdKFewToyAb6BSpYeZthL_Ts-ysoSlU8BF2SwQZj8l3A/s640/07.png" width="95%"/></a>
 </td>
 <td valign="top" width="40%">
-<a href="https://4.bp.blogspot.com/-puylOcDq6E4/Xpi-uu-DhEI/AAAAAAAAGIg/6h80DKt-KYoFfpOfm-wqGpfP0BwoCXuxwCLcBGAsYHQ/s1600/11.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-puylOcDq6E4/Xpi-uu-DhEI/AAAAAAAAGIg/6h80DKt-KYoFfpOfm-wqGpfP0BwoCXuxwCLcBGAsYHQ/s640/11.png" width="95%"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr6ubA6twTdKuFw-xrC4meycgcborxysHAYi9ZiFDGtdFYwDwCSVqnvhCpjXjnopK_N3LUYd_s3kChX_TFA8f5P_ICw20NNlUq6Nf5F587zcZRfjO_5Qr3OJmTJpD74MhpprnVWtzRJ9E/s1600/08.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr6ubA6twTdKuFw-xrC4meycgcborxysHAYi9ZiFDGtdFYwDwCSVqnvhCpjXjnopK_N3LUYd_s3kChX_TFA8f5P_ICw20NNlUq6Nf5F587zcZRfjO_5Qr3OJmTJpD74MhpprnVWtzRJ9E/s640/08.png" width="95%"/></a>
 </td>
 </tr>
 <tr>
 <td valign="top" width="40%">
-<a href="https://1.bp.blogspot.com/-cgGYSMz7Fk4/Xpi-maX_w2I/AAAAAAAAGIY/yG6OkoAlnOQLvJJhqkTENonih0CEa6mHwCLcBGAsYHQ/s1600/12.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-cgGYSMz7Fk4/Xpi-maX_w2I/AAAAAAAAGIY/yG6OkoAlnOQLvJJhqkTENonih0CEa6mHwCLcBGAsYHQ/s640/12.png" width="95%"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh55_FS5J7MUjv-H33EvOL2SKVUBkJdb9E-LUedlP7EO5j5Qr6-kc_Bn9fdV7B4zX38ecHiwg7v5DvZw-cf87hu0zzROuyGqopt55NyYmAjLJIt5LD_auHzkqLVcg1CA-Z5TWbmM-6Kuyo/s1600/15.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh55_FS5J7MUjv-H33EvOL2SKVUBkJdb9E-LUedlP7EO5j5Qr6-kc_Bn9fdV7B4zX38ecHiwg7v5DvZw-cf87hu0zzROuyGqopt55NyYmAjLJIt5LD_auHzkqLVcg1CA-Z5TWbmM-6Kuyo/s640/15.png" width="95%"/></a>
 </td>
 <td valign="top" width="40%">
-<a href="https://2.bp.blogspot.com/-rU0yvWhQjlI/Xpi-dUS9lcI/AAAAAAAAGIU/G-lVSKSji44vxWuIJQ6pKcas4MY45VfiACLcBGAsYHQ/s1600/13.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-rU0yvWhQjlI/Xpi-dUS9lcI/AAAAAAAAGIU/G-lVSKSji44vxWuIJQ6pKcas4MY45VfiACLcBGAsYHQ/s640/13.png" width="95%"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDBthLm-JrWn-Y77kG6UfPtnzVlMYlkVjD7W5TAi9_vwo6HlZk6Io4o_5Mym2BxpLyCDO6s4vWMAWXJNqb-cb_hIcIyiHV34qNES-BEbbEaeuuDwa9hhAuT3W9bDlDtSwXl1WdQoNllRI/s1600/11.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDBthLm-JrWn-Y77kG6UfPtnzVlMYlkVjD7W5TAi9_vwo6HlZk6Io4o_5Mym2BxpLyCDO6s4vWMAWXJNqb-cb_hIcIyiHV34qNES-BEbbEaeuuDwa9hhAuT3W9bDlDtSwXl1WdQoNllRI/s640/11.png" width="95%"/></a>
+</td>
+</tr>
+<tr>
+<td valign="top" width="40%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7X_MmypQvVhh8Kuru8ZnNwpq4fCsEI4B-tKDzmqg2TZWWWk20ND3xPH1fKT86aRDCwyeyzDG5f0l-Bm8Tt7uXmDWYZTGAk8di6Nw85lOyQKsZNGMnF3p0SfAJBruTuNFHyU6z0_g8HoE/s1600/12.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7X_MmypQvVhh8Kuru8ZnNwpq4fCsEI4B-tKDzmqg2TZWWWk20ND3xPH1fKT86aRDCwyeyzDG5f0l-Bm8Tt7uXmDWYZTGAk8di6Nw85lOyQKsZNGMnF3p0SfAJBruTuNFHyU6z0_g8HoE/s640/12.png" width="95%"/></a>
+</td>
+<td valign="top" width="40%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmMaqlLyUqCkagj2C1JSZTr6eWK_gELenIGc6Ykz4TydRVGOcBOeEeAIKqcosZcgRBFwF4RcfkqS3fYvMUU67d_MKFJL-s9pbFXM53tFQehi3LCs_zDgCbmCAqwuLg8k3VzF7ewy6wgZQ/s1600/13.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmMaqlLyUqCkagj2C1JSZTr6eWK_gELenIGc6Ykz4TydRVGOcBOeEeAIKqcosZcgRBFwF4RcfkqS3fYvMUU67d_MKFJL-s9pbFXM53tFQehi3LCs_zDgCbmCAqwuLg8k3VzF7ewy6wgZQ/s640/13.png" width="95%"/></a>
 </td>
 </tr>
 </table>

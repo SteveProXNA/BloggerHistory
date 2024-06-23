@@ -4,7 +4,7 @@ In the previous <a href="https://steveproxna.blogspot.co.uk/2016/06/svn-external
 As an example, the <a href="https://steveproxna.blogspot.co.uk/2012/08/xna-and-system-testing.html">XNA and System Testing</a> snake simulation was scaled to demonstrate <a href="https://svnexternalsapp.codeplex.com">SVN Externals</a>.
 <br />
 However, all code here is in <i>trunk</i>; larger scale development requires release <i>tags</i> and feature <i>branches</i>.
-<a href="https://3.bp.blogspot.com/-IK3ggxiOZPc/V1CPKOyAWsI/AAAAAAAADyU/bZnNkb-crQ0t-ZkaGkGQzxMNDlQoMbuPACLcB/s1600/WP7.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-IK3ggxiOZPc/V1CPKOyAWsI/AAAAAAAADyU/bZnNkb-crQ0t-ZkaGkGQzxMNDlQoMbuPACLcB/s640/WP7.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XSnR5tFkVHKJck_AqFd8TEGgbRe4MNmEqbZQtkOZCShOERFWt8_HxUi1nkI2vs0pGETX_b28rHLY1NDVh6ZZQ8q1O0NkOwhv-10C2y-K5K3TraLUKVTVCNlnv95RhOHQyU9ozktvOBk/s1600/WP7.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XSnR5tFkVHKJck_AqFd8TEGgbRe4MNmEqbZQtkOZCShOERFWt8_HxUi1nkI2vs0pGETX_b28rHLY1NDVh6ZZQ8q1O0NkOwhv-10C2y-K5K3TraLUKVTVCNlnv95RhOHQyU9ozktvOBk/s640/WP7.jpg" width="98%" /></a>
 Let's check it out!
 <br /><br />
 <u>Pre Requisites</u><br />
@@ -85,7 +85,7 @@ Therefore, you should always explicitly <a href="http://thinkinging.com/2008/10/
 <pre class="csharp" name="code">
 svn propset svn:externals 'Common -r2276 $DEMO/XNA/trunk/XNA.Common' .
 </pre>
-<a href="https://4.bp.blogspot.com/-RpNbkDP1-Is/V3VxFDG2ENI/AAAAAAAADy4/p6dMVxfqYRYYlkY7JENgbMJzeKYXu5ObwCLcB/s1600/SVNex01.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-RpNbkDP1-Is/V3VxFDG2ENI/AAAAAAAADy4/p6dMVxfqYRYYlkY7JENgbMJzeKYXu5ObwCLcB/s640/SVNex01.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYYsalLPt2WmjCIKdmwJyrXaOV0pLpXq6Tl4BtDBarjlymT8gK3D12GTJ9mqP25xvnyDiGIjHMDsCtbKEdf0NJ33UxZulvsFTuGGSt62EjUoR5_lgDeDGAbyQmRDZ-pUvO7qbAyZSU27g/s1600/SVNex01.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYYsalLPt2WmjCIKdmwJyrXaOV0pLpXq6Tl4BtDBarjlymT8gK3D12GTJ9mqP25xvnyDiGIjHMDsCtbKEdf0NJ33UxZulvsFTuGGSt62EjUoR5_lgDeDGAbyQmRDZ-pUvO7qbAyZSU27g/s640/SVNex01.jpg" width="98%" /></a>
 <br />
 If you have Tortoise SVN 1.9.4 installed then you can use the new <a href="https://subversion.apache.org/docs/release-notes/1.9.html#svn-copy-pin-externals">--pin-externals</a> option for svn copy.  This will automatically set the SVN revision in the tag for you without manual lookup in the SVN logs.
 <pre class="csharp" name="code">

@@ -2,7 +2,7 @@
 In 2015, <a href="http://steveproxna.blogspot.com/2015/05/candy-kid-video-game.html">Candy Kid</a> was written in <a href="https://en.wikipedia.org/wiki/Microsoft_XNA">XNA</a> as a simple maze chase video game and ported to <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a> and <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a> mobile platforms using <a href="http://www.monogame.net/">MonoGame</a>.  The game code was written in an external library and scaled out using <a href="http://steveproxna.blogspot.com/2016/06/svn-externals-application.html">SVN Externals</a>. 
 <br /><br />
 Earlier in 2018, <a href="http://steveproxna.blogspot.com/2018/05/simpsons-trivia-code-complete.html">Simpsons Trivia</a> was built for the <a href="https://en.wikipedia.org/wiki/Master_System">Sega Master System</a>.  Now, we would like to employ similar techniques to re-write the game in XNA / MonoGame and scale out across multiple game clients accordingly.
-<a href="https://2.bp.blogspot.com/-Tj8LlOE6Aqo/W3puqQZTIHI/AAAAAAAAE1E/7uXetGMo7VskEm3JpPkSzYrkoeUQzJXDQCLcBGAs/s1600/00_SimpsonsTrivia.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-Tj8LlOE6Aqo/W3puqQZTIHI/AAAAAAAAE1E/7uXetGMo7VskEm3JpPkSzYrkoeUQzJXDQCLcBGAs/s640/00_SimpsonsTrivia.png" width="98%" height="505" data-original-width="642" data-original-height="507" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0zdNinUybcvya5tzbrw3_JDfL9thICg1MB_lCCXfD4i7uVuiM58hvIHrohO9dTGxOWPBA_VE4KASlMJvQ3ZuGLRONceQEN0dIPCGhtYeV00aFxdwX8uM7Nmu2is_ImyKo-ftclgaa1mw/s1600/00_SimpsonsTrivia.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0zdNinUybcvya5tzbrw3_JDfL9thICg1MB_lCCXfD4i7uVuiM58hvIHrohO9dTGxOWPBA_VE4KASlMJvQ3ZuGLRONceQEN0dIPCGhtYeV00aFxdwX8uM7Nmu2is_ImyKo-ftclgaa1mw/s640/00_SimpsonsTrivia.png" width="98%" height="505" data-original-width="642" data-original-height="507" /></a>
 Let's check it out!
 <br /><br />
 <u>Outline</u><br />
@@ -124,7 +124,7 @@ As Simpsons Trivia is small stand-alone game there will not be standard SVN bran
 <br /><br />
 <i>XNA Game Server</i><br />
 Launch Visual Studio 2010.  Create blank solution.  Add the following 4x new C#/.NET projects to solution:
-<a href="https://2.bp.blogspot.com/-fAs6PFyGnGc/W3pu8lh_V1I/AAAAAAAAE1M/nFpYEWzRMjw7jtzEcYFHLbGVSKh_MznswCLcBGAs/s1600/01_BlankSolution.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-fAs6PFyGnGc/W3pu8lh_V1I/AAAAAAAAE1M/nFpYEWzRMjw7jtzEcYFHLbGVSKh_MznswCLcBGAs/s640/01_BlankSolution.png" width="98%" height="395" data-original-width="786" data-original-height="485" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnYMZFDalfWoOagvfBVACKjxJfi-udFUbEfgdgxvq-O7S94HdEKuEBu0qWF4mTL6D0mXWwIk6USb6TIUh2sZUiYNPKI_oGuN7f7qDYd6Bcvxva7pdg_HY3Wtli5WMMkL0jG0HSnxPuLgA/s1600/01_BlankSolution.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnYMZFDalfWoOagvfBVACKjxJfi-udFUbEfgdgxvq-O7S94HdEKuEBu0qWF4mTL6D0mXWwIk6USb6TIUh2sZUiYNPKI_oGuN7f7qDYd6Bcvxva7pdg_HY3Wtli5WMMkL0jG0HSnxPuLgA/s640/01_BlankSolution.png" width="98%" height="395" data-original-width="786" data-original-height="485" /></a>
 <table width="100%" border="1">
 <tr>
 <td valign="top">&nbsp;<b>Project</b></td>
@@ -343,7 +343,7 @@ In popup window click New button:
 <td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA/SimpsonsTrivia.XNAContent/Data</td>
 </tr>
 </table>
-<a href="https://4.bp.blogspot.com/-tIP0N9xCYEI/W3pvKPFC0oI/AAAAAAAAE1Q/3eqbqvD6jvMLttld6CZAPvfFWuEh2RiywCLcBGAs/s1600/02_SVNExternalsData.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-tIP0N9xCYEI/W3pvKPFC0oI/AAAAAAAAE1Q/3eqbqvD6jvMLttld6CZAPvfFWuEh2RiywCLcBGAs/s640/02_SVNExternalsData.png" width="98%" height="225" data-original-width="729" data-original-height="256" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUw7bBMD4KRLgaqdETtTzSWh3uqfC8FJhL_63EaQjyJyHihCcPNtNDEa4SJ93D1LWvGWVVKpVA2LNscydeahrtiV677qyvYe3quh3I26BtZgS6SLtyAO8WVYCHPUyJAhL1pfLM-E5pQOU/s1600/02_SVNExternalsData.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUw7bBMD4KRLgaqdETtTzSWh3uqfC8FJhL_63EaQjyJyHihCcPNtNDEa4SJ93D1LWvGWVVKpVA2LNscydeahrtiV677qyvYe3quh3I26BtZgS6SLtyAO8WVYCHPUyJAhL1pfLM-E5pQOU/s640/02_SVNExternalsData.png" width="98%" height="225" data-original-width="729" data-original-height="256" /></a>
 OK | OK | OK
 <br /><br />
 Start | run | cmd.  Type <i>svn propget -R svn:externals</i>
@@ -419,7 +419,7 @@ In popup window click New button:
 <td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Common</td>
 </tr>
 </table>
-<a href="https://3.bp.blogspot.com/-xhYhCljuLkQ/W3pvTmddc7I/AAAAAAAAE1U/dpIXVh7tWvcu8nyEnwyX_ETCoX0BId_cgCLcBGAs/s1600/03_SVNExternalsCommon.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-xhYhCljuLkQ/W3pvTmddc7I/AAAAAAAAE1U/dpIXVh7tWvcu8nyEnwyX_ETCoX0BId_cgCLcBGAs/s640/03_SVNExternalsCommon.png" width="98%" height="253" data-original-width="648" data-original-height="256" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlh77aJT8wLexqiYxUXalfSZ2IKyfwIrczofAsZdnorLrFpi4r7eIUCkb1KTgS65zKy08pGQdHqYF9MW55codqMC4tAm2YGNGy8jOqyLQKTn__aswflY3pEakCOYUFzzQ1K6vx18yYIYo/s1600/03_SVNExternalsCommon.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlh77aJT8wLexqiYxUXalfSZ2IKyfwIrczofAsZdnorLrFpi4r7eIUCkb1KTgS65zKy08pGQdHqYF9MW55codqMC4tAm2YGNGy8jOqyLQKTn__aswflY3pEakCOYUFzzQ1K6vx18yYIYo/s640/03_SVNExternalsCommon.png" width="98%" height="253" data-original-width="648" data-original-height="256" /></a>
 OK | OK | OK
 <br /><br />
 Start | run | cmd.  Type <i>svn propget -R svn:externals</i>
@@ -492,7 +492,7 @@ In popup window click New button:
 <td valign="top">&nbsp;http://build/svn/SimpsonsTrivia/SimpsonsTrivia.XNA/SimpsonsTrivia.XNA.Library/Master</td>
 </tr>
 </table>
-<a href="https://1.bp.blogspot.com/-fqJm3SImsKs/W3pvdUCg3rI/AAAAAAAAE1c/ZcyDem5ski4s2gM8zdcAmcF-XbxmKYEgACLcBGAs/s1600/04_SVNExternalsMaster.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-fqJm3SImsKs/W3pvdUCg3rI/AAAAAAAAE1c/ZcyDem5ski4s2gM8zdcAmcF-XbxmKYEgACLcBGAs/s640/04_SVNExternalsMaster.png" width="98%" height="253" data-original-width="648" data-original-height="256" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoKhRd7eD9i68vYl-SXOsgnRtHXO_KfjW21ciiV9Nyo0hW4O8HfHhNAuG_Hb3wQdIHfyvl6-GShcKIRCw3-x41gXxYMCgMILuGM5GJATlGs4EQ8fw9WWCmF1Z39qgAgehEGaWYx1pGWOQ/s1600/04_SVNExternalsMaster.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoKhRd7eD9i68vYl-SXOsgnRtHXO_KfjW21ciiV9Nyo0hW4O8HfHhNAuG_Hb3wQdIHfyvl6-GShcKIRCw3-x41gXxYMCgMILuGM5GJATlGs4EQ8fw9WWCmF1Z39qgAgehEGaWYx1pGWOQ/s640/04_SVNExternalsMaster.png" width="98%" height="253" data-original-width="648" data-original-height="256" /></a>
 OK | OK | OK
 <br /><br />
 Start | run | cmd.  Type <i>svn propget -R svn:externals</i>

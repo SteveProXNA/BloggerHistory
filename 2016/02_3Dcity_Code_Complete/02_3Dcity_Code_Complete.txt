@@ -5,7 +5,7 @@ Inspired from previous posts on <a href="http://steveproxna.blogspot.co.uk/2013/
 <br /><br />
 Let's check it out!
 <br />
-<a href="https://1.bp.blogspot.com/-aMQnBIKKMaU/VuGnNkEaB2I/AAAAAAAADwM/TkYLeJBhODc/s1600/01-Title.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-aMQnBIKKMaU/VuGnNkEaB2I/AAAAAAAADwM/TkYLeJBhODc/s640/01-Title.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEil1Sm5ZdwY1x8G592orLYNq8Ec4wDgYgoMwmvjbxRmktnBV6rJgkz0LJCKvBf1kNlECX0p69blqVXR8stUITI5v83whaAE71J0dC0s6w5LAnmvbNQ4GA8bp6-L4F5a8ZJIAwe-G2hsu7A/s1600/01-Title.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEil1Sm5ZdwY1x8G592orLYNq8Ec4wDgYgoMwmvjbxRmktnBV6rJgkz0LJCKvBf1kNlECX0p69blqVXR8stUITI5v83whaAE71J0dC0s6w5LAnmvbNQ4GA8bp6-L4F5a8ZJIAwe-G2hsu7A/s640/01-Title.jpg" width="98%" /></a>
 Download source code <b><a href="http://github.com/SteveProXNA/3DcitySMS">here</a></b>.
 <br /><br />
 Sega Retro Gaming <a href="http://steveproxna.blogspot.co.uk/2013/06/sega-retro-gaming.html">post</a> documents how to play video games like 3D City on PC using <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/404-kega-fusion">Fusion</a> emulator.
@@ -14,26 +14,26 @@ z88dk Programming Setup <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk
 <table width="100%">
 <tr>
 <td valign="top" width="40%">
-<a href="https://2.bp.blogspot.com/--9EPwdYahnc/VuGryOGaCXI/AAAAAAAADwo/roBj9C60VP8/s1600/02-LevelEasy.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/--9EPwdYahnc/VuGryOGaCXI/AAAAAAAADwo/roBj9C60VP8/s320/02-LevelEasy.jpg" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEzWRjSNQS7KB8hHbX1YsbLFFDjs9GYiwim8Tw8pDlfDKcs58paUZ66t67dHIn-x8pHFnaEkTHg8roZ0CmBImXiNwXb5xgtPtFGOrS7S1UJUBju_SflTY-u3YjC63ygS-QRFRSrQ4WeEQ/s1600/02-LevelEasy.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEzWRjSNQS7KB8hHbX1YsbLFFDjs9GYiwim8Tw8pDlfDKcs58paUZ66t67dHIn-x8pHFnaEkTHg8roZ0CmBImXiNwXb5xgtPtFGOrS7S1UJUBju_SflTY-u3YjC63ygS-QRFRSrQ4WeEQ/s320/02-LevelEasy.jpg" width="95%" /></a>
 </td>
 <td valign="top" width="40%">
-<a href="https://1.bp.blogspot.com/-06QM-61Z8cQ/VufLC9c2oZI/AAAAAAAADxY/hjNj6Hpd_JUlF4fAp4gUYWDviuva93UQA/s1600/02-LevelHard.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-06QM-61Z8cQ/VufLC9c2oZI/AAAAAAAADxY/hjNj6Hpd_JUlF4fAp4gUYWDviuva93UQA/s320/02-LevelHard.jpg" width="95%" /></a>
-</td>
-</tr>
-<tr>
-<td valign="top" width="40%">
-<a href="https://2.bp.blogspot.com/-B8raoFtcBc4/VuGrpGdkF8I/AAAAAAAADwk/AQB_aS82-bM/s1600/03-Ready.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-B8raoFtcBc4/VuGrpGdkF8I/AAAAAAAADwk/AQB_aS82-bM/s320/03-Ready.jpg" width="95%" /></a>
-</td>
-<td valign="top" width="40%">
-<a href="https://3.bp.blogspot.com/-8DkRiaqmKjg/VuGs4J_B68I/AAAAAAAADw8/4fUGTxJywjI/s1600/04-PlayA.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-8DkRiaqmKjg/VuGs4J_B68I/AAAAAAAADw8/4fUGTxJywjI/s320/04-PlayA.jpg" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9XD7sYS9UQm5HGTzZ__qKdfYT6K2_OzRnMwu6rVjdXKxcfxnEHEdlmAybkOMDJCY2YWLiLA1mUYtJ2WdByY14KkOrqhL_96rK_tKWnr141Mxsf8Cr94yDjnemh2WcSVUDcTWL9Df7q3A/s1600/02-LevelHard.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9XD7sYS9UQm5HGTzZ__qKdfYT6K2_OzRnMwu6rVjdXKxcfxnEHEdlmAybkOMDJCY2YWLiLA1mUYtJ2WdByY14KkOrqhL_96rK_tKWnr141Mxsf8Cr94yDjnemh2WcSVUDcTWL9Df7q3A/s320/02-LevelHard.jpg" width="95%" /></a>
 </td>
 </tr>
 <tr>
 <td valign="top" width="40%">
-<a href="https://4.bp.blogspot.com/-dg5vHeuzd4k/VufLfF9BjxI/AAAAAAAADxc/YFNmUw1b_s8FswZpbNyQsZ9pRASJ-Oc9g/s1600/04-PlayC.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-dg5vHeuzd4k/VufLfF9BjxI/AAAAAAAADxc/YFNmUw1b_s8FswZpbNyQsZ9pRASJ-Oc9g/s320/04-PlayC.jpg" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeNMTk8U50YWeKzVP7PflMcPXASFnAFQWULKihL9iD8KTh8146G6YeM-rC4arcmByqAswxvSohKl4r6YCtdrH9ugIdbJoXksq3MKMsLQfIIEzC31mVq55NdCevgJpfL-quL7pLIILRp9k/s1600/03-Ready.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeNMTk8U50YWeKzVP7PflMcPXASFnAFQWULKihL9iD8KTh8146G6YeM-rC4arcmByqAswxvSohKl4r6YCtdrH9ugIdbJoXksq3MKMsLQfIIEzC31mVq55NdCevgJpfL-quL7pLIILRp9k/s320/03-Ready.jpg" width="95%" /></a>
 </td>
 <td valign="top" width="40%">
-<a href="https://1.bp.blogspot.com/-N7YQujUkxQw/VuGs68tS_hI/AAAAAAAADxA/AlcMUl3NGbw/s1600/05-Over.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-N7YQujUkxQw/VuGs68tS_hI/AAAAAAAADxA/AlcMUl3NGbw/s320/05-Over.jpg" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihZI1rqsUhIQbd5Wf1-xmba5QQ3a4OcD9iA19GlR9YXpNZF1jcJYGO8A4Q9qdJq-ACrnuGWYRn2Q4iZg1Iaf_nEhZYNeXgwMTvc0uNK0Sx_0fwCxB5H17dfV3CFapBM4M70uLiW9pxf00/s1600/04-PlayA.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihZI1rqsUhIQbd5Wf1-xmba5QQ3a4OcD9iA19GlR9YXpNZF1jcJYGO8A4Q9qdJq-ACrnuGWYRn2Q4iZg1Iaf_nEhZYNeXgwMTvc0uNK0Sx_0fwCxB5H17dfV3CFapBM4M70uLiW9pxf00/s320/04-PlayA.jpg" width="95%" /></a>
+</td>
+</tr>
+<tr>
+<td valign="top" width="40%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieIo0rmHgCrNv0OA5BvtIkEhyphenhyphenvXBRdt3v-Un2PEZytjLUx7JVCBnsE-5gQah7tngoYqsJXaeKYOB8CdyROBsgpwyNjihQ4mjDvYy_-Pgf86MUkp5S0miReGDqT9I7eu9OgXCYHh4oizws/s1600/04-PlayC.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieIo0rmHgCrNv0OA5BvtIkEhyphenhyphenvXBRdt3v-Un2PEZytjLUx7JVCBnsE-5gQah7tngoYqsJXaeKYOB8CdyROBsgpwyNjihQ4mjDvYy_-Pgf86MUkp5S0miReGDqT9I7eu9OgXCYHh4oizws/s320/04-PlayC.jpg" width="95%" /></a>
+</td>
+<td valign="top" width="40%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0qs2r0kWzkq_X5TbjYHP-RFBE0i02pCTPNh5zDmb6mRD_0r8LMIotyRT1A4SH6Hr5bCSU6q_ebpcyyL5xMnXH23F_Jo3N-S8Vc8POSMtkfdzmjrd3nY-bv8SmyL1IkYZifMhXOtrreSc/s1600/05-Over.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0qs2r0kWzkq_X5TbjYHP-RFBE0i02pCTPNh5zDmb6mRD_0r8LMIotyRT1A4SH6Hr5bCSU6q_ebpcyyL5xMnXH23F_Jo3N-S8Vc8POSMtkfdzmjrd3nY-bv8SmyL1IkYZifMhXOtrreSc/s320/05-Over.jpg" width="95%" /></a>
 </td>
 </tr>
 </table>

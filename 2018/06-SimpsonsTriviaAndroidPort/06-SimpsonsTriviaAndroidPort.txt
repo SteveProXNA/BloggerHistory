@@ -1,6 +1,6 @@
 <span style="font-family:verdana;font-size:85%;">
 In the previous <a href="http://steveproxna.blogspot.com/2018/08/simpsons-trivia-windows-port.html">post</a>, we introduced Simpsons Trivia: a simple quiz game for the Sega Master System.  Here we outlined tasks to port game to Windows using <a href="http://www.monogame.net">MonoGame</a>.  Now we would like to port game to Android.
-<a href="https://4.bp.blogspot.com/-tYCZkldtDpo/W_PLhz6aiHI/AAAAAAAAFAE/zSJDEyAnbe4QGULpI5_sfa-AH0IKXrCFgCLcBGAs/s1600/MonoGameLogo.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-tYCZkldtDpo/W_PLhz6aiHI/AAAAAAAAFAE/zSJDEyAnbe4QGULpI5_sfa-AH0IKXrCFgCLcBGAs/s640/MonoGameLogo.png" width="98%" height="135" data-original-width="218" data-original-height="46" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihwFvekWfC5wnsLCQWlvyeoGTOBagyc3J-quuWlTmkkDtcBV_3N1KPlHPSV09JXnpJkDYvw-tJ1T4CBfOGiIkGCLuXz3PxJu77CgVU90C-Epf-n4L-NXUkZiGBFwWdUdgUYauQstBfeYk/s1600/MonoGameLogo.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihwFvekWfC5wnsLCQWlvyeoGTOBagyc3J-quuWlTmkkDtcBV_3N1KPlHPSV09JXnpJkDYvw-tJ1T4CBfOGiIkGCLuXz3PxJu77CgVU90C-Epf-n4L-NXUkZiGBFwWdUdgUYauQstBfeYk/s640/MonoGameLogo.png" width="98%" height="135" data-original-width="218" data-original-height="46" /></a>
 <br />
 Let's check it out!
 <br /><br />
@@ -9,11 +9,11 @@ This post extends the Candy Kid Android <a href="http://steveproxna.blogspot.com
 <br /><br />
 <u>Setup</u><br />
 Download and install Visual Studio 2017.  Install "Mobile development with .NET" for Xamarin development.
-<a href="https://1.bp.blogspot.com/-YlJKL3isDbg/W_PJ_471bII/AAAAAAAAE_w/uRtR6pRQyrIHADAy_pF0fw_fpOoJfcXQwCLcBGAs/s1600/00_VS2017.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-YlJKL3isDbg/W_PJ_471bII/AAAAAAAAE_w/uRtR6pRQyrIHADAy_pF0fw_fpOoJfcXQwCLcBGAs/s640/00_VS2017.png" width="98%" height="214" data-original-width="839" data-original-height="280" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjPr1-6qdSr_GElLzwcDWYrUddL147WJcGnCgueEnm4yLpLilzP7Z06_W64n5PObY8RlCXet5FxJRxa4Tx0j3xWBCmAcF_Zxm3aMvY79CsG9vALlD3014V1l8KoEymMlef_3uMDSp0qio/s1600/00_VS2017.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjPr1-6qdSr_GElLzwcDWYrUddL147WJcGnCgueEnm4yLpLilzP7Z06_W64n5PObY8RlCXet5FxJRxa4Tx0j3xWBCmAcF_Zxm3aMvY79CsG9vALlD3014V1l8KoEymMlef_3uMDSp0qio/s640/00_VS2017.png" width="98%" height="214" data-original-width="839" data-original-height="280" /></a>
 <br />
 <br />
 Launch Visual Studio 2017.  Configure JDK and Android SDK.  Tools | Options | Xamarin | Android Settings:
-<a href="https://3.bp.blogspot.com/-K5PdvVoWOwo/W_PKMSzSa3I/AAAAAAAAE_0/W47KB4nZNfU8l6M82Pp21qzPzDAOVGLEwCLcBGAs/s1600/00_Xamarin.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-K5PdvVoWOwo/W_PKMSzSa3I/AAAAAAAAE_0/W47KB4nZNfU8l6M82Pp21qzPzDAOVGLEwCLcBGAs/s640/00_Xamarin.png" width="98%" height="373" data-original-width="744" data-original-height="434" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6-asGuIa9ff9M_ceG44GwS9QMN3kOiMUH0nEZQjKB5eiGMqK6DBv_zHR2AsQE2gJ5m1hIRdDuaR1T_AgHhDX2nx3_Pi8Qu9WZ4hHavUZz__DguJq6WeRL_swOfagzHz7H_fegvF1FPfQ/s1600/00_Xamarin.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6-asGuIa9ff9M_ceG44GwS9QMN3kOiMUH0nEZQjKB5eiGMqK6DBv_zHR2AsQE2gJ5m1hIRdDuaR1T_AgHhDX2nx3_Pi8Qu9WZ4hHavUZz__DguJq6WeRL_swOfagzHz7H_fegvF1FPfQ/s640/00_Xamarin.png" width="98%" height="373" data-original-width="744" data-original-height="434" /></a>
 <table width="100%" border="1">
 <tr>
 <td valign="top">&nbsp;<b>Type</b></td>
@@ -36,7 +36,7 @@ Launch Visual Studio 2017.  Configure JDK and Android SDK.  Tools | Options | Xa
 <b>Development</b><br />
 <i>AND Game Client</i><br />
 Visual Studio 2017:  Create new project.  New Project | Visual C# | MonoGame | MonoGame Android Project.
-<a href="https://2.bp.blogspot.com/-UoYc-DeZ1c0/W_PLwlpdTlI/AAAAAAAAFAI/5fgfVcpeq9ERRsYhbRm-tlOqTgemzaI6wCLcBGAs/s1600/01_AND_Project.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-UoYc-DeZ1c0/W_PLwlpdTlI/AAAAAAAAFAI/5fgfVcpeq9ERRsYhbRm-tlOqTgemzaI6wCLcBGAs/s640/01_AND_Project.png" width="98%" height="444" data-original-width="941" data-original-height="653" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyenNGfS98r2et2OCy2LuBGBFnBJJYfkWnRkCYrnwEWhgv0ZYhPhzLyNV3P6qIvdqAUruAdpJiCcKjCV-AvzLM23Xiwe8fToZzytfb6LKZHenpCcGRuJEWZJxRiOObAiWEv5A6n1MAct8/s1600/01_AND_Project.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyenNGfS98r2et2OCy2LuBGBFnBJJYfkWnRkCYrnwEWhgv0ZYhPhzLyNV3P6qIvdqAUruAdpJiCcKjCV-AvzLM23Xiwe8fToZzytfb6LKZHenpCcGRuJEWZJxRiOObAiWEv5A6n1MAct8/s640/01_AND_Project.png" width="98%" height="444" data-original-width="941" data-original-height="653" /></a>
 <table width="100%" border="1">
 <tr>
 <td valign="top">&nbsp;<b>Key</b></td>
@@ -72,7 +72,7 @@ Here is a checklist of tasks to complete in order to port game from <a href="htt
 <br />
 <i>Configure project properties</i><br />
 As of August 1, 2018 Google Play requires new apps to target at least Android 8.0 (API level 26) to <a href="https://developer.android.com/distribute/best-practices/develop/target-sdk">meet</a> the minimum target API level requirement.  Right click SimpsonsTrivia.AND project | Properties.  Application tab.  Ensure "Compile using Android version: (Target Framework)" is set to, at a minimum, Android 8.0 (Oreo).
-<a href="https://3.bp.blogspot.com/-vRe764owV8I/W_UbxwlI6lI/AAAAAAAAFAc/iNPSF6OuBGo9Muf1TKyJQfHnzBrgYUdLgCLcBGAs/s1600/AndroidAPI.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-vRe764owV8I/W_UbxwlI6lI/AAAAAAAAFAc/iNPSF6OuBGo9Muf1TKyJQfHnzBrgYUdLgCLcBGAs/s640/AndroidAPI.png" width="98%" height="215" data-original-width="850" data-original-height="285" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5IiwnFFgeFuKz6Pii5dO2UqnTNcOSPkkQUPyDAcO80suqgp34jT6Ca3AA6RwOGw5Zq4s3pk2c9DmPJyq3RqhV5sLeGzq26oEWSNstI4_JhM3hFIpW65LM_ln-ALxgpEpbQZgKw8hO4kw/s1600/AndroidAPI.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5IiwnFFgeFuKz6Pii5dO2UqnTNcOSPkkQUPyDAcO80suqgp34jT6Ca3AA6RwOGw5Zq4s3pk2c9DmPJyq3RqhV5sLeGzq26oEWSNstI4_JhM3hFIpW65LM_ln-ALxgpEpbQZgKw8hO4kw/s640/AndroidAPI.png" width="98%" height="215" data-original-width="850" data-original-height="285" /></a>
 <br />
 If Android 8.0 (Oreo) not installed then launch <a href="https://developer.android.com/studio">Android Studio</a>.  Tools | SDK Manager.  Download API level 26.  Note the Android SDK location and copy "platforms" folder to C:\Program Files (x86)\Android\android-sdk.
 <br /><br />
@@ -137,7 +137,7 @@ Changes to Android version (Target Framework) on the Application tab [above] wil
 <br /><br />
 <i>Update nuget packages</i><br />
 It may also be necessary to downgrade MonoGame.Framework to 3.4.0.459 in order to load Content from the Assets parent folder and play sound effects.  Right click References node and Manage NuGet Packages.  Change MonoGame version.  Install Portable Ninject package too as Ninject is required as an <a href="http://steveproxna.blogspot.com/2011/03/xna-and-ioc-container.html">IoC Container</a>.
-<a href="https://4.bp.blogspot.com/-T_s4n4Yl-E8/W_PJQIgDfdI/AAAAAAAAE_o/Oj_uoWbLk6AkEYsJzi37VE13RhsuymlsACLcBGAs/s1600/Packages.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-T_s4n4Yl-E8/W_PJQIgDfdI/AAAAAAAAE_o/Oj_uoWbLk6AkEYsJzi37VE13RhsuymlsACLcBGAs/s640/Packages.png" width="98%" height="149" data-original-width="990" data-original-height="231" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXN7Tc4zsC-3o9NV6_oeqVQ4FFNr3FyELZ7zm63arLwQVIrpz0LADOb9RS1uablPz8fQfFjaTA5yOOvFSaUZlb7W6thedepGu26JtnAc7G3r-9-BXHwikqT8nPCfClzfX0OUJ6QCGe5ck/s1600/Packages.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXN7Tc4zsC-3o9NV6_oeqVQ4FFNr3FyELZ7zm63arLwQVIrpz0LADOb9RS1uablPz8fQfFjaTA5yOOvFSaUZlb7W6thedepGu26JtnAc7G3r-9-BXHwikqT8nPCfClzfX0OUJ6QCGe5ck/s640/Packages.png" width="98%" height="149" data-original-width="990" data-original-height="231" /></a>
 <br /><br />
 <i>Configure SVN Externals</i><br />
 Follow instructions to setup <a href="http://steveproxna.blogspot.com/2018/07/simpsons-trivia-xna-port.html">SVN Externals</a> and use shared Data content plus Common + Master source code:
@@ -343,15 +343,15 @@ Despite the fact that you are able to complete all game development on Windows P
 <br /><br />
 Launch the Terminal, checkout the source code and open SimpsonsTrivia.AND.sln in Visual Studio for Mac.  Right click project | Options | Build | Android Build | Advanced.  Ensure 3x Supported ABIs are checked:
 
-<a href="https://3.bp.blogspot.com/-LLuWhTSxUx0/W_PE0rqGmaI/AAAAAAAAE_M/hrtsszCYQgkitsyptn7WgCCcFzmIL0WDgCLcBGAs/s1600/Screenshot%2B2018-11-12%2Bat%2B12.11.49.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-LLuWhTSxUx0/W_PE0rqGmaI/AAAAAAAAE_M/hrtsszCYQgkitsyptn7WgCCcFzmIL0WDgCLcBGAs/s640/Screenshot%2B2018-11-12%2Bat%2B12.11.49.png" width="98% height="468" data-original-width="1600" data-original-height="1169" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwFxPTTam-hR2jlZY0yR3Ofk02uW0gTx_-XJr27hpt0rrfrK4pzLYLd0ma0uQbWWMmYmCAFCHyG12GLBOGLIA91ro4LkTFsKL5PqYI4E7fVl1T8ibZn-5CMPv8uZDlzkhzwCTOcc854l4/s1600/Screenshot+2018-11-12+at+12.11.49.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwFxPTTam-hR2jlZY0yR3Ofk02uW0gTx_-XJr27hpt0rrfrK4pzLYLd0ma0uQbWWMmYmCAFCHyG12GLBOGLIA91ro4LkTFsKL5PqYI4E7fVl1T8ibZn-5CMPv8uZDlzkhzwCTOcc854l4/s640/Screenshot+2018-11-12+at+12.11.49.png" width="98% height="468" data-original-width="1600" data-original-height="1169" /></a>
 <br />
 Connect Android device.  Launch Terminal and enter <i>adb devices</i> to ensure Android device is detected in the list of devices attached.  In Visual Studio ensure device selected.  Right click project | Archive for Publishing.
-<a href="https://3.bp.blogspot.com/-7zoOjXLtM6o/W_PFs8paeGI/AAAAAAAAE_c/BWPJqKf1hs4_sBbjb8a_ZoKb_uUD4HuuACLcBGAs/s1600/Screen%2BShot%2B2018-11-12%2Bat%2B19.45.50.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-7zoOjXLtM6o/W_PFs8paeGI/AAAAAAAAE_c/BWPJqKf1hs4_sBbjb8a_ZoKb_uUD4HuuACLcBGAs/s640/Screen%2BShot%2B2018-11-12%2Bat%2B19.45.50.png" width="98%" height="437" data-original-width="916" data-original-height="626" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEin7fvM4e-UOp_mfGI7VW0RnW3uovREu3HJzWrPFzL17kX5i7RW0ZugdELwX1iD8mAXDXv9ilvFcEUkKo3TO_uZrgL1vx2nKGIY6jCHZ-aOjsY0ggpnzm39sWt3iUSK39LOnH5RJR-MdGo/s1600/Screen+Shot+2018-11-12+at+19.45.50.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEin7fvM4e-UOp_mfGI7VW0RnW3uovREu3HJzWrPFzL17kX5i7RW0ZugdELwX1iD8mAXDXv9ilvFcEUkKo3TO_uZrgL1vx2nKGIY6jCHZ-aOjsY0ggpnzm39sWt3iUSK39LOnH5RJR-MdGo/s640/Screen+Shot+2018-11-12+at+19.45.50.png" width="98%" height="437" data-original-width="916" data-original-height="626" /></a>
 <br />
 Click Sign and Distribute...  There are 2x Android Distribution channels: Ad Hoc and Google Play.  Choose Ad Hoc to save to disk and test locally while Google Play will upload to the Google Play store available for sale.
 <br /><br />
 During Google Play deployment you may be prompted to create a new project in the "API access" tab linked to your Google Play Developer account in which you must create an OAuth client and enter the ID + Secret:
-<a href="https://1.bp.blogspot.com/-n4zaD-R-TdA/W_PFVRrEnCI/AAAAAAAAE_U/oG8Qt_Rk5uERdomD5vlGUhyPcCvI2yKMwCLcBGAs/s1600/Screen%2BShot%2B2018-11-12%2Bat%2B19.50.59.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-n4zaD-R-TdA/W_PFVRrEnCI/AAAAAAAAE_U/oG8Qt_Rk5uERdomD5vlGUhyPcCvI2yKMwCLcBGAs/s640/Screen%2BShot%2B2018-11-12%2Bat%2B19.50.59.png" width="98%" height="490" data-original-width="614" data-original-height="470" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2cVXDQIzQqI7zxDy_tBdPUb4SecKRNhRnc1TAAgMCdfAfiEn3HyM0YMRofz-AiaR-375D7rpqMaW0rCWuv7SlaIxKH2TYMLJrTz5BZKHzGSIhjGeWBcLrx79LaWPiDQCiIjd8HxbdTyo/s1600/Screen+Shot+2018-11-12+at+19.50.59.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2cVXDQIzQqI7zxDy_tBdPUb4SecKRNhRnc1TAAgMCdfAfiEn3HyM0YMRofz-AiaR-375D7rpqMaW0rCWuv7SlaIxKH2TYMLJrTz5BZKHzGSIhjGeWBcLrx79LaWPiDQCiIjd8HxbdTyo/s640/Screen+Shot+2018-11-12+at+19.50.59.png" width="98%" height="490" data-original-width="614" data-original-height="470" /></a>
 <br />
 Sign in to your Google Developer account.  Navigate to <a href="https://play.google.com/apps/publish">play.google.com/apps/publish</a> | Settings | API access.  Create OAuth client.  View in Google Developers Console.  Download JSON and extract the Client ID + Secret.
 <br /><br />

@@ -3,7 +3,7 @@ In 2013, we checked out <a href="http://steveproxna.blogspot.ie/2013/09/sega-con
 <br />
 The <a href="http://www.smspower.org">SMS</a> was the last ever 8-bit video game console manufactured by Sega built using the Z80 chip.
 <br /><br />
-Here, we built simple a Hello World program similar to how 8-bit video games were written 30 years ago!
+Here, we built a simple Hello World program similar to how 8-bit video games were written 30 years ago!
 <br />
 (Cartridge-based video games built for 8-bit <a href="http://steveproxna.blogspot.ie/2013/06/sega-retro-gaming.html">Sega Retro Gaming</a> consoles were written in pure assembly)
 <br /><br />
@@ -13,11 +13,11 @@ Fortunately, there is another way: write game code in <a href="http://en.wikiped
 <table width="90%" border="0">
 <tr>
 <td valign="top">
-<a href="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s1600/z88dk.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s640/z88dk.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_qZzC7gHxc8SIMJvtD8GlevxuE-OHW59Cj1w6QxeHpXum4Psx1tNOs6zB_qxDjrxWx31b8Li_DmmI8CMUOcKh934t8LsPOhvBJ-YMS2SThD957ILYhG9WfPo2AeVItUNfjVPjaZaznZY/s1600/z88dk.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_qZzC7gHxc8SIMJvtD8GlevxuE-OHW59Cj1w6QxeHpXum4Psx1tNOs6zB_qxDjrxWx31b8Li_DmmI8CMUOcKh934t8LsPOhvBJ-YMS2SThD957ILYhG9WfPo2AeVItUNfjVPjaZaznZY/s640/z88dk.jpg"></a>
 &nbsp;&nbsp;
-<a href="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s1600/z88dk.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s640/z88dk.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_qZzC7gHxc8SIMJvtD8GlevxuE-OHW59Cj1w6QxeHpXum4Psx1tNOs6zB_qxDjrxWx31b8Li_DmmI8CMUOcKh934t8LsPOhvBJ-YMS2SThD957ILYhG9WfPo2AeVItUNfjVPjaZaznZY/s1600/z88dk.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_qZzC7gHxc8SIMJvtD8GlevxuE-OHW59Cj1w6QxeHpXum4Psx1tNOs6zB_qxDjrxWx31b8Li_DmmI8CMUOcKh934t8LsPOhvBJ-YMS2SThD957ILYhG9WfPo2AeVItUNfjVPjaZaznZY/s640/z88dk.jpg"></a>
 &nbsp;&nbsp;
-<a href="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s1600/z88dk.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-mOAjJXCGemI/VDQxMJBQPHI/AAAAAAAADD8/E5jqbb37fXw/s640/z88dk.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_qZzC7gHxc8SIMJvtD8GlevxuE-OHW59Cj1w6QxeHpXum4Psx1tNOs6zB_qxDjrxWx31b8Li_DmmI8CMUOcKh934t8LsPOhvBJ-YMS2SThD957ILYhG9WfPo2AeVItUNfjVPjaZaznZY/s1600/z88dk.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_qZzC7gHxc8SIMJvtD8GlevxuE-OHW59Cj1w6QxeHpXum4Psx1tNOs6zB_qxDjrxWx31b8Li_DmmI8CMUOcKh934t8LsPOhvBJ-YMS2SThD957ILYhG9WfPo2AeVItUNfjVPjaZaznZY/s640/z88dk.jpg"></a>
 </td>
 </tr>
 </table>
@@ -64,26 +64,26 @@ Download and extract <b>HxD</b> <a href="http://mh-nexus.de/downloads/HxDSetupEN
 <br /><br />
 <u>Setup</u>
 <br />
-Follow all instructions from <a href="http://www.allthingsmicro.com/tutorials/creating-a-z80-development-environment">All Things Micro</a>: this documents how to setup the Z80 dev environment.
+Follow all instructions from <a href="https://www.allthingsmicro.com/index.php/tutorials/creating-a-z80-development-environment">All Things Micro</a>: this documents how to setup the Z80 dev environment.
 <br /><br />
 <b>Cygwin</b>
 <br />
 Download and install <a href="http://cygwin.com/install.html">Cygwin</a> to C:\cygwin.  Accept the default packages location C:\cygwin\packages.
 <br />
 Ensure you install <b>devel</b> package category.  This is required to use Linux commands like cp and make.
-<a href="http://2.bp.blogspot.com/-CWVUrKs-cd0/VCsCnopMCCI/AAAAAAAADDs/eCzKqUkLLxU/s1600/07.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-CWVUrKs-cd0/VCsCnopMCCI/AAAAAAAADDs/eCzKqUkLLxU/s640/07.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5gvnkpibYNI6oeCTDNPM01z6mqUvU4QBcGQeQbcu7VOUGBs2Ao7Rob1T5GyfGlVCK70yQ4MSBH2YlkvXJ08KzNtLnkJ4VXEk-v84jIxX5U_R-vRGegqoa34RBjQxJqJNLDYCYe_a5hXc/s1600/07.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5gvnkpibYNI6oeCTDNPM01z6mqUvU4QBcGQeQbcu7VOUGBs2Ao7Rob1T5GyfGlVCK70yQ4MSBH2YlkvXJ08KzNtLnkJ4VXEk-v84jIxX5U_R-vRGegqoa34RBjQxJqJNLDYCYe_a5hXc/s640/07.jpg" width="98%"></a>
 <br />
 Finally, add C:\cygwin\bin to PATH environment variable to use Linux commands on Windows:
 <br />
 Right click Computer | Properties | Advanced system settings | Environment Variables | Path
-<a href="http://3.bp.blogspot.com/-mLdWeIQa6ZY/VCr7Y3G4qmI/AAAAAAAADC4/0N39UGoANxU/s1600/Path.gif" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-mLdWeIQa6ZY/VCr7Y3G4qmI/AAAAAAAADC4/0N39UGoANxU/s640/Path.gif" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4Ul3awBUV48tkezHVen5aaWgOCanP91MzFsrG4D2z6t3DG5dAlRwMeLyd2tQvNM8OzsMo9ZUoKPowaQS223ukIwbEX6ZwEPBxocba2bpEKHF5WPhaDPkQu-Ca21mHOJm-9hKq3ntgeLo/s1600/Path.gif" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4Ul3awBUV48tkezHVen5aaWgOCanP91MzFsrG4D2z6t3DG5dAlRwMeLyd2tQvNM8OzsMo9ZUoKPowaQS223ukIwbEX6ZwEPBxocba2bpEKHF5WPhaDPkQu-Ca21mHOJm-9hKq3ntgeLo/s640/Path.gif"></a>
 <br />
 Start | Run | cmd.  Enjoy Linux commands on Windows like cp and make!
 <br /><br />
 <b>z88dk</b>
 <br />
 Download and install <a href="http://sourceforge.net/projects/z88dk/files/z88dk/1.8/z88dk-1.8.0-setup.exe/download">z88dk-1.8.0-setup.exe</a> to C:\z88dk.  Choose full installation all options.
-<a href="http://1.bp.blogspot.com/-QgsUMPcNntY/VCr86xgFbvI/AAAAAAAADDI/nMTuOzcA3Ew/s1600/01-z88dk.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-QgsUMPcNntY/VCr86xgFbvI/AAAAAAAADDI/nMTuOzcA3Ew/s640/01-z88dk.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWkB5FsQ_7t5kIqb_xyDrm3J9MtOGio_5d87nVeshMtPBaKpxvuj09iP9Y2oMopQU96g3YeQQARgGXswPLwByOFPK9jQJz4tQ83NOnBTehYNfTTQkk-rnE4wafp0gMMlz3-18AsiocoCg/s1600/01-z88dk.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWkB5FsQ_7t5kIqb_xyDrm3J9MtOGio_5d87nVeshMtPBaKpxvuj09iP9Y2oMopQU96g3YeQQARgGXswPLwByOFPK9jQJz4tQ83NOnBTehYNfTTQkk-rnE4wafp0gMMlz3-18AsiocoCg/s640/01-z88dk.jpg"></a>
 <br />
 Add  C:\z88dk\bin to PATH environment variable.  Update Temp directory to C:\Temp\Temp.
 <br />
@@ -92,10 +92,10 @@ Also, ensure the z88dk installation configures the following User environment va
 <tr><td valign="top">&nbsp;Z80_OZFILES</td><td valign="top">&nbsp;c:\z88dk\lib</td><tr>
 <tr><td valign="top">&nbsp;ZCCCFG</td><td valign="top">&nbsp;c:\z88dk\lib\config</td><tr>
 </table>
-<a href="http://4.bp.blogspot.com/-S9GB4J80izU/VCr5uxLeMdI/AAAAAAAADCs/s6K6BIlOOaw/s1600/01-z88dkENV.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-S9GB4J80izU/VCr5uxLeMdI/AAAAAAAADCs/s6K6BIlOOaw/s640/01-z88dkENV.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLbCEtgkP6PfFMMRimFGb5zAND-kLwr8FxGm82KWeKouoK4lEJT-DUca3mdNfOy6D-x95ehHEb4NPYkjIjhbZkIbpY4wvDYExSQVfWN3gR44Ur16HG43t2r4EIjZD75VyQhwn3RAfLCzU/s1600/01-z88dkENV.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLbCEtgkP6PfFMMRimFGb5zAND-kLwr8FxGm82KWeKouoK4lEJT-DUca3mdNfOy6D-x95ehHEb4NPYkjIjhbZkIbpY4wvDYExSQVfWN3gR44Ur16HG43t2r4EIjZD75VyQhwn3RAfLCzU/s640/01-z88dkENV.jpg"></a>
 <br />
 Start | Run | cmd.  Type cd C:\z88dk\libsrc | Type <b>zcc</b>.  The following should display:
-<a href="http://1.bp.blogspot.com/-a5Zm7JOkA0Q/VCr77LBggkI/AAAAAAAADDA/kACFAKLCI5o/s1600/zcc.gif" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-a5Zm7JOkA0Q/VCr77LBggkI/AAAAAAAADDA/kACFAKLCI5o/s640/zcc.gif" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3ztsG_6wzatsYqiMdY3Md3PGPWh0n3JSPEq2Is0BOCgvkhaOY85KeYQqeup2BfdywvOC7-OaCCsUOYz7geNbwaFzyTgmlwTz5bKx_x_kKmnkKh9lPaT0TBMKzo1x8psnsWt7V5QsT4W8/s1600/zcc.gif" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3ztsG_6wzatsYqiMdY3Md3PGPWh0n3JSPEq2Is0BOCgvkhaOY85KeYQqeup2BfdywvOC7-OaCCsUOYz7geNbwaFzyTgmlwTz5bKx_x_kKmnkKh9lPaT0TBMKzo1x8psnsWt7V5QsT4W8/s640/zcc.gif" width="98%"></a>
 <br />
 Type <b>make clean</b>.  Deletes all pre-compiled libraries and objects needed for current platforms.
 <br />
@@ -197,7 +197,7 @@ if exist test.o del test.o
 <u>Build</u>
 <br />
 Manually compile, assemble and link the Hello program.  Launch command prompt: Start | Run | cmd.
-<a href="http://3.bp.blogspot.com/-Aeo5tKDDHt4/VDRCt9jm5DI/AAAAAAAADEY/uXnKlA_GF9w/s1600/BuildCode01.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-Aeo5tKDDHt4/VDRCt9jm5DI/AAAAAAAADEY/uXnKlA_GF9w/s640/BuildCode01.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_QZuPTBhf7yanNrhN-TSfgZggPk-3U6f-1Izjoc0fBU9r-buJ5FtDM9f7iwU0p-luJ5gGdm-qpbfuajT40wIGxQ56X2lhftgDJ__V8K5AKY90kYfwAxcWr1XpIS1AkHQlXJqE1Hyk6d0/s1600/BuildCode01.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_QZuPTBhf7yanNrhN-TSfgZggPk-3U6f-1Izjoc0fBU9r-buJ5FtDM9f7iwU0p-luJ5gGdm-qpbfuajT40wIGxQ56X2lhftgDJ__V8K5AKY90kYfwAxcWr1XpIS1AkHQlXJqE1Hyk6d0/s640/BuildCode01.jpg" width="98%"></a>
 <br />
 Change directory cd C:\HelloWorld.  Next, execute the following 3x commands (in bold):
 <table width="82%" border="1">
@@ -226,7 +226,7 @@ Change directory cd C:\HelloWorld.  Next, execute the following 3x commands (in 
 Finally, type <b>test.sms</b>.  The Hello program should launch in the Fusion emulator.
 <br />
 Congratulations!  You have just written your first SMS program in C language.
-<a href="http://1.bp.blogspot.com/-VAAH9-LFyqc/VDV-mwt5WqI/AAAAAAAADEo/U6NZ8x5DYZM/s1600/Hello01.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-VAAH9-LFyqc/VDV-mwt5WqI/AAAAAAAADEo/U6NZ8x5DYZM/s640/Hello01.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiehBZVtMmcurU9xtODtyIagS-8vla8J7MXAkPiDm4p2KNO50YtiBW4DFMb-H4G4Pv7vqm84SSaOiv_4Bf7MRacAR2fGwVmZJXNurIrZMvfqkhe1MP3mFJCcZ-inJthhR-YCQRWq2uDr9k/s1600/Hello01.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiehBZVtMmcurU9xtODtyIagS-8vla8J7MXAkPiDm4p2KNO50YtiBW4DFMb-H4G4Pv7vqm84SSaOiv_4Bf7MRacAR2fGwVmZJXNurIrZMvfqkhe1MP3mFJCcZ-inJthhR-YCQRWq2uDr9k/s640/Hello01.jpg" width="98%"></a>
 <br /><br />
 <u>Automate</u>
 <br />
@@ -243,7 +243,7 @@ wlalink -v linkfile test.sms
 test.sms
 </pre>
 Launch Crimson IDE.  Navigate to Tools menu | Preferences... | User Tools.  Configure Ctrl+1 hot key.
-<a href="http://4.bp.blogspot.com/-5YlbeHjBNyI/VDWA4GcF8lI/AAAAAAAADE0/EkMMldZn4dg/s1600/Crimson.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-5YlbeHjBNyI/VDWA4GcF8lI/AAAAAAAADE0/EkMMldZn4dg/s640/Crimson.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiUBNGiNbzoFPHL-d2muwO3qd1Om6b9wzMioVH4ZKRw0ppL6WNlRKCRKatDIKj3uDD8VhsAVnP6nLouR4BE8e6UzoEvxQAWFUQsQbyvvGc0ShvCWj_b5G9nfoGtw6Oopwx0dtrOZ3rgd0/s1600/Crimson.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiUBNGiNbzoFPHL-d2muwO3qd1Om6b9wzMioVH4ZKRw0ppL6WNlRKCRKatDIKj3uDD8VhsAVnP6nLouR4BE8e6UzoEvxQAWFUQsQbyvvGc0ShvCWj_b5G9nfoGtw6Oopwx0dtrOZ3rgd0/s640/Crimson.jpg" width="98%"></a>
 <table width="80%" border="1">
 <tr><td valign="top">&nbsp;Menu Text</td><td valign="top">&nbsp;PerformBuild</td></tr>
 <tr><td valign="top">&nbsp;Command</td><td valign="top">&nbsp;C:\PerformBuild.bat</td></tr>
@@ -254,7 +254,7 @@ Launch Crimson IDE.  Navigate to Tools menu | Preferences... | User Tools.  Conf
 </table>
 <br />
 Next, modify the existing file <b>test.c</b>.  For example, change print statement to "Hello World!".  Hit Ctrl+1.
-<a href="http://4.bp.blogspot.com/-oHSaSwee9Jg/VDWEzbmqZrI/AAAAAAAADFA/0gZe5scaijQ/s1600/Hello02.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-oHSaSwee9Jg/VDWEzbmqZrI/AAAAAAAADFA/0gZe5scaijQ/s640/Hello02.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQ0w8qBu7-AP9bwMiQsEHNuvij4EZO7H_cdRlHGMuL41ZfPNCNIinUmJikrO0QqXYlhVxaJYWPMqGcA43nLahmcg3SSk9oEEUQHl0jyJ4oACwNslIhgnYJbV3IqyBGALtQOQg4xjwZUZ4/s1600/Hello02.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQ0w8qBu7-AP9bwMiQsEHNuvij4EZO7H_cdRlHGMuL41ZfPNCNIinUmJikrO0QqXYlhVxaJYWPMqGcA43nLahmcg3SSk9oEEUQHl0jyJ4oACwNslIhgnYJbV3IqyBGALtQOQg4xjwZUZ4/s640/Hello02.jpg" width="98%"></a>
 <br /><br />
 <u>Disassemble</u>
 <br />
@@ -265,22 +265,22 @@ In directory C:\HelloWorld, copy the 2x files Opcodes.dat + smsexamine.exe from 
 Launch command prompt, change directory cd C:\HelloWorld.  Type: <b>smsexamine.exe test.sms</b>.
 <br />
 This action will generate <b>test.sms.asm</b> and any data files.  Launch ConTEXT.  Open test.sms.asm:
-<a href="http://2.bp.blogspot.com/-b15p2lN87Q0/VGzmNR0eqyI/AAAAAAAADGQ/rl9T-d00WgM/s1600/ConTEXTasmSDSC.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-b15p2lN87Q0/VGzmNR0eqyI/AAAAAAAADGQ/rl9T-d00WgM/s640/ConTEXTasmSDSC.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsU7QOP7h33bpGxI7Igj6fyQZElp_7r9-Z8mj7gH7rz97Z3E2fV33l_1NiLNhXuDiLnaZ3KerNiQ09xozMo9-pGFv9wTjQ92PUEV9ojQS4bB-mjr56Aay00bV-4mqToCKgj-X6yvkOfJM/s1600/ConTEXTasmSDSC.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsU7QOP7h33bpGxI7Igj6fyQZElp_7r9-Z8mj7gH7rz97Z3E2fV33l_1NiLNhXuDiLnaZ3KerNiQ09xozMo9-pGFv9wTjQ92PUEV9ojQS4bB-mjr56Aay00bV-4mqToCKgj-X6yvkOfJM/s640/ConTEXTasmSDSC.jpg" width="98%"></a>
 <br /><br />
 Follow instructions from the previous <a href="http://steveproxna.blogspot.ie/2013/09/sega-console-programming.html">post</a> to setup hotkeys: <b>F9</b> (compile) <b>F10</b> (run) <b>F11</b> (debug).
 <br /><br />
 Recommended also is the following setting in ConTEXT to "Automatically update changed files":
 <br />
 Options menu | Environment Options | General | Automatically update changed files | Checked
-<a href="http://3.bp.blogspot.com/-sEn-MHMtaKY/VDZFq9Yr2JI/AAAAAAAADGA/zjl_-4dfQlo/s1600/ContTEXTsettings.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-sEn-MHMtaKY/VDZFq9Yr2JI/AAAAAAAADGA/zjl_-4dfQlo/s640/ContTEXTsettings.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoAhjaNNhJCpEnZCwcY_UbWXp_gpqGVkpRAjDCWzdkPG4fQ2XKhdxAObr-o-Hh2LB4M81ZRtjZ68PctQrq_VAh3P3Fns3EYdq0UVDU_k3JIIwip9Qah_NO4ca8TMe-yRLzJvPJcx7beRM/s1600/ContTEXTsettings.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoAhjaNNhJCpEnZCwcY_UbWXp_gpqGVkpRAjDCWzdkPG4fQ2XKhdxAObr-o-Hh2LB4M81ZRtjZ68PctQrq_VAh3P3Fns3EYdq0UVDU_k3JIIwip9Qah_NO4ca8TMe-yRLzJvPJcx7beRM/s640/ContTEXTsettings.jpg"></a>
 <br /><br />
 Press <b>F9</b> to compile and link "test.sms.asm".   This generates the "output.sms" binary file.
 <br />
 Press <b>F10</b> to run program in the Fusion emulator.  Press <b>F11</b> to debug in Meka emulator:
-<a href="http://4.bp.blogspot.com/-3zr_gZuwsRY/VDWTbzUtIoI/AAAAAAAADFw/R4AcPM1_E2s/s1600/MekaDebugging.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-3zr_gZuwsRY/VDWTbzUtIoI/AAAAAAAADFw/R4AcPM1_E2s/s640/MekaDebugging.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhviqLR_DqIJp-AxDJ_bUhlNtSAjVE-jfz4VY59-eaULB3BHQzUzEQqffZDtko2mIB_SOBe8BZiC4LsyRB80ud0-_cllznarX1tHiB3pOGahR2UIriCFaLqrfWKR1fTWcauwFnV9CfQiE8/s1600/MekaDebugging.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhviqLR_DqIJp-AxDJ_bUhlNtSAjVE-jfz4VY59-eaULB3BHQzUzEQqffZDtko2mIB_SOBe8BZiC4LsyRB80ud0-_cllznarX1tHiB3pOGahR2UIriCFaLqrfWKR1fTWcauwFnV9CfQiE8/s640/MekaDebugging.jpg" width="98%"></a>
 <br /><br />
 Compare machine code in the debugger with the raw binary output file from <b>test.sms</b>.
-<a href="http://1.bp.blogspot.com/-z79fnjNAZUA/VDWRWEcwyzI/AAAAAAAADFk/5sYmXPLc2KQ/s1600/HxDbinary.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-z79fnjNAZUA/VDWRWEcwyzI/AAAAAAAADFk/5sYmXPLc2KQ/s640/HxDbinary.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9SmPWmi66iXlUew7v_EGf9kV8AMO2B_gTH65ZxnrtwZgcj2wOXmLCmX2cEbb-IZ3fRUF5f1So4QxzgpSZPYYY3SufPobAykBO4v1cVwKSBRjKUjO_LmnF4oW2jyIePANEUwoFyq5r714/s1600/HxDbinary.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9SmPWmi66iXlUew7v_EGf9kV8AMO2B_gTH65ZxnrtwZgcj2wOXmLCmX2cEbb-IZ3fRUF5f1So4QxzgpSZPYYY3SufPobAykBO4v1cVwKSBRjKUjO_LmnF4oW2jyIePANEUwoFyq5r714/s640/HxDbinary.jpg" width="98%"></a>
 <br /><br />
 <u>Summary</u>
 <br />

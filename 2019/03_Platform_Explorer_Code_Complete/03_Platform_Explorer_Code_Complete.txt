@@ -1,206 +1,484 @@
 <span style="font-family:verdana;font-size:85%;">
-In the old days of Game Creation with <a href="https://en.wikibooks.org/wiki/Game_Creation_with_XNA/Basics/Setup">XNA</a>, there was a popular Microosft XNA project called "Platformer".  This starter kit contained code + content to demo basic game mechanics of a simple <a href="https://en.wikipedia.org/wiki/Platform_game">platform</a> video game.
+In <a href="http://steveproxna.blogspot.com/2017/11/devkitsms-programming-sample.html">2017</a>, we checked out <a href="https://github.com/sverx/devkitSMS">devkitsms</a> to setup productive development environment to build 8-bit retro video games for the Sega Master System.  In <a href="http://steveproxna.blogspot.com/2018/03/devkitsms-programming-sample-ii.html">2018</a>, we streamlined this build process to develop <a href="http://www.smspower.org/Homebrew/SimpsonsTrivia-SMS">Simpsons Trivia</a>.
 <br /><br />
-Therefore, the "Platformer" starter kit seemed a good candidate project to port to the Sega Master System.  Enter <a href="http://www.smspower.org/Homebrew/PlatformExplorer-SMS">Platform Explorer</a>!
-<br /><br />
-Inspired from previous posts on <a href="http://steveproxna.blogspot.com/2013/09/sega-console-programming.html">Sega Console Programming</a> and <a href="http://steveproxna.blogspot.com/2017/09/devkitsms-programming-setup.html">devkitSMS Programming Setup</a>, <b>Platform Explorer</b> is my fourth 8-bit video game written in <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C</a> / <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> assembler to target Sega Master System (SMS).
-<a href="https://3.bp.blogspot.com/-t4P2AWjzxkg/XKtrSak7jJI/AAAAAAAAFW4/2e56wqHdELU0DuHp39UIKDrKVpyxG1GbwCLcBGAs/s1600/Title.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-t4P2AWjzxkg/XKtrSak7jJI/AAAAAAAAFW4/2e56wqHdELU0DuHp39UIKDrKVpyxG1GbwCLcBGAs/s640/Title.png" width="95%" height="525" data-original-width="642" data-original-height="527" /></a>
+However, as projects became larger they seemed longer to build.  Plus it didn't seem possible to debug step through <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> source code.  Look for opportunities to improve the process further as we build <a href="http://www.smspower.org/Homebrew/PlatformExplorer-SMS">Platform Explorer</a>!
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7V8uUkqfvLVOOcdmEPBiru3ETZEi27IG8h9G8dukLglo6cbmTLvlrBlE7-aLMRbtPKHfBq6VCEhXG_y5UlRQyYJTR0lt_ER9SZ2W_XLRyTzbO4Iob_YiHbLluyIHArGUZ1keVMua4MmA/s1600/Title.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7V8uUkqfvLVOOcdmEPBiru3ETZEi27IG8h9G8dukLglo6cbmTLvlrBlE7-aLMRbtPKHfBq6VCEhXG_y5UlRQyYJTR0lt_ER9SZ2W_XLRyTzbO4Iob_YiHbLluyIHArGUZ1keVMua4MmA/s640/Title.png" width="95%" height="525" data-original-width="642" data-original-height="527" /></a>
 Let's check it out! 
 <br /><br />
-Note: previous titles published for the Master System include <a href="http://www.smspower.org/Homebrew/3DCity-SMS">3D City</a>, <a href="http://www.smspower.org/Homebrew/CandyKidDemo-SMS">Candy Kid</a> Demo + <a href="http://www.smspower.org/Homebrew/SimpsonsTrivia-SMS">Simpsons Trivia</a>.
+<u>Game</u>
 <br />
-Download source code <b><a href="https://github.com/SteveProXNA/PlatformExplorerSMS">here</a></b>. 
+Platform Explorer is an open source port of the XNA Platform <a href="https://www.youtube.com/watch?v=Wf49xwFrNMo">starter kit</a> for the <a href="https://en.wikipedia.org/wiki/Master_System">Sega Master System</a>.  This video game was also an entry in the SMS Power! <a href="http://www.smspower.org/Competitions/Coding-2019">2019</a> Coding Competition.  Download source code <b><a href="https://github.com/SteveProXNA/PlatformExplorerSMS">here</a></b>.
 <br /><br />
-Sega Retro Gaming <a href="http://steveproxna.blogspot.com/2013/06/sega-retro-gaming.html">post</a> documents how to play video games like Platform Explorer using a <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/404-kega-fusion">Fusion</a> emulator.
+<u>Software</u>
 <br />
-devkitSMS Programming Setup <a href="http://steveproxna.blogspot.com/2017/09/devkitsms-programming-setup.html">post</a> documents development environment required to build <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C</a> / <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a> source.
+Follow all instructions from the previous <a href="http://steveproxna.blogspot.com/2017/09/devkitsms-programming-setup.html">post</a>: this documents how to setup the pre-requisite software.
+<br />
+Note: ensure you have downloaded and installed the <a href="https://github.com/sverx/devkitSMS">devkitSMS</a> and Small Device C Compiler [<a href="http://sdcc.sourceforge.net">SDCC</a>].
+<br /><br />
+<u>Checklist</u>
+<br />
+Here is a checklist of tasks to complete in order to try and improve the existing development environment:
+<ul>
+<li>Graphics changes and BMP2Tile update</li>
+<li>Visual Studio 2015 upgrade and setup</li>
+<li>Code file separation and build times</li>
+<li>Various code architectural updates</li>
+<li>Debug step through code support</li>
+<li>Performance tweaks then polish</li>
+</ul>
+<br />
+<u>Graphics</u>
+<br />
+Previous work on SMS graphics progressed from MS Paint to <a href="https://www.gimp.org/downloads">Gimp</a> to use Indexed mode with max 16 colors to conform to the 4bpp (bits per pixel) constraints.  However, this was only with 256x192 full screen images.
+<br /><br />
+Now, we would like to save multiple individual image files, for example, for sprite animations and share the color palette such that it can be used across all relevant tiles.  Therefore, here is how to <a href="http://gimpforums.com/thread-how-do-i-save-an-index-image-s-color-map">import</a> the palette:
+<br /><br />
+Launch Gimp | Open an image you would like the palette shared.  Image | Mode | Indexed to generate the 16 color palette (4bpp).  Windows | Dockable dialogs | Palettes.  Right click list and enter the following info:
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhtCDl0VdUohmAMgGeAS-86ieEpjTb3oFvhPsftsQnb5p7e-gUqLpGEcASzQhexyeNHIxxIw1NRJ2X63Cf6aV6E2KE6Y9TT-qO-PHRetnBo-cg9h4rivHeiQSvCxLtNd9b45jfiMvJCE8/s1600/ImportPalette.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhtCDl0VdUohmAMgGeAS-86ieEpjTb3oFvhPsftsQnb5p7e-gUqLpGEcASzQhexyeNHIxxIw1NRJ2X63Cf6aV6E2KE6Y9TT-qO-PHRetnBo-cg9h4rivHeiQSvCxLtNd9b45jfiMvJCE8/s640/ImportPalette.png" width="98%" /></a>
+<br />
+Now there will new custom 4bpp 16-color palette at %USERPROFILE%\.gimp-2.8\palettes.  Finally, extend previous process after Image | Mode | Indexed choose Colors | Map | Set Colormap... Palette: Platformer.
+<br /><br />
+<u>BMP2Tile</u>
+<br />
+Upgrade to Version <a href="https://github.com/maxim-zhao/bmp2tile/releases/tag/v0.43">0.43</a> for -fullpalette option to Output 16 colors rather than as many present in image.
+<pre class="csharp" name="code">
+bmp2tile.exe raw\back_tiles.bmp -savetiles "back_tiles (tiles).psgcompr" -noremovedupes -planar -tileoffset 0 -exit
+bmp2tile.exe raw\back_tiles.bmp -savetilemap "back_tiles (tilemap).bin" -exit
+bmp2tile.exe raw\back_tiles.bmp -savepalette "back_tiles (palette).bin" -fullpalette -exit
+</pre>
+<br />
+<u>Visual Studio</u>
+<br />
+In 2017, we were inspired by this <a href="http://www.smspower.org/forums/15228-DevkitSMSDevelopYourHomebrewInC?start=250">suggestion</a> to use Visual Studio as an IDE to better navigate files in larger projects and help automate the development build system.  Now it is time to upgrade from VS2008 to 2015.
+<br /><br />
+The motivation here assumes a point where it is difficult / impossible to use Visual Studio 2008 on Windows PC.  Plus Visual Studio 2015 has a cool feature to easily Toggle Header / Code files for increased productivity.
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAEmCfR2uqbiqO5R0dcedL7lUe5c0iY2KxGYOH_5TH94mqzoRqJ-IN9U823NXEYOK3Zmt4HRDg_pg5QCbrHLHUcrJCWvne5uT6FktZPDmdxCFA0qrpjeKi1IABSykeIp54KZdkEMKEydY/s1600/VS2015.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAEmCfR2uqbiqO5R0dcedL7lUe5c0iY2KxGYOH_5TH94mqzoRqJ-IN9U823NXEYOK3Zmt4HRDg_pg5QCbrHLHUcrJCWvne5uT6FktZPDmdxCFA0qrpjeKi1IABSykeIp54KZdkEMKEydY/s640/VS2015.png" width="98%" height="445" data-original-width="1034" data-original-height="719" /></a>
+Replicate all instructions <a href="http://steveproxna.blogspot.com/2017/09/devkitsms-programming-setup.html">here</a>: Setup External Tools to integrate the build process directly from within Visual Studio and connect "Run Batch File" command to Ctrl+1 hot key and automatically build and execute code! 
+<br /><br />
+<u>Formatting</u>
+<br />
+Formatting is important because formatted code makes it easier to read, understand, maintain and debug.  Visual Studio 2015.  Tools menu | Options... | Text Editor | C/C++ | Formatting | Spacing.  Update settings:
 <table width="100%">
 <tr>
 <td valign="top" width="40%">
-<a href="https://4.bp.blogspot.com/-7_OAWSDYnD8/XKtqeFNWTTI/AAAAAAAAFWM/sWK8gaoGzGQLG2O_Vd4JXwuRkWzBg8lswCLcBGAs/s1600/01.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-7_OAWSDYnD8/XKtqeFNWTTI/AAAAAAAAFWM/sWK8gaoGzGQLG2O_Vd4JXwuRkWzBg8lswCLcBGAs/s640/01.png" width="95%"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzGdqjDZUEfl_yme7lAoRTnEuddri8s0jktpJWoMY4scpIjXdZ104a6rjv-Wb6HjyZKUuIp2lG16Qzox0nQo7vkltkHY7VUZyt4zWd9vTm0Zsk_B6TDSpIxPEo94KPhBEBhF7x8w8VrX8/s1600/top.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzGdqjDZUEfl_yme7lAoRTnEuddri8s0jktpJWoMY4scpIjXdZ104a6rjv-Wb6HjyZKUuIp2lG16Qzox0nQo7vkltkHY7VUZyt4zWd9vTm0Zsk_B6TDSpIxPEo94KPhBEBhF7x8w8VrX8/s640/top.png" width="95%" /></a>
 </td>
 <td valign="top" width="40%">
-<a href="https://2.bp.blogspot.com/-R893Ejd0xhU/XKtqp51-ahI/AAAAAAAAFWQ/_ygUC7RwIk07c2eQOz8vU_e2nkTTfCC6ACLcBGAs/s1600/02.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-R893Ejd0xhU/XKtqp51-ahI/AAAAAAAAFWQ/_ygUC7RwIk07c2eQOz8vU_e2nkTTfCC6ACLcBGAs/s640/02.png" width="95%"/></a>
-</td>
-</tr>
-<tr>
-<td valign="top" width="40%">
-<a href="https://2.bp.blogspot.com/-KPLm93xsDe8/XKtqzJUVcxI/AAAAAAAAFWY/RKnNCvTlclgEsjU4znyJMoNFQqOsI_wZACLcBGAs/s1600/03.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-KPLm93xsDe8/XKtqzJUVcxI/AAAAAAAAFWY/RKnNCvTlclgEsjU4znyJMoNFQqOsI_wZACLcBGAs/s640/03.png" width="95%" /></a>
-</td>
-<td valign="top" width="40%">
-<a href="https://1.bp.blogspot.com/-Vg1M5J5wEwE/XKtq7MREapI/AAAAAAAAFWg/bp65-EM-qcMid3G1uoSQr1hwjQ_SJRdaACLcBGAs/s1600/04.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-Vg1M5J5wEwE/XKtq7MREapI/AAAAAAAAFWg/bp65-EM-qcMid3G1uoSQr1hwjQ_SJRdaACLcBGAs/s640/04.png" width="95%" /></a>
-</td>
-</tr>
-<tr>
-<td valign="top" width="40%">
-<a href="https://4.bp.blogspot.com/-9hqh9s6EuAM/XKtq_rIZIFI/AAAAAAAAFWk/iURbSqqRnLQDlkMa2ed4S4AVaqaRbWhzgCLcBGAs/s1600/05.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-9hqh9s6EuAM/XKtq_rIZIFI/AAAAAAAAFWk/iURbSqqRnLQDlkMa2ed4S4AVaqaRbWhzgCLcBGAs/s640/05.png" width="95%" /></a>
-</td>
-<td valign="top" width="40%">
-<a href="https://1.bp.blogspot.com/-cCXt_eYaKIw/XKtrEHDtrWI/AAAAAAAAFWo/NTVzIX8vKdQEvMGqFLLmzIL-f_xdtBYuQCLcBGAs/s1600/06.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-cCXt_eYaKIw/XKtrEHDtrWI/AAAAAAAAFWo/NTVzIX8vKdQEvMGqFLLmzIL-f_xdtBYuQCLcBGAs/s640/06.png" width="95%" /></a>
-</td>
-</tr>
-<tr>
-<td valign="top" width="40%">
-<a href="https://1.bp.blogspot.com/-VTDinjGg73g/XKtrIYLuqJI/AAAAAAAAFWs/dFSQZ0FKwJwwC_8jmx2xNeZyYh6JHKWYQCLcBGAs/s1600/07.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-VTDinjGg73g/XKtrIYLuqJI/AAAAAAAAFWs/dFSQZ0FKwJwwC_8jmx2xNeZyYh6JHKWYQCLcBGAs/s640/07.png" width="95%" /></a>
-</td>
-<td valign="top" width="40%">
-<a href="https://1.bp.blogspot.com/-l_pnIoRLCeg/XKtrNAyrHhI/AAAAAAAAFW0/M6vqOtJCGg8hv2LRFIi7XoRp_1CZpeAPACLcBGAs/s1600/08.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-l_pnIoRLCeg/XKtrNAyrHhI/AAAAAAAAFW0/M6vqOtJCGg8hv2LRFIi7XoRp_1CZpeAPACLcBGAs/s640/08.png" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjN0ZmKEMDgUrlWYA1IHuVA4K53tc7oGEU0vbtKw8VXzCqNNXgds0ooJlQD_B7mZT0Ccu94F4ibXEQDOyyfg6pEmwkKZu66Njx7nzHmw8wZ63w1_JBW12Wvill1-I_TQFcRM36MtlrJXK4/s1600/bot.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjN0ZmKEMDgUrlWYA1IHuVA4K53tc7oGEU0vbtKw8VXzCqNNXgds0ooJlQD_B7mZT0Ccu94F4ibXEQDOyyfg6pEmwkKZu66Njx7nzHmw8wZ63w1_JBW12Wvill1-I_TQFcRM36MtlrJXK4/s640/bot.png" width="95%" /></a>
 </td>
 </tr>
 </table>
 <br />
-<u>Instructions</u>
+<u>Setup</u>
 <br />
-Simple: move joystick Left or Right to run and Button1 to jump.  Avoid all enemies + guards and watch out for the pits!  After feedback from the community, you can now choose game speed as Slow [motion] or Fast.  
+Create folder C:\PlatformExplorerSMS. Create the following sub-folders: asm, crt0, dev, gfx, lib, psg, tmp.  Note: tmp sub-folder contains dummy PSGlib.h and SMSlib.h header files used for debugging - more soon.
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji2_05edTswGH2Uql-Q8ExP4gA9dnC4a8j3BBsJAT6vrOX5_p4M1csr1_Dg4tqslUlJFkhyphenhyphenR329GC7WsSB9yA2RiFxIpbRrEayLxoY4YcAskU8-cX1GdOhs2cJzQn45ZKCp7YfJF5l_Ig/s1600/Setup.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji2_05edTswGH2Uql-Q8ExP4gA9dnC4a8j3BBsJAT6vrOX5_p4M1csr1_Dg4tqslUlJFkhyphenhyphenR329GC7WsSB9yA2RiFxIpbRrEayLxoY4YcAskU8-cX1GdOhs2cJzQn45ZKCp7YfJF5l_Ig/s640/Setup.png" width="98%" height="513" data-original-width="1031" data-original-height="827" /></a>
+IMPORTANT: more information on which files reside in sub-folders and why can be found at <a href="http://steveproxna.blogspot.com/2017/11/devkitsms-programming-sample.html">here</a> and <a href="http://steveproxna.blogspot.com/2018/03/devkitsms-programming-sample-ii.html">here</a>.
 <br /><br />
-After the third iteration, the first 10x levels are Tutorial and the currently remaining 40x levels are available "New Game".  There is capacity for 80-100 levels.  Please let me know if you'd like to design some levels <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>
-<br /><br />
-<u>Tools</u>
+<u>Separation</u>
 <br />
-Here is a list of Tools and frameworks that were used in the development of this project:
-<table width="81%" border="1">
+As projects became larger they seemed longer to build.  Traditionally, this has been because all the code has been spread across multiple header files and with only 1x main.c which forces a complete rebuild each time.
+<br /><br />
+Therefore, in an attempt to improve build compile times, we'd like to separate interface from implementation code: keep header files lean with goal that static code in translation units need not be constantly recompiled!
+<br /><br />
+Note: here object files would have to be version controlled and build script may change during development.
+<br /><br />
+<u>Timing</u>
+<br />
+In order to test hypothesis that separating code improves compilation speed then <a href="https://stackoverflow.com/questions/673523/how-do-i-measure-execution-time-of-a-command-on-the-windows-command-line">record</a> build script times:
+<br />
+<pre class="csharp" name="code">
+:: Calculate the start timestamp
+set _time=%time: =0%
+set /a _hours=100%_time:~0,2%%%100,_min=100%_time:~3,2%%%100,_sec=100%_time:~6,2%%%100,_cs=%_time:~9,2%
+set /a _started=_hours*60*60*100+_min*60*100+_sec*100+_cs
+
+sdcc -c -mz80 --opt-code-speed --peep-file ..\peep-rules.txt --std-c99 _sms_manager.c
+sdcc -c -mz80 --opt-code-speed --peep-file ..\peep-rules.txt --std-c99 _snd_manager.c
+sdcc -c -mz80 --opt-code-speed --peep-file ..\peep-rules.txt --std-c99 global_manager.c
+sdcc -c -mz80 --opt-code-speed --peep-file ..\peep-rules.txt --std-c99 debug_manager.c
+sdcc -c -mz80 --opt-code-speed --peep-file ..\peep-rules.txt --std-c99 hack_manager.c
+:: continue compiling remaining implementation [*.c] files
+
+sdcc -c -mz80 --opt-code-speed --peep-file peep-rules.txt --std-c99 main.c
+
+:: Calculate the difference in cSeconds
+set _time=%time: =0%
+set /a _hours=100%_time:~0,2%%%100,_min=100%_time:~3,2%%%100,_sec=100%_time:~6,2%%%100,_cs=%_time:~9,2%
+set /a _duration=_hours*60*60*100+_min*60*100+_sec*100+_cs-_started
+
+:: Populate variables for rendering (100+ needed for padding)
+set /a _hours=_duration/60/60/100,_min=100+_duration/60/100%%60,_sec=100+(_duration/100%%60%%60),_cs=100+_duration%%100
+
+echo.
+echo Time taken: %_sec:~-2%.%_cs:~-2% secs
+echo
+</pre>
+<br />
+<u>Coding</u>
+<br />
+The following coding changes + enhancements have been made throughout Platform Explorer development:
+<br /><br />
+<b>devkitSMS</b>
+<br />
+The original <a href="https://github.com/sverx/devkitSMS/blob/master/SMSlib/src/SMSlib.h">SMSlib.h</a> and <a href="https://github.com/sverx/devkitSMS/blob/master/PSGlib/src/PSGlib.h">PSGlib.h</a> header files do not seem to have include guard clauses which means they can't be included more than once so let's create wrappers for them.  In fact, this is beneficial for debugging.
+<pre class="csharp" name="code">
+// _sms_manager.h
+#ifndef _SMS_MANAGER_H_
+#define _SMS_MANAGER_H_
+
+void devkit_SMS_init();
+void devkit_SMS_displayOn();
+void devkit_SMS_displayOff();
+void devkit_SMS_mapROMBank( unsigned char n );
+// ...
+
+// input
+unsigned int devkit_SMS_getKeysStatus();
+unsigned int devkit_PORT_A_KEY_UP();
+unsigned int devkit_PORT_A_KEY_DOWN();
+// ...
+unsigned int devkit_PORT_A_KEY_1();
+unsigned int devkit_PORT_A_KEY_2();
+
+// #defines
+unsigned char devkit_SPRITEMODE_NORMAL();
+unsigned int devkit_VDPFEATURE_HIDEFIRSTCOL();
+
+#endif//_SMS_MANAGER_H_
+</pre>
+Note: repeat this process for PSGlib.h.  Also, don't forget to upgrade PSGlib to include <a href="https://github.com/sverx/devkitSMS/blob/master/PSGlib/src/PSGlib.c">PSGResume</a>() API.
+<br /><br />
+<b>Screen</b>
+<br />
+As projects get larger there will be more screens.  Therefore, refactor and channel through screen manager:
+<pre class="csharp" name="code">
+// screen_manager.c
+#include "screen_manager.h"
+#include "global_manager.h"
+#include "enum_manager.h"
+
+// Screens
+#include "splash_screen.h"
+#include "intro_screen.h"
+// ...
+#include "over_screen.h"
+
+static void( *load_method[ MAX_SCREEENS ] )( );
+static void( *update_method[ MAX_SCREEENS ] )( unsigned char *screen_type );
+
+static unsigned char curr_screen_type;
+static unsigned char next_screen_type;
+
+void engine_screen_manager_init( unsigned char open_screen_type )
+{
+  next_screen_type = open_screen_type;
+  curr_screen_type = screen_type_none;
+
+  // Set load methods.
+  load_method[ screen_type_splash ] = screen_splash_screen_load;
+  load_method[ screen_type_intro ] = screen_intro_screen_load;
+  // ...
+}
+
+void engine_screen_manager_update()
+{
+  if( curr_screen_type != next_screen_type )
+  {
+    curr_screen_type = next_screen_type;
+    load_method[ curr_screen_type ]();
+  }
+
+  update_method[ curr_screen_type ]( &next_screen_type );
+}
+</pre>
+<br />
+<b>Input</b>
+<br />
+Remove previous + current input state that was injected into methods and channel through input manager:
+<pre class="csharp" name="code">
+// input_manager.c
+#include "input_manager.h"
+#include "_sms_manager.h"
+
+// Must be static to persist values!
+static unsigned int curr_joypad1 = 0;
+static unsigned int prev_joypad1 = 0;
+
+// Private helper methods.
+static unsigned char engine_input_manager_hold( unsigned int data );
+static unsigned char engine_input_manager_move( unsigned int data );
+
+// Public method.
+void engine_input_manager_update()
+{
+  prev_joypad1 = curr_joypad1;
+  curr_joypad1 = devkit_SMS_getKeysStatus();
+}
+
+// main.c
+for (;;)
+{
+  if( devkit_SMS_queryPauseRequested() )
+  {
+    // ...
+  }
+
+  devkit_SMS_initSprites();
+  engine_input_manager_update();
+  engine_screen_manager_update();
+
+  devkit_SMS_finalizeSprites();
+  devkit_SMS_waitForVBlank();
+  devkit_SMS_copySpritestoSAT();
+
+  devkit_PSGFrame();
+  devkit_PSGSFXFrame();
+}
+</pre>
+<br />
+<b>Banks</b>
+<br />
+In 2017, <a href="http://www.smspower.org/Homebrew/AstroForce-SMS">Astro Force</a> by <a href="http://www.smspower.org/forums/member10267">eruiz00</a> gave a great example on how to reference bank information generated from bmp2tile and folder2c in code to lookup data stored in arrays, for example, to load banked sprite animation:
+<pre class="csharp" name="code">
+// anim_object.h
+extern const unsigned char *player_anim_data[];
+extern const unsigned char player_anim_bank[];
+
+//anim_object.c
+#include "anim_object.h"
+#include "..\banks\bank2.h"
+
+const unsigned char *player_anim_data[] =
+{
+  player_idle__tiles__psgcompr,
+  player_run_left_01__tiles__psgcompr,
+  player_run_left_02__tiles__psgcompr,
+  // ...
+  player_run_rght_04__tiles__psgcompr,
+  player_run_rght_05__tiles__psgcompr,
+};
+const unsigned char player_anim_bank[] =
+{
+  player_idle__tiles__psgcompr_bank,
+  player_run_left_01__tiles__psgcompr_bank,
+  player_run_left_02__tiles__psgcompr_bank,
+  // ...
+  player_run_rght_04__tiles__psgcompr_bank,
+  player_run_rght_05__tiles__psgcompr_bank,
+};
+
+// anim_manager.c
+static void player_load( unsigned char index, unsigned int tile )
+{
+  const unsigned char *data = ( const unsigned char * ) player_anim_data[ index ];
+  const unsigned char bank = ( const unsigned char ) player_anim_bank[ index ];
+
+  devkit_SMS_mapROMBank( bank );
+  devkit_SMS_loadPSGaidencompressedTiles( data, tile );
+}
+</pre>
+<br />
+<b>Levels</b>
+<br />
+In 2018, <a href="http://www.smspower.org/Homebrew/DuckslayerAdventures-SMS">Duckslayer Adventures</a> by <a href="http://www.smspower.org/forums/member601">haroldoop</a> gave a great example of how levels could be stored externally in text files then converted into byte arrays using folder2c.  The byte arrays are then interpreted for drawing:
+<table width="99%" border="1">
 <tr>
-<td valign="top" width="30%">&nbsp;KEY</td>
-<td valign="top" width="70%">&nbsp;VALUE</td>
+<td valign="top" width="20%">
+<table width="100%">
+<tr>
+<td valign="top" width="40%">&nbsp;<b>KEY</b></td>
+<td valign="top" width="40%">&nbsp;<b>VALUE</b></td>
 </tr>
 <tr>
-<td valign="top" width="20%">&nbsp;<b>Programming</b></td>
-<td valign="top" width="20%">&nbsp;<a href="https://github.com/sverx/devkitSMS">devkitSMS</a></td>
+<td valign="top" width="40%">&nbsp;.</td>
+<td valign="top" width="40%">&nbsp;Blank</td>
 </tr>
 <tr>
-<td valign="top" width="20%">&nbsp;<b>Compiler</b></td>
-<td valign="top" width="20%">&nbsp;<a href="https://sourceforge.net/projects/sdcc/files/sdcc/3.6.0">sdcc 3.6</a></td>
+<td valign="top" width="40%">&nbsp;#</td>
+<td valign="top" width="40%">&nbsp;Block</td>
 </tr>
 <tr>
-<td valign="top" width="20%">&nbsp;<b>Assembler</b></td>
-<td valign="top" width="20%">&nbsp;<a href="http://www.villehelin.com/wla.html">WLA-DX</a></td>
+<td valign="top" width="40%">&nbsp;@</td>
+<td valign="top" width="40%">&nbsp;Platform</td>
 </tr>
 <tr>
-<td valign="top" width="20%">&nbsp;<b>IDE</b></td>
-<td valign="top" width="20%">&nbsp;<a href="https://my.visualstudio.com/Downloads?q=visual%20studio%202015&wt.mc_id=o~msft~vscom~older-downloads">Visual Studio 2015</a></td>
+<td valign="top" width="40%">&nbsp;$</td>
+<td valign="top" width="40%">&nbsp;Optional</td>
 </tr>
 <tr>
-<td valign="top" width="20%">&nbsp;<b>Languages</b></td>
-<td valign="top" width="20%">&nbsp;<a href="http://en.wikipedia.org/wiki/C_(programming_language)">C</a> / <a href="https://en.wikipedia.org/wiki/Zilog_Z80">Z80</a></td>
+<td valign="top" width="40%">&nbsp;1</td>
+<td valign="top" width="40%">&nbsp;Player</td>
 </tr>
 <tr>
-<td valign="top" width="20%">&nbsp;<b>Graphics</b></td>
-<td valign="top" width="20%">&nbsp;<a href="https://github.com/maxim-zhao/bmp2tile/releases/tag/v0.43">BMP2Tile 0.43</a> / <a href="https://www.gimp.org">GIMP 2</a> / <a href="https://www.getpaint.net">paint.net</a></td>
+<td valign="top" width="40%">&nbsp;X</td>
+<td valign="top" width="40%">&nbsp;Exit</td>
 </tr>
 <tr>
-<td valign="top" width="20%">&nbsp;<b>Music</b></td>
-<td valign="top" width="20%">&nbsp;<a href="http://www.smspower.org/Music/Mod2PSG2">Mod2PSG2</a> / <a href="https://github.com/sverx/PSGlib/blob/master/tools/vgm2psg.exe">vgm2psg</a></td>
+<td valign="top" width="40%">&nbsp;G</td>
+<td valign="top" width="40%">&nbsp;Gem</td>
 </tr>
 <tr>
-<td valign="top" width="20%">&nbsp;<b>Emulators</b></td>
-<td valign="top" width="20%">&nbsp;<a href="http://emulicious.net">Emulicious</a> / <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/404-kega-fusion">Fusion</a> / <a href="http://www.smspower.org/meka">Meka</a></td>
+<td valign="top" width="40%">&nbsp;P</td>
+<td valign="top" width="40%">&nbsp;Power</td>
+</tr>
+</table>
+</td>
+<td valign="top" width="20%" >
+<pre class="csharp" name="code">
+&nbsp;&nbsp;// Level0101
+&nbsp;&nbsp;................
+&nbsp;&nbsp;.P..............
+&nbsp;&nbsp;.@@...........@@
+&nbsp;&nbsp;..........A.....
+&nbsp;&nbsp;..G...$@@@@....G
+&nbsp;&nbsp;.@@...........@@
+&nbsp;&nbsp;................
+&nbsp;&nbsp;.G............G.
+&nbsp;&nbsp;.@@...........@@
+&nbsp;&nbsp;.@@.1.......X.@@
+&nbsp;&nbsp;.####$$$$$$#####
+&nbsp;&nbsp;..###$$$$$$####.
+</pre>
+</td>
+<td valign="top" width="60%">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSsWXUz0QPOJdOiLVGWsNnIFtuR6dLvnXRc25KJcaqGI65hyHfhLeSajm_r1tCDw8JMCwkvp2KU1_w8LlRnrI7s3gIfwcJJ6_JnUpPv_irGdy42rJ8YfjmEJLctYIFq6pN6HIxdR3Qg0I/s1600/Level0101.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSsWXUz0QPOJdOiLVGWsNnIFtuR6dLvnXRc25KJcaqGI65hyHfhLeSajm_r1tCDw8JMCwkvp2KU1_w8LlRnrI7s3gIfwcJJ6_JnUpPv_irGdy42rJ8YfjmEJLctYIFq6pN6HIxdR3Qg0I/s640/Level0101.png" width="95%" /></a>
+</td>
 </tr>
 </table>
 <br />
-<u>ROM Hacking</u>
+<b>Structs</b>
 <br />
-You can hack this ROM!  Download + dump <a href="https://github.com/SteveProXNA/PlatformExplorerSMS/blob/master/PlatformExplorer-3.0.sms">PlatformExplorer</a> into Hex Editor, e.g. <a href="http://mh-nexus.de/downloads/HxDSetupEN.zip">HxD</a>, and modify bytes:
-<table width="96%" border="1">
-<tr>
-<td valign="top" width="20%">&nbsp;ADDRESS</td>
-<td valign="top" width="20%">&nbsp;VARIABLE</td>
-<td valign="top" width="40%">&nbsp;DESCRIPTION</td>
-</tr>
-<tr>
-<td valign="top" width="20%">&nbsp;<b>0x004F</b></td>
-<td valign="top" width="20%">&nbsp;DelaySpeed</td>
-<td valign="top" width="40%">&nbsp;Used during dev disables screen delays.</td>
-</tr>
-<tr>
-<td valign="top" width="20%">&nbsp;<b>0x0050</b></td>
-<td valign="top" width="20%">&nbsp;Invincible</td>
-<td valign="top" width="40%">&nbsp;Non-zero value enables auto invincible.</td>
-</tr>
-<tr>
-<td valign="top" width="20%">&nbsp;<b>0x0051</b></td>
-<td valign="top" width="20%">&nbsp;Difficulty</td>
-<td valign="top" width="40%">&nbsp;Set value to 1=Hard otherwise use Easy.</td>
-</tr>
-<tr>
-<td valign="top" width="20%">&nbsp;<b>0x0052</b></td>
-<td valign="top" width="20%">&nbsp;Game Speed</td>
-<td valign="top" width="40%">&nbsp;Set value to 1=Slow otherwise use Fast.</td>
-</tr>
-<tr>
-<td valign="top" width="20%">&nbsp;<b>0x0053</b></td>
-<td valign="top" width="20%">&nbsp;World No.</td>
-<td valign="top" width="40%">&nbsp;Set start world no to zero-based value.</td>
-</tr>
-<tr>
-<td valign="top" width="20%">&nbsp;<b>0x0054</b></td>
-<td valign="top" width="20%">&nbsp;Round No.</td>
-<td valign="top" width="40%">&nbsp;Set start round no to zero-based value.</td>
-</tr>
-<tr>
-<td valign="top" width="20%">&nbsp;<b>0x0055</b></td>
-<td valign="top" width="20%">&nbsp;Music Off</td>
-<td valign="top" width="40%">&nbsp;Set 0=music to play otherwise disabled.</td>
-</tr>
-<tr>
-<td valign="top" width="20%">&nbsp;<b>0x0056</b></td>
-<td valign="top" width="20%">&nbsp;Sound Off</td>
-<td valign="top" width="40%">&nbsp;Set 0=sound to play otherwise disabled.</td>
-</tr>
-<tr>
-<td valign="top" width="20%">&nbsp;<b>0x0057</b></td>
-<td valign="top" width="20%">&nbsp;Enemy move</td>
-<td valign="top" width="40%">&nbsp;Set value non-zero to disable movement.</td>
-</tr>
-</table>
+Finally, as seen in many code samples from haroldoop, <a href="https://en.wikipedia.org/wiki/Struct_(C_programming_language)">structs</a> are used extensively to store data especially data accessed globally throughout the code base.  Platform Explorer uses this idea coupled with "manager":
+<pre class="csharp" name="code">
+// hack_object.h
+typedef struct tag_struct_hack_object
+{
+  unsigned char hack_delayspeed;
+  unsigned char hack_invincible;
+  unsigned char hack_difficulty;
+  unsigned char hack_game_speed;
+
+} struct_hack_object;
+
+ 
+// hack_manager.h
+#include "hack_object.h"
+
+void engine_hack_manager_init();
+extern struct_hack_object global_hack_object;
+
+
+// hack_manager.c
+#include "hack_manager.h"
+#include "global_manager.h"
+#include "enum_manager.h"
+
+#define PEEK( addr)        (* ( unsigned char *)( addr ) )
+#define POKE( addr, data ) (* ( unsigned char *)( addr ) = ( data ) )
+
+#define HACKER_START       0x0050
+
+// Global variable.
+struct_hack_object global_hack_object;
+
+void engine_hack_manager_init()
+{
+  struct_hack_object *ho = &global_hack_object;
+  ho->hack_delayspeed = 0;
+  ho->hack_invincible = 0;
+  ho->hack_difficulty = 0;
+  ho->hack_game_speed = 0;
+
+#ifndef _CONSOLE
+  ho->hack_delayspeed = PEEK( HACKER_START - 1 );
+  ho->hack_invincible = PEEK( HACKER_START + 0 );
+  ho->hack_difficulty = PEEK( HACKER_START + 1 );
+  ho->hack_game_speed = PEEK( HACKER_START + 2 );
+#endif
+}
+</pre>
+
 <br />
-<u>Bonuses</u>
-<ul>
-<li>
-Player will receive free man for every 20x gems collected during game.
-</li>
-<li>
-Player will also receive bonus 5x gems on collecting all gems in level.
-</li>
-</ul>
+<u>Debugging</u>
 <br />
-<u>Cheats</u>
-<ul>
-<li>
-Press Button2 five times on Start screen and you will be invincible each game this is actioned.
-</li>
-<li>
-Press Button2 three times while holding down on Difficulty screen to navigate to select screen.
-</li>
-<li>
-Press and hold Button2 during game play to reset player to original starting spot in each level.
-</li>
-<li>
-Press and hold Button2 while holding down to secretly quit out game back to the Start screen.
-</li>
-</ul>
-<br />
-<u>Credits</u>
-<br />
-Extra special thanks goes to <a href="http://www.smspower.org/forums/member7198">sverx</a> for the devkitSMS.  Plus StevePro Studios would like to thank <a href="http://www.smspower.org/forums/member10267">eruiz00</a> and <a href="http://www.smspower.org/forums/member601">haroldoop</a> for sharing source code from SMS <a href="http://www.smspower.org/Homebrew/Index">Homebrew</a> projects.  Many ideas here were used in this project!
+Visual Studio is useful IDE for navigating a large code base.  However, as the game code currently targets SDCC compiler it does not seem possible to debug step through the devkitSMS specific API source calls.
 <br /><br />
-<u>Homebrew</u>
+Nonetheless, leverage the _CONSOLE conditional compilation statement and implement the following code.  Here, it is possible to debug step through all ANSI-C code at least trusting devkitSMS code works correctly.
+<pre class="csharp" name="code">
+// _sms_manager.c
+#include "_sms_manager.h"
+#include "info_manager.h"
+#include &lt;stdbool.h&gt;
+
+#ifdef _CONSOLE
+#include "..\..\tmp\SMSlib.h"
+#else
+#include "..\..\lib\SMSlib.h"
+#endif
+
+void devkit_SMS_init()
+{
+  SMS_init();
+}
+void devkit_SMS_displayOn()
+{
+  SMS_displayOn();
+}
+void devkit_SMS_displayOff()
+{
+  SMS_displayOff();
+}
+void devkit_SMS_mapROMBank( unsigned char n )
+{
+  SMS_mapROMBank( n );
+}
+// ...
+
+// Sega header.
+#ifdef _CONSOLE
+#else
+  SMS_EMBED_SEGA_ROM_HEADER( productCode, revision );
+  SMS_EMBED_SDSC_HEADER( verMaj, verMin, dateYear, dateMonth, dateDay, author, name, descr );
+#endif
+</pre>
+Remember: tmp sub-folder contains dummy PSGlib.h and SMSlib.h header files that facilitate debugging.
+<br /><br />
+<u>Performance</u>
 <br />
-The <a href="http://www.smspower.org/Homebrew">Homebrew</a> community at SMS Power celebrates Sega 8-bit preservation and fanaticism each year with its annual competitions.  Therefore, this is always an opportunity to participate by entering these games!
+In order to process collision detections in <a href="https://en.wikipedia.org/wiki/Platform_game">Platformers</a>, it is commonplace to take the absolute value of the distance of two points + use for comparison.  Unfortunately, there was noticeable delay with this <a href="https://stackoverflow.com/questions/9772348/get-absolute-value-without-using-abs-function-nor-if-statement">function</a>:
+<pre class="csharp" name="code">
+int abs( int v )
+{
+  return v * ( ( v < 0 ) * ( -1 ) + ( v > 0 ) );
+}
+</pre>
+After examining code this function invoked multiple times per frame it was clear that abs() could be replaced with simple if statement.  Being able to debug step through <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> code helped ensure this still worked as before!
 <br /><br />
-Platform Explorer presented the challenge of reverse engineering the original Platformer starter kit code written for a more modern CPU with floating point functionality and run on an 8-bit system with no <a href="https://en.wikipedia.org/wiki/Floating-point_unit">FPU</a>!
-<br /><br />
-Thankfully, "Writing a platformer for the TIC-80 fantasy console" blog <a href="https://medium.com/@btco_code/writing-a-platformer-for-the-tic-80-virtual-console-6fa737abe476">post</a> was available and helped to build more optimized code by pre-calculating physics velocity + acceleration and caching in integer lookup tables.
-<br /><br />
-<u>Promotion</u>
+<u>Polish</u>
 <br />
-A simple <a href="https://www.youtube.com/watch?v=gvIsqWOdm2g">video</a> was made to promote this game.  But a special mention must go out <a href="https://www.youtube.com/c/CanaldeARCADEMAN">ARCADE MAN</a> for all his work producing some amazing videos for the Coding and Hack entries in the SMS Power! 2019 Competition.
-<iframe width="98%" height="315" src="https://www.youtube.com/embed/RPIeLNv6JGA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Also, as projects become larger, more content is required.  Therefore, to ensure polish throughout the game it was critical that the <a href="https://en.wikipedia.org/wiki/Video_RAM_(dual-ported_DRAM)">VRAM</a> was cleared properly between large graphic content loads to avoid any glitches.
+<pre class="csharp" name="code">
+// intro_screen.c
+void screen_intro_screen_load()
+{
+  // Unload VRAM each begin to remove any unwanted graphics glitches...!
+  devkit_SMS_displayOff();
+  engine_asm_manager_clear_VRAM();
+  engine_text_manager_clear_all();
+
+  engine_content_manager_load_back_tiles();
+  engine_content_manager_load_sprites();
+  engine_content_manager_load_title();
+  // ...
+  devkit_SMS_displayOn();
+}
+</pre>
+<u>Deployment</u>
+<br />
+Finally, a big shout out to <a href="http://www.smspower.org/forums/member6944">Calindro</a> who helped deploy updated versions of Platform Explorer during the competition + for outlining is always better to stick with Power of 2 ROM sizes for compatibility reasons. 
 <br /><br />
 <u>Summary</u>
 <br />
-To summarize, the 2019 <a href="http://www.smspower.org/Competitions/Coding-2019">Coding</a> Competition featured fewer entries than last year as opposed to the <a href="http://www.smspower.org/Competitions/Hacks-2019">Hacks</a>.  The quality of the hacks in 2019 was really high and actually scored higher than coding competition entries!
-<br /><br />
-The hacks are mainly based around the <a href="http://emulicious.net/kidded">KiddEd</a> editor.  Explanations about how to use editor are found <a href="http://www.smspower.org/forums/14382-KiddEdAlexKiddInMiracleWorldEditor">here</a>:  Create an <a href="https://segaretro.org/IPS">IPS</a> patch in editor.  Download "Alex Kidd in Miracle World" <a href="https://coolrom.com.au/roms/mastersystem/7158/Alex_Kidd_in_Miracle_World.php">ROM</a> and use <a href="https://www.romhacking.net/download/utilities/240">Lunar</a> IPS to patch ROM.
-<br /><br />
-This <a href="https://www.youtube.com/watch?v=7X8iTdRzLMo">video</a> tutorial demos how to patch ROMs with IPS patches.  Maybe something to try for a future project!
+To summarize, once again the SMS Power! community has been awesome and by members sharing their code this has helped immensely with <a href="http://www.smspower.org/Homebrew/PlatformExplorer-SMS">Platform Explorer</a> doing so well in the <a href="http://www.smspower.org/Competitions/Coding-2019">2019</a> Coding Competition <span style='font-family:Wingdings'>J</span><span><o:p></o:p></span>
 </span>

@@ -34,7 +34,7 @@ Note: complete game project in C# / XNA published on non-<a href="https://en.wik
 </tr>
 </table>
 <br />
-In 2015, StevePro Studios consolidated many ideas from this Indie game development blog to produce game project to be self-published on PC (outside <a href="https://en.wikipedia.org/wiki/Xbox_Live_Indie_Games">XBLIG</a>) but also on mobile platforms: <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a>.
+In 2015, StevePro Studios consolidated many ideas from this Indie game development blog to produce game project to be self-published on <a href="http://www.amazon.com/StevePro-Studios-Retro-Candy-Download/dp/B018WIUDZ8/qid=1449745287">PC</a> (outside <a href="https://en.wikipedia.org/wiki/Xbox_Live_Indie_Games">XBLIG</a>) but also on mobile platforms: <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a>.
 <br /><br />
 The game project "<a href="http://steveproxna.blogspot.com/2015/11/candy-kid-is-live.html">Retro Candy Kid</a>" was inspired by the original 8-bit title <i><a href="http://www.segaretro.org/Candy_Kid">Candy Kid</a></i>: a "type-in" video game published by New Zealand's Sega Computer <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue02?gallerypage=17">Magazine</a> in the September 1984 issue, pages 17-18.
 <br /><br />

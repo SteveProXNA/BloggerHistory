@@ -4,13 +4,13 @@
 Whereas <a href="https://en.wikipedia.org/wiki/Git_(software)">Git</a>: a distributed version control system, unlike most <a href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model">client-server</a> systems, every Git directory is full-fledged repository [repo] complete with history + independent of network access or central server.
 <br /><br />
 <a href="http://boxysystems.com/index.php/5-fundamental-differences-between-git-svn">Differences</a> like these may be challenging at first.  Therefore, let's smooth the transition from <a href="https://en.wikipedia.org/wiki/Apache_Subversion">SVN</a> to <a href="https://en.wikipedia.org/wiki/Git_(software)">Git</a>:
-<a href="https://1.bp.blogspot.com/-38A0fnDnt1E/V7MTZvDvD0I/AAAAAAAADzM/sTcRQmvrHa4nyGQr62BM0wJQ14ICq2_JwCLcB/s1600/GitHubLogos.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-38A0fnDnt1E/V7MTZvDvD0I/AAAAAAAADzM/sTcRQmvrHa4nyGQr62BM0wJQ14ICq2_JwCLcB/s400/GitHubLogos.jpg" height="120" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjou5UpAu6o8C2E0Js1Ot1hma9bl8CnAC5IFOgfmoHb8rtFPUxI6aHytc1RMwX53f_SjMeZENfzPNLuJijAlb51vs0aBhtY7G3kZnC3fonCRXx8-esoX8jafAD9y95BYGPko0YYgaAF_k/s1600/GitHubLogos.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjou5UpAu6o8C2E0Js1Ot1hma9bl8CnAC5IFOgfmoHb8rtFPUxI6aHytc1RMwX53f_SjMeZENfzPNLuJijAlb51vs0aBhtY7G3kZnC3fonCRXx8-esoX8jafAD9y95BYGPko0YYgaAF_k/s400/GitHubLogos.jpg" height="120" width="98%" /></a>
 <br /><br />
 Let's check it out! 
 <br /><br />
 <u>Pre Requisites</u><br />
 Here are the Atlassian Git <a href="https://www.atlassian.com/git/tutorials">tutorials</a> this post makes reference to.  Attached is basic diagram for Newbies:
-<a href="https://2.bp.blogspot.com/-7qeg-XITRJg/V7NFtrOiDLI/AAAAAAAADz8/IwGWLxAxHCgdE9rb5d4w8TS_XmakCYYaACLcB/s1600/git-local-remote.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-7qeg-XITRJg/V7NFtrOiDLI/AAAAAAAADz8/IwGWLxAxHCgdE9rb5d4w8TS_XmakCYYaACLcB/s640/git-local-remote.png" width="98%" height="300" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkwoxmasgTfjUCQQdl5xd37QPAYzhV-a7QNt0uj8irNTb0NGjBt7O-4Di65dUrhv4VZFM0Ad0XJ_mgmtaweya1PrRAQ2AG_AsqovBoBHGZG7sfSWjiNmCuyobSCxA9HrHuBNcbz-MuQtw/s1600/git-local-remote.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkwoxmasgTfjUCQQdl5xd37QPAYzhV-a7QNt0uj8irNTb0NGjBt7O-4Di65dUrhv4VZFM0Ad0XJ_mgmtaweya1PrRAQ2AG_AsqovBoBHGZG7sfSWjiNmCuyobSCxA9HrHuBNcbz-MuQtw/s640/git-local-remote.png" width="98%" height="300" /></a>
 Note: in the simplest <a href="http://stackoverflow.com/questions/292357/what-are-the-differences-between-git-pull-and-git-fetch">terms</a>, <b>git pull</b> [not pictured] does a <i>git fetch</i> followed by a <i>git merge</i>.
 <br /><br />
 Download Git distributed version control system for <a href="https://git-scm.com/download/win">Windows</a> or <a href="https://git-scm.com/download/mac">Mac</a>.  Setup Git global configuration here:
@@ -68,11 +68,11 @@ Note: Gitbox non-commercial version only allows one repository at a time but oft
 <br /><br />
 IMPORTANT:<br />
 If you have <a href="http://www.cygwin.org">Cygwin</a> installed on Windows then ensure TortoiseGit settings do <b>NOT</b> use Unix Git.exe Path:
-<a href="https://1.bp.blogspot.com/-Mhd6s2l8o34/V7MeFohVrHI/AAAAAAAADzg/1ZcLerHIHfU1EsMuvTVoWgk61w0gVywYACLcB/s1600/Cygwin.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-Mhd6s2l8o34/V7MeFohVrHI/AAAAAAAADzg/1ZcLerHIHfU1EsMuvTVoWgk61w0gVywYACLcB/s640/Cygwin.jpg" width="98%" height="300" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZDMnpoKV5TsLbrrXBDkMjFVNeI739GPzkA5OPNwzIZg-p-BIj2cJ-eu_VNJpJSyfruaQBL6479AjavvaxOe2JvtmqaHIQkF17cgwohyphenhyphen7OMinMrX6os0F6A1oKTjP20fEVty5qyrHsQ30/s1600/Cygwin.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZDMnpoKV5TsLbrrXBDkMjFVNeI739GPzkA5OPNwzIZg-p-BIj2cJ-eu_VNJpJSyfruaQBL6479AjavvaxOe2JvtmqaHIQkF17cgwohyphenhyphen7OMinMrX6os0F6A1oKTjP20fEVty5qyrHsQ30/s640/Cygwin.jpg" width="98%" height="300" /></a>
 <br /><br />
 <u>GitHub</u><br />
 Create an account on <a href="https://github.com">github.com</a> if you have not already done so.  <a href="https://guides.github.com/activities/hello-world">Read the guide</a> is another good start.  Choose <a href="https://github.com/new">Start a Project</a> | Enter the name of your new repo e.g. "MyCoolRepo" and initialize with README:
-<a href="https://4.bp.blogspot.com/-E2LE1Cs9i5o/V7N6-vFzXRI/AAAAAAAAD0c/vRrzO0jXIOs-_3gwxfVRwuaPtie2h0IJACLcB/s1600/CreateRepo.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-E2LE1Cs9i5o/V7N6-vFzXRI/AAAAAAAAD0c/vRrzO0jXIOs-_3gwxfVRwuaPtie2h0IJACLcB/s640/CreateRepo.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKI9nnHOR90kyBHCh189s5FwBY-_L7r23g73DohBBnSezdEqbuwQDCnIZFQP5-YOIpJo-TYOqnFNVyIkmH6rRlAtRCnVMuiYPNuClV4XjEzt4Hxf2_kF-G9O0NCoyoW6swYXhICa9gjmc/s1600/CreateRepo.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKI9nnHOR90kyBHCh189s5FwBY-_L7r23g73DohBBnSezdEqbuwQDCnIZFQP5-YOIpJo-TYOqnFNVyIkmH6rRlAtRCnVMuiYPNuClV4XjEzt4Hxf2_kF-G9O0NCoyoW6swYXhICa9gjmc/s640/CreateRepo.jpg" width="98%" height="400" /></a>
 Launch command prompt.  Type 3x variants of following <i>git clone</i> command to checkout local repository:
 <pre class="csharp" name="code">
 git clone https://github.com/SteveProXNA/MyCoolRepo.git MyCoolRepo
@@ -116,7 +116,7 @@ IMPORTANT:<br />
 If you push code changes using <a href="https://tortoisegit.org/download">TortoiseGit</a> then you may need to change Global User Info name + email; especially if you <i>git clone</i> repository using credentials that are different from the global GitHub account.
 <br /><br />
 Windows Explorer | Right click MyCoolRepo directory | TortoiseGit | Settings | Git [OK] Configure source:
-<a href="https://2.bp.blogspot.com/-5cgUyGGQxBE/V76taF2hVII/AAAAAAAAD1g/5wjslWrXJo0Y5dDx1pPzsvR6hXXKZqn3gCLcB/s1600/Settings.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-5cgUyGGQxBE/V76taF2hVII/AAAAAAAAD1g/5wjslWrXJo0Y5dDx1pPzsvR6hXXKZqn3gCLcB/s640/Settings.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqbPFfRU4cLZaWsGGwaspWzyO38T9ChFNAElZBLjhqGxEx0oTy0KHz69mnChVXeJw02dbAEYFa7cZxIrDHXBLrJ9pZKl5LBxlY6_1zQQL35OMTmgnB0d7XcAFUguWD4f2BzdJWEoPGSKc/s1600/Settings.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqbPFfRU4cLZaWsGGwaspWzyO38T9ChFNAElZBLjhqGxEx0oTy0KHz69mnChVXeJw02dbAEYFa7cZxIrDHXBLrJ9pZKl5LBxlY6_1zQQL35OMTmgnB0d7XcAFUguWD4f2BzdJWEoPGSKc/s640/Settings.jpg" width="98%" height="400" /></a>
 <br /><br />
 Before making any changes to the repo, prepare working environment to detect changes via Git tools:
 <table width="99%" border="1">
@@ -332,7 +332,7 @@ IMPORTANT: the <a href="https://www.atlassian.com/git/tutorials/merging-vs-rebas
 <br /><br />
 <u>Pull Request</u><br />
 GitHub fosters a fast, flexible, collaborative development process where you work with or without others.  Here, you can sign into GitHub and <a href="https://help.github.com/articles/fork-a-repo">fork</a> an existing repository and create <a href="https://help.github.com/articles/using-pull-requests">pull request</a> to merge changes.
-<a href="https://3.bp.blogspot.com/-TL1gLFx2P6o/V7r43t69qBI/AAAAAAAAD1A/nha4K48r2OcrS-W3Bsq3a5-bBE_dtF6pgCLcB/s1600/MonoGame.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-TL1gLFx2P6o/V7r43t69qBI/AAAAAAAAD1A/nha4K48r2OcrS-W3Bsq3a5-bBE_dtF6pgCLcB/s640/MonoGame.jpg" width="98%" height="42" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirUfVqgyLJ_jN63BdyIYfDImgQLYELBzccmasHTOBoBxPwJ2qrxxEPj0YBppdhyphenhyphenIZuxe-bZXMPYjzNccFmSW3Dk_pWcecjDwWT5JMvD5VwjUjKmAEQOckCeE3yvg4GD7OatPAtYmgyjbs/s1600/MonoGame.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirUfVqgyLJ_jN63BdyIYfDImgQLYELBzccmasHTOBoBxPwJ2qrxxEPj0YBppdhyphenhyphenIZuxe-bZXMPYjzNccFmSW3Dk_pWcecjDwWT5JMvD5VwjUjKmAEQOckCeE3yvg4GD7OatPAtYmgyjbs/s640/MonoGame.jpg" width="98%" height="42" /></a>
 <br />
 Choose repository to actively collaborate e.g. <a href="https://github.com/MonoGame/MonoGame">MonoGame</a>.  Click "Fork" button top right.  Choose location.  There should now be repository forked under your <i>username</i> ready to <i>git clone</i> and commit changes to:
 <pre class="csharp" name="code">
@@ -365,7 +365,7 @@ https://github.com/MonoGame/MonoGame/compare/master...SteveProXNA:master
 </table>
 <br />
 Click "Create Pull Request".  Owner receives email notification to view proposed changes to integrate.  Click "Merge pull request" to merge changes back into source repository and automatically close Pull Request.
-<a href="https://3.bp.blogspot.com/-RbsXMkHWBJI/V7sKBDVvMdI/AAAAAAAAD1Q/70Va223vhVQaJQIFmT6ayZqAe23LpzuwwCLcB/s1600/MergeRequest.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-RbsXMkHWBJI/V7sKBDVvMdI/AAAAAAAAD1Q/70Va223vhVQaJQIFmT6ayZqAe23LpzuwwCLcB/s640/MergeRequest.png" width="98%" height="125" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitqoZeb99XBLZ6bGy_d7w5DN1L-es7b9mVVM3LWhNf3VH986pl4X_kDMOTHI_tlGUobY1gcsSa1EuA8SrIhuXyawKmRYeaoB1zfCAWRY2G4rwj21kzECi0MFCr71qSNRTtY00TnOpN-IE/s1600/MergeRequest.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitqoZeb99XBLZ6bGy_d7w5DN1L-es7b9mVVM3LWhNf3VH986pl4X_kDMOTHI_tlGUobY1gcsSa1EuA8SrIhuXyawKmRYeaoB1zfCAWRY2G4rwj21kzECi0MFCr71qSNRTtY00TnOpN-IE/s640/MergeRequest.png" width="98%" height="125" /></a>
 <br />
 IMPORTANT: if you would like to keep <a href="https://gist.github.com/CristinaSolana/1885435">up to date</a> with the source repository then follow these short steps:
 <pre class="csharp" name="code">
@@ -418,7 +418,7 @@ Navigate to Jenkins | New Item | Create Freestyle project.  Ensure the following
 </tr>
 </table>
 <br />
-<a href="https://4.bp.blogspot.com/-RebSXW9R-7U/V7rUvPhb5sI/AAAAAAAAD0s/qqFp8Qj_h1IvFPRtn8fK0x20oglwQYU4ACLcB/s1600/Jenkins.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-RebSXW9R-7U/V7rUvPhb5sI/AAAAAAAAD0s/qqFp8Qj_h1IvFPRtn8fK0x20oglwQYU4ACLcB/s640/Jenkins.jpg" width="99%" height="300" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDX85LDWM4rEjVSaCAo9sZIwQ1qgqN7EENV2oifR4rV_3-MTdrguXftYkMjpj_zlsyuECFL5aTv7a9-6crtZYa279KLvUyFL8QmWlMujik5gQRMB-CsC0Uy_xi9qbwktVRWp2O-RlDg1U/s1600/Jenkins.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDX85LDWM4rEjVSaCAo9sZIwQ1qgqN7EENV2oifR4rV_3-MTdrguXftYkMjpj_zlsyuECFL5aTv7a9-6crtZYa279KLvUyFL8QmWlMujik5gQRMB-CsC0Uy_xi9qbwktVRWp2O-RlDg1U/s640/Jenkins.jpg" width="99%" height="300" /></a>
 <br /><br />
 <table width="100%" border="1">
 <tr>

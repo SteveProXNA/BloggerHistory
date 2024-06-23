@@ -2,7 +2,7 @@
 In <a href="http://steveproxna.blogspot.com/2017/09/devkitsms-programming-setup.html">2017</a>, we checked out <a href="https://github.com/sverx/devkitSMS">devkitsms</a> to setup productive development environment to build 8-bit retro video games for the Sega Master System (<a href="http://en.wikipedia.org/wiki/Master_System">SMS</a>).  In <a href="http://steveproxna.blogspot.com/2019/04/devkitsms-programming-sample-iii.html">2019</a>, we improved build process to develop <a href="https://www.smspower.org/Homebrew/PlatformExplorer-SMS">Platform Explorer</a>.
 <br /><br />
 Though after five years of SMS development we would like to connect more the <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C language</a> with underlying <a href="http://en.wikipedia.org/wiki/Zilog_Z80#Z80_assembly_language">Z80 assembly</a> code.  Look for opportunities to consolidate 8-bit retro game development to build <a href="https://www.smspower.org/Homebrew/CandyKid-SMS">Candy Kid</a>!
-<a href="https://3.bp.blogspot.com/-zT9aLBPp0Wk/Xpi6uVGyT1I/AAAAAAAAGH8/9LcVK5jl8aY-ltvqiMaA5n3jI9VZA6vYgCLcBGAsYHQ/s1600/01.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-zT9aLBPp0Wk/Xpi6uVGyT1I/AAAAAAAAGH8/9LcVK5jl8aY-ltvqiMaA5n3jI9VZA6vYgCLcBGAsYHQ/s640/01.png" width="98%" height="526" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNs-2WOI3Y5g4uH_ZYDKWKwE74cxrD2GxSOBm_t4mSF6Y43CQXlgj61SX7KLtBk3u5xxDAuzDMcnRHhqTe8FGZNoIY0B-yZe7xBFdsuVHpHYFi2M5JMidGhA4Xzhevs_65G-VoyMC3CWg/s1600/01.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNs-2WOI3Y5g4uH_ZYDKWKwE74cxrD2GxSOBm_t4mSF6Y43CQXlgj61SX7KLtBk3u5xxDAuzDMcnRHhqTe8FGZNoIY0B-yZe7xBFdsuVHpHYFi2M5JMidGhA4Xzhevs_65G-VoyMC3CWg/s640/01.png" width="98%" height="526" /></a>
 <br />
 Let's check it out!
 <br /><br />
@@ -30,13 +30,13 @@ In 2013, we checked out <a href="http://steveproxna.blogspot.ie/2013/09/sega-con
 In 2019, since collaborating with <a href="http://www.smspower.org/forums/member6944">Calindro</a>, we now have the opportunity to understand relationship between C source code and the generated Z80 assembly: <a href="https://emulicious.net">Emulicious</a> will decorate Z80 code in the debugger with its corresponding C function!
 <br /><br />
 Launch Emulicious. Tools menu | ensure "Reopen Tools" option is checked. Launch the debugger. File menu | ensure "Load Sources automatically" is checked + Run menu | ensure "Suspend On Open" is checked.  Close
-<a href="https://3.bp.blogspot.com/-fkOzJSV7b3I/XtaVckohaQI/AAAAAAAAGL4/K71AKqFw2t4dyX2xFPbediWFTegZpfITACLcBGAsYHQ/s1600/emulicious01.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-fkOzJSV7b3I/XtaVckohaQI/AAAAAAAAGL4/K71AKqFw2t4dyX2xFPbediWFTegZpfITACLcBGAsYHQ/s640/emulicious01.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR0YSEalzFKSoI1PoTDHZTA9eyi9IAdM6hwkwglIeD7UG3S7JPqbDDk0Ue6ktD0uBxrcQNkNj8gpSXsZK2oZiNNsGGWNSbbz8ZyLlzeI2x4931i7tEKG1Ox44IeSOnbaYm45VOFRwjHRU/s1600/emulicious01.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR0YSEalzFKSoI1PoTDHZTA9eyi9IAdM6hwkwglIeD7UG3S7JPqbDDk0Ue6ktD0uBxrcQNkNj8gpSXsZK2oZiNNsGGWNSbbz8ZyLlzeI2x4931i7tEKG1Ox44IeSOnbaYm45VOFRwjHRU/s640/emulicious01.png" width="98%" /></a>
 <br />
 Ensure the <a href="https://github.com/SteveProXNA/CandyKidSMS/blob/master/dev/output.map">output.map</a> file is <b>not</b> deleted in build script.  E.g. both <a href="https://github.com/SteveProXNA/CandyKidSMS/blob/master/dev/output.sms">output.sms</a> and <a href="https://github.com/SteveProXNA/CandyKidSMS/blob/master/dev/output.map">output.map</a> are built and loaded into Emulicious.  The output.map maps C source code functions to the underlying Z80 assembly code.
 <br /><br />
 <i>Example</i><br />
 Search for main function.  Ctrl + F | Find "_main"  Ctrl+click "main" to navigate there.  Ctrl+click any function name to navigate + inspect Z80 assembly code built for that function.  Click Alt+Left to navigate back.  Nice!
-<a href="https://1.bp.blogspot.com/-aIDQ5wzWFKE/XtaV4Iz0vXI/AAAAAAAAGMA/d7zmYe29S78eFgYDnaSi_dJedEL9a4qzgCLcBGAsYHQ/s1600/emulicious02.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-aIDQ5wzWFKE/XtaV4Iz0vXI/AAAAAAAAGMA/d7zmYe29S78eFgYDnaSi_dJedEL9a4qzgCLcBGAsYHQ/s640/emulicious02.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjf6myWLbafuwpXJKo2G99jtyDd4a0CWqpGZ8_CbVeBN5KJe9MtZBmvaw3iAG6AhUE2PbcxNmodipcNmj1eW-h8uDtu72X0KsdMy7OOiN41_3E7AG9d_iIsa5lEsh9eKq_Un-tvWUylOgQ/s1600/emulicious02.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjf6myWLbafuwpXJKo2G99jtyDd4a0CWqpGZ8_CbVeBN5KJe9MtZBmvaw3iAG6AhUE2PbcxNmodipcNmj1eW-h8uDtu72X0KsdMy7OOiN41_3E7AG9d_iIsa5lEsh9eKq_Un-tvWUylOgQ/s640/emulicious02.png" width="98%" /></a>
 <br /><br />
 <u>Coding</u><br />
 The following coding changes and enhancements have been made throughout Candy Kid development cycle:
@@ -119,7 +119,7 @@ In 2018, <a href="http://www.smspower.org/Homebrew/DuckslayerAdventures-SMS">Duc
 </pre>
 </td>
 <td valign="top" width="60%">
-<a href="https://4.bp.blogspot.com/-FpiXReMwg0c/Xsbjvhv9iQI/AAAAAAAAGLc/IFmNAOA2gTMLq2y2e56yx87CHu_92tVgQCLcBGAsYHQ/s1600/Level0101.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-FpiXReMwg0c/Xsbjvhv9iQI/AAAAAAAAGLc/IFmNAOA2gTMLq2y2e56yx87CHu_92tVgQCLcBGAsYHQ/s640/Level0101.png" width="95%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1xPtJH0xT7tKwljPXlp05l3IgjP0jmHOX-0_HRlIAhNuFiFsVzIP2MAWkJfHACPLLFO19goIVjiU7d_K3bHCrQveqn5FzlLXyzuYnOjv7R44JAXFBSsd6WkIv_MtydwyNWonwMpZJYmQ/s1600/Level0101.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1xPtJH0xT7tKwljPXlp05l3IgjP0jmHOX-0_HRlIAhNuFiFsVzIP2MAWkJfHACPLLFO19goIVjiU7d_K3bHCrQveqn5FzlLXyzuYnOjv7R44JAXFBSsd6WkIv_MtydwyNWonwMpZJYmQ/s640/Level0101.png" width="95%" /></a>
 </td>
 </tr>
 </table>

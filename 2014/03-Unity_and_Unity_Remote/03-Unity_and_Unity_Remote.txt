@@ -17,7 +17,7 @@ Let's check it out!
 Unity Remote: an application that targets mobile device as remote control for your project in Unity editor.  Development is quicker to test through remote control rather  than deploy to the device after each change. 
 <br /><br />
 At the time of this writing, Unity Remote is available for Android on <a href="http://en.wikipedia.org/wiki/Personal_computer">PC</a> and both Android / iOS on the <a href="http://en.wikipedia.org/wiki/Macintosh">Mac</a>.
-<a href="http://4.bp.blogspot.com/-ExudqcMNQW0/U7_YbAnQSrI/AAAAAAAAC5U/jjrBDPhtoSo/s1600/01-UnityRemote.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-ExudqcMNQW0/U7_YbAnQSrI/AAAAAAAAC5U/jjrBDPhtoSo/s640/01-UnityRemote.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWBIEWsPvNjx2IK_4wDyKldT6D_kPGbFcSl7XJaH3XSqy081tiDXywqkY0YRFpnCXHJIoQBKP1vkcQGtLdiH14yMPOv99ktVqg7oP529StkD8nhLPQDXUs7tlJN8upsSni0IwFbjUYLlU/s1600/01-UnityRemote.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWBIEWsPvNjx2IK_4wDyKldT6D_kPGbFcSl7XJaH3XSqy081tiDXywqkY0YRFpnCXHJIoQBKP1vkcQGtLdiH14yMPOv99ktVqg7oP529StkD8nhLPQDXUs7tlJN8upsSni0IwFbjUYLlU/s640/01-UnityRemote.jpg" width="98%" /></a>
 <br /><br />
 <u>Windows PC</u>
 <br />
@@ -52,7 +52,7 @@ Note: apparently the Unity3D application does not agree with root C:\Android.
 Update any additional Android packages required for all target devices as necessary.
 <br />
 For example, it is standard to install the Android SDK Tools and Google USB Drivers:
-<a href="http://1.bp.blogspot.com/-pGu9RI4Hyq4/U7_YsdHCNUI/AAAAAAAAC5c/i1ibO_n_ZeA/s1600/02-SDK-USB-Driver.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-pGu9RI4Hyq4/U7_YsdHCNUI/AAAAAAAAC5c/i1ibO_n_ZeA/s640/02-SDK-USB-Driver.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPZB5QW2_ppZkKB-Q0O6puu2R6mgaEeaYi8wUPWa3-_Cf7l9emTR0l2ufaYNbpVP02LF_BH2DKfQ3LimQZ8cMcku8NEWkQiTUdggd2sI8XCLNkekIkJV69qDB1znwef8I7GFdnBuRZEJc/s1600/02-SDK-USB-Driver.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPZB5QW2_ppZkKB-Q0O6puu2R6mgaEeaYi8wUPWa3-_Cf7l9emTR0l2ufaYNbpVP02LF_BH2DKfQ3LimQZ8cMcku8NEWkQiTUdggd2sI8XCLNkekIkJV69qDB1znwef8I7GFdnBuRZEJc/s640/02-SDK-USB-Driver.png" width="98%" /></a>
 <br />
 Launch Eclipse for Android Developer Tools (ADT) from D:\Android\eclipse\eclipse.exe
 <br />
@@ -101,7 +101,7 @@ In order to run the currently opened scene on the Android device, simply perform
 Edit menu | Project Settings | Editor | Unity Remote | Device | Choose Any Android Device
 <br /><br />
 Click the Play button.  The game will play directly on Android device as well as in Unity Editor!
-<a href="http://1.bp.blogspot.com/-ogr4U7bdWAU/U7_d0AyiBiI/AAAAAAAAC6E/NHtgRxcHxwE/s1600/04-Android.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-ogr4U7bdWAU/U7_d0AyiBiI/AAAAAAAAC6E/NHtgRxcHxwE/s640/04-Android.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2qswlV9-1ItcS_1eKjuIQoR_xbIZaZ0x-c3KaSj9jkK6vIh2tK-3DQwBj6brobBp1HrlEyvjVoEdR1Yox5rohE08lMOc7ONk0LCiHOKt0FbVhG22cpNki8eDFbVltTyDuJsm7u6h3WJI/s1600/04-Android.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2qswlV9-1ItcS_1eKjuIQoR_xbIZaZ0x-c3KaSj9jkK6vIh2tK-3DQwBj6brobBp1HrlEyvjVoEdR1Yox5rohE08lMOc7ONk0LCiHOKt0FbVhG22cpNki8eDFbVltTyDuJsm7u6h3WJI/s640/04-Android.jpg" width="98%" /></a>
 <br /><br />
 <u>Apple Mac</u>
 <br />
@@ -142,7 +142,7 @@ Launch Terminal window.  Add new ANDROID_HOME system variable and extend Path.
 export ANDROID_HOME=/Android/sdk
 <br />
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-<a href="http://1.bp.blogspot.com/-FM3qmiesaP0/U7_ax80q-2I/AAAAAAAAC54/AIejOJYVebg/s1600/03-MacExports.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-FM3qmiesaP0/U7_ax80q-2I/AAAAAAAAC54/AIejOJYVebg/s640/03-MacExports.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDLmdUU_Wj3XEhft0S_BCTObeRxuegeolDZnGidFLjK3m-tVcdsaoe4gpxRciMyPlgESq5c7DOmgWrguR_oEHpvNWQCRLzzIfNWFmPwGKWGL46SmWFXGqQ6FQdTgFEV7IFCtbdCGihmKA/s1600/03-MacExports.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDLmdUU_Wj3XEhft0S_BCTObeRxuegeolDZnGidFLjK3m-tVcdsaoe4gpxRciMyPlgESq5c7DOmgWrguR_oEHpvNWQCRLzzIfNWFmPwGKWGL46SmWFXGqQ6FQdTgFEV7IFCtbdCGihmKA/s640/03-MacExports.png" width="98%" /></a>
 <br />
 While Terminal window is still open, type in the following: "adb devices".
 <br />
@@ -169,7 +169,7 @@ Edit menu | Project Settings | Editor | Unity Remote | Device | Choose Any iOS D
 Click the Play button.  The game will play directly on iOS device as well as in Unity Editor!
 <br />
 Note: choose Any Android Device for equivalent experience on Android as outlined above.
-<a href="http://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s1600/05-iOS.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s640/05-iOS.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSwPJzRv1n5uRzh5Rc-i556GEG0TnY98rGcOgGCS7F4zekp_hlWRoktIQF2GG04wHz_AC-MYt-99DG2x5vwS-S55uVMemlLqj4ttAUCHQL98erDXov_ib24vCxObi1nruY8tcjsttGCYA/s1600/05-iOS.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSwPJzRv1n5uRzh5Rc-i556GEG0TnY98rGcOgGCS7F4zekp_hlWRoktIQF2GG04wHz_AC-MYt-99DG2x5vwS-S55uVMemlLqj4ttAUCHQL98erDXov_ib24vCxObi1nruY8tcjsttGCYA/s640/05-iOS.jpg" width="98%" /></a>
 <br /><br />
 <b>Conditional Compilation</b>
 <br />

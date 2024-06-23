@@ -9,7 +9,7 @@ Let's check it out!
 <br />
 Navigate to <a href="http://unityvs.com">UnityVS</a>.  Click <b>Try UnityVS</b> button to get the 14x day trial licence.
 <br />
-<a href="http://3.bp.blogspot.com/-mX-9zG0MARs/U38ErSHv-DI/AAAAAAAACw0/KekcAHADMXM/s1600/01-UnityVS.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-mX-9zG0MARs/U38ErSHv-DI/AAAAAAAACw0/KekcAHADMXM/s640/01-UnityVS.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitSYKHQpe2IYrnvobTc8rvr4ywD_mz1Fveo9nj75O53iJmAK_2rOuOrVscyBs5Fp_UEOn0F5f38pWSqYZUcJa06iME72N7l6a91xrLPUK0eZBVNSkt1y8Ybr8_zQik0PjAwk6s97lDUuE/s1600/01-UnityVS.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitSYKHQpe2IYrnvobTc8rvr4ywD_mz1Fveo9nj75O53iJmAK_2rOuOrVscyBs5Fp_UEOn0F5f38pWSqYZUcJa06iME72N7l6a91xrLPUK0eZBVNSkt1y8Ybr8_zQik0PjAwk6s97lDUuE/s640/01-UnityVS.jpg" width="98%" /></a>
 <br />
 Enter your first name, last name email address and Submit.
 <br />
@@ -27,7 +27,7 @@ Afterwards, you will receive 2x auto-generated emails:
 <br />
 Navigate to <a href="https://app.unityvs.com">UnityVS</a>.  Sign in using the credentials from the second email.
 <br />
-<a href="http://4.bp.blogspot.com/-AyiWbwtVVKA/U38FbrlmUnI/AAAAAAAACw8/sBK3mnmhVN8/s1600/02-UnityVS.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-AyiWbwtVVKA/U38FbrlmUnI/AAAAAAAACw8/sBK3mnmhVN8/s640/02-UnityVS.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy5xCLy8JtfDYDFM3wbwheXcE2TOh7aJcQ3tCxqktfwMVJxHMX_0oPu2sdQOELn3PCvVeSSw3qWY3ZJOFV7kFGL0zbQix4867ePQW8TspVZhz-KE0JMC89m2LZzoz-eTrDJZPnaHtLhMc/s1600/02-UnityVS.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy5xCLy8JtfDYDFM3wbwheXcE2TOh7aJcQ3tCxqktfwMVJxHMX_0oPu2sdQOELn3PCvVeSSw3qWY3ZJOFV7kFGL0zbQix4867ePQW8TspVZhz-KE0JMC89m2LZzoz-eTrDJZPnaHtLhMc/s640/02-UnityVS.jpg" width="98%" /></a>
 <br />
 Choose the version of UnityVS you want to download, e.g.: <b>UnityVS 2012</b>.
 <br />
@@ -39,11 +39,11 @@ Create simple project for Unity and Visual Studio <a href="http://unityvs.com/do
 <br />
 Launch Unity3D.  Create New Project.  Check UnityVS 2012.unitypackage option.
 <br />
-<a href="http://4.bp.blogspot.com/-QZkxvdLhVIM/U38Ft-ECKhI/AAAAAAAACxE/LHBWVDYuWHY/s1600/03-CreateProject.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-QZkxvdLhVIM/U38Ft-ECKhI/AAAAAAAACxE/LHBWVDYuWHY/s640/03-CreateProject.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiKwmJHOXou7iYLhpuA5Qxyn6e9zqT971338e_sigY7fAnLTcusXFV5hXICd4V0B31cBEKz5LQtxshv6CUfN8B3kRvkEFHPlTGyG8uyORpQ03ohifnomVJ7GHrS4GPCIthv0J6u8dorus/s1600/03-CreateProject.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiKwmJHOXou7iYLhpuA5Qxyn6e9zqT971338e_sigY7fAnLTcusXFV5hXICd4V0B31cBEKz5LQtxshv6CUfN8B3kRvkEFHPlTGyG8uyORpQ03ohifnomVJ7GHrS4GPCIthv0J6u8dorus/s640/03-CreateProject.jpg" width="98%" /></a>
 <br />
 Alternatively, Open Project.  Choose Assets menu, Import Package, UnityVS 2012.
 <br />
-<a href="http://2.bp.blogspot.com/-9-5fu76k3FQ/U38F4ICnp8I/AAAAAAAACxM/oAzOhwWHvYU/s1600/04-ExistingProject.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-9-5fu76k3FQ/U38F4ICnp8I/AAAAAAAACxM/oAzOhwWHvYU/s640/04-ExistingProject.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidqyKKOLjZcAVUMaSScfsKRS-jwuqAleIU_tNCkLVAeka6hKglIxQrH-I8rESeVgsgY72CMxPpLLIMDOcwydDLnWaPn_v4nzNhbtVjJs5TRKGlyCbtXGuG2Q3DqPa3QLa663nNtB7A6WM/s1600/04-ExistingProject.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidqyKKOLjZcAVUMaSScfsKRS-jwuqAleIU_tNCkLVAeka6hKglIxQrH-I8rESeVgsgY72CMxPpLLIMDOcwydDLnWaPn_v4nzNhbtVjJs5TRKGlyCbtXGuG2Q3DqPa3QLa663nNtB7A6WM/s640/04-ExistingProject.jpg" width="98%" /></a>
 <br />
 There should now be the new <b>UnityVS</b> menu available in Unity.
 <br />
@@ -63,13 +63,13 @@ Double click the C# script from Unity to open the file in Visual Studio accordin
 <br />
 Check out icon bottom right in Visual Studio: this now connects UnityVS instances.
 <br />
-<a href="http://1.bp.blogspot.com/-mtSe0Ke_-Ts/U38IUepoEOI/AAAAAAAACx0/VwHyQZ3_VpI/s1600/05-UnityInstance.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-mtSe0Ke_-Ts/U38IUepoEOI/AAAAAAAACx0/VwHyQZ3_VpI/s640/05-UnityInstance.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjm2YlNsOJCHiovIlfdtTSNYQ_-Mq_VJaXrMKAWVSJZkP_hrMN-AkghkZuOS3giw_ZDifT1UW-bccQY4Q1OOeLtU8ZddFJ4mR1uihrR9WTfxgA17QGCEDAFYxlZKyutvfk9XRuxuf3UY_k/s1600/05-UnityInstance.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjm2YlNsOJCHiovIlfdtTSNYQ_-Mq_VJaXrMKAWVSJZkP_hrMN-AkghkZuOS3giw_ZDifT1UW-bccQY4Q1OOeLtU8ZddFJ4mR1uihrR9WTfxgA17QGCEDAFYxlZKyutvfk9XRuxuf3UY_k/s640/05-UnityInstance.jpg" width="98%" /></a>
 <br />
 Debug the script: insert break point in the Update() method.  Press F5 to launch.
 <br />
 Click (only) Unity instance.  In Unity, press play and code now breaks to debug.
 <br />
-<a href="http://2.bp.blogspot.com/-_mDaI79IDgc/U38GXwRzDdI/AAAAAAAACxs/YK5Q5qzVz4A/s1600/06-Debugging.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-_mDaI79IDgc/U38GXwRzDdI/AAAAAAAACxs/YK5Q5qzVz4A/s640/06-Debugging.jpg" width="98%" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYLFaob41SmbYgpJSFonZybsuz6PPL6tm44blgnB8-wA9BKFHGThORgJPg8jMQfSDnDFiPPA2g0MRfNQgUX0pi1d70CzzJdTMumbhaN3iDhkZfgZb2rHBfMdZTFpWxaN2pMcECO0r-CRA/s1600/06-Debugging.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYLFaob41SmbYgpJSFonZybsuz6PPL6tm44blgnB8-wA9BKFHGThORgJPg8jMQfSDnDFiPPA2g0MRfNQgUX0pi1d70CzzJdTMumbhaN3iDhkZfgZb2rHBfMdZTFpWxaN2pMcECO0r-CRA/s640/06-Debugging.jpg" width="98%" width="98%" /></a>
 <br />
 <u>Player Debugging</u>
 <br />
@@ -81,7 +81,7 @@ In Unity, choose File menu, Build Settings, PC, Mac & Linux platform.
 <br />
 Check both Development Build and Script Debugging check boxes.
 <br />
-<a href="http://4.bp.blogspot.com/-hMnQlthEipY/U38I1e_T5BI/AAAAAAAACyE/cNw0Wr4CmCs/s1600/07-BuildSettings.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-hMnQlthEipY/U38I1e_T5BI/AAAAAAAACyE/cNw0Wr4CmCs/s640/07-BuildSettings.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2HGUC7f227rWWEp6IhEG76O-kF5IdLIVTHmtn1obOBqkhdRzDBae-IkrOLefBTKVxBzTIMpFQJoOY0qYCB2xOwjOfWtG8BuG7QMO3q6leiwkdmdpAkpnM9CU6idCA6cmDPl6_FDJHyHM/s1600/07-BuildSettings.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2HGUC7f227rWWEp6IhEG76O-kF5IdLIVTHmtn1obOBqkhdRzDBae-IkrOLefBTKVxBzTIMpFQJoOY0qYCB2xOwjOfWtG8BuG7QMO3q6leiwkdmdpAkpnM9CU6idCA6cmDPl6_FDJHyHM/s640/07-BuildSettings.jpg" /></a>
 <br />
 <b>Scenario #1</b>
 <br />
@@ -93,7 +93,7 @@ In Visual Studio, select the (new) Unity Instance: WindowsPlayer.
 <br />
 Click the Windows Player <b>Play!</b> button.  Code now breaks to debug.
 <br />
-<a href="http://2.bp.blogspot.com/-_mDaI79IDgc/U38GXwRzDdI/AAAAAAAACxs/YK5Q5qzVz4A/s1600/06-Debugging.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-_mDaI79IDgc/U38GXwRzDdI/AAAAAAAACxs/YK5Q5qzVz4A/s640/06-Debugging.jpg" width="98%" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYLFaob41SmbYgpJSFonZybsuz6PPL6tm44blgnB8-wA9BKFHGThORgJPg8jMQfSDnDFiPPA2g0MRfNQgUX0pi1d70CzzJdTMumbhaN3iDhkZfgZb2rHBfMdZTFpWxaN2pMcECO0r-CRA/s1600/06-Debugging.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYLFaob41SmbYgpJSFonZybsuz6PPL6tm44blgnB8-wA9BKFHGThORgJPg8jMQfSDnDFiPPA2g0MRfNQgUX0pi1d70CzzJdTMumbhaN3iDhkZfgZb2rHBfMdZTFpWxaN2pMcECO0r-CRA/s640/06-Debugging.jpg" width="98%" width="98%" /></a>
 <br />
 Note: if this doesn't break then click <b>Play!</b> button before Unity Instance: WindowsPlayer.
 <br /><br />
@@ -107,7 +107,7 @@ In Visual Studio, select the (new) Unity Instance: WindowsPlayer.
 <br />
 Click the Windows Player <b>Play!</b> button.  Code now breaks to debug.
 <br />
-<a href="http://2.bp.blogspot.com/-_mDaI79IDgc/U38GXwRzDdI/AAAAAAAACxs/YK5Q5qzVz4A/s1600/06-Debugging.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-_mDaI79IDgc/U38GXwRzDdI/AAAAAAAACxs/YK5Q5qzVz4A/s640/06-Debugging.jpg" width="98%" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYLFaob41SmbYgpJSFonZybsuz6PPL6tm44blgnB8-wA9BKFHGThORgJPg8jMQfSDnDFiPPA2g0MRfNQgUX0pi1d70CzzJdTMumbhaN3iDhkZfgZb2rHBfMdZTFpWxaN2pMcECO0r-CRA/s1600/06-Debugging.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYLFaob41SmbYgpJSFonZybsuz6PPL6tm44blgnB8-wA9BKFHGThORgJPg8jMQfSDnDFiPPA2g0MRfNQgUX0pi1d70CzzJdTMumbhaN3iDhkZfgZb2rHBfMdZTFpWxaN2pMcECO0r-CRA/s640/06-Debugging.jpg" width="98%" width="98%" /></a>
 <br />
 Note: this method <i>always</i> seems to work whereas Scenario #1 seems more volatile.
 <br /><br />
@@ -121,7 +121,7 @@ In Visual Studio, select the (new) Unity Instance: WindowsPlayer.
 <br />
 Click the Windows Player <b>Play!</b> button.  Code now breaks to debug.
 <br />
-<a href="http://2.bp.blogspot.com/-_mDaI79IDgc/U38GXwRzDdI/AAAAAAAACxs/YK5Q5qzVz4A/s1600/06-Debugging.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-_mDaI79IDgc/U38GXwRzDdI/AAAAAAAACxs/YK5Q5qzVz4A/s640/06-Debugging.jpg" width="98%" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYLFaob41SmbYgpJSFonZybsuz6PPL6tm44blgnB8-wA9BKFHGThORgJPg8jMQfSDnDFiPPA2g0MRfNQgUX0pi1d70CzzJdTMumbhaN3iDhkZfgZb2rHBfMdZTFpWxaN2pMcECO0r-CRA/s1600/06-Debugging.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYLFaob41SmbYgpJSFonZybsuz6PPL6tm44blgnB8-wA9BKFHGThORgJPg8jMQfSDnDFiPPA2g0MRfNQgUX0pi1d70CzzJdTMumbhaN3iDhkZfgZb2rHBfMdZTFpWxaN2pMcECO0r-CRA/s640/06-Debugging.jpg" width="98%" width="98%" /></a>
 <br />
 Note: this method <i>always</i> seems to work whereas Scenario #1 seems more volatile.
 <br /><br />

@@ -2,7 +2,7 @@
 In the previous <a href="http://steveproxna.blogspot.ie/2017/09/devkitsms-programming-setup.html">post</a>, we checked out devkitSMS Programming Setup.  The devkitSMS provides tools and code to support homebrew development for the Sega <a href="http://en.wikipedia.org/wiki/Master_System">Master System</a>, <a href="https://en.wikipedia.org/wiki/SG-1000">SG-1000</a>, and Sega <a href="https://en.wikipedia.org/wiki/Game_Gear">Game Gear</a>.
 <br /> <br />
 Using <a href="https://github.com/sverx/devkitSMS">devkitSMS</a>, it is possible to write game code using the <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C language</a> rather than pure <a href="http://en.wikipedia.org/wiki/Zilog_Z80#Z80_assembly_language">Z80 assembly</a>.  Therefore, we would now like to extend this knowledge and write more detailed programming sample. 
-<a href="https://1.bp.blogspot.com/-W6IoPSBFfQQ/WQirzWSliwI/AAAAAAAAECE/Dvq3Uc2j2VU_66UVTNjGVFWtrHhsi7sEQCLcB/s1600/CandyKidDemo.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-W6IoPSBFfQQ/WQirzWSliwI/AAAAAAAAECE/Dvq3Uc2j2VU_66UVTNjGVFWtrHhsi7sEQCLcB/s640/CandyKidDemo.jpg" width="98%" height="500" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDeC-yLIVtymRuB50DeVhyphenhyphenyb7mldMko5heM6bJA3g6b5SCz9yHthOfQdsmWXcDoXUFFrPfCHz2TYXeOCCGkozh1V4rWH7CPDvqvUby4sVm8mMmxs2qAn4sLi_MyvaxpinAkp6-l0mB4Dc/s1600/CandyKidDemo.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDeC-yLIVtymRuB50DeVhyphenhyphenyb7mldMko5heM6bJA3g6b5SCz9yHthOfQdsmWXcDoXUFFrPfCHz2TYXeOCCGkozh1V4rWH7CPDvqvUby4sVm8mMmxs2qAn4sLi_MyvaxpinAkp6-l0mB4Dc/s640/CandyKidDemo.jpg" width="98%" height="500" /></a>
 <br />
 Let's check it out! 
 <br /><br />
@@ -23,7 +23,7 @@ The devkitSMS programming sample is based on the <a href="http://www.smspower.or
 All graphics, sprites, music, sound fx, coding logic etc. here is based on the devkitSMS <a href="http://www.smspower.org/forums/15888-DevkitSMSTutorial">tutorial</a> by <a href="https://twitter.com/i_am_sverx">@sverx</a>.
 <br /><br />
 Create folder C:\<a href="https://github.com/SteveProXNA/CandyKidDemoSMS">CandyKidDemoSMS</a>.  Create the following sub-folders: <b>asm</b>, <b>crt0</b>, <b>dev</b>, <b>gfx</b>, <b>lib</b>, <b>psg</b>, <b>utl</b>
-<a href="https://3.bp.blogspot.com/-pPag2Q6nNMY/WQhPt0thfcI/AAAAAAAAD_M/s-6Wy-M7tQ8WCrH8-62dkGLndXOmDCJggCLcB/s1600/CandyKidDemoSMS.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-pPag2Q6nNMY/WQhPt0thfcI/AAAAAAAAD_M/s-6Wy-M7tQ8WCrH8-62dkGLndXOmDCJggCLcB/s640/CandyKidDemoSMS.jpg" width="640" height="531" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEix8aPCDh-4VbdeFLkp1viwMV-s5elzZk6I_rPaByFoZ04BO5Jxm_occZJA1Yu5k_GLGIqUF-EHqnGggVMmeILLegJ0gaFzWSteLloim35noS-Hco7uY07iG7mdOlA69pX_BAUIg13-KbI/s1600/CandyKidDemoSMS.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEix8aPCDh-4VbdeFLkp1viwMV-s5elzZk6I_rPaByFoZ04BO5Jxm_occZJA1Yu5k_GLGIqUF-EHqnGggVMmeILLegJ0gaFzWSteLloim35noS-Hco7uY07iG7mdOlA69pX_BAUIg13-KbI/s640/CandyKidDemoSMS.jpg" width="640" height="531" /></a>
 <table width="100%" border="1">
 <tr>
 <td valign="top">&nbsp;<b>Folder</b></td>
@@ -55,7 +55,7 @@ Note: assumes Opcodes.dat and smsexamine.exe downloaded from <a href="http://www
 <br /><br />
 <u>Development</u><br />
 Launch Visual Studio 2008.  File | New | Project... | Visual C++ | Win32 | Win32 Project
-<a href="https://1.bp.blogspot.com/-L1ieohTdGbI/WQhXGltSUMI/AAAAAAAAD_c/_UNQ5vvZ-zcITsLAg35l6-m4MyhLTlHyACLcB/s1600/GameVS.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-L1ieohTdGbI/WQhXGltSUMI/AAAAAAAAD_c/_UNQ5vvZ-zcITsLAg35l6-m4MyhLTlHyACLcB/s640/GameVS.jpg" width="98%" height="434" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWhGW6E8r2369eNTV4_W_E-xtRponm5j6SdvyAYi6qnLefD-4iuE90t-s8G-hQwB5OqVNFw8BVcr4bc4Epxn6gkBslHp_6EqjHp23vXYnjXOimzXudPTAjJSvvpF5KckT4M6gTpyB70l0/s1600/GameVS.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWhGW6E8r2369eNTV4_W_E-xtRponm5j6SdvyAYi6qnLefD-4iuE90t-s8G-hQwB5OqVNFw8BVcr4bc4Epxn6gkBslHp_6EqjHp23vXYnjXOimzXudPTAjJSvvpF5KckT4M6gTpyB70l0/s640/GameVS.jpg" width="98%" height="434" /></a>
 <table width="82%" border="1">
 <tr>
 <td valign="top">&nbsp;Name:</td>
@@ -88,22 +88,22 @@ Follow all instructions from the previous <a href="http://steveproxna.blogspot.c
 <br /><br />
 <b>Splash</b><br />
 Here is an example of background tiles that exhaust the full 256 x 192 resolution e.g. the Splash screen:
-<a href="https://4.bp.blogspot.com/-VPZ7mLevHmc/WQhqB1dER6I/AAAAAAAAD_0/OWfKoIiPn9klhNTZVGoNYiQaloYSMV3_gCLcB/s1600/SplashFileSource.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-VPZ7mLevHmc/WQhqB1dER6I/AAAAAAAAD_0/OWfKoIiPn9klhNTZVGoNYiQaloYSMV3_gCLcB/s640/SplashFileSource.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1FLsZEGntrtccwWkMRjOEd71sLbmvQAptc89f7WB6pWc-CqHo6_ujwRhjddXkU1HlXM40uQCB24TmP-_TsVYsYVNuiG6m_PkZ84fl2IpHIUa7snpS6GEc4wyNHkYxpvznI1grEebNzso/s1600/SplashFileSource.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1FLsZEGntrtccwWkMRjOEd71sLbmvQAptc89f7WB6pWc-CqHo6_ujwRhjddXkU1HlXM40uQCB24TmP-_TsVYsYVNuiG6m_PkZ84fl2IpHIUa7snpS6GEc4wyNHkYxpvznI1grEebNzso/s640/SplashFileSource.jpg" width="98%" height="400" /></a>
 <br /><br />
 Choose "Tiles" tab. Ensure that "Remove duplicates" and "Planar tile output" are both checked.
 <br />
 Click Save button | File name <b>splash (tiles).psgcompr</b> | File type PS Gaiden (*.psgcompr)
-<a href="https://4.bp.blogspot.com/-40kmFRUuzjM/WQhrNHvLTXI/AAAAAAAAEAA/6u5_it-onkwqT5BBmZ1cvE3eBX_PcWaswCLcB/s1600/SplashTiles.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-40kmFRUuzjM/WQhrNHvLTXI/AAAAAAAAEAA/6u5_it-onkwqT5BBmZ1cvE3eBX_PcWaswCLcB/s640/SplashTiles.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKOUJPn0fvRjNP7rwszIOCV-oH1CN6SLcI6kYDzSrKlhGB8dSa-vXbsNHW0akKFQshtET-vp1H997LUMJ3RZZ92N0bsWkpvBkHW0HwZSEfricSCD9FtToKPpJRVJAOrW-nDNWw9tzMXlw/s1600/SplashTiles.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKOUJPn0fvRjNP7rwszIOCV-oH1CN6SLcI6kYDzSrKlhGB8dSa-vXbsNHW0akKFQshtET-vp1H997LUMJ3RZZ92N0bsWkpvBkHW0HwZSEfricSCD9FtToKPpJRVJAOrW-nDNWw9tzMXlw/s640/SplashTiles.jpg" width="98%" height="400" /></a>
 <br /><br />
 Choose "Tilemap" tab. Leave "Use sprite palette" and "In front of sprites" options both unchecked.
 <br />
 Click Save button | File name <b>splash (tilemap).stmcompr</b> | File type Sverx's TileMap (*.stmcompr)
-<a href="https://4.bp.blogspot.com/-ZdEprJKcikc/WQhrprj7SLI/AAAAAAAAEAE/kxdyW-fnbOgJ7FOCjKTFmkQohCsZDoYKwCLcB/s1600/SplashTilemap.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-ZdEprJKcikc/WQhrprj7SLI/AAAAAAAAEAE/kxdyW-fnbOgJ7FOCjKTFmkQohCsZDoYKwCLcB/s640/SplashTilemap.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjQjP6ZABGktKpXjzNCnkwziUj__7t9j3CmeEX5gJsAEqWpcCSPyeGmUPZG9PteaaFzcerIHu-cJJVDksoC-EUHC7Vny_3V2PnG9s8vLED_m2Uy4YUyUreOftUugP-PMcXK1MASCpLo-E/s1600/SplashTilemap.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjQjP6ZABGktKpXjzNCnkwziUj__7t9j3CmeEX5gJsAEqWpcCSPyeGmUPZG9PteaaFzcerIHu-cJJVDksoC-EUHC7Vny_3V2PnG9s8vLED_m2Uy4YUyUreOftUugP-PMcXK1MASCpLo-E/s640/SplashTilemap.jpg" width="98%" height="400" /></a>
 <br /><br />
 Choose "Palette" tab. Leave the "Output hex (SMS)" option checked for Sega Master System. 
 <br />
 Click Save button | File name <b>splash (palette).bin</b> | File type Binary files (*.bin)
-<a href="https://3.bp.blogspot.com/--3LZAaxv3uY/WQhtjkW3e8I/AAAAAAAAEAQ/QEfYY5l69acHbFRTpRnJ4MiIKtd8ia4hACLcB/s1600/SplashPalette.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/--3LZAaxv3uY/WQhtjkW3e8I/AAAAAAAAEAQ/QEfYY5l69acHbFRTpRnJ4MiIKtd8ia4hACLcB/s640/SplashPalette.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCQXGguEL-V6uFkF6E8Nr0Umgs40X2MtW3AyBrclOR9PEeF9Zh5H4honyfcZV2ZDzCsoz7_SGrqJXHN56DL6YhPyv3i0Oh6Qh1ROOM7wRvICEH_Nq8Jl3rBWWdYrTjxk6ZPONp72C7ap0/s1600/SplashPalette.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCQXGguEL-V6uFkF6E8Nr0Umgs40X2MtW3AyBrclOR9PEeF9Zh5H4honyfcZV2ZDzCsoz7_SGrqJXHN56DL6YhPyv3i0Oh6Qh1ROOM7wRvICEH_Nq8Jl3rBWWdYrTjxk6ZPONp72C7ap0/s640/SplashPalette.jpg" width="98%" height="400" /></a>
 <br />
 Here is basic code sample to render the splash screen in <b>main.c</b> with corresponding updated <b>build.bat</b>
 <br /><br />
@@ -146,11 +146,11 @@ sdcc -o output.ihx -mz80 --data-loc 0xC000 --no-std-crt0 ..\crt0\crt0_sms.rel ma
 ..\utl\ihx2sms output.ihx output.sms
 output.sms
 </pre>
-<a href="https://2.bp.blogspot.com/-yU9DtmgtWqk/WQhwD2bHBaI/AAAAAAAAEAc/J_u4IJ1UzdwFwyjA6zvgN-h95NJxFvngACLcB/s1600/SplashOutput.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-yU9DtmgtWqk/WQhwD2bHBaI/AAAAAAAAEAc/J_u4IJ1UzdwFwyjA6zvgN-h95NJxFvngACLcB/s640/SplashOutput.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPlZ398GhlPNZhyphenhyphenrFi0a7beORYc5QvxvTT0jAJpMAaHFOfcDlH_cp8fqcGEEccKIRD6tjo8P8ahl7L7AjWtkx79Dj7GkV4cSJV8fL7Ex8uL_pcijDgHjhC9J7JCwj33uK0KoBU1Iqw2s8/s1600/SplashOutput.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPlZ398GhlPNZhyphenhyphenrFi0a7beORYc5QvxvTT0jAJpMAaHFOfcDlH_cp8fqcGEEccKIRD6tjo8P8ahl7L7AjWtkx79Dj7GkV4cSJV8fL7Ex8uL_pcijDgHjhC9J7JCwj33uK0KoBU1Iqw2s8/s640/SplashOutput.jpg" width="98%" height="400" /></a>
 <br /><br />
 <b>Background</b><br />
 Repeat the process for background tiles e.g. Font however save tilemap as uncompressed binary format [bin] to access data randomly.  Save tiles in PS Gaiden compressed format + use same palette as above.
-<a href="https://3.bp.blogspot.com/-n-LuDZN2zDU/WQiJMXea2SI/AAAAAAAAEAw/u0asKw6TgP0k8Mkj5qqsBPXJxqEK70SkQCLcB/s1600/FontFileSource.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-n-LuDZN2zDU/WQiJMXea2SI/AAAAAAAAEAw/u0asKw6TgP0k8Mkj5qqsBPXJxqEK70SkQCLcB/s640/FontFileSource.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgf38i5xW0n3RiU3uXDRD6dBHmsxMMU7ZjF8ijomYO4_-GmPuDkRstYkcLfeZP-nf0Mq9-d2BprHVwTpl2z4VmBmfdfaN5CTlejuufUwSPyHBFoxACzD9luZ4Ps1d26Y1gB1DIuF8XFlUg/s1600/FontFileSource.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgf38i5xW0n3RiU3uXDRD6dBHmsxMMU7ZjF8ijomYO4_-GmPuDkRstYkcLfeZP-nf0Mq9-d2BprHVwTpl2z4VmBmfdfaN5CTlejuufUwSPyHBFoxACzD9luZ4Ps1d26Y1gB1DIuF8XFlUg/s640/FontFileSource.jpg" width="98%" height="400" /></a>
 <table width="82%" border="1">
 <tr>
 <td valign="top">&nbsp;Tiles</td>
@@ -213,7 +213,7 @@ SMS_EMBED_SDSC_HEADER(1, 0, 2017, 3, 17, "StevePro Studios", "Candy Kid Demo", "
 <br />
 <b>Sprites</b><br />
 Repeat the process for sprite tiles however no need to save the tilemap file.  Also, introduce sprite code:
-<a href="https://2.bp.blogspot.com/-sQJcVcO94B0/WQiLgr4YrOI/AAAAAAAAEA8/PiRQ17hAXmILiKWTusMBeNfis13Iab7QACLcB/s1600/SpritesFileSource.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-sQJcVcO94B0/WQiLgr4YrOI/AAAAAAAAEA8/PiRQ17hAXmILiKWTusMBeNfis13Iab7QACLcB/s640/SpritesFileSource.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhN-mlqYoUQSTvGynVTpdJdetlaP6kGok-Jx6Wrzpy5dr-7AEqwu_6qBnJOkd4OvyoURsfM6Ggc0FMjoIdYvfq9XQARsw0BM67aXj7_bGa3VaWt2JgQaf_pUprvwM9otIiwJ3Oexd5L-4/s1600/SpritesFileSource.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhN-mlqYoUQSTvGynVTpdJdetlaP6kGok-Jx6Wrzpy5dr-7AEqwu_6qBnJOkd4OvyoURsfM6Ggc0FMjoIdYvfq9XQARsw0BM67aXj7_bGa3VaWt2JgQaf_pUprvwM9otIiwJ3Oexd5L-4/s640/SpritesFileSource.jpg" width="98%" height="400" /></a>
 <table width="82%" border="1">
 <tr>
 <td valign="top">&nbsp;Tiles</td>
@@ -277,7 +277,7 @@ SMS_EMBED_SDSC_HEADER(1, 0, 2017, 3, 17, "StevePro Studios", "Candy Kid Demo", "
 <br />
 <u>Music</u><br />
 Download <a href="http://www.smspower.org/uploads/Music/Mod2PSG2_V2.04_23.11.2007.zip?sid=4b459e3baf058f68618492393fade531">Mod2PSG2</a> music tracker to record music [FX] and convert output <a href="https://en.wikipedia.org/wiki/Video_game_music">VGM</a> files to <a href="https://en.wikipedia.org/wiki/Programmable_sound_generator">PSG</a> file format.
-<a href="https://2.bp.blogspot.com/-2RBa1ZLMSuw/WQiPCSxq4YI/AAAAAAAAEBI/qtqCOT74E-IfzcQgW46bb8XA1rO8iuUxQCLcB/s1600/Mod2Psg2.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-2RBa1ZLMSuw/WQiPCSxq4YI/AAAAAAAAEBI/qtqCOT74E-IfzcQgW46bb8XA1rO8iuUxQCLcB/s640/Mod2Psg2.jpg" width="98%" height="500" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-PJjklS9WVGx4TWgnmuyfUwtU-otI49SB6HXDU_Gu_dXzbC1zd-9PDZ04tqA1KMrzt0-lIqrr7GgMOKb903i0OIV22Jc_Zm1V18DM_wtnBgkRAW5EploJVDM4tF1fta2VQf3v1cPAokM/s1600/Mod2Psg2.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-PJjklS9WVGx4TWgnmuyfUwtU-otI49SB6HXDU_Gu_dXzbC1zd-9PDZ04tqA1KMrzt0-lIqrr7GgMOKb903i0OIV22Jc_Zm1V18DM_wtnBgkRAW5EploJVDM4tF1fta2VQf3v1cPAokM/s640/Mod2Psg2.jpg" width="98%" height="500" /></a>
 File | Export module | VGM... | C:\CandyKidDemoSMS\psg\raw\music.vgm | Save
 <br />
 Now convert to PSG file format using vgm2psg.exe utility downloaded previously:
@@ -285,7 +285,7 @@ Now convert to PSG file format using vgm2psg.exe utility downloaded previously:
 Start | run | cmd | cd C:\CandyKidDemoSMS
 <br />
 utl\vgm2psg.exe psg\raw\music.vgm psg\music.psg
-<a href="https://4.bp.blogspot.com/-bqyQ-M97Gk0/WQiRXuqRwaI/AAAAAAAAEBY/Z68op0xm0xgrTCPvwDkcfA1aerJzyxmbQCLcB/s1600/vgm2psg.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-bqyQ-M97Gk0/WQiRXuqRwaI/AAAAAAAAEBY/Z68op0xm0xgrTCPvwDkcfA1aerJzyxmbQCLcB/s640/vgm2psg.jpg" width="98%" height="179" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZc6SftO16N_0piis9KfuvNdJWJ0BhpRQk89-WN6j-xMA7EYFCyboabPjNLYPzcu1H0yEKhtW0nlAyJex1lV2i18hRrXBsRyntcMhqpTLITaN9Sza9J5fpWSbWzBZpKA8RvSg5W_3VYfI/s1600/vgm2psg.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZc6SftO16N_0piis9KfuvNdJWJ0BhpRQk89-WN6j-xMA7EYFCyboabPjNLYPzcu1H0yEKhtW0nlAyJex1lV2i18hRrXBsRyntcMhqpTLITaN9Sza9J5fpWSbWzBZpKA8RvSg5W_3VYfI/s640/vgm2psg.jpg" width="98%" height="179" /></a>
 <br />
 Here is basic code sample to play the background music in <b>main.c</b> with corresponding updated <b>build.bat</b>
 <br />
@@ -334,7 +334,7 @@ Repeat the process for sound effects however export VGM file to channel 2 and pl
 Start | run | cmd | cd C:\CandyKidDemoSMS
 <br />
 utl\vgm2psg.exe psg\raw\sound.vgm psg\sound.psg <b>2</b>
-<a href="https://2.bp.blogspot.com/-x4iAaPeY38Q/WQicVS1tscI/AAAAAAAAEBo/WiZMXhALnuIb7Md5xXZRjLm1DxzKaK85wCLcB/s1600/sound.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-x4iAaPeY38Q/WQicVS1tscI/AAAAAAAAEBo/WiZMXhALnuIb7Md5xXZRjLm1DxzKaK85wCLcB/s640/sound.jpg" width="98%" height="175" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ_8YHrnFgKgHTM_ZzYsKhuKBEEMkmjMjqM6F5GenNi4e04J0JV_LDm_jAkdrcrWJCGvRmE896R_2JPi2mYtDx-LrhGZj3GWFdUhjTwF0R3zK-LUgTJAetG_vxPLX3moLS38aAweMi1M0/s1600/sound.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ_8YHrnFgKgHTM_ZzYsKhuKBEEMkmjMjqM6F5GenNi4e04J0JV_LDm_jAkdrcrWJCGvRmE896R_2JPi2mYtDx-LrhGZj3GWFdUhjTwF0R3zK-LUgTJAetG_vxPLX3moLS38aAweMi1M0/s640/sound.jpg" width="98%" height="175" /></a>
 <b>main.c</b>
 <pre class="csharp" name="code">
 #include "..\lib\SMSlib.h"
@@ -365,7 +365,7 @@ Repeat the process for noise effects however export VGM file to channel 3 and pl
 Start | run | cmd | cd C:\CandyKidDemoSMS
 <br />
 utl\vgm2psg.exe psg\raw\noise.vgm psg\noise.psg <b>3</b>
-<a href="https://2.bp.blogspot.com/-E4ve3kORh7k/WQidN77T3_I/AAAAAAAAEBw/XZw-gWg2RMkdXstYiOGQAbxtxDb-q-80gCLcB/s1600/noise.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-E4ve3kORh7k/WQidN77T3_I/AAAAAAAAEBw/XZw-gWg2RMkdXstYiOGQAbxtxDb-q-80gCLcB/s640/noise.jpg" width="98%" height="175" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTo_Pimk0LjN6Un4ZwE7nsLU7__Hg7KmCepsPhVtX16iqEJOHSX3Xj9VvV5jOWpGFILn4OvtP05M0T4712uKsr_oioVoqHIcqGfSbal1GkXEFDGHSlt9VaRg6wLsxUJitoLmdMPTZ92nI/s1600/noise.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTo_Pimk0LjN6Un4ZwE7nsLU7__Hg7KmCepsPhVtX16iqEJOHSX3Xj9VvV5jOWpGFILn4OvtP05M0T4712uKsr_oioVoqHIcqGfSbal1GkXEFDGHSlt9VaRg6wLsxUJitoLmdMPTZ92nI/s640/noise.jpg" width="98%" height="175" /></a>
 <b>main.c</b>
 <pre class="csharp" name="code">
 #include "..\lib\SMSlib.h"

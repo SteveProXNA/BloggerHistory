@@ -1,6 +1,6 @@
 <span style="font-family:verdana;font-size:85%;">
 At <a href="https://developer.apple.com/wwdc">WWDC</a> 2015, Apple <a href="https://developer.apple.com/news/?id=05042016a">announced</a> the transition to IPv6-only network services in iOS 9.  Starting June 1st 2016 all apps submitted to the App Store must support IPv6-only networking.  Therefore, Unity3D posted <a href="https://blogs.unity3d.com/2016/05/10/unity-and-ipv6-support">Unity and IPv6 Support</a> in response to this since many developers publish Unity games to the App Store.
-<a href="https://2.bp.blogspot.com/-ioZ5iaE61W4/WC36idUkaAI/AAAAAAAAD5k/1SfPW7hQcY8IpKrMTkGtVAA7b4bOdgr3gCLcB/s1600/IPv6.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-ioZ5iaE61W4/WC36idUkaAI/AAAAAAAAD5k/1SfPW7hQcY8IpKrMTkGtVAA7b4bOdgr3gCLcB/s640/IPv6.jpg" width="98%" height="200" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg74U1vU5QpwfIBANVM2OlkObCIR3sUjT-nWgEpqHT0jfm1HKO5OgasS4H8zsE1MX5RbNT1YmSe-ht8ey1vDyk4TXJrUUX4APmX3X3Fb52HSIggWC52aCtSZrFcyHz1JBIRo6AW95wBF6M/s1600/IPv6.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg74U1vU5QpwfIBANVM2OlkObCIR3sUjT-nWgEpqHT0jfm1HKO5OgasS4H8zsE1MX5RbNT1YmSe-ht8ey1vDyk4TXJrUUX4APmX3X3Fb52HSIggWC52aCtSZrFcyHz1JBIRo6AW95wBF6M/s640/IPv6.jpg" width="98%" height="200" /></a>
 <br />
 Let's check it out! 
 <br /><br />
@@ -243,7 +243,7 @@ fc00:992b:a::1&nbsp;&nbsp;&nbsp;GameServer.v6net
 fc00:992b:a::4&nbsp;&nbsp;&nbsp;StevePro-PC.v6net
 </pre>
 Disable IPv4 networking to ensure IPv6-only connection.   Local Area Connection | Double click (TCP/IPv6)
-<a href="https://3.bp.blogspot.com/-9b9rP8rsRCM/WDyOnCMu5yI/AAAAAAAAD6U/WupPLvwvZ70yfbMjSh7d3e2UpeCDc-bvQCLcB/s1600/SteveProPC.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-9b9rP8rsRCM/WDyOnCMu5yI/AAAAAAAAD6U/WupPLvwvZ70yfbMjSh7d3e2UpeCDc-bvQCLcB/s640/SteveProPC.png" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH0LZ32VgIBUuP5i24FYRAN57i363JAq9O50BHfRisB1BDxM86u9_-HC6qc7EyjgJaaCymKnRzXOEcYbemwOSEzLAY0k_JKOwOvdKdmDRBCpsef5I9qCakadmSC9pQ5fI29YqyDdffHEU/s1600/SteveProPC.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH0LZ32VgIBUuP5i24FYRAN57i363JAq9O50BHfRisB1BDxM86u9_-HC6qc7EyjgJaaCymKnRzXOEcYbemwOSEzLAY0k_JKOwOvdKdmDRBCpsef5I9qCakadmSC9pQ5fI29YqyDdffHEU/s640/SteveProPC.png" width="98%" height="400" /></a>
 <br /><br />
 <i>Game Client</i> [Mac]<br />
 Launch terminal as root.  Edit the hosts file located at /etc/hosts
@@ -257,7 +257,7 @@ fc00:992b:a::1&nbsp;&nbsp;&nbsp;GameServer.v6net
 fc00:992b:a::6&nbsp;&nbsp;&nbsp;SteveProIMac.v6net
 </pre>
 Disable IPv4 networking to ensure IPv6-only connection.  System Preferences | Network.  Click Advanced
-<a href="https://2.bp.blogspot.com/-9Z_eNe6kl4E/WDyOVRTEQ6I/AAAAAAAAD6Q/iZwVngn0sownvMT8eN2uq2LbpDK_2CAQACLcB/s1600/SteveProIMac.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-9Z_eNe6kl4E/WDyOVRTEQ6I/AAAAAAAAD6Q/iZwVngn0sownvMT8eN2uq2LbpDK_2CAQACLcB/s640/SteveProIMac.png" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPxMWcVtGVxP_atEXv0qGU6d9b0qOID-Kg4s7b6J-o7VuGbMry0mz7l4IEFAifGpn070uVq1bIk352_FrmgzqvPf_4Vpf2ZMtgwu5mQ4-Y0DN5KQhzJH68KKGANPN8xuRHZkLgyGNkpdc/s1600/SteveProIMac.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPxMWcVtGVxP_atEXv0qGU6d9b0qOID-Kg4s7b6J-o7VuGbMry0mz7l4IEFAifGpn070uVq1bIk352_FrmgzqvPf_4Vpf2ZMtgwu5mQ4-Y0DN5KQhzJH68KKGANPN8xuRHZkLgyGNkpdc/s640/SteveProIMac.png" width="98%" height="400" /></a>
 <br />
 Download code sample <b><a href="https://github.com/SteveProXNA/UnityLidgrenIPv6">here</a></b>.
 <br /><br />

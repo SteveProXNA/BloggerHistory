@@ -3,7 +3,7 @@
 In the previous <a href="http://steveproxna.blogspot.com/2020/07/python-setup-cheat-sheet.html">post</a> we checked out Python Setup Cheat Sheet to download and install Python and setup an integrated development environment for Python programming.  We installed open source Python distribution <a href="https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)">Anaconda</a> used for data science.  Let's continue setup to build <a href="https://en.wikipedia.org/wiki/Artificial_intelligence">artificial intelligence</a> + <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a> apps.
 <br />
 <!--X-->
-<a href="https://1.bp.blogspot.com/-1vbW7HNj1Xw/XwsUqeI21NI/AAAAAAAAGVQ/Z2ij0zajUa8tT2P8DwcvTlu74CsTwo8JgCLcBGAsYHQ/s1600/Anaconda.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-1vbW7HNj1Xw/XwsUqeI21NI/AAAAAAAAGVQ/Z2ij0zajUa8tT2P8DwcvTlu74CsTwo8JgCLcBGAsYHQ/s640/Anaconda.png" width="98%" height="200" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpj9Vzm8kw2usfV6xzLhjXRJOBWs97PWURimOI0rxe6SwzADQbftur7BNWFx61wEI_u2PWFE-RzghrBsj_DnlMtOvk-ayt8ia9smKyaaHYrwX-m2vQfftvc6NacpDixXmR2ckPWX6ogzE/s1600/Anaconda.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpj9Vzm8kw2usfV6xzLhjXRJOBWs97PWURimOI0rxe6SwzADQbftur7BNWFx61wEI_u2PWFE-RzghrBsj_DnlMtOvk-ayt8ia9smKyaaHYrwX-m2vQfftvc6NacpDixXmR2ckPWX6ogzE/s640/Anaconda.png" width="98%" height="200" /></a>
 <!--X-->
 <br />
 Let's check it out!
@@ -150,7 +150,7 @@ Create folder "<a href="https://github.com/SteveProXNA/PythonSetup/tree/master/P
 Create sub folders <b>src</b> and <b>tests</b> beneath "<a href="https://github.com/SteveProXNA/PythonSetup/tree/master/PackageVScode/MyPackage">MyPackage</a>".  Create <i>requirements.txt</i> file + <i>setup.py</i> beneath "MyPackage" also.  Finally, create <i>module.py</i> and <i>__init__.py</i> under <b>src</b> and <i>test_module.py</i> under <b>tests</b>. 
 <br />
 <!--X-->
-<a href="https://3.bp.blogspot.com/-HVEe0dx-n8w/XxCtjhAO7qI/AAAAAAAAGXc/TEUOL1F6ezAAmDCjjYaPldER9SDto6ClgCLcBGAsYHQ/s1600/VScodePackage.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-HVEe0dx-n8w/XxCtjhAO7qI/AAAAAAAAGXc/TEUOL1F6ezAAmDCjjYaPldER9SDto6ClgCLcBGAsYHQ/s640/VScodePackage.png" width="98%" height="300" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-citIBF0MxSYmC6IYrHAGOlvMG0VWCslobOgHcT3BtCmcjfCHvxYZQLockePVu9xt3Mat758ntVHupSa7UqcGmaX3uIKGy3jjUYgcIgCdWI-4OpWXNhpdBBbfVseOpMZ_ZYUpFYBp7x8/s1600/VScodePackage.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-citIBF0MxSYmC6IYrHAGOlvMG0VWCslobOgHcT3BtCmcjfCHvxYZQLockePVu9xt3Mat758ntVHupSa7UqcGmaX3uIKGy3jjUYgcIgCdWI-4OpWXNhpdBBbfVseOpMZ_ZYUpFYBp7x8/s640/VScodePackage.png" width="98%" height="300" /></a>
 <br />
 <table width="99%" border="1">
 <tr>
@@ -216,7 +216,7 @@ Add <i>settings.json</i> to <b>.vscode</b> folder.  Configure Python source fold
     "terminal.integrated.env.windows": {
         "PYTHONPATH": "${env:PYTHONPATH};${workspaceFolder}"
     },
-	"terminal.integrated.env.osx": {
+    "terminal.integrated.env.osx": {
         "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}",
     },
     "terminal.integrated.env.linux": {
@@ -242,7 +242,7 @@ The "hidden"<b>.env</b> file "lives" locally to project and should NOT be checke
 Now press F5 to debug test code or press Ctrl + Alt + N for Code Runner.  Alternatively, Terminal command:
 <br />
 <!--X-->
-<a href="https://1.bp.blogspot.com/-kvbqnAvbS5s/XxC5YkU2nsI/AAAAAAAAGXo/R1XteNAEfmIkOWZRyFxF28cG9Eln0Bt4ACLcBGAsYHQ/s1600/VScodeUnittests.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-kvbqnAvbS5s/XxC5YkU2nsI/AAAAAAAAGXo/R1XteNAEfmIkOWZRyFxF28cG9Eln0Bt4ACLcBGAsYHQ/s640/VScodeUnittests.png" width="98%" height="194" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyDuS22mYeine9ZjjmJtX0haQpMWw1cGl9vmBZWBkuaXa3mNhqNSyKVMYf6XTR8KEp94F4Wjtb8vqzAYJaPA4BX0kGhDlYuFTwiYbrCokYAKQ6l3hHoMVu4WHVHazJO9wBab-KszZuDNs/s1600/VScodeUnittests.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyDuS22mYeine9ZjjmJtX0haQpMWw1cGl9vmBZWBkuaXa3mNhqNSyKVMYf6XTR8KEp94F4Wjtb8vqzAYJaPA4BX0kGhDlYuFTwiYbrCokYAKQ6l3hHoMVu4WHVHazJO9wBab-KszZuDNs/s640/VScodeUnittests.png" width="98%" height="194" /></a>
 <br />
 <!--X-->
 <i>python -m unittest discover MyPackage</i>
@@ -284,14 +284,14 @@ If the Terminal reveals Run 0 tests then ensure package has <i>__init__.py</i> s
 </td>
 </tr>
 </table>
-<a href="https://4.bp.blogspot.com/-6C_lZq2Hyjw/XxC7fXqJaDI/AAAAAAAAGX0/ZBKSivjggy8N-KAgUBRKHmFiBUDuXEyNgCLcBGAsYHQ/s1600/VScodePackage.png" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-6C_lZq2Hyjw/XxC7fXqJaDI/AAAAAAAAGX0/ZBKSivjggy8N-KAgUBRKHmFiBUDuXEyNgCLcBGAsYHQ/s640/VScodePackage.png" width="98%" height="240" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRHmR4t-4a6gvp2nCLh_49jVArk-Xf5q3O80FP4xKyXfovDiISpkbGDxcrcc89Z8ca8x2p-9HS2xUyXwqj7mmOAWCGeaUloAMWH7wIaCm5_CHs2bT-sK98WjSg_MXnYVA5xjitx6UwrZI/s1600/VScodePackage.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRHmR4t-4a6gvp2nCLh_49jVArk-Xf5q3O80FP4xKyXfovDiISpkbGDxcrcc89Z8ca8x2p-9HS2xUyXwqj7mmOAWCGeaUloAMWH7wIaCm5_CHs2bT-sK98WjSg_MXnYVA5xjitx6UwrZI/s640/VScodePackage.png" width="98%" height="240" /></a>
 <!--X-->
 <i>pip install MyPackage/.</i>
 <br /><br />
 
 Finally, we could also replicate the unit test code directly on the <a href="https://codewith.mu/en/tutorials/1.0/repl">REPL</a>.  Select Terminal tab.  Enter commands:
 <br />
-<a href="https://2.bp.blogspot.com/-ZSMfqteiYP0/XxMiVbSHF7I/AAAAAAAAGYM/Gfn8c1E6yWcQeVjNb-NPIJ15YDZUg5VogCLcBGAsYHQ/s1600/VScodeREPL.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-ZSMfqteiYP0/XxMiVbSHF7I/AAAAAAAAGYM/Gfn8c1E6yWcQeVjNb-NPIJ15YDZUg5VogCLcBGAsYHQ/s640/VScodeREPL.png" width="98%" height="161" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq8pHfeI_pRMktZ4FD6PWPdMLG3dJM4s607z4U-amsKwxDSxUkf1lGJhgTZZekHzwmMY-7M9hdiK8iMRqHKKqb9c4m3T-Avr88a8pHTpeBd1lU0SVTs2jSgZ5r3ZSTPAAPK9xRXUiR8bg/s1600/VScodeREPL.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq8pHfeI_pRMktZ4FD6PWPdMLG3dJM4s607z4U-amsKwxDSxUkf1lGJhgTZZekHzwmMY-7M9hdiK8iMRqHKKqb9c4m3T-Avr88a8pHTpeBd1lU0SVTs2jSgZ5r3ZSTPAAPK9xRXUiR8bg/s640/VScodeREPL.png" width="98%" height="161" /></a>
 <br />
 
 <pre class="csharp" name="code">

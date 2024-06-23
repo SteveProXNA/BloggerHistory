@@ -6,7 +6,7 @@ The <a href="http://www.smspower.org">SMS</a> was the last ever 8-bit video game
 However, the process to write Z80 assembly language from scratch for the SMS can be very daunting.  Instead, in 2014 we checked out <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-programming-setup.html">z88dk Programming Setup</a> to write code in <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C language</a> using <a href="http://en.wikipedia.org/wiki/Z88DK">z88dk</a>.
 <br /><br />
 All code here worked on <a href="http://www.emutopia.com/index.php/downloads-emulators/category-items/3-downloads-emulators/295-sega-master-system">emulators</a> but real Sega Master System hardware experienced graphics glitches!  Fortunately, there is another way: write game code in C language using <a href="https://github.com/sverx/devkitSMS">devkitSMS</a> and <a href="http://sdcc.sourceforge.net">SDCC</a> compiler.
-<a href="https://3.bp.blogspot.com/-V-s3bFQyWXE/WQB7Lw64JpI/AAAAAAAAD-g/GEoxW1vrGGccMvp3aedQdqaYxtXCHVz3QCLcB/s1600/devkitsms.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-V-s3bFQyWXE/WQB7Lw64JpI/AAAAAAAAD-g/GEoxW1vrGGccMvp3aedQdqaYxtXCHVz3QCLcB/s640/devkitsms.jpg" width="98%" height="300" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9V8jYlgIDV1KBYjNm0g5j1n9xUDAACWuufWMXtO0xXJJSD4CB1i4PXcDu7OkWk-OH7qQqwUzONlE_EAC4_msf00jLms0JY5Kp9L-mwu3stbv79z2wKR7A1u8j4SzQA4h9EbORDW5KEe0/s1600/devkitsms.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9V8jYlgIDV1KBYjNm0g5j1n9xUDAACWuufWMXtO0xXJJSD4CB1i4PXcDu7OkWk-OH7qQqwUzONlE_EAC4_msf00jLms0JY5Kp9L-mwu3stbv79z2wKR7A1u8j4SzQA4h9EbORDW5KEe0/s640/devkitsms.jpg" width="98%" height="300" /></a>
 <br />
 Let’s check it out! 
 <br /><br />
@@ -43,13 +43,13 @@ Here is a summary of all required software to be installed:
 </table>
 <br />
 <b>SDCC</b><br />
-Download and install <a href="https://sourceforge.net/projects/sdcc/files/sdcc-win64/3.6.0/sdcc-3.6.0-x64-setup.exe/download">sdcc-3.6.0</a>-x64-setup.exe to C:\Program Files\SDCC. Choose all features to install.  UPDATE: if you build games like <a href="https://github.com/kusfo/astroforce">Astro Force</a> then I believe you need to upgrade to version <a href="http://sourceforge.net/projects/sdcc/files/snapshot_builds/x86_64-w64-mingw32-setup/sdcc-20170720-9960-x64-setup.exe/download">sdcc-3.6.9</a>.<a href="https://1.bp.blogspot.com/-gtfDmc9u8EE/WP-1_nvNlhI/AAAAAAAAD98/97332M15Yb0ugkN7Rmb9RQn6m_2TDTs7ACLcB/s1600/05.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-gtfDmc9u8EE/WP-1_nvNlhI/AAAAAAAAD98/97332M15Yb0ugkN7Rmb9RQn6m_2TDTs7ACLcB/s640/05.jpg" width="98%" height="450" /></a>
+Download and install <a href="https://sourceforge.net/projects/sdcc/files/sdcc-win64/3.6.0/sdcc-3.6.0-x64-setup.exe/download">sdcc-3.6.0</a>-x64-setup.exe to C:\Program Files\SDCC. Choose all features to install.  UPDATE: if you build games like <a href="https://github.com/kusfo/astroforce">Astro Force</a> then I believe you need to upgrade to version <a href="http://sourceforge.net/projects/sdcc/files/snapshot_builds/x86_64-w64-mingw32-setup/sdcc-20170720-9960-x64-setup.exe/download">sdcc-3.6.9</a>.<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiISlIyq6E2aBRyNuwnHq7DURsOmY7Yfz45GQrIrPoaSzgeNyq46i83Vx6-tJVzGP5D3HsXIRlorw5IJDQKM1CWiM1SCW8ShM54o5t4s02vcTEsM4MA5gx1t8z87Q9dLavjdA3-regjaSM/s1600/05.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiISlIyq6E2aBRyNuwnHq7DURsOmY7Yfz45GQrIrPoaSzgeNyq46i83Vx6-tJVzGP5D3HsXIRlorw5IJDQKM1CWiM1SCW8ShM54o5t4s02vcTEsM4MA5gx1t8z87Q9dLavjdA3-regjaSM/s640/05.jpg" width="98%" height="450" /></a>
 <br /><br />
 There should be no extra configuration except add C:\Program Files\SDCC\bin to the Environment PATH.
-<a href="https://4.bp.blogspot.com/-sEUyTemja_M/WP-2FVKAl8I/AAAAAAAAD-A/buDDOhOh4U4hlZbuIb_vE1zjfRawmRFdQCLcB/s1600/06.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-sEUyTemja_M/WP-2FVKAl8I/AAAAAAAAD-A/buDDOhOh4U4hlZbuIb_vE1zjfRawmRFdQCLcB/s640/06.jpg" width="98%" height="450" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh06jAUKUUsGryHGOdxry8TeMayH5-0HdSQH7c6vNxrHKAS3b4zf0RT2jKSNk33_pANMztqboMbcfgRro316VQba6-yN-08epOfjhJXE9gcCBU-oqy0Lz20NUvkXh9DvHPd4zwTVxYH1p0/s1600/06.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh06jAUKUUsGryHGOdxry8TeMayH5-0HdSQH7c6vNxrHKAS3b4zf0RT2jKSNk33_pANMztqboMbcfgRro316VQba6-yN-08epOfjhJXE9gcCBU-oqy0Lz20NUvkXh9DvHPd4zwTVxYH1p0/s640/06.jpg" width="98%" height="450" /></a>
 <br /><br />
 Start | Run | cmd. Type sdcc --version. The following should display to confirm SDCC version 3.6.0:
-<a href="https://1.bp.blogspot.com/-jkkCVQB9Rsc/WP-1zoYcRFI/AAAAAAAAD94/fykN-zen6GA1ZsuWyXfa4KfpdYsuIcGqwCLcB/s1600/sdcc360.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-jkkCVQB9Rsc/WP-1zoYcRFI/AAAAAAAAD94/fykN-zen6GA1ZsuWyXfa4KfpdYsuIcGqwCLcB/s640/sdcc360.jpg" width="98%" height="117" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBnUbGpVKrwlpnfOFOw9hrn5ZahrL9DWaXTcwBFfF_l3J4pU8ZzyV57SD-U5Twu_6J6RvMU_1Q5WGMBzP-FYCHr6Po1Sp-rLPzc0o7IaY74qX_M4y8vWuYZqtIniC0yTtMwab9uHsyhOo/s1600/sdcc360.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBnUbGpVKrwlpnfOFOw9hrn5ZahrL9DWaXTcwBFfF_l3J4pU8ZzyV57SD-U5Twu_6J6RvMU_1Q5WGMBzP-FYCHr6Po1Sp-rLPzc0o7IaY74qX_M4y8vWuYZqtIniC0yTtMwab9uHsyhOo/s640/sdcc360.jpg" width="98%" height="117" /></a>
 <br /><br />
 <b>devkitSMS</b><br />
 Navigate to the <a href="https://github.com/sverx/devkitSMS">devkitSMS</a> repository on github.  <a href="https://twitter.com/i_am_sverx">@sverx</a> has full instructions <a href="https://github.com/sverx/devkitSMS/blob/master/README.md">here</a> and advises to copy the following 3x executables into the SDCC bin folder [above]: ihx2sms.exe, assets2banks.exe, folder2c.exe.
@@ -89,7 +89,7 @@ SMS_EMBED_SDSC_HEADER(1, 0, 2017, 9, 15, "StevePro Studios", "Hello World", "Sim
 <br />
 <u>Build</u><br />
 Manually compile, link and execute the Hello program.  Launch command prompt: Start | Run | cmd.
-<a href="https://4.bp.blogspot.com/-1A-Osw4R9LA/WP-1dzTxPzI/AAAAAAAAD90/fTJS6gHr4ykeAKtJg_cGDmxMsFWoKJRAwCLcB/s1600/HelloWorldCode.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-1A-Osw4R9LA/WP-1dzTxPzI/AAAAAAAAD90/fTJS6gHr4ykeAKtJg_cGDmxMsFWoKJRAwCLcB/s640/HelloWorldCode.jpg" width="98%" height="184" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJnsIlYArMEj0JK2WdfbmPbnaVNCBOv0ZMA3igRAq5bmNK3UsetsMjHwxstfUgXvCOS8AoT9byLT32pRUkv4BUhUycngzAlqwaiFPhLQsgWXeNk35tUJDAs0VVlrqPX3epzCrEV9l9rn8/s1600/HelloWorldCode.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJnsIlYArMEj0JK2WdfbmPbnaVNCBOv0ZMA3igRAq5bmNK3UsetsMjHwxstfUgXvCOS8AoT9byLT32pRUkv4BUhUycngzAlqwaiFPhLQsgWXeNk35tUJDAs0VVlrqPX3epzCrEV9l9rn8/s640/HelloWorldCode.jpg" width="98%" height="184" /></a>
 <br /><br />
 Change directory cd C:\HelloWorld.  Next, execute the following 3x commands (in bold):
 <table width="99%" border="1">
@@ -118,7 +118,7 @@ Change directory cd C:\HelloWorld.  Next, execute the following 3x commands (in 
 Finally, type <b>output.sms</b>.  The Hello program should launch in the Fusion emulator.
 <br />
 Congratulations! You have just written your first SMS program using <a href="https://github.com/sverx/devkitSMS">devkitSMS</a>.
-<a href="https://1.bp.blogspot.com/-orCl08hJsAw/WP-1Uoz5vaI/AAAAAAAAD9w/ZNUofyjnC4E_x5Tz0xQ7yFMC6QW9jRQ9gCLcB/s1600/HelloWorldOutput.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-orCl08hJsAw/WP-1Uoz5vaI/AAAAAAAAD9w/ZNUofyjnC4E_x5Tz0xQ7yFMC6QW9jRQ9gCLcB/s640/HelloWorldOutput.jpg" width="98%" height="500" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2xEAejzbIuuYBxke1TJKQUru6TFWTC42th1FgDjrHW0s2edlmPVPDXQpzZ1EDJPWODrYaNqdJ-PffxYBc82vwN9HUKz6QcVCDw5YxgFe9eFKwd1l6zDPDGN9KSR3jcYQ7bj2Iyv-50X8/s1600/HelloWorldOutput.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2xEAejzbIuuYBxke1TJKQUru6TFWTC42th1FgDjrHW0s2edlmPVPDXQpzZ1EDJPWODrYaNqdJ-PffxYBc82vwN9HUKz6QcVCDw5YxgFe9eFKwd1l6zDPDGN9KSR3jcYQ7bj2Iyv-50X8/s640/HelloWorldOutput.jpg" width="98%" height="500" /></a>
 <br /><br />
 <u>Automate</u><br />
 Let's automate the build process: create C:\HelloWorld\build.bat script file that contains the commands:
@@ -134,7 +134,7 @@ output.sms
 Inspired by this <a href="http://www.smspower.org/forums/15228-DevkitSMSDevelopYourHomebrewInC?start=250">suggestion</a> to use Visual Studio as an IDE to better navigate files in larger projects and help automate the development build system.  Download + install Visual Studio 2008 and setup solution.
 <br /><br />
 Launch Visual Studio 2008.  File | New | Project... | Visual C++ | Win32 | Win32 Project
-<a href="https://3.bp.blogspot.com/-EcRAOdj74Gg/WP-zSbyl5GI/AAAAAAAAD9k/qAI6j5QSpn8c5j5QAa7WL2HsU1PvcZMOgCLcB/s1600/HelloWorldVS.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-EcRAOdj74Gg/WP-zSbyl5GI/AAAAAAAAD9k/qAI6j5QSpn8c5j5QAa7WL2HsU1PvcZMOgCLcB/s640/HelloWorldVS.jpg" width="98%" height="434" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheunx-Cl8CDQX_u9lSsuS4DFO3Oi3wYN96ixoP084Sj-LKghGK2n6nhgyUELEMC5v0YRVpw_7j4PPxRCdUTjUYPptypgq19ZnsTXK6NjhdwApCh5kQoTT214iqUSFrvSWDaPW0D2UmaiM/s1600/HelloWorldVS.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheunx-Cl8CDQX_u9lSsuS4DFO3Oi3wYN96ixoP084Sj-LKghGK2n6nhgyUELEMC5v0YRVpw_7j4PPxRCdUTjUYPptypgq19ZnsTXK6NjhdwApCh5kQoTT214iqUSFrvSWDaPW0D2UmaiM/s640/HelloWorldVS.jpg" width="98%" height="434" /></a>
 <table width="82%" border="1">
 <tr>
 <td valign="top">&nbsp;Name:</td>
@@ -150,7 +150,7 @@ Launch Visual Studio 2008.  File | New | Project... | Visual C++ | Win32 | Win32
 </tr>
 </table>
 <br />
-<a href="https://2.bp.blogspot.com/-dEob7MChC1I/WP-zAyEXzCI/AAAAAAAAD9g/HozQ5SiITcAB7CcVVrV-o9RjH7WV-Mi7gCLcB/s1600/HelloWorldVS2.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-dEob7MChC1I/WP-zAyEXzCI/AAAAAAAAD9g/HozQ5SiITcAB7CcVVrV-o9RjH7WV-Mi7gCLcB/s640/HelloWorldVS2.jpg" width="98%" height="434" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiayjk7qJ9J__Sczby4f7CLd4oeHkkZRZcEKMm4XvokXSPaEzUxjna4ZwGY2co615isZjnDUnj7hIJq0D4a5L7WVQ1MCl1hEosrXBXh_HSlP6Axnmlj1G7XMfmixruldKDUVFE-me8X5ts/s1600/HelloWorldVS2.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiayjk7qJ9J__Sczby4f7CLd4oeHkkZRZcEKMm4XvokXSPaEzUxjna4ZwGY2co615isZjnDUnj7hIJq0D4a5L7WVQ1MCl1hEosrXBXh_HSlP6Axnmlj1G7XMfmixruldKDUVFE-me8X5ts/s640/HelloWorldVS2.jpg" width="98%" height="434" /></a>
 <table width="82%" border="1">
 <tr>
 <td valign="top">&nbsp;Application type:</td>
@@ -163,13 +163,13 @@ Launch Visual Studio 2008.  File | New | Project... | Visual C++ | Win32 | Win32
 </table>
 <br />
 Navigate to C:\HelloWorld.  Copy the following files as before such that they are on the same folder level like HelloWorld.sln: crt0_sms.rel, SMSlib.h, SMSlib.lib, ihx2sms.exe.  Add existing: main.c and build.bat.
-<a href="https://1.bp.blogspot.com/-i7Bb-INwm4M/WP-s162LGOI/AAAAAAAAD88/CRPVK3IOPwYwF923fTqbvlBopTKXD57XgCLcB/s1600/VisualStudioBuild.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-i7Bb-INwm4M/WP-s162LGOI/AAAAAAAAD88/CRPVK3IOPwYwF923fTqbvlBopTKXD57XgCLcB/s640/VisualStudioBuild.jpg" width="98%" height="460" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMchfCEnmZ9xaS8L1aQMoCoD-uTI1MmgxfH8rTVX7tTs1TzizZJy0RCwdt7eX3AweYWV5TdQwi407wAWW4jF7xZdjJjQZlbC3o7LYUNw5Vga3j1iGQzHdHKNUhQEO5XcVkc-poM0Q0eqY/s1600/VisualStudioBuild.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMchfCEnmZ9xaS8L1aQMoCoD-uTI1MmgxfH8rTVX7tTs1TzizZJy0RCwdt7eX3AweYWV5TdQwi407wAWW4jF7xZdjJjQZlbC3o7LYUNw5Vga3j1iGQzHdHKNUhQEO5XcVkc-poM0Q0eqY/s640/VisualStudioBuild.jpg" width="98%" height="460" /></a>
 <br /><br />
 <b>External Tools</b><br />
 <a href="http://stackoverflow.com/questions/3160063/visual-studio-run-batch-file">Integrate</a> the build process directly from within Visual Studio 2008 using the External Tools functionality.
 <br />
 Choose Tools menu | External Tools... | Add
-<a href="https://3.bp.blogspot.com/-SuHv21xwSaY/WP-yYz3bx6I/AAAAAAAAD9Y/qnGjTTG-hegVkrRveW2WlqySpN0QejMQACLcB/s1600/VisualStudioTools.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-SuHv21xwSaY/WP-yYz3bx6I/AAAAAAAAD9Y/qnGjTTG-hegVkrRveW2WlqySpN0QejMQACLcB/s640/VisualStudioTools.jpg" width="98%" height="500" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwORntpUp1QXSAw-MzV8kLxkmN_7iWrVWcbVif_oLTplxwAD3gQlTycoENryuGxfzSTW810lKn3uWCd5Mt_6WUEmlq7EdHla3yg9zFrTVRMonYCzLdhDhzmPAyJiGdFRs0FBUQQQAXTxg/s1600/VisualStudioTools.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwORntpUp1QXSAw-MzV8kLxkmN_7iWrVWcbVif_oLTplxwAD3gQlTycoENryuGxfzSTW810lKn3uWCd5Mt_6WUEmlq7EdHla3yg9zFrTVRMonYCzLdhDhzmPAyJiGdFRs0FBUQQQAXTxg/s640/VisualStudioTools.jpg" width="98%" height="500" /></a>
 <table width="82%" border="1">
 <tr>
 <td valign="top">&nbsp;Title:</td>
@@ -202,7 +202,7 @@ Click Apply button.  Click Move Up button until "Run Batch File" is at the top o
 Next connect "Run Batch File" command to Ctrl+1 hot key to automatically build, link and execute code!
 <br /><br />
 Choose Tools menu | Options... | Environment | Keyboard.  Show command containing: "Tools".  Scroll list down to "Tools.ExternalCommand1".  In the "Press shortcut keys:" textbox hit Ctrl+1.  Click Assign button.
-<a href="https://1.bp.blogspot.com/-002zX9nVy1U/WP-w6xFUJWI/AAAAAAAAD9I/pgxsgt0ZWbMEqmLTTPrLB5N4-yYimCutgCLcB/s1600/VisualStudioKeyboard.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-002zX9nVy1U/WP-w6xFUJWI/AAAAAAAAD9I/pgxsgt0ZWbMEqmLTTPrLB5N4-yYimCutgCLcB/s640/VisualStudioKeyboard.jpg" width="98%" height="372" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgm4EsGQzUAEmXQ7R3Jq3PLMPtEtWoYLHc3tDK9xlbG-1eWL-xPtR6gvRo_Ioxxn1U5MozKvOGiCd9xiEwuylca_xqAErd91aPXs9kzWxkdarTHsx9LdeeI6gx-yQyGmWlaQ_KIv365hKo/s1600/VisualStudioKeyboard.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgm4EsGQzUAEmXQ7R3Jq3PLMPtEtWoYLHc3tDK9xlbG-1eWL-xPtR6gvRo_Ioxxn1U5MozKvOGiCd9xiEwuylca_xqAErd91aPXs9kzWxkdarTHsx9LdeeI6gx-yQyGmWlaQ_KIv365hKo/s640/VisualStudioKeyboard.jpg" width="98%" height="372" /></a>
 <br /><br />
 <u>Disassemble</u><br />
 Finally, disassemble the compiled binary file <b>output.sms</b> generated from the Visual Studio batch script.
@@ -212,17 +212,17 @@ In directory C:\HelloWorld, copy the 2x files Opcodes.dat and smsexamine.exe fro
 Launch command prompt, change directory to cd C:\HelloWorld. Type: <b>smsexamine.exe output.sms</b>.
 <br />
 This action will generate <b>output.sms.asm</b> and any data files. Launch ConTEXT. Open output.sms.asm: 
-<a href="https://1.bp.blogspot.com/-KyKd2ykwoy8/WP-sZwrh4ZI/AAAAAAAAD84/RLf5sppZ_Jgsoa9qpx7_kk0RQY44NZJQACLcB/s1600/Disassemble.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-KyKd2ykwoy8/WP-sZwrh4ZI/AAAAAAAAD84/RLf5sppZ_Jgsoa9qpx7_kk0RQY44NZJQACLcB/s640/Disassemble.jpg" width="98%" height="600" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPiHneXB-LWHDB56dZ9OpXDYOLX-i5g670B3Mi2iigF7Ed7LyH_Ha1726i21dCqkfFmHfh6pEt5xbH6ldTPLlggN9s5u0j8zan63ejiXBjF_l8KveI0Sf_NRt49sJyokbOiLVhwOriP90/s1600/Disassemble.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPiHneXB-LWHDB56dZ9OpXDYOLX-i5g670B3Mi2iigF7Ed7LyH_Ha1726i21dCqkfFmHfh6pEt5xbH6ldTPLlggN9s5u0j8zan63ejiXBjF_l8KveI0Sf_NRt49sJyokbOiLVhwOriP90/s640/Disassemble.jpg" width="98%" height="600" /></a>
 Follow instructions to setup emulator <a href="http://steveproxna.blogspot.co.uk/2013/09/sega-console-programming.html">hotkeys</a> for: <b>F10</b> (Fusion) <b>F11</b> (Meka) + HOTKEY <b>F12</b> (Emulicious).
 <br /><br />
 Press <b>F12</b> to run program in Emulicious.  Ensure VDP constraints are ENABLED to emulate real hardware.
-<a href="https://4.bp.blogspot.com/-5PjJQx0QyUA/WQBuOdv-EjI/AAAAAAAAD-Q/QjFEo7YVu4Uep0OYOgOwf8buG4ccNj55gCLcB/s1600/Emulicious.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-5PjJQx0QyUA/WQBuOdv-EjI/AAAAAAAAD-Q/QjFEo7YVu4Uep0OYOgOwf8buG4ccNj55gCLcB/s640/Emulicious.jpg" width="98%" height="500" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_-oNsiHWhiXWnNKw5JoVpvWJNuPrFKlnH66eYUNyXQLA0qyLvZAYHpbbVKzqP3moSWMjaYLz40CV3QcLsYQT4pPIpK15G9Gb3GdfpfSKUIvzJVUr3rx-446B_qzTg8Pv3cckI450lkx4/s1600/Emulicious.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_-oNsiHWhiXWnNKw5JoVpvWJNuPrFKlnH66eYUNyXQLA0qyLvZAYHpbbVKzqP3moSWMjaYLz40CV3QcLsYQT4pPIpK15G9Gb3GdfpfSKUIvzJVUr3rx-446B_qzTg8Pv3cckI450lkx4/s640/Emulicious.jpg" width="98%" height="500" /></a>
 <br /><br />
 Note: in Emulicious we are able to debug through the HelloWorld source assembly code:
-<a href="https://2.bp.blogspot.com/-l5PA3VwcV08/WQdihrYy7xI/AAAAAAAAD-4/ByULMOPYKAcSV159hezk0-Prf_joTXl3wCLcB/s1600/Debugger.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-l5PA3VwcV08/WQdihrYy7xI/AAAAAAAAD-4/ByULMOPYKAcSV159hezk0-Prf_joTXl3wCLcB/s640/Debugger.jpg" width="98%" height="490" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggMXE8WV3aNzdfQSe3qWkpBbxgDlFzp7felFpS3OvzHp1IOXn3iz-Wamri-z13JhmzB0XXrqDvBHmI455uY8FqSegF_T8nBycMChUG7dkaSvsSP3AM9XYh110IOHd4hEOObPJNpL17hmY/s1600/Debugger.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggMXE8WV3aNzdfQSe3qWkpBbxgDlFzp7felFpS3OvzHp1IOXn3iz-Wamri-z13JhmzB0XXrqDvBHmI455uY8FqSegF_T8nBycMChUG7dkaSvsSP3AM9XYh110IOHd4hEOObPJNpL17hmY/s640/Debugger.jpg" width="98%" height="490" /></a>
 <br /><br />
 Compare machine code in the debugger with the raw binary output file from <b>output.sms</b>.
-<a href="https://4.bp.blogspot.com/-SdXygbeHLg0/WQdi4ydSZ_I/AAAAAAAAD-8/9Yk4umaSq7Qy1igMWjrgGi7nse7BF8FvQCLcB/s1600/HexEditor.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-SdXygbeHLg0/WQdi4ydSZ_I/AAAAAAAAD-8/9Yk4umaSq7Qy1igMWjrgGi7nse7BF8FvQCLcB/s640/HexEditor.jpg" width="98%" height="400" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKoyb5INlD3OB56HcirxtnFDrAsmiqXkZnRq_c1MOME-rpcvEvXuOjLu8wUIBvXPZFbS82BlPREghPoHEoDQFsrO2smxfVdAsj8Pp5oyWS3gBN4yzM1leDrrrQD-cSEONddOpmvRwixqw/s1600/HexEditor.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKoyb5INlD3OB56HcirxtnFDrAsmiqXkZnRq_c1MOME-rpcvEvXuOjLu8wUIBvXPZFbS82BlPREghPoHEoDQFsrO2smxfVdAsj8Pp5oyWS3gBN4yzM1leDrrrQD-cSEONddOpmvRwixqw/s640/HexEditor.jpg" width="98%" height="400" /></a>
 <br /><br />
 Update the <b>build.bat</b> script to include the disassemble step.  Clean up and delete any unnecessary files:
 <pre class="csharp" name="code">

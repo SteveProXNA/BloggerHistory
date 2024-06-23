@@ -4,7 +4,7 @@ In the previous <a href="http://steveproxna.blogspot.co.uk/2015/05/candy-kid-vid
 Recently, Candy Kid was re-written in <a href="http://en.wikipedia.org/wiki/XNA_(Microsoft)">XNA</a> using C#/.NET.  However, in order to keep the super cool 80s retro arcade video game look and feel, all original programmer art in Candy Kid was used for the sprites.
 <br /><br />
 Let's check it out!
-<a href="http://4.bp.blogspot.com/-PI0Z4izOPRI/VbIVoAmtXFI/AAAAAAAADP4/5ss-rijezx0/s1600/01-Title.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-PI0Z4izOPRI/VbIVoAmtXFI/AAAAAAAADP4/5ss-rijezx0/s640/01-Title.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjE6nluezZzHl6uhLotU4sF5QHNxKCdfNpdtNSRu5K28HO2nZJELJaCQhxd3DM03SothPqlOYVQ2ZUlbUopIM-Y0F0cnfJg5tXTTV_GUqXsMuwmNevc-pwseJJ_cNfRKRg5yLkthJ9IO1g/s1600/01-Title.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjE6nluezZzHl6uhLotU4sF5QHNxKCdfNpdtNSRu5K28HO2nZJELJaCQhxd3DM03SothPqlOYVQ2ZUlbUopIM-Y0F0cnfJg5tXTTV_GUqXsMuwmNevc-pwseJJ_cNfRKRg5yLkthJ9IO1g/s640/01-Title.jpg" width="98%" /></a>
 Note: in order to follow the code along first ensure you have your PC setup for <a href="http://steveproxna.blogspot.co.uk/2013/07/sega-basic-programming.html">Sega BASIC programming</a>.
 <br />
 All code listed inspired from Sega Computer magazine <a href="http://www.smspower.org/Scans/SegaComputer-Magazine-Issue02?gallerypage=26">Sprites</a> tutorial, also published in September 1984.
@@ -14,12 +14,12 @@ All code listed inspired from Sega Computer magazine <a href="http://www.smspowe
 Think of a sprite as piece of transparent film over your television screen.  Each individual sprite is made up of group of 64 dots (8 by 8 pixel block).  Each dot may be turned "on" (made visible) or "off" (not visible).
 <br /><br />
 To instruct the computer what 64 sprite dots look like, use <a href="https://en.wikipedia.org/wiki/Binary_number">binary</a> notation to define each pixel as either turned "on" (value=1) or "off" (value=0).  <a href="https://en.wikipedia.org/wiki/Hexadecimal">Hexadecimal</a> notation is then used to group 4x pixels at a time.
-<a href="http://3.bp.blogspot.com/-1fgBu816H7Y/VbC_mE0X3ZI/AAAAAAAADK4/8yY2WATImvI/s1600/Sprites.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-1fgBu816H7Y/VbC_mE0X3ZI/AAAAAAAADK4/8yY2WATImvI/s400/Sprites.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhC7ORehTLe_pwMlcoUWpJwwOE1xSOOKfklTdjXAjeeMkjT5gwiXsegCzHOTV09dghXgrOv3gKTSlGptR6A0wBfobP809K_qGkTAkOewHw9owGS1CRkxUMBxqU8Dd4M0AGUO4raxEJoxhw/s1600/Sprites.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhC7ORehTLe_pwMlcoUWpJwwOE1xSOOKfklTdjXAjeeMkjT5gwiXsegCzHOTV09dghXgrOv3gKTSlGptR6A0wBfobP809K_qGkTAkOewHw9owGS1CRkxUMBxqU8Dd4M0AGUO4raxEJoxhw/s400/Sprites.jpg" width="98%" /></a>
 <br /><br />
 <u>Example</u>
 <br />
 As an example, here are 64 dots (8 by 8 pixel block) that define the original candy pattern in Candy Kid:
-<a href="http://2.bp.blogspot.com/-c7FF0ZOT-xc/VbIBlbwyv7I/AAAAAAAADOI/i3_M5pBthVA/s1600/Candy8x8.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-c7FF0ZOT-xc/VbIBlbwyv7I/AAAAAAAADOI/i3_M5pBthVA/s320/Candy8x8.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjF9D6VRtVI8rq7uTpIhWVNDSW2J43a5Iq3joN9Tsd7vK28aWN9XIBTXuHrdZXJmtiiev3RpYpoL-XZOUjNPOUV-UXZCp_Yc13RYVQzo1-ydUIHyXID36UIO7dix0LsaVEPZjP44jpuDJo/s1600/Candy8x8.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjF9D6VRtVI8rq7uTpIhWVNDSW2J43a5Iq3joN9Tsd7vK28aWN9XIBTXuHrdZXJmtiiev3RpYpoL-XZOUjNPOUV-UXZCp_Yc13RYVQzo1-ydUIHyXID36UIO7dix0LsaVEPZjP44jpuDJo/s320/Candy8x8.jpg" width="98%" /></a>
 <br />
 Launch <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/239-meka">Meka</a> emulator.  Main menu | Load ROM | Sega BASIC Level 3 ROM.  Type in the following code:
 <pre class="csharp" name="code">
@@ -65,10 +65,10 @@ Now that sprite has been constructed, we are able to magnify it.  There are four
 <u>Candy Kid</u>
 <br />
 All sprites in Candy Kid use Mag 1.  Therefore, four patterns are used to generate each 16x16 pixel sprite.
-<a href="http://1.bp.blogspot.com/-4RV8ptWVJC8/VbD6fMj_u6I/AAAAAAAADLk/-Gmy3dvKfTI/s1600/CK1-2xImages.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-4RV8ptWVJC8/VbD6fMj_u6I/AAAAAAAADLk/-Gmy3dvKfTI/s400/CK1-2xImages.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd0yQOzXIAWU7Yq39FNfNylEZe4Q8kW9uUAN6ldX4RBwzxQhw828BGhRXTWAlDHJKV5ev7UZP_gKenI6V5KlQVx7fZPCWRuGNoghQSQcQo1vUAP8H_oQ7U0AbiZxqyw7duZApEyq1sPEo/s1600/CK1-2xImages.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd0yQOzXIAWU7Yq39FNfNylEZe4Q8kW9uUAN6ldX4RBwzxQhw828BGhRXTWAlDHJKV5ev7UZP_gKenI6V5KlQVx7fZPCWRuGNoghQSQcQo1vUAP8H_oQ7U0AbiZxqyw7duZApEyq1sPEo/s400/CK1-2xImages.jpg" width="98%" /></a>
 <br /><br />
 Let's break down the four 8x8 pixel sprites to determine the patterns to be typed into the Sega SC-3000:
-<a href="http://3.bp.blogspot.com/-4xQUHvUb1Q0/VbID9gnwUjI/AAAAAAAADOU/BWdazOyUou4/s1600/CK1-4xImages.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-4xQUHvUb1Q0/VbID9gnwUjI/AAAAAAAADOU/BWdazOyUou4/s400/CK1-4xImages.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSwwlSPw3USpvCpFde5a8qCyOu_17VpFXsd67PoQaRzOLvaoSAFs1jGiyRnkDLqGGZnfFNt2pKnyCzMyK8dfbybe2qtgt9-SLf9nLRuOx12-oLm-PSReQts-oaE271jEzJuMsxFgleW2Q/s1600/CK1-4xImages.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSwwlSPw3USpvCpFde5a8qCyOu_17VpFXsd67PoQaRzOLvaoSAFs1jGiyRnkDLqGGZnfFNt2pKnyCzMyK8dfbybe2qtgt9-SLf9nLRuOx12-oLm-PSReQts-oaE271jEzJuMsxFgleW2Q/s400/CK1-4xImages.jpg" width="98%" /></a>
 <br /><br />
 Launch <a href="http://www.emutopia.com/index.php/downloads-emulators/item/298-sega-sg-1000-sc-3000/239-meka">Meka</a> emulator. Main menu | Load ROM | Sega BASIC Level 3 ROM. Type in the following code: 
 <pre class="csharp" name="code">
@@ -103,7 +103,7 @@ Crop image to required dimensions i.e. 32x32 pixels using MS Paint.  Re-save.  M
 <table width="100%" border="0">
 <tr>
 <td valign="top">
-<a href="http://1.bp.blogspot.com/-8ZBr-yfWVbo/VbEDm_jrUEI/AAAAAAAADMI/0SnGSyeEkoA/s1600/Paint.NET.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-8ZBr-yfWVbo/VbEDm_jrUEI/AAAAAAAADMI/0SnGSyeEkoA/s400/Paint.NET.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhX51s7ICwYH7lTue0mwYFv2XQW5kVo8wcjzjN0e3lQBgcL-B58ntmG_Sm8yKye6Fc0X7AgcIdnDZSTJDPjg9he0tbFZOfuEBwAE6YcoPm2O7Xlou8eTNs4PiMKNJqvs4seSmVTy6-Tslc/s1600/Paint.NET.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhX51s7ICwYH7lTue0mwYFv2XQW5kVo8wcjzjN0e3lQBgcL-B58ntmG_Sm8yKye6Fc0X7AgcIdnDZSTJDPjg9he0tbFZOfuEBwAE6YcoPm2O7Xlou8eTNs4PiMKNJqvs4seSmVTy6-Tslc/s400/Paint.NET.jpg" /></a>
 </td>
 <td valign="top" align="left">
 <a href="http://www.dotpdn.com/files/paint.net.4.0.5.install.zip">Download</a>, install and launch Paint.NET.  Open the original 32x32 Candy Kid BMP image saved and processed above.
@@ -120,8 +120,8 @@ Save new image as PNG file to include transparency.
 </table>
 <br />
 Repeat process for the enemy sprite Candy Mama.  Different colours could be used for multiple enemies:
-<a href="http://2.bp.blogspot.com/-hqyShDmhXLU/VbEI9kg-6qI/AAAAAAAADMY/Vs_RnkXTiqE/s1600/CM1-2xImages.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-hqyShDmhXLU/VbEI9kg-6qI/AAAAAAAADMY/Vs_RnkXTiqE/s400/CM1-2xImages.jpg" width="98%" /></a>
-<a href="http://2.bp.blogspot.com/-SM67L5hnvso/VbIETKI8BbI/AAAAAAAADOk/hR1V8NCC1h4/s1600/CM1-4xImages.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-SM67L5hnvso/VbIETKI8BbI/AAAAAAAADOk/hR1V8NCC1h4/s400/CM1-4xImages.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5sojrUJvGvyvPfxpMcjYEmm9h-1uVoFmRqWhOaqSMOg_LVWRBrtxQ41pc7Qx_WspeJdK920vlDGvjLsPo_oUUBfDBXuU7DcsCZfCYvUSpodWvP2FLWfpWDcqoAx13P3qOGVFvD5XNuuQ/s1600/CM1-2xImages.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5sojrUJvGvyvPfxpMcjYEmm9h-1uVoFmRqWhOaqSMOg_LVWRBrtxQ41pc7Qx_WspeJdK920vlDGvjLsPo_oUUBfDBXuU7DcsCZfCYvUSpodWvP2FLWfpWDcqoAx13P3qOGVFvD5XNuuQ/s400/CM1-2xImages.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjc6lxpPNWVZnSaP3GgleOyXUnQh2bkzmn8adkdAy0Y-XjqdrolEJqZTpuUDwAdGGZpSYVnGk7I715uV4ww0Gxxjl3swfk9KYLK9bhewisMnWxWskuMDi8RQKERk0n2lOU7xK_n0_vUGsA/s1600/CM1-4xImages.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjc6lxpPNWVZnSaP3GgleOyXUnQh2bkzmn8adkdAy0Y-XjqdrolEJqZTpuUDwAdGGZpSYVnGk7I715uV4ww0Gxxjl3swfk9KYLK9bhewisMnWxWskuMDi8RQKERk0n2lOU7xK_n0_vUGsA/s400/CM1-4xImages.jpg" width="98%" /></a>
 <pre class="csharp" name="code">
 NEW
 100 SCREEN 2,2:CLS
@@ -147,10 +147,10 @@ Duplicate sprites, tweak arms and/or legs and produce sprite sheets to be used f
 <table width="90%" border="0">
 <tr>
 <td valign="top" width="50%">
-<a href="http://3.bp.blogspot.com/-vZWs5iX3tf0/VbEVIvKac9I/AAAAAAAADM8/PV4z9Jz5VkY/s1600/CK-SpriteSheet.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-vZWs5iX3tf0/VbEVIvKac9I/AAAAAAAADM8/PV4z9Jz5VkY/s400/CK-SpriteSheet.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiS3WtzzGMQTnXALGq3CYyQW29jIge0ylZA65LEGZHQ2gfYVEpxwBdjF5MwZbIZRSaPSHPHntufgV5Y5ZEg_R79_sOAiKMsRcm_xG3swGYgvxXnx-mK_C1GF7iY-XEu6MCKIEnvMGDzgNQ/s1600/CK-SpriteSheet.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiS3WtzzGMQTnXALGq3CYyQW29jIge0ylZA65LEGZHQ2gfYVEpxwBdjF5MwZbIZRSaPSHPHntufgV5Y5ZEg_R79_sOAiKMsRcm_xG3swGYgvxXnx-mK_C1GF7iY-XEu6MCKIEnvMGDzgNQ/s400/CK-SpriteSheet.jpg" /></a>
 </td>
 <td valign="top">
-<a href="http://1.bp.blogspot.com/-HN4SqOZ28f8/VbEVtToyYNI/AAAAAAAADNE/0il301gFleg/s1600/CM-SpriteSheet.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-HN4SqOZ28f8/VbEVtToyYNI/AAAAAAAADNE/0il301gFleg/s400/CM-SpriteSheet.jpg" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBfzFohxwMI6ulZ3aBBnIRuMr3sZS679RYgraZ5ehEbMqbHQDRhRAr42C8t72bZuipQjbdTAjBYpbSdPLbYRy1dm7yLrU-NtmuO-0AdBXIxZwGDVVzBSC7CsMBd2oRGpusLo28bQsuW6o/s1600/CM-SpriteSheet.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBfzFohxwMI6ulZ3aBBnIRuMr3sZS679RYgraZ5ehEbMqbHQDRhRAr42C8t72bZuipQjbdTAjBYpbSdPLbYRy1dm7yLrU-NtmuO-0AdBXIxZwGDVVzBSC7CsMBd2oRGpusLo28bQsuW6o/s400/CM-SpriteSheet.jpg" /></a>
 </td>
 </tr>
 </table>
@@ -164,10 +164,10 @@ However, ultimate goal would be to re-write Candy Kid in <a href="http://en.wiki
 The <a href="http://steveproxna.blogspot.co.uk/2014/11/z88dk-programming-and-sample.html">z88dk Programming Sample</a> demonstrates how to convert the original 16x16 pixel sprites to a format the Sega Master System (SMS) understands.  This includes the Palette, Tiles, Tilemap and the Sprite table.
 <br /><br />
 Create 16x16 source sprite (as above). Save source sprite as BMP (bitmap) file. Load image in MS Paint:
-<a href="http://1.bp.blogspot.com/-Xq3OVXBeP7o/VbEcfH9c8HI/AAAAAAAADNs/mB-FgO5fRF0/s1600/CKmsPaint1.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-Xq3OVXBeP7o/VbEcfH9c8HI/AAAAAAAADNs/mB-FgO5fRF0/s640/CKmsPaint1.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixp2ENo4Ea3a207R9j4FXRLJukohFdbzJupCYSTUZv7t1MCN7NNJ2hyphenhyphenPo898zf9Y_LUHt5uIB2eIbOtoVxH5hKRQQO9w_CY7o9UJkAa58ymPBxW5-EYKdZtKFdn-MfnmajHTthk2DU74Y/s1600/CKmsPaint1.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixp2ENo4Ea3a207R9j4FXRLJukohFdbzJupCYSTUZv7t1MCN7NNJ2hyphenhyphenPo898zf9Y_LUHt5uIB2eIbOtoVxH5hKRQQO9w_CY7o9UJkAa58ymPBxW5-EYKdZtKFdn-MfnmajHTthk2DU74Y/s640/CKmsPaint1.jpg" width="98%" /></a>
 <br /><br />
 Note: sprite / tile data on the SMS must be max. 4bpp (bits per pixel). Save as type 16 Color Bitmap:
-<a href="http://1.bp.blogspot.com/-NT0bX-aqKW4/VbEclkk_G2I/AAAAAAAADN0/HMZOeKHlyNs/s1600/CKmsPaint2.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-NT0bX-aqKW4/VbEclkk_G2I/AAAAAAAADN0/HMZOeKHlyNs/s640/CKmsPaint2.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpYd7AmQzRQGK6KI9G919YkJg_i7Q9DsVHrkXH9NGJnXfezYn4s5QMWJlr7O5A0V-DQo0k3hYb8yCzZ8lugH7qC9BKVAH8ilAZyeUNKdwlVyM_7fyvZtZdhPfc1Ujae-vZ5ecxNu_7Uws/s1600/CKmsPaint2.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpYd7AmQzRQGK6KI9G919YkJg_i7Q9DsVHrkXH9NGJnXfezYn4s5QMWJlr7O5A0V-DQo0k3hYb8yCzZ8lugH7qC9BKVAH8ilAZyeUNKdwlVyM_7fyvZtZdhPfc1Ujae-vZ5ecxNu_7Uws/s640/CKmsPaint2.jpg" width="98%" /></a>
 <br />
 <u>BMP2Tile</u>
 <br />
@@ -176,13 +176,13 @@ Download and launch <a href="http://www.smspower.org/maxim/Software/BMP2Tile">BM
 Choose "Tiles" tab.  Ensure that "Remove duplicates" and "Planar tile output" are both checked.
 <br />
 Set "Index of first tile" to 1.  It seems best practice to leave <i>empty</i> background tile at index 0.
-<a href="http://4.bp.blogspot.com/-AWIEZOixEuA/VbIMdzuwDQI/AAAAAAAADPE/UO0RpBB_MkY/s1600/01-Tiles.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-AWIEZOixEuA/VbIMdzuwDQI/AAAAAAAADPE/UO0RpBB_MkY/s640/01-Tiles.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZfLF8ozQrVlWGuvTQS3wK-UPpU92mGxNkDaTevTTCDdfN200VWLYGqFAR3Byug0UlNTl5B74wg6Comh1nI0q1lVtY-VhYQoY1bygp4AvKRpmXbQlvrR5a9-BjNhYl6vRWETvmdr_FVtk/s1600/01-Tiles.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZfLF8ozQrVlWGuvTQS3wK-UPpU92mGxNkDaTevTTCDdfN200VWLYGqFAR3Byug0UlNTl5B74wg6Comh1nI0q1lVtY-VhYQoY1bygp4AvKRpmXbQlvrR5a9-BjNhYl6vRWETvmdr_FVtk/s640/01-Tiles.jpg" width="98%" /></a>
 <br /><br />
 Choose "Tilemap" tab.  Leave "Use sprite palette" and "In front of sprites" options unchecked.
-<a href="http://3.bp.blogspot.com/-UcZ3KhNyQF4/VG42AiSRmBI/AAAAAAAADHA/7b-ZBxdhslY/s1600/04-bmp2tile.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-UcZ3KhNyQF4/VG42AiSRmBI/AAAAAAAADHA/7b-ZBxdhslY/s640/04-bmp2tile.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7xiT3WOXHo6DZjPW8H-ASJ0c0tHsuDy2yU4HdCerFvvNhQzWLIV0bM2l-5I-mwNY0sINwE8GypNgoAiHfAn-ZDvMg9qMPHv60jjg7DjgyHEMNbNo82fGt-k89gMmffCbz82nOtB0WSXQ/s1600/04-bmp2tile.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7xiT3WOXHo6DZjPW8H-ASJ0c0tHsuDy2yU4HdCerFvvNhQzWLIV0bM2l-5I-mwNY0sINwE8GypNgoAiHfAn-ZDvMg9qMPHv60jjg7DjgyHEMNbNo82fGt-k89gMmffCbz82nOtB0WSXQ/s640/04-bmp2tile.jpg" width="98%" /></a>
 <br /><br />
 Choose "Palette" tab.  Leave the "Output hex (SMS)" option checked for Sega Master System.
-<a href="http://2.bp.blogspot.com/-2S_QUhPAHfc/VG42S73YYcI/AAAAAAAADHI/XX2zCYe81h4/s1600/05-bmp2tile.jpg" imageanchor="1" ><img border="0" src="http://2.bp.blogspot.com/-2S_QUhPAHfc/VG42S73YYcI/AAAAAAAADHI/XX2zCYe81h4/s640/05-bmp2tile.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHfD3RJlnnyb8etb18Hun3xCiqfiVZYPSvbkn9cVJubMn06sFojUq2Q9uc9LrFTkOArvKp4fQH7BsF8gaPzTTO_eMM9zMsHRYQ9pKI1jhHhiSj13jghjzIVoEk9XjZgoZV-s8QGTjk1DA/s1600/05-bmp2tile.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHfD3RJlnnyb8etb18Hun3xCiqfiVZYPSvbkn9cVJubMn06sFojUq2Q9uc9LrFTkOArvKp4fQH7BsF8gaPzTTO_eMM9zMsHRYQ9pKI1jhHhiSj13jghjzIVoEk9XjZgoZV-s8QGTjk1DA/s640/05-bmp2tile.jpg" width="98%" /></a>
 <br />
 Click Save button on "Tiles", "Tilemap", "Palette" tabs.  All data here is used in the game code.
 <br /><br />
@@ -273,6 +273,6 @@ void main()
  
 </pre>
 If you have C:\PerfomBuild.bat setup as per previous <a href="http://steveproxna.blogspot.co.uk/2014/09/z88dk-and-programming-setup.html">post</a> then simply hit <b>Ctrl+1</b> hot key to run the test.
-<a href="http://3.bp.blogspot.com/-XL62GGjH-BU/VbISVy2bSAI/AAAAAAAADPs/mzZ-dx3BcUw/s1600/SegaMasterSystem.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-XL62GGjH-BU/VbISVy2bSAI/AAAAAAAADPs/mzZ-dx3BcUw/s640/SegaMasterSystem.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGY0fnaFaoOe1mDlyrr8w1fo4iGMajE7OjV84ek06WYxbhazqFG-7wcwJMGKDvIqeWai0p8uYkI_q-cs25upz9lUU8egfQx3I6XSWVuFCh9wwq_5SzpdYixkLkF4PQKNrahHu71TltrCI/s1600/SegaMasterSystem.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGY0fnaFaoOe1mDlyrr8w1fo4iGMajE7OjV84ek06WYxbhazqFG-7wcwJMGKDvIqeWai0p8uYkI_q-cs25upz9lUU8egfQx3I6XSWVuFCh9wwq_5SzpdYixkLkF4PQKNrahHu71TltrCI/s640/SegaMasterSystem.jpg" width="98%" /></a>
 Outstanding: add remaining Candy Kid sprite graphics to program in order to complete SMS game code!
 </span>

@@ -4,7 +4,7 @@
 In the old days of <a href="https://en.wikipedia.org/wiki/Retrogaming">retro gaming</a>, cartridge-based video games had very few instructions in game.  The game would be distributed with "How to Play" instruction manual.  This post attempts to replicate that.
 <br /><br />
 Let's check it out!
-<a href="http://3.bp.blogspot.com/-HhE52YX--Sk/VhVNk3GGySI/AAAAAAAADns/dWLvRbTjOGc/s1600/02-Play.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-HhE52YX--Sk/VhVNk3GGySI/AAAAAAAADns/dWLvRbTjOGc/s640/02-Play.jpg" width="98%" /></a><br />
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5ouyLAKpcOleEqQTuA8NU7MTPZOOpFwnpk3WL2dx9QY4r3cocagqBiM5zlblKV-FMeOyJnYs9DOJ3uc7hs2rvnMTEz_Sqwflrwd-JEEAkTqKwHtKUZ8lUy6c8Ot9fD3Bfhy7tHJKyDjo/s1600/02-Play.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5ouyLAKpcOleEqQTuA8NU7MTPZOOpFwnpk3WL2dx9QY4r3cocagqBiM5zlblKV-FMeOyJnYs9DOJ3uc7hs2rvnMTEz_Sqwflrwd-JEEAkTqKwHtKUZ8lUy6c8Ot9fD3Bfhy7tHJKyDjo/s640/02-Play.jpg" width="98%" /></a><br />
 <u>Goal</u>
 <br />
 The goal of Candy Kid is very simple: eat all the candy to pass each level!  Here are some more tips:
@@ -25,25 +25,25 @@ Note: eat all candy + all bonus rewards extra 5,000 pts.  Every fifth perfect le
 Here are the characters.  There are basically 2x types: Candy Kid (you) and Candy Mama (enemy)
 <table width="95%" border="1">
 <tr>
-<td valign="top" align="center"><a href="http://3.bp.blogspot.com/-IQ8X6NV8xCA/VhU4MtZCLOI/AAAAAAAADl0/DYTa3mMvvis/s1600/Kid.png" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-IQ8X6NV8xCA/VhU4MtZCLOI/AAAAAAAADl0/DYTa3mMvvis/s1600/Kid.png" /></a></td>
+<td valign="top" align="center"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt8V3-fOi5dZucEbi0KqaiD4ttAO0MjIRSK38hmQ375nxr-07Ao40JV_ZIkeQHdGOq63fztxzyuA2zje0f5rPtQT9JJDFnXXuEbMUUfnWGr1Bsz5NLnHEthPetks_8OI9ZXmITSjwFBr0/s1600/Kid.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt8V3-fOi5dZucEbi0KqaiD4ttAO0MjIRSK38hmQ375nxr-07Ao40JV_ZIkeQHdGOq63fztxzyuA2zje0f5rPtQT9JJDFnXXuEbMUUfnWGr1Bsz5NLnHEthPetks_8OI9ZXmITSjwFBr0/s1600/Kid.png" /></a></td>
 <td valign="top">&nbsp;"Kid"</td>
 <td valign="top">&nbsp;Candy Kid.  You must eat all the candy to pass each level.<br />&nbsp;Simple!</td>
 </tr>
 <tr>
-<td valign="top" align="center"><a href="http://1.bp.blogspot.com/-abrWcDlQYzw/VhU4olup22I/AAAAAAAADl8/1RjC6Cbq0VQ/s1600/Pro.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-abrWcDlQYzw/VhU4olup22I/AAAAAAAADl8/1RjC6Cbq0VQ/s1600/Pro.png" /></a></td>
+<td valign="top" align="center"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipsE0mZtZNRYXIs0IJ1oOjAipHmZMtXo9WWDDU1Ehti1cHuaKK0nP4DEtec4GRbCGmpY-KBN07M5TlU_JRS9d5-Ws-LnEt-5qvQHUHSI93xdgnrcuXxpQXP9rzgcc-ez3WX0M01d0ekoA/s1600/Pro.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipsE0mZtZNRYXIs0IJ1oOjAipHmZMtXo9WWDDU1Ehti1cHuaKK0nP4DEtec4GRbCGmpY-KBN07M5TlU_JRS9d5-Ws-LnEt-5qvQHUHSI93xdgnrcuXxpQXP9rzgcc-ez3WX0M01d0ekoA/s1600/Pro.png" /></a></td>
 <td valign="top">&nbsp;"Pro"</td>
 <td valign="top">&nbsp;Candy Mama #1.  Super aggressive.  High attack range.
 <br />&nbsp;Favorite direction: Horizontal (will go side-to-side first).</td>
 </tr>
 <tr>
-<td valign="top" align="center"><a href="http://1.bp.blogspot.com/-KbxHy4633qQ/VhU7Q_UmqgI/AAAAAAAADmI/ee7_NJXoTWs/s1600/Adi.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-KbxHy4633qQ/VhU7Q_UmqgI/AAAAAAAADmI/ee7_NJXoTWs/s1600/Adi.png" /></a>
+<td valign="top" align="center"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4ZPhnCz8rq_raCBz9ZI_LXAGsZSpyG_gSyTr5HHrKrlICy8p9lmE91jMV5Wm9LKpPBnZ2IFTjPBj7bq7jePm2-2NhM64BFOBqn-bSNMOifMrFMv6LlSpftP8DAwlBml41wx0ma1Ix330/s1600/Adi.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4ZPhnCz8rq_raCBz9ZI_LXAGsZSpyG_gSyTr5HHrKrlICy8p9lmE91jMV5Wm9LKpPBnZ2IFTjPBj7bq7jePm2-2NhM64BFOBqn-bSNMOifMrFMv6LlSpftP8DAwlBml41wx0ma1Ix330/s1600/Adi.png" /></a>
 </td>
 <td valign="top">&nbsp;"Adi"</td>
 <td valign="top">&nbsp;Candy Mama #2.  Aggressive / passive.  Medium attack.
 <br />&nbsp;Favorite direction: Vertical (will go up-and-down first).</td>
 </tr>
 <tr>
-<td valign="top" align="center"><a href="http://1.bp.blogspot.com/-H_GNf6ByNew/VhU7bJJZh_I/AAAAAAAADmQ/rZ35mH3Tlvk/s1600/Suz.png" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-H_GNf6ByNew/VhU7bJJZh_I/AAAAAAAADmQ/rZ35mH3Tlvk/s1600/Suz.png" /></a>
+<td valign="top" align="center"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYyi1Ngrr4FEoLaRHgipxCLCQ5HKVGrUi2yvfYCAnCC3YVhFcp6N92lvLzH2a982tQ25C4ygmSG65YYSdQ4FpJkgCelj8NTOvIxaJVga-s1j10bpB5T-zZvRiOGzxXO1ABUX08da1_jyw/s1600/Suz.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYyi1Ngrr4FEoLaRHgipxCLCQ5HKVGrUi2yvfYCAnCC3YVhFcp6N92lvLzH2a982tQ25C4ygmSG65YYSdQ4FpJkgCelj8NTOvIxaJVga-s1j10bpB5T-zZvRiOGzxXO1ABUX08da1_jyw/s1600/Suz.png" /></a>
 </td>
 <td valign="top">&nbsp;"Suz"</td>
 <td valign="top">&nbsp;Candy Mama #3.  Super passive.  Low attack range.
@@ -57,10 +57,10 @@ Note: if Candy Mama can manoeuvre either horizontal or vertical then choose favo
 During any non-game screen, tap current screen to progress to next screen; e.g. tap Title Screen to navigate to Main Menu screen.  Also, hit back button to navigate back to previous screen at any time.
 <br /><br />
 However, on iOS devices there is no back button!  Therefore, touch the left or right of the border trees;<br />this action will navigate back to previous screen.  See below, tap in either white rectangle to go back:
-<a href="http://3.bp.blogspot.com/-GiXlz3sRHiE/VhUvpUAtTFI/AAAAAAAADlU/Mdka8Nw_lB4/s1600/01-Start.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-GiXlz3sRHiE/VhUvpUAtTFI/AAAAAAAADlU/Mdka8Nw_lB4/s640/01-Start.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFSXTUBoLwcdnabVDstWw0N_vcSiQVNInsD1FX6IcPU30WBGedKc7fersswMXap7tWu0azdmBY2fZIKIYVDpUUo8VI2ddXWwizpspBkUTrxehvMfQNzxugWLnPjt88l5SZhzpoIR2rqYI/s1600/01-Start.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFSXTUBoLwcdnabVDstWw0N_vcSiQVNInsD1FX6IcPU30WBGedKc7fersswMXap7tWu0azdmBY2fZIKIYVDpUUo8VI2ddXWwizpspBkUTrxehvMfQNzxugWLnPjt88l5SZhzpoIR2rqYI/s640/01-Start.jpg" width="98%" /></a>
 <br />
 During game play, tap in the middle of maze to pause game.  See below, tap in white rectangle to pause:
-<a href="http://4.bp.blogspot.com/-Qt-dZOPz56c/VhVNufELQnI/AAAAAAAADn0/xmUwHxV-XHc/s1600/02-Pause.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-Qt-dZOPz56c/VhVNufELQnI/AAAAAAAADn0/xmUwHxV-XHc/s640/02-Pause.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeEiN61Y2ndxJ3dp53bUyke_Ltg2Fz5lThK4cxPc0RLHTYBuCJDaDfURCiiozCxw5rwUWRXD0PGDSbWFt74G7U7-eOfZ7iep8fbTUeOsbTy2YzS0MJIg8ccG5O6xjRHqH_NAiExWEsg-I/s1600/02-Pause.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeEiN61Y2ndxJ3dp53bUyke_Ltg2Fz5lThK4cxPc0RLHTYBuCJDaDfURCiiozCxw5rwUWRXD0PGDSbWFt74G7U7-eOfZ7iep8fbTUeOsbTy2YzS0MJIg8ccG5O6xjRHqH_NAiExWEsg-I/s640/02-Pause.jpg" width="98%" /></a>
 <br />
 <u>Options</u>
 <br />
@@ -71,29 +71,29 @@ Listed below are some interesting options.  Tap "Game Options" from Main Menu to
 <b>General Info</b>
 <br />
 Tap "Instructions".  Tap either "Kid", "Adi", "Suz" or "Pro" to select alternate color sprite (in rectangles):
-<a href="http://1.bp.blogspot.com/-irBtB30U-OY/VhU9m1dCTKI/AAAAAAAADmk/ukp3Qh6ejR8/s1600/04-AlternateEntity.jpg" imageanchor="1" ><img border="0" src="http://1.bp.blogspot.com/-irBtB30U-OY/VhU9m1dCTKI/AAAAAAAADmk/ukp3Qh6ejR8/s640/04-AlternateEntity.jpg" width="98%"  /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhr6yK-9YPO1QwNkRD__sR5WbkmjYbulmXZLzOGsvhlTwQKFn8-hM-uuOuuzbz56iSCLuweggE9vnvzrT2j4PkV4kRP4_laTMmhPkd7I7lgzva7NMQ9VFcrox3Krp30wFGGzpQx3wMQIOk/s1600/04-AlternateEntity.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhr6yK-9YPO1QwNkRD__sR5WbkmjYbulmXZLzOGsvhlTwQKFn8-hM-uuOuuzbz56iSCLuweggE9vnvzrT2j4PkV4kRP4_laTMmhPkd7I7lgzva7NMQ9VFcrox3Krp30wFGGzpQx3wMQIOk/s640/04-AlternateEntity.jpg" width="98%"  /></a>
 <br /><br />
 <b>General Game</b>
 <br />
 Tap "Avoid Trees" to alternate "Avoid Trees" that block and "Death Trees" that kill player on contact:
-<a href="http://4.bp.blogspot.com/-ZgtwY5APdZA/VhU_CjDyn-I/AAAAAAAADmw/I31mQlPmITo/s1600/05-DeathTrees.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-ZgtwY5APdZA/VhU_CjDyn-I/AAAAAAAADmw/I31mQlPmITo/s640/05-DeathTrees.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0NsQ6nowN4J6wSlYzlclq-x6IcrXfgjod3g6EeR5cFtLLbkNMfV8qElAIBUFctCucGmIoh5J2T8d3VK_U9y-3VwtyYgORQSt65l7MwZ7jME4GCr-dUwtb-2saAKczRX2g82SKBkAkkJM/s1600/05-DeathTrees.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0NsQ6nowN4J6wSlYzlclq-x6IcrXfgjod3g6EeR5cFtLLbkNMfV8qElAIBUFctCucGmIoh5J2T8d3VK_U9y-3VwtyYgORQSt65l7MwZ7jME4GCr-dUwtb-2saAKczRX2g82SKBkAkkJM/s640/05-DeathTrees.jpg" width="98%" /></a>
 <br />
 Tap "Exits Public" to alternate "Exits Public" to wrap around tunnels and "Exits Closed" to close them:
-<a href="http://3.bp.blogspot.com/-yaZroaHC9J8/VhU_H2m6zfI/AAAAAAAADm4/YjD6lduQcu4/s1600/06-ExitsClosed.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-yaZroaHC9J8/VhU_H2m6zfI/AAAAAAAADm4/YjD6lduQcu4/s640/06-ExitsClosed.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg60L9PC1zK8ok8TPIUcTwIglrj2W_pr5eHsdoIiR3r089xNLxMwvKe12db9nHbz7umqcbqzG8NfbqU74_ZTik558bpp4cJ8-ymHeBJt7dhyphenhyphenNAdhOCAX760Hh5UwGDw3OA18L-m2U62L4k/s1600/06-ExitsClosed.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg60L9PC1zK8ok8TPIUcTwIglrj2W_pr5eHsdoIiR3r089xNLxMwvKe12db9nHbz7umqcbqzG8NfbqU74_ZTik558bpp4cJ8-ymHeBJt7dhyphenhyphenNAdhOCAX760Hh5UwGDw3OA18L-m2U62L4k/s640/06-ExitsClosed.jpg" width="98%" /></a>
 <br /><br />
 <b>Gamer Option</b>
 <br />
 Gamer can have 4x speeds: Slower, Medium, Faster, Insane.  Gamer fast and enemy slow or vice versa!
 <br />
 Tap "Arrows: 4Way" for "one thumb" player navigation.  Otherwise use "UDLR" = Up, Down, Left, Right:
-<a href="http://4.bp.blogspot.com/-wNytK8X1KSM/VhVBboMyWbI/AAAAAAAADnE/SQleufPvzJg/s1600/07-Arrows4Way.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-wNytK8X1KSM/VhVBboMyWbI/AAAAAAAADnE/SQleufPvzJg/s640/07-Arrows4Way.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgI9M0YS74D_TB0UY3aiMijZs9D8S4NS-Q4wdTWBXXmM77JC79_xGH_1S3xSeZZgHOR6fMEw5RAhBCB1YR_jF6kVQQNt-jq1bkFAKPmmvaxkWzoEzPcaJzahJtKATY3YAhcWATHM9GUdlE/s1600/07-Arrows4Way.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgI9M0YS74D_TB0UY3aiMijZs9D8S4NS-Q4wdTWBXXmM77JC79_xGH_1S3xSeZZgHOR6fMEw5RAhBCB1YR_jF6kVQQNt-jq1bkFAKPmmvaxkWzoEzPcaJzahJtKATY3YAhcWATHM9GUdlE/s640/07-Arrows4Way.jpg" width="98%" /></a>
 <br /><br />
 <b>Enemy Option</b>
 <br />
 Tap "Enemy Attack" to alternate "Attack" when the Candy Mamas kill you and "Docile" when they don't.
 <br />
 Tap "Enemy Resets" to alternate enemy "Resets" back to base when Kid dies and "Cont's" to continue.
-<a href="http://3.bp.blogspot.com/-munEl9OKCBg/VhVE1MyUzRI/AAAAAAAADnQ/BWRMeJRQE6I/s1600/08-EnemyOptions.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-munEl9OKCBg/VhVE1MyUzRI/AAAAAAAADnQ/BWRMeJRQE6I/s640/08-EnemyOptions.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_rX4eaBsxrH674INo_Pz-lbPIKASP_I6QESbfN1C_n2tR8cXY-Ezr75upGTTAh5l4_Ao-qA0_p21DWakfFTWROV_PdzDKvNHHJ3BBTqsAbgE7UsWR9vBgEC7ErTDt4jttvzWTj99BcPw/s1600/08-EnemyOptions.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_rX4eaBsxrH674INo_Pz-lbPIKASP_I6QESbfN1C_n2tR8cXY-Ezr75upGTTAh5l4_Ao-qA0_p21DWakfFTWROV_PdzDKvNHHJ3BBTqsAbgE7UsWR9vBgEC7ErTDt4jttvzWTj99BcPw/s640/08-EnemyOptions.jpg" width="98%" /></a>
 <br />
 Enemy can have 4x speeds: Slower, Medium, Faster, Insane.  Enemy fast and gamer slow or vice versa!
 <br />
@@ -110,7 +110,7 @@ Make good use of tunnels when enabled, especially for faster speeds.  Eat candy 
 <u>Secrets</u>
 <br />
 During game play, tap on "giant" white candy to get free man!  See below, white candy is in rectangle:
-<a href="http://4.bp.blogspot.com/-7lvrxzjB0XY/VhUxmtFy9jI/AAAAAAAADlk/FYiOYPlZtCU/s1600/03-SecretCandy.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-7lvrxzjB0XY/VhUxmtFy9jI/AAAAAAAADlk/FYiOYPlZtCU/s640/03-SecretCandy.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCYdzVeJkMEntCL7uxrRa0tHm9_NtU9opX50zY1nLMaphLgEWt_RFmrFCcDuuvD3I_m2H_1NjyY9I34zbe4yqEm1-p5P0iLIHjeuz9l5JTNsNpN-QU03vkZTlmZYi4t_wr15PrIkKSpvA/s1600/03-SecretCandy.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCYdzVeJkMEntCL7uxrRa0tHm9_NtU9opX50zY1nLMaphLgEWt_RFmrFCcDuuvD3I_m2H_1NjyY9I34zbe4yqEm1-p5P0iLIHjeuz9l5JTNsNpN-QU03vkZTlmZYi4t_wr15PrIkKSpvA/s640/03-SecretCandy.jpg" width="98%" /></a>
 Note: "giant" white candy will only ever be found at Candy Kid or Candy Mama starting position (base).
 <br />
 Important: every fifth level there is 50-50 chance of "giant" white candy so be on lookout these levels!
@@ -153,7 +153,7 @@ All the instructions above relate to the fully unlocked game.  However, if you w
 </table>
 <br />
 Of course you can unlock game at any time, especially when you exit free version there is upsell screen:
-<a href="http://3.bp.blogspot.com/--CMkepstezE/VhVK1BRP9HI/AAAAAAAADng/IoDKzc-Oakc/s1600/09-Unlock.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/--CMkepstezE/VhVK1BRP9HI/AAAAAAAADng/IoDKzc-Oakc/s640/09-Unlock.jpg" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyhCe4kOOkEtw8J638atP8z6Q23naYcr0h_Fy8Pce_v-bKwcZElU5G73u5J7XM0xaT6sxJQOkn7gRIvlZtrSgCN1s2Im4qvNnHanykvAhtUGu-45WzaIppo8cVDmmhFv1O7D4YcgYEIl4/s1600/09-Unlock.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyhCe4kOOkEtw8J638atP8z6Q23naYcr0h_Fy8Pce_v-bKwcZElU5G73u5J7XM0xaT6sxJQOkn7gRIvlZtrSgCN1s2Im4qvNnHanykvAhtUGu-45WzaIppo8cVDmmhFv1O7D4YcgYEIl4/s640/09-Unlock.jpg" width="98%" /></a>
 <br />
 Please show your support for Retro Games and buy Candy Kid today!  Now available on <a href="https://itunes.apple.com/app/retro-candy-kid/id1055478836">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.steveproxna.candykid">Android</a>.
 </span>

@@ -8,7 +8,7 @@ Last year, I conducted a simple
 <tr><td valign="top">
 <ul>
 <li>Focus on cross platform mobile development; specifically <a href="http://unity3d.com">Unity 3D</a></li>
-<li>Integrate native plugins with Unity 3D using C++, Obj-C and Java</li>
+<li>Integrate native plugins with Unity 3D using C++, Obj-C and Java</li>a
 <li>Administration of iOS apps includes certificates / devices / profiles</li>
 <li>Complete <a href="http://en.wikipedia.org/wiki/Software_development_process">SDLC</a> using Jenkins for <a href="http://steveproxna.blogspot.ie/2014/07/unity3d-and-automated-builds.html">automated builds</a> + deployments</li>
 <li>Successful 3rd party integration of In App Purchases into software</li>

@@ -6,7 +6,7 @@ In this post, we use <a href="http://en.wikipedia.org/wiki/Jenkins_(software)">J
 At the time of this writing, Jenkins is available for Android on
 <a href="http://en.wikipedia.org/wiki/Personal_computer">PC</a> and both Android / iOS on the 
 <a href="http://en.wikipedia.org/wiki/Macintosh">Mac</a>.
-<a href="http://4.bp.blogspot.com/-QbsalarRa0c/U90fBkSXWjI/AAAAAAAAC_c/NhZEzCu5ik4/s1600/jenkins.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-QbsalarRa0c/U90fBkSXWjI/AAAAAAAAC_c/NhZEzCu5ik4/s640/jenkins.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgB8FVRMH-28jqmj1fqVfhZjdTam89diwehO_Nh5vzNAxfWraxtgwdxCKnbTnBXZWwyj5kabzgg6FDOWkaDEdWr1MeaNFxw2ZbXFJdjNc9KPdlRtWJ2Yf-VCmawmapzj7sIMEjDjv2fzb8/s1600/jenkins.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgB8FVRMH-28jqmj1fqVfhZjdTam89diwehO_Nh5vzNAxfWraxtgwdxCKnbTnBXZWwyj5kabzgg6FDOWkaDEdWr1MeaNFxw2ZbXFJdjNc9KPdlRtWJ2Yf-VCmawmapzj7sIMEjDjv2fzb8/s640/jenkins.jpg" width="98%"></a>
 <br /><br />
 Let's check it out!
 <br /><br />
@@ -129,17 +129,17 @@ public class PerformBuild
 Main dashboard | Click Manage Jenkins | Click Manage Plugins | Click "Available" tab.
 <br />
 Ensure the following plugins are installed: Subversion Plugin and Unity3d plugin.
-<a href="http://1.bp.blogspot.com/-NtkvvoVUPAo/U9qXEFRknAI/AAAAAAAAC9w/OW52Rs1zM9U/s1600/bb-plugins.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-NtkvvoVUPAo/U9qXEFRknAI/AAAAAAAAC9w/OW52Rs1zM9U/s640/bb-plugins.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgo_m_bXoJp5i1iHjD_mdggnNk-8osAN3CZFIKMzL4fdvZCk-4gaR00eH6oI4zohVLGL3ziOEVSuRPMVmS-l_SZY3XM-TASWjt7hrMLTO9IBHOn6DtIqEAkZieFyIPgnqUug0S4EZl88wQ/s1600/bb-plugins.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgo_m_bXoJp5i1iHjD_mdggnNk-8osAN3CZFIKMzL4fdvZCk-4gaR00eH6oI4zohVLGL3ziOEVSuRPMVmS-l_SZY3XM-TASWjt7hrMLTO9IBHOn6DtIqEAkZieFyIPgnqUug0S4EZl88wQ/s640/bb-plugins.jpg" width="98%"></a>
 <br />
 <i>Restart Plugins</i>
 <br />
 Start | run | services.msc.  Scroll down to Jenkins.  Right click.  Restart.
-<a href="http://2.bp.blogspot.com/-Go4-dQ3s4Og/U9ACHKct_MI/AAAAAAAAC7Y/tu8T3zJJ8EA/s1600/bb-service.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-Go4-dQ3s4Og/U9ACHKct_MI/AAAAAAAAC7Y/tu8T3zJJ8EA/s1600/bb-service.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipmXo8Tg4onUqdxn_4Vm7ckC8vsv1hJJB1AyzEM-FwJYlO_51yFVVkSR929EPWlCx6j1wz-vSBqUjhmxZmRBYsdwLE6twTTqJJJ_EzGrP9bVS97rr532XhsczhTrfi4GXlVlPtrmHq_bI/s1600/bb-service.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipmXo8Tg4onUqdxn_4Vm7ckC8vsv1hJJB1AyzEM-FwJYlO_51yFVVkSR929EPWlCx6j1wz-vSBqUjhmxZmRBYsdwLE6twTTqJJJ_EzGrP9bVS97rr532XhsczhTrfi4GXlVlPtrmHq_bI/s1600/bb-service.jpg" width="98%"></a>
 <br />
 <i>Configure System</i>
 <br />
 Main dashboard | Click Manage Jenkins | Click Configure System.  Enter the following:
-<a href="http://3.bp.blogspot.com/-IVu9FgsJQ-0/U-yiNrrFe3I/AAAAAAAADAA/4z2jh_DDqiM/s1600/aa-configure.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-IVu9FgsJQ-0/U-yiNrrFe3I/AAAAAAAADAA/4z2jh_DDqiM/s640/aa-configure.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0y3aHnmFCovMn9egfE6fPRfbVzusW1NDpdI2xuGWJvFXl76uO7H35p1vQUcX5DM25vbAIYKpVxopx_wrBlc_e7egapcY7X1eFYyr4j5iaKOOUTFeEvRLfLymr1ael43M-NQVPt96KtHo/s1600/aa-configure.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0y3aHnmFCovMn9egfE6fPRfbVzusW1NDpdI2xuGWJvFXl76uO7H35p1vQUcX5DM25vbAIYKpVxopx_wrBlc_e7egapcY7X1eFYyr4j5iaKOOUTFeEvRLfLymr1ael43M-NQVPt96KtHo/s640/aa-configure.jpg" width="98%"></a>
 <br />
 Unity3d | Add Unity3d | Unity3d installations
 <table width="80%" border="1">
@@ -176,7 +176,7 @@ E-mail Notification
 Main dashboard | Click New Item | Enter Item name: AngryBotsAndroid.
 <br>
 Click radio button next to "Build a free-style software project".  Click OK.
-<a href="http://2.bp.blogspot.com/-uOLKMZM38bA/U9qRG19wUcI/AAAAAAAAC9Q/ijW8EzV8idk/s1600/ee-newjob1.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-uOLKMZM38bA/U9qRG19wUcI/AAAAAAAAC9Q/ijW8EzV8idk/s640/ee-newjob1.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4DGz6A4nSt_4t8sIUlRP0V56ZZNr3EiXW4OnnVCIsmOHiyORpFJCLgKqWG0-4y3-7WiFtC_s-fWqb4qu1wfPWRclBtgmpg3I_LGsYuRpd26muC8ytiSJurxLDl3rbORyxKWOdu4VCMpQ/s1600/ee-newjob1.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4DGz6A4nSt_4t8sIUlRP0V56ZZNr3EiXW4OnnVCIsmOHiyORpFJCLgKqWG0-4y3-7WiFtC_s-fWqb4qu1wfPWRclBtgmpg3I_LGsYuRpd26muC8ytiSJurxLDl3rbORyxKWOdu4VCMpQ/s640/ee-newjob1.jpg" width="98%"></a>
 <br>
 Configuration
 <table width="80%" border="1">
@@ -195,7 +195,7 @@ Source Code Management
 </table>
 Note: you may be prompted to enter SVN source control credentials at this point.
 <br>
-<a href="http://4.bp.blogspot.com/-ukOlm9wLqpw/U9qRYHRGsMI/AAAAAAAAC9Y/Sb2hlsDtcks/s1600/ff-credentials.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-ukOlm9wLqpw/U9qRYHRGsMI/AAAAAAAAC9Y/Sb2hlsDtcks/s640/ff-credentials.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4g6YM0QLahjcf3QD24Ws5GzafOxyYp6LhjqLUCZcn2GrfO7-hwfDZmNTdsyXWWAYywQIYAhp1uuQOgWCF1W9R59rG2LpwGrqIcK18OriMveeubjarTDQYDK6dc1fHspeemDoX9-jp3DE/s1600/ff-credentials.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4g6YM0QLahjcf3QD24Ws5GzafOxyYp6LhjqLUCZcn2GrfO7-hwfDZmNTdsyXWWAYywQIYAhp1uuQOgWCF1W9R59rG2LpwGrqIcK18OriMveeubjarTDQYDK6dc1fHspeemDoX9-jp3DE/s640/ff-credentials.jpg" width="98%"></a>
 Credentials | Click Add button | Add SVN source control Username and Password.
 <br><br>
 Build | Add build step | Invoke Unity3d Editor
@@ -222,7 +222,7 @@ Post-build Actions | E-mail Notification
 <br>
 Click Apply button | Click Save button | Click Build Now.
 <br>
-<a href="http://3.bp.blogspot.com/-avElKd22CsE/U9qRxbdeesI/AAAAAAAAC9g/QOQ8fs4m1og/s1600/ii-AngryBotsAndroid.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-avElKd22CsE/U9qRxbdeesI/AAAAAAAAC9g/QOQ8fs4m1og/s640/ii-AngryBotsAndroid.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4GK5HSgg2JsmQye2feA-3uQs_wEDTpRzu-lBl5zUzKcK1DSAAdI52rN59LSUWV2I9cWDR5LRei5WeAKvRW7G1puLoJpTHAD_51vV6fcRYKEO57ClbxdWPDpl1-qrfD1QQEJb51wNmtY4/s1600/ii-AngryBotsAndroid.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4GK5HSgg2JsmQye2feA-3uQs_wEDTpRzu-lBl5zUzKcK1DSAAdI52rN59LSUWV2I9cWDR5LRei5WeAKvRW7G1puLoJpTHAD_51vV6fcRYKEO57ClbxdWPDpl1-qrfD1QQEJb51wNmtY4/s640/ii-AngryBotsAndroid.jpg" width="98%"></a>
 <br>
 Note: during build job, Unity may <a href="http://lacostej.blogspot.ie/2012/03/unity3d-from-commit-to-deployment-onto.html">prompt</a> you to select Android SDK path.  Choose D:\Android\sdk
 <br><br>
@@ -241,7 +241,7 @@ Start | run | cmd | cd "C:\Program Files (x86)\Jenkins\jobs\AngryBotsAndroid\wor
 adb install -r AngryBotsAndroid.apk
 <br><br>
 Congratulations!  Angry Bots should be installed on your Android device ready to play.
-<a href="http://1.bp.blogspot.com/-ogr4U7bdWAU/U7_d0AyiBiI/AAAAAAAAC6E/NHtgRxcHxwE/s1600/04-Android.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-ogr4U7bdWAU/U7_d0AyiBiI/AAAAAAAAC6E/NHtgRxcHxwE/s640/04-Android.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2qswlV9-1ItcS_1eKjuIQoR_xbIZaZ0x-c3KaSj9jkK6vIh2tK-3DQwBj6brobBp1HrlEyvjVoEdR1Yox5rohE08lMOc7ONk0LCiHOKt0FbVhG22cpNki8eDFbVltTyDuJsm7u6h3WJI/s1600/04-Android.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2qswlV9-1ItcS_1eKjuIQoR_xbIZaZ0x-c3KaSj9jkK6vIh2tK-3DQwBj6brobBp1HrlEyvjVoEdR1Yox5rohE08lMOc7ONk0LCiHOKt0FbVhG22cpNki8eDFbVltTyDuJsm7u6h3WJI/s640/04-Android.jpg" width="98%"></a>
 <br><br>
 <u>Apple Mac</u>
 <br />
@@ -283,7 +283,7 @@ mount_smbfs //ARCHIVE-SERVER/Shared/builds /mnt/builds
 Important: Jenkins must run as root user in order to have copy permission to mount drive.
 <br />
 Launch Terminal window to elevate Jenkins privileges as root user.  Modify configuration:
-<a href="http://2.bp.blogspot.com/-yXZV79poUOs/U9o2F3_P0II/AAAAAAAAC80/p-vF1TYEU3w/s1600/dd-root.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-yXZV79poUOs/U9o2F3_P0II/AAAAAAAAC80/p-vF1TYEU3w/s640/dd-root.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkZTjP0ITuYn7N4KMshq564R18iwyOdjZmj7uGJYOrINyonwWvLEkzKA28NyzCoMMJX60bMBFH0woFQkETl0DPi5t_UYB7Ix2hyphenhyphen3lBWqSWojKjSb6wxOduAMSopfAHM7LhoMSaFn7ohPg/s1600/dd-root.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkZTjP0ITuYn7N4KMshq564R18iwyOdjZmj7uGJYOrINyonwWvLEkzKA28NyzCoMMJX60bMBFH0woFQkETl0DPi5t_UYB7Ix2hyphenhyphen3lBWqSWojKjSb6wxOduAMSopfAHM7LhoMSaFn7ohPg/s640/dd-root.jpg" width="98%"></a>
 cd /Library/LaunchDaemons | vi org.jenkins-ci.plist | Find &lt;key&gt;UserName&lt;/key&gt;
 <br />Change &lt;string&gt;<b>Jenkins</b>&lt;/string&gt; TO &lt;string&gt;<b>root</b>&lt;/string&gt; | Type <b>!wq</b> to Save.
 <br /><br />
@@ -331,7 +331,7 @@ Ensure the following plugins are installed: Subversion, Unity3d and the Xcode pl
 The Jenkins <a href="https://wiki.jenkins-ci.org/display/JENKINS/Thanks+for+using+OSX+Installer">Installer</a> sets up a launch daemon listening on port 8080 for all incoming requests.
 <br />
 Therefore, launch Terminal window to manually restart daemon.  Type the following (as root):
-<a href="http://3.bp.blogspot.com/-DbfsAgQ2w9s/U9dUgVBeKzI/AAAAAAAAC8k/mRl46_wZpY0/s1600/cc-restart.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-DbfsAgQ2w9s/U9dUgVBeKzI/AAAAAAAAC8k/mRl46_wZpY0/s640/cc-restart.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjAQf2pb814GGXCNoIEBLoPEBIChnNIuzrptwt6sm4ti4LkJK8Mjcf8WEtZEZbBX-72xupT5MD32_sophB7yT6yKMikIGrNCmoerFZO2aPytrjL3CbUqz7grFt6mgXLVIL4lGt96GGiM8/s1600/cc-restart.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjAQf2pb814GGXCNoIEBLoPEBIChnNIuzrptwt6sm4ti4LkJK8Mjcf8WEtZEZbBX-72xupT5MD32_sophB7yT6yKMikIGrNCmoerFZO2aPytrjL3CbUqz7grFt6mgXLVIL4lGt96GGiM8/s640/cc-restart.jpg" width="98%"></a>
 Manually stop daemon: sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
 <br />
 Manually start daemon: sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
@@ -339,7 +339,7 @@ Manually start daemon: sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci
 <i>Configure System</i>
 <br />
 Main dashboard | Click Manage Jenkins | Click Configure System.  Enter the following:
-<a href="http://3.bp.blogspot.com/-pXTgJADRjf0/U9qYbREnyZI/AAAAAAAAC98/5_6q0euia0Q/s1600/aa-configure2.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-pXTgJADRjf0/U9qYbREnyZI/AAAAAAAAC98/5_6q0euia0Q/s640/aa-configure2.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj91eECDv-1RfYOyAH5vAGDf_cFVIH_MzHmMEA1_9mDgt4iSSA8w0Gn3-Ni7257a4MIChTIwi92dmcaCDrt5LfJRtDCrHSWm-jJ2qYJYD8ZKyxxKc8OW0exDQznIGg5hvOkAHCFNgtwGUc/s1600/aa-configure2.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj91eECDv-1RfYOyAH5vAGDf_cFVIH_MzHmMEA1_9mDgt4iSSA8w0Gn3-Ni7257a4MIChTIwi92dmcaCDrt5LfJRtDCrHSWm-jJ2qYJYD8ZKyxxKc8OW0exDQznIGg5hvOkAHCFNgtwGUc/s640/aa-configure2.jpg" width="98%"></a>
 Configuration
 <br />
 <table width="80%" border="1">
@@ -392,7 +392,7 @@ E-mail Notification
 Main dashboard | Click New Item | Enter Item name: AngryBotsIOS.
 <br>
 Click radio button next to "Build a free-style software project".  OK.
-<a href="http://4.bp.blogspot.com/-69RaRiPU5RE/U9qaZFmw43I/AAAAAAAAC-I/An9kzT54DwM/s1600/ee-newjob2.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-69RaRiPU5RE/U9qaZFmw43I/AAAAAAAAC-I/An9kzT54DwM/s640/ee-newjob2.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhawyfeJtRAeYo-BKLD_oadZXj6foHt_QRLY-VRdtAOafLUoOyHpjTOMkmDCAhcGeKL-L0zot2EDAMRKyFCawUsbKcaatrrUOV96mQp-nzYbmGUCXuTYA5qeEVLfuVCpbuVZ0GZrzlXh_o/s1600/ee-newjob2.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhawyfeJtRAeYo-BKLD_oadZXj6foHt_QRLY-VRdtAOafLUoOyHpjTOMkmDCAhcGeKL-L0zot2EDAMRKyFCawUsbKcaatrrUOV96mQp-nzYbmGUCXuTYA5qeEVLfuVCpbuVZ0GZrzlXh_o/s640/ee-newjob2.jpg" width="98%"></a>
 <br>
 Configuration
 <table width="80%" border="1">
@@ -424,7 +424,7 @@ For example, poll build server every 10 minutes for any source code revisions.
 </table>
 <br>
 Build | Add build step | Invoke Unity3d Editor
-<a href="http://2.bp.blogspot.com/-OQ_sKxKvwbs/U9qdpANZTII/AAAAAAAAC-U/13e5hgPWzQo/s1600/jj-AngryBotsIOS.jpg" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-OQ_sKxKvwbs/U9qdpANZTII/AAAAAAAAC-U/13e5hgPWzQo/s640/jj-AngryBotsIOS.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq0FwLvRU6rhgd3Mqhnm62UX8yu0JesLiVNz2K3_q0tVHr7pbXnvEygahKSHEnuUYaQ21y60lhzBR8X0uXBVj1BvEaK1paoLCJMuDhaitu4HrfC2bicnpvXTymylt1iCAz_eL8WSvMu8s/s1600/jj-AngryBotsIOS.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq0FwLvRU6rhgd3Mqhnm62UX8yu0JesLiVNz2K3_q0tVHr7pbXnvEygahKSHEnuUYaQ21y60lhzBR8X0uXBVj1BvEaK1paoLCJMuDhaitu4HrfC2bicnpvXTymylt1iCAz_eL8WSvMu8s/s640/jj-AngryBotsIOS.jpg" width="98%"></a>
 <table width="82%" border="1">
 <tr><td valign="top" width="50%">&nbsp;Unity3d installation name</td><td valign="top">&nbsp;Unity3D</td></tr>
 <tr><td valign="top" colspan="2">&nbsp;Editor command line arguments:
@@ -454,7 +454,7 @@ Xcode | Code signing & OS X keychain options
 Note: leave blank if you do not wish to override the code signing identity in project. 
 <br><br>
 Xcode | Advanced Xcode build options
-<a href="http://3.bp.blogspot.com/--yAg0pSJs9Q/U9qdwuzd2AI/AAAAAAAAC-c/KseuP_fKus4/s1600/jj-AngryBotsIOS2.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/--yAg0pSJs9Q/U9qdwuzd2AI/AAAAAAAAC-c/KseuP_fKus4/s640/jj-AngryBotsIOS2.jpg" width="98%"></a><table width="80%" border="1">
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtGuSlDZwQT5puC2gpXCkFy_OEeut1ygv7lTA2O8vtndB30dq_C04Br-PTJxGvq_oQuDYZy4dLALlnNL8k_ofqx1iOkssHNVQuvdYco01U2vN_eM8xujf8i5_zm4CcYtKlBcaiu8Zhfo0/s1600/jj-AngryBotsIOS2.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtGuSlDZwQT5puC2gpXCkFy_OEeut1ygv7lTA2O8vtndB30dq_C04Br-PTJxGvq_oQuDYZy4dLALlnNL8k_ofqx1iOkssHNVQuvdYco01U2vN_eM8xujf8i5_zm4CcYtKlBcaiu8Zhfo0/s640/jj-AngryBotsIOS2.jpg" width="98%"></a><table width="80%" border="1">
 <tr><td valign="top" width="50%">&nbsp;Xcode Project Directory</td><td valign="top">&nbsp;iOSbuild</td></tr>
 <tr><td valign="top" width="50%">&nbsp;Build output directory</td><td valign="top">&nbsp;${WORKSPACE}/output</td></tr>
 </table>
@@ -507,7 +507,7 @@ iOS automated builds may encounter errors if the build server is not completely 
 <br>
 Open "Keychain Access" application.  Finder | Applications | Utilities | Keychain Access
 <br><br>
-Click login tab (top right) | Right click "iPhone Developer YOUR NAME" | Choose Copy
+Click login tab (top left) | Right click "iPhone Developer YOUR NAME" | Choose Copy
 <br>
 Click System tab | Right click in area | Choose Paste 2 items
 <br /><br />
@@ -536,7 +536,21 @@ However, when you attempt to copy them back you may receive the "Operation not p
 <br />
 Type csrutil disable | Type reboot.  Now when back in to you can manually copy the MobileDevice folder
 <br />
-Launch Terminal window.  Type cp /Users/Shared/Jenkins/MobileDevice  /System/Library/MobileDevice
+Launch Terminal window.  Type cp /Users/Shared/Jenkins/MobileDevice /System/Library/MobileDevice
+<br /><br />
+<i>/usr/bin/codesign SecKey API returned: unknown error -1=ffffffffffffffff</i>
+<br />
+Open "Keychain Access" application. Finder | Applications | Utilities | Keychain Access
+<br /><br />
+Click login tab (top left) | Expand "iPhone Distribution" | Right click private key | Get Info
+<br />
+Click the "Access Control" button (top right).  Ensure the following options are set here:
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhU9iLNi4_eZ1kige9Ee8xdStnAUR-L3oqcJdZSe549pMXBThOEXtDog8BiMAtqmeD4dcJJgng5BBjMlmSZOM7Izj97hkkX2BkOyUlQ3IBFseSzrEIs3o3KJGq91auJBcI0myMPN-RWYkE/s1600/Screen+Shot+2016-11-16+at+17.25.30.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhU9iLNi4_eZ1kige9Ee8xdStnAUR-L3oqcJdZSe549pMXBThOEXtDog8BiMAtqmeD4dcJJgng5BBjMlmSZOM7Izj97hkkX2BkOyUlQ3IBFseSzrEIs3o3KJGq91auJBcI0myMPN-RWYkE/s640/Screen+Shot+2016-11-16+at+17.25.30.png" width="80%" height="250" /></a>
+<br />
+Click System tab (mid left) | Expand "iPhone Distribution" | Right click private key | Get Info
+<br />
+Click the "Access Control" button (top right).  Ensure the following options are set here:
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbYsZnYKXu_c6uFO1cMpRRZuCZjmOKxNCAPlotl1X0NHItqAuyAcpNc8d4Zrm6mGGBJ-kgUgqphdX0JxOfFId4FiWg8xuxFhhKa0GmyMH717i1PtD9VYkAxhEttjKJiMgSodJeuPNBV6w/s1600/Screen+Shot+2016-11-16+at+17.25.07.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbYsZnYKXu_c6uFO1cMpRRZuCZjmOKxNCAPlotl1X0NHItqAuyAcpNc8d4Zrm6mGGBJ-kgUgqphdX0JxOfFId4FiWg8xuxFhhKa0GmyMH717i1PtD9VYkAxhEttjKJiMgSodJeuPNBV6w/s640/Screen+Shot+2016-11-16+at+17.25.07.png" width="80%" height="250" /></a>
 <br /><br />
 <i>FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL</i>
 <br>
@@ -549,7 +563,7 @@ Main dashboard | Click Manage Jenkins | Click Manage Nodes | New Node
 <tr><td valign="top" width="50%">&nbsp;Node name</td><td valign="top">&nbsp;Unity3D</td></tr>
 <tr><td valign="top" width="50%">&nbsp;Dumb slave</td><td valign="top">&nbsp;Checked</td></tr>
 </table>
-<a href="http://3.bp.blogspot.com/-wPpLMZy6KYc/U-OmkODq_9I/AAAAAAAAC_w/9-6aNtgO238/s1600/hh-dumbslave.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-wPpLMZy6KYc/U-OmkODq_9I/AAAAAAAAC_w/9-6aNtgO238/s640/hh-dumbslave.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSRs62ChelMQfDe1KQ11LcLti3jR0R6D-t7LQE-Lc5f4FVSs8d8r40NJ5C4LOK6b24mBDmaLKoH6PwMCLa2bStNrZY4r4QrSoLjfYDuHBOztwSWm7rlftJOq95J0eE0P0AzPeejjMhsE8/s1600/hh-dumbslave.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSRs62ChelMQfDe1KQ11LcLti3jR0R6D-t7LQE-Lc5f4FVSs8d8r40NJ5C4LOK6b24mBDmaLKoH6PwMCLa2bStNrZY4r4QrSoLjfYDuHBOztwSWm7rlftJOq95J0eE0P0AzPeejjMhsE8/s640/hh-dumbslave.jpg" width="98%"></a>
 <br>
 Configure
 <table width="99%" border="1">
@@ -634,11 +648,11 @@ After the iOS build is successful, deploy packaged game code once to multiple de
 Connect an iOS device to your PC | Launch iTunes | Click the top left drop down arrow
 <br>
 Add File to Library... | Navigate to \\ARCHIVE-SERVER\Shared | Double click AngryBotsIOS.ipa
-<a href="http://1.bp.blogspot.com/-KLS_jjVXB0M/U90J3dL_giI/AAAAAAAAC_E/QG7TQasbvsg/s1600/kk-AppStore.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-KLS_jjVXB0M/U90J3dL_giI/AAAAAAAAC_E/QG7TQasbvsg/s640/kk-AppStore.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7Mct59I-2CcZ39sM6jT9RNvZ0E4VrOVjdgMfVt2eEz49yL7MmMhuve1zp3l494RDkWNjfu1rSShbRjWPC3QDdpkKVTc7XoBAxowB8kA49SxQ6psMsMKdmlpCgaQHLgshJCeQQ6WXIyYA/s1600/kk-AppStore.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7Mct59I-2CcZ39sM6jT9RNvZ0E4VrOVjdgMfVt2eEz49yL7MmMhuve1zp3l494RDkWNjfu1rSShbRjWPC3QDdpkKVTc7XoBAxowB8kA49SxQ6psMsMKdmlpCgaQHLgshJCeQQ6WXIyYA/s640/kk-AppStore.jpg" width="98%"></a>
 Click iPhone button | Click Apps button | Click Install button (next to AngryBots) | Click Apply button.
-<a href="http://4.bp.blogspot.com/-Fi2j1_6pRSw/U90KGyVm92I/AAAAAAAAC_M/2-Y5abFAXVE/s1600/kk-AppStore2.jpg" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-Fi2j1_6pRSw/U90KGyVm92I/AAAAAAAAC_M/2-Y5abFAXVE/s640/kk-AppStore2.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5_oDCZg6aMba9IghmJzuLCCgLtjmJcp763SM16nSe7dJZC9g_5pNr-ksVMOqToIAUE01LY6SiUXd3AukoM7zBJJ9NIq04K33SsvOaL7-HC2-YHYj8kl3ZJqnP21ZwHKJmCOW4VeNfgn0/s1600/kk-AppStore2.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5_oDCZg6aMba9IghmJzuLCCgLtjmJcp763SM16nSe7dJZC9g_5pNr-ksVMOqToIAUE01LY6SiUXd3AukoM7zBJJ9NIq04K33SsvOaL7-HC2-YHYj8kl3ZJqnP21ZwHKJmCOW4VeNfgn0/s640/kk-AppStore2.jpg" width="98%"></a>
 Congratulations!  Angry Bots should be installed on your iOS device ready to play.
-<a href="http://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s1600/05-iOS.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-SpZlBUS2Hp0/U7_eBwnRmEI/AAAAAAAAC6M/yB1n73SUnbg/s640/05-iOS.jpg" width="98%"></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSwPJzRv1n5uRzh5Rc-i556GEG0TnY98rGcOgGCS7F4zekp_hlWRoktIQF2GG04wHz_AC-MYt-99DG2x5vwS-S55uVMemlLqj4ttAUCHQL98erDXov_ib24vCxObi1nruY8tcjsttGCYA/s1600/05-iOS.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSwPJzRv1n5uRzh5Rc-i556GEG0TnY98rGcOgGCS7F4zekp_hlWRoktIQF2GG04wHz_AC-MYt-99DG2x5vwS-S55uVMemlLqj4ttAUCHQL98erDXov_ib24vCxObi1nruY8tcjsttGCYA/s640/05-iOS.jpg" width="98%"></a>
 <br><br>
 <u>Summary</u>
 <br>

@@ -1,7 +1,7 @@
 <span style="font-family:verdana;font-size:85%;">
 
 Linux is <a href="https://blog.edx.org/why-learn-linux">everywhere</a>!  Linux is free open source operating system based on Unix OS.  Linux powers 90% of the world's fastest servers thus is the backbone of the Internet.  Linux dominates mobile platforms and the cloud.
-<a href="https://3.bp.blogspot.com/-tOvmPTWg5LA/XUfplik_HaI/AAAAAAAAFlo/twAFdZ83mtAOkqpWHdvSfPRlKZNc4E7OACLcBGAs/s1600/Linux.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-tOvmPTWg5LA/XUfplik_HaI/AAAAAAAAFlo/twAFdZ83mtAOkqpWHdvSfPRlKZNc4E7OACLcBGAs/s640/Linux.jpg" width="98%" height="225" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_cHb1-NUVlsOmNBJYuXktchyphenhyphen-FVsX01TJQMNLS_hWhvHARnyU3bDNY6iUA76FV5FQ3X_G11TqwHXvSlQ8yJCsocESn1Mt4fcAZ_4NSjiAtED1iQErCheAnpn7yQLMAYLh5wgTkKdFtXQ/s1600/Linux.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_cHb1-NUVlsOmNBJYuXktchyphenhyphen-FVsX01TJQMNLS_hWhvHARnyU3bDNY6iUA76FV5FQ3X_G11TqwHXvSlQ8yJCsocESn1Mt4fcAZ_4NSjiAtED1iQErCheAnpn7yQLMAYLh5wgTkKdFtXQ/s640/Linux.jpg" width="98%" height="225" /></a>
 Let's check it out!
 <br /><br />
 
@@ -48,7 +48,7 @@ Install Ubuntu Linux on Windows using VirtualBox.  <a href="https://download.ora
 
 Complete virtual hard drive: click Create.  <a href="https://ubuntu.com/download/desktop/thank-you/?version=19.04&architecture=amd64">Download</a> Ubuntu 19.04.  In VirtualBox, click Settings | Storage | Controller IDE | Empty | Optical Drive: IDE Secondary Master.  Click icon | Choose Virtual Optical Disk File...
 
-<a href="https://1.bp.blogspot.com/-1no4mn72shg/XUQwpHPTryI/AAAAAAAAFlE/6RwspKdnKz43myN-ZWgnzcUUOXXqpdNXwCLcBGAs/s1600/Storage.jpg" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-1no4mn72shg/XUQwpHPTryI/AAAAAAAAFlE/6RwspKdnKz43myN-ZWgnzcUUOXXqpdNXwCLcBGAs/s640/Storage.jpg" width="98%" height="439" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfJO653XQjFYPZeTdmlrINbKk62gPzFr0-5FYa941C5RxQPf-oCWQoN3dwdkALQTNSvKEm2o8jFdDMm2YANAFKmLVE7iK5Z3fS5zgbzLUBTiEirsDMFECPjN-q_W3cH0qLow864OOHhLA/s1600/Storage.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfJO653XQjFYPZeTdmlrINbKk62gPzFr0-5FYa941C5RxQPf-oCWQoN3dwdkALQTNSvKEm2o8jFdDMm2YANAFKmLVE7iK5Z3fS5zgbzLUBTiEirsDMFECPjN-q_W3cH0qLow864OOHhLA/s640/Storage.jpg" width="98%" height="439" /></a>
 <br /><br />
 
 Navigate to downloaded Ubuntu ISO file | OK.  In VirtualBox, double click Ubuntu [Powered Off] to Start the virtual machine.  Next, follow all instructions <a href="https://www.psychocats.net/ubuntu/installing">here</a> for the Ubuntu installation.  I have tweaked some inputs:
@@ -138,7 +138,7 @@ Next, follow all instructions <a href="https://www.windowscentral.com/how-run-li
 In Hyper-V Manager choose Action menu | Virtual Switch Manager | New virtual network switch | External.  Create Virtual Switch e.g. "MyVirtualSwitch".  Choose network adapter as External Network | Apply | OK.
 <br />
 
-<a href="https://4.bp.blogspot.com/-yXyYARUw6mI/XUiOKkI7zlI/AAAAAAAAFl0/9t8mHE7vxPYxYEWCyMlxevuEL8qmcIHVgCLcBGAs/s1600/option-virtual-switch-manager.webp" imageanchor="1" ><img border="0" src="https://4.bp.blogspot.com/-yXyYARUw6mI/XUiOKkI7zlI/AAAAAAAAFl0/9t8mHE7vxPYxYEWCyMlxevuEL8qmcIHVgCLcBGAs/s640/option-virtual-switch-manager.webp" width="98%" height="350" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqhNmPCTqDu1aFjeiGuf-iqw6TA5y_Ns-ZbI5h20aj0s3LF46aCnLbF2VZEcO4JHptpan4XMD11l5bVeBmt8NOKc2GvB1BVI-u-_ngQX8hoqA1zIFmZQb8xSlERCrVAvT5aaKu730hdj8/s1600/option-virtual-switch-manager.webp" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqhNmPCTqDu1aFjeiGuf-iqw6TA5y_Ns-ZbI5h20aj0s3LF46aCnLbF2VZEcO4JHptpan4XMD11l5bVeBmt8NOKc2GvB1BVI-u-_ngQX8hoqA1zIFmZQb8xSlERCrVAvT5aaKu730hdj8/s640/option-virtual-switch-manager.webp" width="98%" height="350" /></a>
 <br />
 Create virtual machine: Action menu | New | Virtual Machine | Ubuntu.  Use default location.  Use default Generation 1.  Choose "MyVirtualSwitch" | Finish.  Follow steps as above to complete Ubuntu installation.
 <br /><br />
@@ -150,7 +150,7 @@ Windows <a href="https://www.computerhope.com/jargon/w/wsl.htm">Subsystem</a> fo
 Determine if your Windows 10 64-bit version supports <a href="https://www.computerhope.com/issues/ch001879.htm">WSL</a>: Settings | System | About.  Version >= 1607.  Follow <a href="https://www.youtube.com/watch?v=Cvrqmq9A3tA">YouTube</a> instructions: Enable Developer Mode via Settings | Update & Security then For developers.  
 <br /><br />
 Enable Windows Subsystem for Linux: Control Panel | Programs and Features | Turn Windows features on.
-<a href="https://3.bp.blogspot.com/-sPtn1Cqc15A/XXz1B9WCRdI/AAAAAAAAFmg/eS4uYLrsd08zPfFBLOWwT8xs_JsoNYgAgCLcBGAsYHQ/s1600/WindowsFeatures.png" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-sPtn1Cqc15A/XXz1B9WCRdI/AAAAAAAAFmg/eS4uYLrsd08zPfFBLOWwT8xs_JsoNYgAgCLcBGAsYHQ/s640/WindowsFeatures.png" width="98%" height="280"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4K18k4MQDmx79eCnsntK7VppvWQvzsFgdJUbJ64lzrfoz6IUXKNquOY_NAIcYz2i_p9daouvHlNC6q_4DJT7yq5oAzJqlIfAAWBgYzw1UO4UD8VFBX9XtgFmlzJ5jE5lTvVOsiwUPNL0/s1600/WindowsFeatures.png" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4K18k4MQDmx79eCnsntK7VppvWQvzsFgdJUbJ64lzrfoz6IUXKNquOY_NAIcYz2i_p9daouvHlNC6q_4DJT7yq5oAzJqlIfAAWBgYzw1UO4UD8VFBX9XtgFmlzJ5jE5lTvVOsiwUPNL0/s640/WindowsFeatures.png" width="98%" height="280"/></a>
 Finally, launch Microsoft store.  Search for <a href="https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab">Ubuntu</a>.  Install and Launch.  Set username and password to begin.  From cmd prompt type bash to shell out.  Windows files are mapped from /mnt directory thus C:\ => /mnt/c
 <br /><br />
 
@@ -187,10 +187,10 @@ Settings | Region & Language.  Choose Language English (US) and Format for keybo
 cd /usr/share/X11/xkb/symbols
 sudo cp pc pc_bak
 sudo gedit pc
-key <LCTL> {    [ Super_L       ]   };
-key <LWIN> {    [ Control_L     ]   };
-key <RCTL> {    [ Super_R       ]   };
-key <RWIN> {    [ Control_R     ]   };
+key &lt;LCTL&gt; {    [ Super_L       ]   };
+key &lt;LWIN&gt; {    [ Control_L     ]   };
+key &lt;RCTL&gt; {    [ Super_R       ]   };
+key &lt;RWIN&gt; {    [ Control_R     ]   };
 sudo rm -rf /var/lib/xkb/*
 </pre> 
 <br />

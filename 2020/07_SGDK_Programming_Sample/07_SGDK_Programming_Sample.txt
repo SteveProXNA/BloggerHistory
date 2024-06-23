@@ -2,11 +2,11 @@
 In the previous <a href="https://steveproxna.blogspot.com/2020/09/sgdk-programming-setup.html">post</a>, we checked out SGDK Programming Setup. The <a href="https://github.com/Stephane-D/SGDK">SGDK</a> is a free development kit which provides code and tools to compile resources and support homebrew development for the Sega <a href="https://segaretro.org/Sega_Mega_Drive">Mega Drive</a>.
 <br /><br />
 Using the SGDK, it is possible to write game code using the <a href="http://en.wikipedia.org/wiki/C_(programming_language)">C language</a> rather than pure <a href="https://en.wikibooks.org/wiki/68000_Assembly">68000 assembly</a>. Therefore, we would now like to extend this knowledge and write more detailed programming sample code.
-<a href="https://2.bp.blogspot.com/-ZsP4yKAHaUc/XvnRZiaYmNI/AAAAAAAAGQ0/UhAW8Sr_WC46PlbaC8m_gOmxg3L2jX_ugCLcBGAsYHQ/s1600/SonicRunning.png"><img border="0" height="509" src="https://2.bp.blogspot.com/-ZsP4yKAHaUc/XvnRZiaYmNI/AAAAAAAAGQ0/UhAW8Sr_WC46PlbaC8m_gOmxg3L2jX_ugCLcBGAsYHQ/s640/SonicRunning.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiV7-YFwashMSDRmpnaDkbtiQuWfIo1Pk9Byt4CEyopDziiSH5vmroM6rfIBUi9dEmZ9BCxAZrOw8Ny_cC7lhALDwzNvf-j5K2w3C_bwOwkmtFtGFeDA9eLAOzyLbWz9XRKy64iF49UW1g/s1600/SonicRunning.png"><img border="0" height="509" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiV7-YFwashMSDRmpnaDkbtiQuWfIo1Pk9Byt4CEyopDziiSH5vmroM6rfIBUi9dEmZ9BCxAZrOw8Ny_cC7lhALDwzNvf-j5K2w3C_bwOwkmtFtGFeDA9eLAOzyLbWz9XRKy64iF49UW1g/s640/SonicRunning.png" width="98%" /></a>
 Let's check it out!
 <br /><br />
 <u>Software</u><br />
-Follow all instructions from the previous <a href="TODO">post</a>: this documents how to setup the pre-requisite software.
+Follow all instructions from the previous <a href="http://steveproxna.blogspot.com/2020/09/sgdk-programming-setup.html">post</a>: this documents how to setup the pre-requisite software.
 <br />
 Note: ensure you have downloaded and installed the <a href="https://github.com/Stephane-D/SGDK">SGDK</a> and the GNU Compiler Collection [<a href="https://gcc.gnu.org/">GCC</a>].
 <br /><br />
@@ -15,11 +15,11 @@ Ultimately, we would like to build + debug step thru the C source code during SG
 <br /><br />
 Launch Visual Studio 2015.  File | New | Project... | Visual C++ | Win32 | Win32 Project | Static Library:
 <br />
-<a href="https://3.bp.blogspot.com/-CBkI0hlMYe0/Xvnb1L7Cv6I/AAAAAAAAGRA/wjbk_W5E4D0fxruktU47Ff_p0MUpDoJIQCLcBGAsYHQ/s1600/StaticLibrary.png"><img border="0" height="500" src="https://3.bp.blogspot.com/-CBkI0hlMYe0/Xvnb1L7Cv6I/AAAAAAAAGRA/wjbk_W5E4D0fxruktU47Ff_p0MUpDoJIQCLcBGAsYHQ/s640/StaticLibrary.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlzJmJq_VdN8d41xRR0ThFSBoL_2elDGii90h2RqRPHM8C9DzVJ7Sx6JkSJZwbX8sieaNjgJc9rBK0fk57z2GHt7Ezt7z-FIN4Uwb6-XeAG0UBcA2KmWNSBY7C9szPtNVtl0zj68WtX1Q/s1600/StaticLibrary.png"><img border="0" height="500" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlzJmJq_VdN8d41xRR0ThFSBoL_2elDGii90h2RqRPHM8C9DzVJ7Sx6JkSJZwbX8sieaNjgJc9rBK0fk57z2GHt7Ezt7z-FIN4Uwb6-XeAG0UBcA2KmWNSBY7C9szPtNVtl0zj68WtX1Q/s640/StaticLibrary.png" width="98%" /></a>
 <br />
 Create two folders <b><a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDK_Library/Library/lib">lib</a></b> and <b><a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDK_Library/Library/src">src</a></b>.  Copy all SGDK header files from <i>%GDK_WIN%\inc</i> and <i>%GDK_WIN%\res</i> beneath the <b>lib</b> folder.  For each header file create corresponding translation unit [*.c] file in the <b>src</b> folder.
 <br />
-<a href="https://3.bp.blogspot.com/-2fjiNwbtafI/Xvnb9vaZmXI/AAAAAAAAGRE/9xKyqZgITJYOJj9qTQsDF5gCIM-QeMk5ACLcBGAsYHQ/s1600/LibraryLayout.png"><img border="0" height="210" src="https://3.bp.blogspot.com/-2fjiNwbtafI/Xvnb9vaZmXI/AAAAAAAAGRE/9xKyqZgITJYOJj9qTQsDF5gCIM-QeMk5ACLcBGAsYHQ/s640/LibraryLayout.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj54A_kq9TFDuvop_2ULu9l_41WwtCfEsE93j6JE4RoEw8MHDgg3nmLZlhm6R_hH56Ji9TlDuLBaJjg12kiCM89r72R4ZqCEa5u6WUdYP39194S3MuiSesP2D_5Sf9TxGho7OCoBv4AFok/s1600/LibraryLayout.png"><img border="0" height="210" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj54A_kq9TFDuvop_2ULu9l_41WwtCfEsE93j6JE4RoEw8MHDgg3nmLZlhm6R_hH56Ji9TlDuLBaJjg12kiCM89r72R4ZqCEa5u6WUdYP39194S3MuiSesP2D_5Sf9TxGho7OCoBv4AFok/s640/LibraryLayout.png" width="98%" /></a>
 <br />
 Finally, implement each header file function as stub function in each translation unit.  Build custom library.  Copy <i>_genesis.lib</i> and <i>_genesis.pdb</i> binaries to the <b>lib</b> folder.  This will be used to link sample source code.  Download custom library <b><a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDK_Library/Library">here</a></b>.
 <br /><br />
@@ -51,10 +51,10 @@ SGDK <a href="https://github.com/Stephane-D/SGDK/wiki/SGDK-Usage">uses</a> a gen
 <br />
 <u>Hello World</u><br />
 Create folder C:\<a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDKdemos/01-HelloWorld">HelloWorld</a>.  Copy new SGDK custom library <b><a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDK_Library/Library/lib">lib</a></b> folder [above] here.  Create sub-folder: <b><a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDKdemos/01-HelloWorld/dev">dev</a></b>.  Change directory to <b>dev</b> folder and create the following sub-folders as indicated per <a href="https://github.com/Stephane-D/SGDK/wiki/SGDK-Usage">Usage</a>: <i>inc</i>, <i>out</i>, <i>res</i>, <i>src</i>
-<a href="https://1.bp.blogspot.com/-EMlZvb6_a9k/X1H5DAZ6G7I/AAAAAAAAGZ8/EZz7DmYiEtQYiGTF7xQn-2YmBpe7b7y-ACLcBGAsYHQ/s701/HelloWorld06.png"><img border="0" height="353" src="https://1.bp.blogspot.com/-EMlZvb6_a9k/X1H5DAZ6G7I/AAAAAAAAGZ8/EZz7DmYiEtQYiGTF7xQn-2YmBpe7b7y-ACLcBGAsYHQ/s600/HelloWorld06.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy4nM8xCPx7ZYMtWJJkRkx6FQpJ8GNPIK04Bf_c-p2aP0aGcTidQ0JsTKctthMJom3fREzgbNck2Hvw2pSKSoRw8Rcbj0RAMujvgdusYLN4Tz2RGipMztDJZ_TYbqk7JYFhgEvmrKUTeQ/s701/HelloWorld06.png"><img border="0" height="353" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy4nM8xCPx7ZYMtWJJkRkx6FQpJ8GNPIK04Bf_c-p2aP0aGcTidQ0JsTKctthMJom3fREzgbNck2Hvw2pSKSoRw8Rcbj0RAMujvgdusYLN4Tz2RGipMztDJZ_TYbqk7JYFhgEvmrKUTeQ/s600/HelloWorld06.png" width="98%" /></a>
 <br /><br />
 Launch Visual Studio 2015.  File | New | Project... | Visual C++ | Win32 | Win32 Project 
-<a href="https://3.bp.blogspot.com/-P0Iu_D-4JkQ/Xvob28c26KI/AAAAAAAAGRY/Vmk8Ji63r2oI5ifnLoGxh4b2X447TRiVgCLcBGAsYHQ/s1600/HelloWorld00.png"><img border="0" height="353" src="https://3.bp.blogspot.com/-P0Iu_D-4JkQ/Xvob28c26KI/AAAAAAAAGRY/Vmk8Ji63r2oI5ifnLoGxh4b2X447TRiVgCLcBGAsYHQ/s640/HelloWorld00.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaGcUIffMWASAyTxMIR3_La7I1IUaMZC-JI-9o8pm2wY4KcMB6-PQMmc38wEuhGwtXRq9DXJbd3lfHcA5u_OmYYzouPRwdzhrV1K9tcB5LT1ThO0z4CiVRrm_3sazBNIXVAMkNNj4gpns/s1600/HelloWorld00.png"><img border="0" height="353" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaGcUIffMWASAyTxMIR3_La7I1IUaMZC-JI-9o8pm2wY4KcMB6-PQMmc38wEuhGwtXRq9DXJbd3lfHcA5u_OmYYzouPRwdzhrV1K9tcB5LT1ThO0z4CiVRrm_3sazBNIXVAMkNNj4gpns/s640/HelloWorld00.png" width="98%" /></a>
 <table width="99%" border="1">
 <tr>
 <td valign="top" width="33%">&nbsp;Name:</td>
@@ -138,7 +138,7 @@ Add the <a href="https://github.com/SteveProXNA/SGDKcode/blob/master/SGDKdemos/0
 <br />
 Right click Project | Properties | Configuration Properties | General.  Set Output and Intermediate directories:
 <br />
-<a href="https://3.bp.blogspot.com/-ZfSOou2qH-k/XvoefTwA83I/AAAAAAAAGRk/-9yO3htI-BUFqO8tfu5T-Iy1oVM9f8J7ACLcBGAsYHQ/s1600/HelloWorld01.png"><img border="0" height="407" src="https://3.bp.blogspot.com/-ZfSOou2qH-k/XvoefTwA83I/AAAAAAAAGRk/-9yO3htI-BUFqO8tfu5T-Iy1oVM9f8J7ACLcBGAsYHQ/s640/HelloWorld01.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlPDygpOoqHVrV93JqeBbrahngBTAQJr8_DMHdUlUP_82FosOuZvVagcRzxVyvtD6Vg7tzg2bwUbVhuOTERduO0S1ToLfriGpib9FPT5GyvcIC-4EekQYYrJLvViAZ6StfopxRoW7PXLo/s1600/HelloWorld01.png"><img border="0" height="407" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlPDygpOoqHVrV93JqeBbrahngBTAQJr8_DMHdUlUP_82FosOuZvVagcRzxVyvtD6Vg7tzg2bwUbVhuOTERduO0S1ToLfriGpib9FPT5GyvcIC-4EekQYYrJLvViAZ6StfopxRoW7PXLo/s640/HelloWorld01.png" width="98%" /></a>
 <table width="99%" border="1">
 <tr>
 <td valign="top" width="33%">&nbsp;Output Directory:</td>
@@ -152,7 +152,7 @@ Right click Project | Properties | Configuration Properties | General.  Set Outp
 <br />
 Right click Project | Properties | Configuration Properties | C++ | General.  Set Additional Include Directories:
 <br />
-<a href="https://3.bp.blogspot.com/-pVISIsj4tTc/XvpD8a50fbI/AAAAAAAAGRw/71YfCsYJuOko71qKWDc2HKd0SyRn1td2gCLcBGAsYHQ/s1600/HelloWorld02.png"><img border="0" height="385" src="https://3.bp.blogspot.com/-pVISIsj4tTc/XvpD8a50fbI/AAAAAAAAGRw/71YfCsYJuOko71qKWDc2HKd0SyRn1td2gCLcBGAsYHQ/s640/HelloWorld02.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd6PPII5sPaJzhQMcA-UXAPipYbmMh9j0tFJO_1KBmLOv9_Qol8wniks_NFFF8SWe3zRaZaClo9LJz7M59MKg1HqYAqzS15y9zqQzW6oUOJoWhfABDQDdqd0TJ5vdRwIkI_o48PF5TO2I/s1600/HelloWorld02.png"><img border="0" height="385" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd6PPII5sPaJzhQMcA-UXAPipYbmMh9j0tFJO_1KBmLOv9_Qol8wniks_NFFF8SWe3zRaZaClo9LJz7M59MKg1HqYAqzS15y9zqQzW6oUOJoWhfABDQDdqd0TJ5vdRwIkI_o48PF5TO2I/s640/HelloWorld02.png" width="98%" /></a>
 <br />
 <table width="99%" border="1">
 <tr>
@@ -163,7 +163,7 @@ Right click Project | Properties | Configuration Properties | C++ | General.  Se
 <br />
 Right click Project | Properties | Configuration Properties | Linker | General | Additional Library Directories:
 <br />
-<a href="https://1.bp.blogspot.com/-wy3n4AJTucM/XvpFjhEhnzI/AAAAAAAAGR8/FzBXImQWtDk0Svicsj6t9m-PNsy16SmdgCLcBGAsYHQ/s1600/HelloWorld03.png"><img border="0" height="385" src="https://1.bp.blogspot.com/-wy3n4AJTucM/XvpFjhEhnzI/AAAAAAAAGR8/FzBXImQWtDk0Svicsj6t9m-PNsy16SmdgCLcBGAsYHQ/s640/HelloWorld03.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbFMRtn0gFZ1oXTpratBV0268wf6mIOn6S8sTSph_94iFpAt8dgBE23QtN8W9P0NQxApnnSo6iuYjYXiFLOfjNHndpo9oQR3tYkO9nlaUO3Zw-Cw34hpeiTIV_whwVDl1PaVAqNqLfoAs/s1600/HelloWorld03.png"><img border="0" height="385" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbFMRtn0gFZ1oXTpratBV0268wf6mIOn6S8sTSph_94iFpAt8dgBE23QtN8W9P0NQxApnnSo6iuYjYXiFLOfjNHndpo9oQR3tYkO9nlaUO3Zw-Cw34hpeiTIV_whwVDl1PaVAqNqLfoAs/s640/HelloWorld03.png" width="98%" /></a>
 <br />
 <table width="99%" border="1">
 <tr>
@@ -174,7 +174,7 @@ Right click Project | Properties | Configuration Properties | Linker | General |
 <br />
 Right click Project | Properties | Configuration Properties | Linker | Input.  Set the Additional Dependencies:
 <br />
-<a href="https://3.bp.blogspot.com/-uaC87298LNQ/XvpHIdZA9fI/AAAAAAAAGSQ/3usG1yGRfvMXJRGQFPhzzdrxRwwI1gGSACLcBGAsYHQ/s1600/HelloWorld04.png"><img border="0" height="407" src="https://3.bp.blogspot.com/-uaC87298LNQ/XvpHIdZA9fI/AAAAAAAAGSQ/3usG1yGRfvMXJRGQFPhzzdrxRwwI1gGSACLcBGAsYHQ/s640/HelloWorld04.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPWU5GFFeFvXBow77Dk6iP-CII5sUCA8Tdm0pOcPb0T4n5jpV_StsRznimKwJ-lrn3oxwvceuzAcZME9a4IaN4uHb3sGXWIKNquEgVKRWmuBRlV0zaXdJyKbGFK4sLDaWM-EKm367a_BY/s1600/HelloWorld04.png"><img border="0" height="407" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPWU5GFFeFvXBow77Dk6iP-CII5sUCA8Tdm0pOcPb0T4n5jpV_StsRznimKwJ-lrn3oxwvceuzAcZME9a4IaN4uHb3sGXWIKNquEgVKRWmuBRlV0zaXdJyKbGFK4sLDaWM-EKm367a_BY/s640/HelloWorld04.png" width="98%" /></a>
 <br />
 <table width="99%"border="1">
 <tr>
@@ -216,12 +216,12 @@ C:\SEGA\Fusion\fusion.exe out\rom.bin
 </pre>
 Here we <a href="https://stackoverflow.com/questions/673523/how-do-i-measure-execution-time-of-a-command-on-the-windows-command-line">measure</a> the build execution time.  Also, <a href="https://social.technet.microsoft.com/Forums/windows/en-US/66e60961-439d-47e9-8879-d75434ef7bb8/how-do-i-suppress-output-from-a-batch-file?forum=w7itprogeneral">suppress</a> the output of the build script to keep things clean.
 The final solution should look like this:
-<a href="https://1.bp.blogspot.com/-UeRKe8LPiU8/XwCQCc2TbDI/AAAAAAAAGUI/88ijNiK_lMoUgwPJ_m4zoCBhFZca_5IpACLcBGAsYHQ/s1600/HelloWorld05.png"><img border="0" height="387" src="https://1.bp.blogspot.com/-UeRKe8LPiU8/XwCQCc2TbDI/AAAAAAAAGUI/88ijNiK_lMoUgwPJ_m4zoCBhFZca_5IpACLcBGAsYHQ/s640/HelloWorld05.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirOmofVkyVXvPr1zx-LqiEpl8Uqbg1mnMxhUeqVL0tCwlLRyPYlGcTgfQspbrkSu_hOB10R0MMGzPp37t1xAcUYpWuE7J93MNH5ZKYJKy1i_E0sUEjYWSHj_9W-hv3f68M31v1CE6DofM/s1600/HelloWorld05.png"><img border="0" height="387" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirOmofVkyVXvPr1zx-LqiEpl8Uqbg1mnMxhUeqVL0tCwlLRyPYlGcTgfQspbrkSu_hOB10R0MMGzPp37t1xAcUYpWuE7J93MNH5ZKYJKy1i_E0sUEjYWSHj_9W-hv3f68M31v1CE6DofM/s640/HelloWorld05.png" width="98%" /></a>
 <br />
 In Visual Studio, add the build.bat script to Resource Files.  Connect the build.bat script to Ctrl + 1 keyboard shortcut as per this <a href="http://steveproxna.blogspot.com/2017/09/devkitsms-programming-setup.html">post</a>.  Press Ctrl + 1 to build + run the ROM output file all from within Visual Studio 2015.
 <br /><br />
 Congratulations! You have just written your first Mega Drive program using the <a href="https://github.com/Stephane-D/SGDK">SGDK</a>.
-<a href="https://1.bp.blogspot.com/-P0e9rENeVP4/XvJmH5Y9a9I/AAAAAAAAGOc/Lr8C8B0HodY6lr6r5weLS25HmphxfROVwCLcBGAsYHQ/s1600/HelloWorld.png"><img border="0" height="526" src="https://1.bp.blogspot.com/-P0e9rENeVP4/XvJmH5Y9a9I/AAAAAAAAGOc/Lr8C8B0HodY6lr6r5weLS25HmphxfROVwCLcBGAsYHQ/s640/HelloWorld.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcfb_AZ3-LyeyAjq18J7ohfw9ISDm4FVuPTk30DGQfkDsLaJXlFDUL5i47JiE_sPXw6424KxWiHyjYv8-pHfS6828WVuciyPS7TUh1de86bxhT_2cZQSOsYkNaNNIi4g9RdXCCMS9PGlk/s1600/HelloWorld.png"><img border="0" height="526" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcfb_AZ3-LyeyAjq18J7ohfw9ISDm4FVuPTk30DGQfkDsLaJXlFDUL5i47JiE_sPXw6424KxWiHyjYv8-pHfS6828WVuciyPS7TUh1de86bxhT_2cZQSOsYkNaNNIi4g9RdXCCMS9PGlk/s640/HelloWorld.png" width="98%" /></a>
 <br /><br />
 <u>Hello Resources</u><br />
 Import all resources into your project as media files that your game will use such as images for background tiles + sprites, audio for music + sound effects etc.  <a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDKdemos/02-HelloResources">Clone</a> the "Hello World" project and follow these steps;
@@ -280,7 +280,7 @@ int main()
 <br />
 Press F5 to build + debug step through C source code.  Press Ctrl + 1 to build + run the new ROM output file.
 <br />
-<a href="https://1.bp.blogspot.com/-U6aydUeWgc4/Xvzuxk6kkjI/AAAAAAAAGTA/9knDMXTnTPMn-2ySKWLVGMDgjabgmuv4ACLcBGAsYHQ/s1600/HelloResources00.png"><img border="0" height="525" src="https://1.bp.blogspot.com/-U6aydUeWgc4/Xvzuxk6kkjI/AAAAAAAAGTA/9knDMXTnTPMn-2ySKWLVGMDgjabgmuv4ACLcBGAsYHQ/s640/HelloResources00.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUoXsrv3MR-SzXtomueMms1_y92AqVCV-zzQzxyku1PZ4L9Yvk8IOgTqPz2u39XpsBtbv8WrHDdA6byLHCmbaDYHEcxlhkjBNqa9X_nQv08wg4Tup6-doo7ZKOKpSdIgjbONfwCF5vpa8/s1600/HelloResources00.png"><img border="0" height="525" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUoXsrv3MR-SzXtomueMms1_y92AqVCV-zzQzxyku1PZ4L9Yvk8IOgTqPz2u39XpsBtbv8WrHDdA6byLHCmbaDYHEcxlhkjBNqa9X_nQv08wg4Tup6-doo7ZKOKpSdIgjbONfwCF5vpa8/s640/HelloResources00.png" width="98%" /></a>
 <br />
 <br />
 REMEMBER<br />
@@ -296,7 +296,7 @@ Ensure an up-to-date version of Java is installed, e.g. version "12.0.2" 2019-07
 Exception in thread "main" java.lang.IndexOutOfBoundsException: off &lt; 0 || len &lt; 0 || off + len &gt; b.length!
 </i>
 <br />
-<a href="https://1.bp.blogspot.com/-Cp6BGDE-S5E/Xv3zr2FtOPI/AAAAAAAAGTM/Xe1uZ3oEK6QPWqBU2Ons5oQlHNlmOPHZQCLcBGAsYHQ/s1600/Java_ResComp.png"><img border="0" height="266" src="https://1.bp.blogspot.com/-Cp6BGDE-S5E/Xv3zr2FtOPI/AAAAAAAAGTM/Xe1uZ3oEK6QPWqBU2Ons5oQlHNlmOPHZQCLcBGAsYHQ/s640/Java_ResComp.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYvIEZo9lvSczYMecXVljB8HYNSbpJSgVVvgWFLvqrcc4et7onAk6wiL-v08gEuUL_-MCFhq2W-vl57_8S1E-mg5HRk1cKEy0Z_6apuDY38sjBVWhW1ysqwA5vnV-2MbXCCu_YCyoXjxw/s1600/Java_ResComp.png"><img border="0" height="266" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYvIEZo9lvSczYMecXVljB8HYNSbpJSgVVvgWFLvqrcc4et7onAk6wiL-v08gEuUL_-MCFhq2W-vl57_8S1E-mg5HRk1cKEy0Z_6apuDY38sjBVWhW1ysqwA5vnV-2MbXCCu_YCyoXjxw/s640/Java_ResComp.png" width="98%" /></a>
 <br />
 <br />
 <u>Hello Folders</u><br />
@@ -305,12 +305,12 @@ Up until now, there have been no nested folders in the <b>inc</b> or <b>src</b> 
 <a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDKdemos/03-HelloFolders">Clone</a> the "Hello World" project and follow these steps: Update any resources similar to "Hello Resources".  Build initial project using the build.bat script to generate <a href="https://github.com/SteveProXNA/SGDKcode/blob/master/SGDKdemos/03-HelloFolders/dev/res/resources.h">resources.h</a>.  Add the <b><a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDKdemos/03-HelloFolders/gfx">gfx</a></b> folder and <a href="https://github.com/SteveProXNA/SGDKcode/blob/master/SGDKdemos/03-HelloFolders/gfx/res/resources.c">resources.c</a> 
 <br /><br /> 
 Launch Visual Studio and include resource files as before.  Next, scale out engine and screen code but now organize into subfolders.  Create as New Filters under Visual Studio Header Files and Source Files solution:
-<a href="https://1.bp.blogspot.com/-wJwXvPUTqN0/X3mWygaEW9I/AAAAAAAAGbk/42Zq-OFOwdI90kawj3rcVydQ9FWBNGcugCLcBGAsYHQ/s865/SolutionExplorer.png"><img border="0" width="98%" src="https://1.bp.blogspot.com/-wJwXvPUTqN0/X3mWygaEW9I/AAAAAAAAGbk/42Zq-OFOwdI90kawj3rcVydQ9FWBNGcugCLcBGAsYHQ/s600/SolutionExplorer.png"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOwGaEdCudnMq-1cwAEeJySCba7WCHeZdAN8zsfoOiHpxRQSx1YrYHpiZMQe52rqTWtGnSCRyP0k1sBpgjq4VKABJLUzRLWrmd8lMkLAy7xDF_aAeV55GrgCGIfYqqVbb_FEPmRhnOgDE/s865/SolutionExplorer.png"><img border="0" width="98%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOwGaEdCudnMq-1cwAEeJySCba7WCHeZdAN8zsfoOiHpxRQSx1YrYHpiZMQe52rqTWtGnSCRyP0k1sBpgjq4VKABJLUzRLWrmd8lMkLAy7xDF_aAeV55GrgCGIfYqqVbb_FEPmRhnOgDE/s600/SolutionExplorer.png"/></a>
 Create corresponding engine and screen subfolders beneath <b><a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDKdemos/03-HelloFolders/dev/inc">inc</a></b> folder under <i>dev</i>.  Add header files.  Create engine and screen subfolders beneath <b><a href="https://github.com/SteveProXNA/SGDKcode/tree/master/SGDKdemos/03-HelloFolders/dev/src">src</a></b> folder under <i>dev</i>.  Add all the corresponding translation unit code.
 <br /><br />  
 Right click Project | Properties | Configuration Properties | C++ | General.  Set Additional Include Directories:
 <br /> 
-<a href="https://3.bp.blogspot.com/-pVISIsj4tTc/XvpD8a50fbI/AAAAAAAAGRw/71YfCsYJuOko71qKWDc2HKd0SyRn1td2gCLcBGAsYHQ/s1600/HelloWorld02.png"><img border="0" height="385" src="https://3.bp.blogspot.com/-pVISIsj4tTc/XvpD8a50fbI/AAAAAAAAGRw/71YfCsYJuOko71qKWDc2HKd0SyRn1td2gCLcBGAsYHQ/s640/HelloWorld02.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd6PPII5sPaJzhQMcA-UXAPipYbmMh9j0tFJO_1KBmLOv9_Qol8wniks_NFFF8SWe3zRaZaClo9LJz7M59MKg1HqYAqzS15y9zqQzW6oUOJoWhfABDQDdqd0TJ5vdRwIkI_o48PF5TO2I/s1600/HelloWorld02.png"><img border="0" height="385" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd6PPII5sPaJzhQMcA-UXAPipYbmMh9j0tFJO_1KBmLOv9_Qol8wniks_NFFF8SWe3zRaZaClo9LJz7M59MKg1HqYAqzS15y9zqQzW6oUOJoWhfABDQDdqd0TJ5vdRwIkI_o48PF5TO2I/s640/HelloWorld02.png" width="98%" /></a>
 <br />
 <table border="1" width="99%">
 <tr>
@@ -357,7 +357,7 @@ If you have downloaded an older version of SGDK then you may get <a href="https:
 <b>libres</b><br />
 If you have downloaded an older version of SGDK then you may get <a href="https://github.com/Stephane-D/SGDK/blob/master/res/libres.h">libres</a> warning.  Again upgrade to latest!
 <br />
-<a href="https://4.bp.blogspot.com/-EEKOyZP0M70/Xv4ysoghjyI/AAAAAAAAGTc/ci-TexpuQ4cGgTIoAf3r11W1UCDG3RvdwCLcBGAsYHQ/s1600/libres.png"><img border="0" height="187" src="https://4.bp.blogspot.com/-EEKOyZP0M70/Xv4ysoghjyI/AAAAAAAAGTc/ci-TexpuQ4cGgTIoAf3r11W1UCDG3RvdwCLcBGAsYHQ/s640/libres.png" width="98%" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdE5FO3O4GOksbFGugNEAk08aRXwp2QxnJDQMFgTjXNhsoJqh_RlfZUk48C69NAHsL25Oeq7MPMEWV6N3fJBjZHAMudJaDK6NWRhxLzrRnAlk0OHq4zmrn2z8jVCTBOKDRdDFWArBU0Js/s1600/libres.png"><img border="0" height="187" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdE5FO3O4GOksbFGugNEAk08aRXwp2QxnJDQMFgTjXNhsoJqh_RlfZUk48C69NAHsL25Oeq7MPMEWV6N3fJBjZHAMudJaDK6NWRhxLzrRnAlk0OHq4zmrn2z8jVCTBOKDRdDFWArBU0Js/s640/libres.png" width="98%" /></a>
 <br />
 <br />
 <b>Input</b><br />

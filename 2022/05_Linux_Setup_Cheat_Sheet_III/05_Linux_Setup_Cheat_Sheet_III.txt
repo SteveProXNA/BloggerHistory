@@ -1,7 +1,7 @@
 <span style="font-family:verdana;font-size:85%;">
 In the previous <a href="http://steveproxna.blogspot.com/2019/09/linux-setup-cheat-sheet.html">post</a>, we set up Ubuntu Linux on Windows and Mac OS/X using VirtualBox.  Now we focus our set up on dedicated Ubuntu Linux workstation or Windows PC that has dual boot with Ubuntu Linux installed.
 <br />
-<a href="https://3.bp.blogspot.com/-tOvmPTWg5LA/XUfplik_HaI/AAAAAAAAFlo/twAFdZ83mtAOkqpWHdvSfPRlKZNc4E7OACLcBGAs/s1600/Linux.jpg" imageanchor="1" ><img border="0" src="https://3.bp.blogspot.com/-tOvmPTWg5LA/XUfplik_HaI/AAAAAAAAFlo/twAFdZ83mtAOkqpWHdvSfPRlKZNc4E7OACLcBGAs/s640/Linux.jpg" width="98%" height="225" /></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_cHb1-NUVlsOmNBJYuXktchyphenhyphen-FVsX01TJQMNLS_hWhvHARnyU3bDNY6iUA76FV5FQ3X_G11TqwHXvSlQ8yJCsocESn1Mt4fcAZ_4NSjiAtED1iQErCheAnpn7yQLMAYLh5wgTkKdFtXQ/s1600/Linux.jpg" imageanchor="1" ><img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_cHb1-NUVlsOmNBJYuXktchyphenhyphen-FVsX01TJQMNLS_hWhvHARnyU3bDNY6iUA76FV5FQ3X_G11TqwHXvSlQ8yJCsocESn1Mt4fcAZ_4NSjiAtED1iQErCheAnpn7yQLMAYLh5wgTkKdFtXQ/s640/Linux.jpg" width="98%" height="225" /></a>
 <br />
 Let's check it out!
 <br /><br />
@@ -288,7 +288,7 @@ ip addr | grep 192                        # NOTE the IP address 192.168.1.X
 IMPORTANT<br />
 Don't lock the screen as you won't be able to VNC back in!  Change Settings | Privacy | Screen Lock to this:  
 <br />
-<a href="https://1.bp.blogspot.com/-Rn8mo4N3krQ/YPGpZhGfXHI/AAAAAAAAHG0/ncOX0364UtkIKeskQAmcnP95o8xxyXFWgCLcBGAsYHQ/s661/vnc-screenlock.png"><img alt="" border="0" width="98%" src="https://1.bp.blogspot.com/-Rn8mo4N3krQ/YPGpZhGfXHI/AAAAAAAAHG0/ncOX0364UtkIKeskQAmcnP95o8xxyXFWgCLcBGAsYHQ/s600/vnc-screenlock.png"/></a>
+<a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjx3ElHTGuvS__QaYcF6PWPNohtBOtyCfN_d629ZEQNMkN6ooUbmlj0Zx-Yojmp7gJD_TLc8q0G9deSwWCaUV4bNxConRd6V_YlSpM1GgpKmr1HGfh2CDzSj_bOWpaD4-A9R63jrZ-PUuA/s661/vnc-screenlock.png"><img alt="" border="0" width="98%" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjx3ElHTGuvS__QaYcF6PWPNohtBOtyCfN_d629ZEQNMkN6ooUbmlj0Zx-Yojmp7gJD_TLc8q0G9deSwWCaUV4bNxConRd6V_YlSpM1GgpKmr1HGfh2CDzSj_bOWpaD4-A9R63jrZ-PUuA/s600/vnc-screenlock.png"/></a>
 <i>Windows</i><br />
 <a href="https://www.realvnc.com/en/connect/download/viewer">Download</a> and install VNC Viewer.  Launch VNC Viewer.  Setup Team.  Choose File | New Connection.  Enter the IP address from above on port 5000 for VNC Server e.g. 192.168.1.X:5900.  Enter friendly name + Connect.
 <br />
